@@ -1,0 +1,68 @@
+.background{
+    background-color: #3E3D75;
+    width: 100vw;
+    height: 3000px;
+}
+
+.circle{
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+}
+#circle1,#circle2,#circle3,#circle4,#circle5,#circle6{
+    background-color: blueviolet;
+    position: absolute;
+}
+
+#circle1{
+    width: 14%;
+    left: 0%;
+}
+#circle2{
+    width: 7%;
+    left:28%;
+    top: 100px
+}
+#circle3{
+    left: 50%;
+    width: 15%;
+}
+#circle4{
+    left: 80%;
+    width: 11%;
+}
+#circle5{
+    left: 32%;
+    width: 9%;
+    top : 500px;
+
+}
+#circle6{
+    left: 80%;
+    top: 500px;
+    width: 15%;
+}
+#image1,#image2,#image3{
+    position: absolute;
+}
+#image1{
+
+    width: 12%;
+    top: 500px;
+    left: 6%;
+}
+#image2{
+    width: 8%;
+    left: 40%;
+    top: 400px;
+}
+#image3{
+    width:10%;
+    left:65%;
+    top:300px;
+}
+.text_container{
+    position: relative;
+    left: 15%;
+    top: 400px;
+    width: 20%;
+}

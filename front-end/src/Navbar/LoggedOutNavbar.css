@@ -1,0 +1,8 @@
+.navbar_container_logged_out{
+    position: fixed;
+    width: 100vw;
+    z-index: 100;
+    display: grid;
+    grid-template-columns: 15% 40% 15% 15% 15%;
+    background-color: blue;
+}
