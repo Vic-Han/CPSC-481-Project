@@ -1,14 +1,13 @@
-import './LoginOverLay.css';
+
 import {React, useState} from "react"
-function LoginOverLay(props) {
+function NewPostOverLay(props) {
     const loginEvent = props.loginEvent
     const registerEvent = props.registerEvent
-    const cancelEvent = props.cancelEvent
   return (
     <div className='popup_overlay'>
         <div className='popup_contents'>
             <div>Log In</div>
-            <div className='cancel_button' onClick={cancelEvent}>x</div>
+            <div className='cancel_button'>x</div>
             <label>Username</label>
             <input></input>
             <div>Forgot Username?</div>
@@ -23,4 +22,4 @@ function LoginOverLay(props) {
   );
 }
 
-export default LoginOverLay;
+export default NewPostOverLay;

@@ -1,14 +1,11 @@
-import './RegisterOverLay.css';
-import {React, useState} from "react"
-function RegisterOverLay(props) {
-    const loginEvent = props.loginEvent
-    const registerEvent = props.registerEvent
-    const cancelEvent = props.cancelEvent
-  return (
-    <div className='popup_overlay'>
+import {React, useState, useEffect} from "react"
+import './FollowerOverLay.css'
+function FollowerOverLay(props){
+    return(
+        <div className='popup_overlay'>
         <div className='popup_contents'>
             <div>Sign Up</div>
-            <div onclick ={cancelEvent}>X</div>
+            <div>x</div>
             <label>First Name</label>
             <input type = "text"></input>
             <label>Last Name</label>
@@ -27,7 +24,6 @@ function RegisterOverLay(props) {
             <span onClick={loginEvent}>Sign In</span>
         </div>
     </div>
-  );
+    )
 }
-
-export default RegisterOverLay;
+export default FollowerOverLay
