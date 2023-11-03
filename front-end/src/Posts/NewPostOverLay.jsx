@@ -1,4 +1,4 @@
-import 'NewPostOverLay.css'
+import './NewPostOverLay.css'
 import {React, useState} from "react"
 function NewPostOverLay(props) {
     const loginEvent = props.loginEvent
