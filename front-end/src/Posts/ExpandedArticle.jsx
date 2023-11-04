@@ -1,6 +1,6 @@
-import './ExpandArticle.css';
+import './ExpandedArticle.css';
 import {React, useState} from "react"
-function ExpandArticle(props) {
+function ExpandedArticle(props) {
   return (
     <div>
        Expanded Post!!!
@@ -8,4 +8,4 @@ function ExpandArticle(props) {
   );
 }
 
-export default ExpandArticle;
+export default ExpandedArticle;

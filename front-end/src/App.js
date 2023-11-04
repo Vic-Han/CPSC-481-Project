@@ -9,7 +9,16 @@ import Navbar from './Navbar/Navbar';
 import RegisterOverLay from './Login-Register/RegisterOverLay.jsx'
 import NewPostOverLay from './Posts/NewPostOverLay';
 import DMOverLay from './DM/DMOverLay';
+import SearchResults from './Search/SearchResults';
+import Gamestore from './Gamestore/Gamestore';
 function App() {
+  const navbarClickHandlers = {
+    toggleGameStore: showGameStore,
+    toggleHomePage: showHomePage,
+    toggleDM: showDMOverLay,
+    toggleNewPost: showNewPostOverLay,
+    toggleSearchPage : showSearchScreen,
+  }
   const [navBar, setNavBar] = useState(<LoggedOutNavbar loginEvent ={showLogin} registerEvent = {showRegister}/>)
   const [mainScreen, setMainScreen] = useState(<LoggedOutHomepage/>)
   const [login, setLogin] = useState(false)
@@ -24,7 +33,7 @@ function App() {
   }
   function showHomePage(){
     hideAllOverLays()
-    setNavBar(<Navbar/>)
+    setNavBar(<Navbar clickHandlers = {navbarClickHandlers}/>)
     setMainScreen(<Homepage/>)
   }
   function showLogin(){
@@ -36,19 +45,32 @@ function App() {
     hideAllOverLays()
     setRegister(true)
   }
-
   function showNewPostOverLay(){
+    hideAllOverLays()
+    setNewPost(true)
+  }
+  function showGameStore(){
+    setMainScreen(<Gamestore></Gamestore>)
+  }
+  function showSearchScreen(){
+    setMainScreen(<SearchResults/>)
+  }
+  function showProfile(){
 
   }
-  function hideNewPostOverLay(){
+  function showOtherProfile(){
 
+  }
+  function showDMOverLay(){
+    hideAllOverLays()
+    setDM(true)
   }
   return (
     <div>
       {login ? <LoginOverLay loginEvent = {showHomePage} registerEvent ={showRegister} cancelEvent = {hideAllOverLays}/> : null}
       {register ? <RegisterOverLay loginEvent = {showLogin} cancelEvent={hideAllOverLays}/> : null}
-      {newPost ? <NewPostOverLay/> : null}
-      {DM ? <DMOverLay/> : null}
+      {newPost ? <NewPostOverLay close = {hideAllOverLays}/> : null}
+      {DM ? <DMOverLay closeEvent ={hideAllOverLays}/> : null}
       {navBar}
       {mainScreen}
     </div> 

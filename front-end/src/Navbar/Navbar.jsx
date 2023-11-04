@@ -1,10 +1,19 @@
 import './Navbar.css';
 import {React, useState} from "react"
 function Navbar(props) {
-    const toggleGameStore = props.toggleGameStore
+  const toggleGameStore = props.clickHandlers.toggleGameStore
+  const toggleHomePage = props.clickHandlers.toggleHomePage
+  const toggleDM = props.clickHandlers.toggleDM
+  const toggleNewPost = props.clickHandlers.toggleNewPost
+  const toggleSearchPage = props.clickHandlers.toggleSearchPage
   return (
     <div className='navbar_container'>
       <h1> This is the Navbar</h1>
+      <button onClick={toggleHomePage}> Logo: should toggleHomePage </button>
+      <button onClick={toggleNewPost}> New Post</button>
+      <button onClick={toggleSearchPage}> Search Page</button>
+      <button onClick={toggleDM}> DMS </button>
+      <button onClick={toggleGameStore}> GameStore Page</button>
       {/*
         <img className='' src = "" alt =""/>
         <div className=''> New Post</div>
