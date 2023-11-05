@@ -38,9 +38,11 @@
 
 .link {
     color: white;
+    text-decoration: underline;
 }
 
 .link:hover {
+    cursor: pointer;
     color: #7E82DF;
 }
 
