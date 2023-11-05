@@ -1,8 +1,94 @@
-.navbar_container_logged_out{
-    position: fixed;
-    width: 100vw;
-    z-index: 100;
-    display: grid;
-    grid-template-columns: 15% 40% 15% 15% 15%;
-    background-color: blue;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+.navbar_container_logged_out {
+    position: relative;
+    width: 1920px;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    background-color: #33344A;
+
+    z-index: 1;
+}
+
+.navbar_left_container {
+    width: 401px;
+    margin: 10px 0;
+    padding-left: 92px;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.navbar_left_container img {
+    width: 100px;
+}
+
+.navbar_title {
+    color: #7E82DF;
+    align-self: center;
+    font: 900 36px Inter, sans-serif;
+}
+
+.navbar_right_container {
+    width: 354px;
+    margin: auto 0;
+    padding-right: 92px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.navbar_about {
+    color: #ffffff;
+    align-self: center;
+    font: 300 24px Inter, sans-serif;
+    text-decoration: none;
+}
+
+.navbar_about:hover {
+    cursor: pointer;
+    color: #7E82DF;
+}
+
+.navbar_register {
+    color: #ffffff;
+    align-self: center;
+    font: 300 24px Inter, sans-serif;
+}
+
+.navbar_register:hover {
+    cursor: pointer;
+    color: #7E82DF;
+}
+
+.navbar_login_container {
+    width: 89px;
+    height: 50px;
+    background-color: #7e82df;
+    border-radius: 5px;
+
+    display: flex;
+    align-self: center;
+    text-align: center;
+}
+
+.navbar_login_container:hover {
+    cursor: pointer;
+    background-color: #4E5080;
+}
+
+.navbar_login {
+    color: #ffffff;
+    width: 100%;
+
+    align-self: center;
+    font: 600 24px Inter, sans-serif;
 }

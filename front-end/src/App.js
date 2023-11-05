@@ -1,5 +1,4 @@
 import logo from './logo.svg';
-import './App.css';
 import {React, useState, useEffect} from "react"
 import LoggedOutHomepage from './Hompage/LoggedOutHompage';
 import Homepage from './Hompage/Homepage';
@@ -20,7 +19,7 @@ function App() {
     toggleSearchPage : showSearchScreen,
   }
   const [navBar, setNavBar] = useState(<LoggedOutNavbar loginEvent ={showLogin} registerEvent = {showRegister}/>)
-  const [mainScreen, setMainScreen] = useState(<LoggedOutHomepage/>)
+  const [mainScreen, setMainScreen] = useState(<LoggedOutHomepage registerEvent2 = {showRegister}/>)
   const [login, setLogin] = useState(false)
   const [register, setRegister] = useState(false)
   const [newPost, setNewPost] = useState(false)
