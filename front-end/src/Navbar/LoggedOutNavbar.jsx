@@ -13,8 +13,8 @@ function LoggedOutNavbar(props) {
         <div className='navbar_title'>ESports Zone</div>
       </div>
       <div className='navbar_right_container'>
-        <div className='navbar_about'>About Us</div>
-        <div className='navbar_register' onClick={registerEvent}>Sign Up</div>
+        <a href='#about' className='navbar_about'>About Us</a>
+        <a className='navbar_register' onClick={registerEvent}>Sign Up</a>
         <div className='navbar_login_container' onClick={loginEvent}>
           <div className='navbar_login'>Login</div>
         </div>
