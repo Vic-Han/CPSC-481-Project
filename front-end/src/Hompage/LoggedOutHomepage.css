@@ -1,68 +1,120 @@
-.background{
-    background-color: #3E3D75;
+.main_content {
+    background-color: #2D2E37;
     width: 1920px;
-    height: 3000px;
+    height: 2604px;
 }
 
-.circle{
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-}
-#circle1,#circle2,#circle3,#circle4,#circle5,#circle6{
-    background-color: blueviolet;
-    position: absolute;
-}
-
-#circle1{
-    width: 14%;
-    left: 0%;
-}
-#circle2{
-    width: 7%;
-    left:28%;
-    top: 100px
-}
-#circle3{
-    left: 50%;
-    width: 15%;
-}
-#circle4{
-    left: 80%;
-    width: 11%;
-}
-#circle5{
-    left: 32%;
-    width: 9%;
-    top : 500px;
-
-}
-#circle6{
-    left: 80%;
-    top: 500px;
-    width: 15%;
-}
-#image1,#image2,#image3{
-    position: absolute;
-}
-#image1{
-
-    width: 12%;
-    top: 500px;
-    left: 6%;
-}
-#image2{
-    width: 8%;
-    left: 40%;
-    top: 400px;
-}
-#image3{
-    width:10%;
-    left:65%;
-    top:300px;
-}
-.text_container{
+.text_container1 {
     position: relative;
-    left: 15%;
-    top: 400px;
-    width: 20%;
+    top: 332px;
+    left: 233px;
+    width: 850px;
+}
+
+.intro_title {
+    padding: 0;
+    margin: 0;
+    color: #7E82DF;
+    font: 900 48px Inter, sans-serif;
+}
+
+.highlighted {
+    color: white;
+}
+
+.intro_text {
+    padding: 0;
+    margin: 0;
+    color: white;
+    font: 500 24px Inter, sans-serif;
+}
+
+.text_container2 {
+    position: relative;
+    float: right;
+    top: 920px;
+    right: 230px;
+}
+
+.link {
+    color: white;
+}
+
+.link:hover {
+    color: #7E82DF;
+}
+
+.example {
+    position: absolute;
+}
+
+#example1 {
+    top: 1290px;
+    left: 117px;
+    rotate: -20deg;
+}
+
+#example2 {
+    top: 1398px;
+    left: 1040px;
+    rotate: 10deg;
+}
+
+.text_container3 {
+    width: 837px;
+    text-align: center;
+
+    position: relative;
+    top: 1594px;
+    left: 541px;
+}
+
+.text {
+    padding: 0;
+    padding-bottom: 16px;
+    margin: 0;
+    color: white;
+    font: 500 24px Inter, sans-serif;
+}
+
+.text2 {
+    padding: 0;
+    padding-bottom: 16px;
+    margin: 0;
+    color: #7E82DF;
+    font: 500 24px Inter, sans-serif;
+}
+
+.footer {
+    position: absolute;
+    width: 1920px;
+    height: 100px;
+    background-color: #33344A;
+    top: 2604px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.left_footer {
+    color: white;
+    margin-left: 100px;
+    align-self: center;
+    font: 400 24px Inter, sans-serif;
+}
+
+.right_footer {
+    display: flex;
+    justify-content: space-between;
+    width: 760px;
+}
+
+.right_footer a {
+    color: white;
+    margin-right: 100px;
+    font: 400 24px Inter, sans-serif;
+    align-self: center;
+}
+
+.right_footer a:hover {
+    color: #7E82DF;
 }

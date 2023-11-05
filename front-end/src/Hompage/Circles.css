@@ -1,0 +1,133 @@
+.circle {
+    position: absolute;
+    background-color: #4E5080;
+
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+}
+
+#circle1 {
+    width: 325px;
+    top: 65px;
+    left: 0%;
+}
+
+#circle2 {
+    width: 180px;
+    top: 218px;
+    left: 570px;
+}
+
+#circle3 {
+    width: 300px;
+    top: 65px;
+    left: 997px;
+}
+
+#circle4 {
+    width: 250px;
+    top: 55px;
+    left: 1715px;
+}
+
+#circle5 {
+    width: 250px;
+    top: 905px;
+    left: 670px;
+}
+
+#circle6 {
+    width: 300px;
+    top: 831px;
+    left: 1676px;
+}
+
+#circle7 {
+    width: 100px;
+    top: 1800px;
+    left: 424px;
+}
+
+#circle8 {
+    width: 260px;
+    top: 1902px;
+    left: 102px;
+}
+
+#circle9 {
+    width: 100px;
+    top: 2336px;
+    left: 310px;
+}
+
+#circle10 {
+    width: 300px;
+    top: 2399px;
+    left: -77px;
+}
+
+#circle11 {
+    width: 100px;
+    top: 2522px;
+    left: 570px;
+}
+
+#circle12 {
+    width: 220px;
+    top: 1770px;
+    left: 1450px;
+}
+
+#circle13 {
+    width: 100px;
+    top: 2088px;
+    left: 1740px;
+}
+
+#circle14 {
+    width: 200px;
+    top: 2236px;
+    left: 1466px;
+}
+
+#circle15 {
+    width: 260px;
+    top: 2386px;
+    left: 1740px;
+}
+
+#circle16 {
+    width: 100px;
+    top: 2539px;
+    left: 1258px;
+}
+
+#image1 {
+    width: 400px;
+    top: 700px;
+    left: 107px;
+
+    background-image: url('../assets/Person1.png');
+    background-position: center;
+    background-size: cover;
+}
+
+#image2 {
+    width: 300px;
+    top: 715px;
+    left: 1091px;
+
+    background-image: url('../assets/Person2.png');
+    background-position: center;
+    background-size: cover;
+}
+
+#image3 {
+    width: 400px;
+    top: 308px;
+    left: 1412px;
+
+    background-image: url('../assets/Person3.png');
+    background-position: center;
+    background-size: cover;
+}
