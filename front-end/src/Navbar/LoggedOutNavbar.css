@@ -12,7 +12,7 @@
 .navbar_left_container {
     width: 401px;
     margin: 10px 0;
-    padding-left: 86px;
+    padding-left: 92px;
 
     display: flex;
     align-items: flex-start;
@@ -21,7 +21,6 @@
 
 .navbar_left_container img {
     width: 100px;
-    width: 80px;
 }
 
 .navbar_title {
@@ -33,7 +32,7 @@
 .navbar_right_container {
     width: 354px;
     margin: auto 0;
-    padding-right: 86px;
+    padding-right: 92px;
 
     display: flex;
     justify-content: space-between;
@@ -43,7 +42,7 @@
 .navbar_about {
     color: #ffffff;
     align-self: center;
-    font: 400 24px Inter, sans-serif;
+    font: 300 24px Inter, sans-serif;
     text-decoration: none;
 }
 
@@ -55,7 +54,7 @@
 .navbar_register {
     color: #ffffff;
     align-self: center;
-    font: 400 24px Inter, sans-serif;
+    font: 300 24px Inter, sans-serif;
 }
 
 .navbar_register:hover {
