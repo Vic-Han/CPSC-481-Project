@@ -1,26 +1,35 @@
 import './Navbar.css';
-import {React, useState} from "react"
+import logo from '../assets/EZLogo-v2.png';
+import GameStore from '../assets/GameStore.png';
+import DM from '../assets/DM.png';
+import ProfileDefault from '../assets/ProfileDefault.png';
+import Search from '../assets/Search.png';
+import {React, useState} from "react";
+
 function Navbar(props) {
-  const toggleGameStore = props.clickHandlers.toggleGameStore
   const toggleHomePage = props.clickHandlers.toggleHomePage
-  const toggleDM = props.clickHandlers.toggleDM
   const toggleNewPost = props.clickHandlers.toggleNewPost
   const toggleSearchPage = props.clickHandlers.toggleSearchPage
+  const toggleGameStore = props.clickHandlers.toggleGameStore
+  const toggleDM = props.clickHandlers.toggleDM
+
   return (
     <div className='navbar_container'>
-      <h1> This is the Navbar</h1>
-      <button onClick={toggleHomePage}> Logo: should toggleHomePage </button>
-      <button onClick={toggleNewPost}> New Post</button>
-      <button onClick={toggleSearchPage}> Search Page</button>
-      <button onClick={toggleDM}> DMS </button>
-      <button onClick={toggleGameStore}> GameStore Page</button>
-      {/*
-        <img className='' src = "" alt =""/>
-        <div className=''> New Post</div>
-        <input className ='' type = "text"/>
-        <img onClick = {toggleGameStore} className='' src = "" alt =""/>
-        <img className='' src = "" alt =""/>
-        <img className='' src = "" alt =""/>*/}
+      <div className='navbar_left'>
+        <img src={logo}></img>
+        <button className='navbar_post_container'>
+          <div className='navbar_post'>New Post</div>
+        </button>
+      </div>
+      <div className='navbar_middle'>
+        <input type='text' placeholder='Search'></input>
+        <img src={Search} tabIndex={0}></img>
+      </div>
+      <div className='navbar_right'>
+        <img src={GameStore}></img>
+        <img src={DM}></img>
+        <img src={ProfileDefault}></img>
+      </div>
     </div>
   );
 }
