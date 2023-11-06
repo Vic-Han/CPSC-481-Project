@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import {React, useState, useEffect} from "react"
 import LoggedOutHomepage from './Hompage/LoggedOutHompage';
 import Homepage from './Hompage/Homepage';
