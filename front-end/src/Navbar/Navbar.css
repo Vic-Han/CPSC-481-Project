@@ -20,8 +20,17 @@
     justify-content: space-between;
 }
 
-.navbar_left img {
+.navbar_logo {
     width: 100px;
+    height: 80px;
+    border: none;
+    background-color: #33344A;
+    background-image: url('../assets/EZLogo-v2.png');
+    background-size: cover;
+}
+
+.navbar_logo:hover {
+    cursor: pointer;
 }
 
 .navbar_post_container {
@@ -77,16 +86,15 @@
     color: white;
 }
 
-.navbar_middle img {
+.navbar_search {
     position: absolute;
     height: 40px;
+    width: 40px;
     top: 30px;
     left: 1330px;
-}
-
-.navbar_middle img:hover {
-    cursor: pointer;
-    opacity: 0.5;
+    background-color: #7e82df;
+    background-image: url(../assets/Search.png);
+    border: none;
 }
 
 .navbar_right {
@@ -100,13 +108,35 @@
     justify-content: space-between;
 }
 
-.navbar_right img{
+.navbar_game {
     width: 50px;
+    height: 59px;
+    background-color: #33344A;
+    background-image: url('../assets/GameStore.png');
+    border: none;
+}
+
+.navbar_dm {
+    width: 54px;
+    height: 50px;
+    background-color: #33344A;
+    background-image: url('../assets/DM.png');
+    border: none;
+}
+
+.navbar_profile {
+    width: 54px;
+    height: 54px;
+    background-color: #33344A;
+    background-image: url('../assets/ProfileDefault.png');
+    border: none;
+}
+
+.btn {
     align-self: center;
 }
 
-.navbar_right img:hover{
+.btn:hover {
     cursor: pointer;
-    opacity: 0.5;
+    opacity: 0.4;
 }
-
