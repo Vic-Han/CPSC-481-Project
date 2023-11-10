@@ -1,71 +1,86 @@
-import logo from './logo.svg';
 import {React, useState, useEffect} from "react"
+
 import LoggedOutHomepage from './Hompage/LoggedOutHompage';
 import Homepage from './Hompage/Homepage';
+
 import LoggedOutNavbar from './Navbar/LoggedOutNavbar';
-import LoginOverLay from './Login-Register/LoginOverlay';
 import Navbar from './Navbar/Navbar';
+
+import LoginOverLay from './Login-Register/LoginOverlay';
 import RegisterOverLay from './Login-Register/RegisterOverLay.jsx'
+
 import NewPostOverLay from './Posts/NewPostOverLay';
 import DMOverLay from './DM/DMOverLay';
 import SearchResults from './Search/SearchResults';
 import Gamestore from './Gamestore/Gamestore';
 import MyProfile from './Profile/MyProfile.jsx';
+
 function App() {
   const navbarClickHandlers = {
-    toggleGameStore: showGameStore,
     toggleHomePage: showHomePage,
-    toggleDM: showDMOverLay,
     toggleNewPost: showNewPostOverLay,
     toggleSearchPage : showSearchScreen,
-    toggleProfile: showProfile
+    toggleProfile: showProfile,
+
+    toggleGameStore: showGameStore,
+    toggleDM: showDMOverLay,
   }
+
   const [navBar, setNavBar] = useState(<LoggedOutNavbar loginEvent ={showLogin} registerEvent = {showRegister}/>)
   const [mainScreen, setMainScreen] = useState(<LoggedOutHomepage registerEvent2 = {showRegister}/>)
   const [login, setLogin] = useState(false)
   const [register, setRegister] = useState(false)
   const [newPost, setNewPost] = useState(false)
   const [DM, setDM] = useState(false)
-  function hideAllOverLays(){
+
+  function hideAllOverLays() {
     setLogin(false)
     setRegister(false)
     setNewPost(false)
     setDM(false)
   }
-  function showHomePage(){
+
+  function showHomePage() {
     hideAllOverLays()
     setNavBar(<Navbar clickHandlers = {navbarClickHandlers}/>)
     setMainScreen(<Homepage/>)
   }
-  function showLogin(){
+
+  function showLogin() {
     hideAllOverLays()
     setLogin(true)
   }
  
-  function showRegister(){
+  function showRegister() {
     hideAllOverLays()
     setRegister(true)
   }
-  function showNewPostOverLay(){
+
+  function showNewPostOverLay() {
     hideAllOverLays()
     setNewPost(true)
   }
-  function showGameStore(){
+
+  function showGameStore() {
     setMainScreen(<Gamestore></Gamestore>)
   }
-  function showSearchScreen(){
+
+  function showSearchScreen() {
     setMainScreen(<SearchResults/>)
   }
   function showProfile(){
     setMainScreen(<MyProfile/>)
   }
-  function showOtherProfile(){
+
+  function showOtherProfile() {
 
   }
-  function showDMOverLay(){
+
+  function showDMOverLay() {
     hideAllOverLays()
     setDM(true)
   }
+
   return (
     <div>
       {login ? <LoginOverLay loginEvent = {showHomePage} registerEvent ={showRegister} cancelEvent = {hideAllOverLays}/> : null}

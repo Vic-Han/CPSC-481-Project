@@ -1,0 +1,142 @@
+.navbar_container {
+    width: 1920px;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    background-color: #33344A;
+
+    position: relative;
+    z-index: 1;
+}
+
+.navbar_left {
+    width: 389px;
+    margin: 10px 0;
+    padding-left: 86px;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.navbar_logo {
+    width: 100px;
+    height: 80px;
+    border: none;
+    background-color: #33344A;
+    background-image: url('../assets/EZLogo-v2.png');
+    background-size: cover;
+}
+
+.navbar_logo:hover {
+    cursor: pointer;
+}
+
+.navbar_post_container {
+    width: 150px;
+    height: 50px;
+    background-color: #7e82df;
+    border-radius: 5px;
+    border: none;
+
+    display: flex;
+    align-self: center;
+    text-align: center;
+}
+
+.navbar_post_container:hover {
+    cursor: pointer;
+    background-color: #4E5080;
+}
+
+.navbar_post {
+    color: white;
+    width: 100%;
+
+    align-self: center;
+    font: 400 22px Inter, sans-serif;
+}
+
+.navbar_middle {
+    width: 850px;
+    height: 80px;
+    margin: 10px 0;
+    padding: 0 100px;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.navbar_middle input {
+    width: 850px;
+    height: 50px;
+    background-color: #7e82df;
+    border-radius: 5px;
+
+    border: none;
+    align-self: center;
+    font: 400 24px Kanit, sans-serif;
+    color: white;
+    padding-left: 20px;
+}
+
+.navbar_middle input::placeholder {
+    color: white;
+}
+
+.navbar_search {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    top: 30px;
+    left: 1330px;
+    background-color: #7e82df;
+    background-image: url(../assets/Search.png);
+    border: none;
+}
+
+.navbar_right {
+    width: 389px;
+    margin: 10px 0;
+    padding-right: 86px;
+
+    display: flex;
+    align-items: flex-start;
+    align-self: center;
+    justify-content: space-between;
+}
+
+.navbar_game {
+    width: 50px;
+    height: 59px;
+    background-color: #33344A;
+    background-image: url('../assets/GameStore.png');
+    border: none;
+}
+
+.navbar_dm {
+    width: 54px;
+    height: 50px;
+    background-color: #33344A;
+    background-image: url('../assets/DM.png');
+    border: none;
+}
+
+.navbar_profile {
+    width: 54px;
+    height: 54px;
+    background-color: #33344A;
+    background-image: url('../assets/ProfileDefault.png');
+    border: none;
+}
+
+.btn {
+    align-self: center;
+}
+
+.btn:hover {
+    cursor: pointer;
+    opacity: 0.4;
+}

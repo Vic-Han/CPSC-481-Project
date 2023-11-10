@@ -26,8 +26,17 @@ html {
     justify-content: space-between;
 }
 
-.navbar_left_container img {
+.navbar_logo {
     width: 100px;
+    height: 80px;
+    border: none;
+    background-color: #33344A;
+    background-image: url('../assets/EZLogo-v2.png');
+    background-size: cover;
+}
+
+.navbar_logo:hover {
+    cursor: pointer;
 }
 
 .navbar_title {
@@ -62,6 +71,7 @@ html {
     color: #ffffff;
     align-self: center;
     font: 300 24px Inter, sans-serif;
+    text-decoration: none;
 }
 
 .navbar_register:hover {
@@ -74,6 +84,7 @@ html {
     height: 50px;
     background-color: #7e82df;
     border-radius: 5px;
+    border: none;
 
     display: flex;
     align-self: center;
