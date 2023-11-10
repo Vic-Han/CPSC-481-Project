@@ -8,7 +8,7 @@ function RegisterOverLay(props) {
     <div className='popup_overlay'>
         <div className='popup_contents'>
             <div>Sign Up</div>
-            <div onclick ={cancelEvent}>X</div>
+            <div onClick ={cancelEvent}>X</div>
             <label>First Name</label>
             <input type = "text"></input>
             <label>Last Name</label>

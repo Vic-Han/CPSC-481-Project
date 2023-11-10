@@ -10,6 +10,7 @@ import NewPostOverLay from './Posts/NewPostOverLay';
 import DMOverLay from './DM/DMOverLay';
 import SearchResults from './Search/SearchResults';
 import Gamestore from './Gamestore/Gamestore';
+import MyProfile from './Profile/MyProfile.jsx';
 function App() {
   const navbarClickHandlers = {
     toggleGameStore: showGameStore,
@@ -17,6 +18,7 @@ function App() {
     toggleDM: showDMOverLay,
     toggleNewPost: showNewPostOverLay,
     toggleSearchPage : showSearchScreen,
+    toggleProfile: showProfile
   }
   const [navBar, setNavBar] = useState(<LoggedOutNavbar loginEvent ={showLogin} registerEvent = {showRegister}/>)
   const [mainScreen, setMainScreen] = useState(<LoggedOutHomepage registerEvent2 = {showRegister}/>)
@@ -55,7 +57,7 @@ function App() {
     setMainScreen(<SearchResults/>)
   }
   function showProfile(){
-
+    setMainScreen(<MyProfile/>)
   }
   function showOtherProfile(){
 

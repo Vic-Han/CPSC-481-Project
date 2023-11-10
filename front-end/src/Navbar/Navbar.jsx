@@ -6,6 +6,7 @@ function Navbar(props) {
   const toggleDM = props.clickHandlers.toggleDM
   const toggleNewPost = props.clickHandlers.toggleNewPost
   const toggleSearchPage = props.clickHandlers.toggleSearchPage
+  const toggleProfile = props.clickHandlers.toggleProfile
   return (
     <div className='navbar_container'>
       <h1> This is the Navbar</h1>
@@ -14,6 +15,7 @@ function Navbar(props) {
       <button onClick={toggleSearchPage}> Search Page</button>
       <button onClick={toggleDM}> DMS </button>
       <button onClick={toggleGameStore}> GameStore Page</button>
+      <button onClick={toggleProfile}> Profile</button>
       {/*
         <img className='' src = "" alt =""/>
         <div className=''> New Post</div>
