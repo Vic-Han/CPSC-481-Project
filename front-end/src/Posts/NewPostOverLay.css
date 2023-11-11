@@ -91,6 +91,8 @@
 .text_section textarea {
     width: 980px;
     height: 340px;
+    min-height: 260px;
+    max-height: 450px;
     resize: vertical;
 
     margin-left: auto;
