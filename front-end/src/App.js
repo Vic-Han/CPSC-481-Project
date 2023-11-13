@@ -98,9 +98,7 @@ function App() {
     hideAllOverLays()
     setPreviewPost(true)
   }
-  function showConfirmationOverlay(){
-
-  }
+  
   return (
     <div>
       {login ? <LoginOverLay loginEvent = {showHomePage} registerEvent ={showRegister} cancelEvent = {hideAllOverLays}/> : null}
