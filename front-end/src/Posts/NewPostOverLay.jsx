@@ -2,7 +2,7 @@ import './NewPostOverLay.css'
 
 function NewPostOverLay(props) {
   const cancelEvent = props.close
-
+  const previewPost = props.previewPost
   return (
     <>
       <div className='invis_layer'></div>
@@ -24,7 +24,7 @@ function NewPostOverLay(props) {
           </div>
           <div className='right_section'>
             <button className='save_btn txt_btn'>Save Draft</button>
-            <button className='post_btn txt_btn'>Preview & Post</button>
+            <button className='post_btn txt_btn' onClick={previewPost}>Preview & Post</button>
           </div>
         </div>
       </div>

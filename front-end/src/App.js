@@ -14,7 +14,10 @@ import DMOverLay from './DM/DMOverLay';
 import SearchResults from './Search/SearchResults';
 import Gamestore from './Gamestore/Gamestore';
 import MyProfile from './Profile/MyProfile.jsx';
-
+import OtherProfile from "./Profile/OtherProfile.jsx";
+import ExpandedPost from "./Posts/ExpandedPost.jsx";
+import ExpandedArticle from "./Posts/ExpandedArticle.jsx";
+import PostPreview from "./Posts/PostPreview.jsx";
 function App() {
   const navbarClickHandlers = {
     toggleHomePage: showHomePage,
@@ -32,18 +35,23 @@ function App() {
   const [register, setRegister] = useState(false)
   const [newPost, setNewPost] = useState(false)
   const [DM, setDM] = useState(false)
-
+  const [previewPost, setPreviewPost] = useState(false)
+  const [confirmDraft, setConfirmDraft] = useState(false)
   function hideAllOverLays() {
     setLogin(false)
     setRegister(false)
     setNewPost(false)
     setDM(false)
+    setPreviewPost(false)
+    setConfirmDraft(false)
   }
 
   function showHomePage() {
     hideAllOverLays()
     setNavBar(<Navbar clickHandlers = {navbarClickHandlers}/>)
-    setMainScreen(<Homepage/>)
+   
+    setMainScreen(<Homepage togglePost = {showExpandedPost} toggleArticle = {showExpandedNewsArticle} toggleOtherProfile={showOtherProfile}/>)
+    
   }
 
   function showLogin() {
@@ -69,24 +77,35 @@ function App() {
     setMainScreen(<SearchResults/>)
   }
   function showProfile(){
+  
     setMainScreen(<MyProfile/>)
   }
 
   function showOtherProfile() {
-
+    setMainScreen(<OtherProfile></OtherProfile>)
   }
-
   function showDMOverLay() {
     hideAllOverLays()
     setDM(true)
   }
-
+  function showExpandedPost(){
+    setMainScreen(<ExpandedPost back = {showHomePage}/>)
+  }
+  function showExpandedNewsArticle(){
+    setMainScreen(<ExpandedArticle back = {showHomePage}/>)
+  }
+  function showPostPreview(){
+    hideAllOverLays()
+    setPreviewPost(true)
+  }
+  
   return (
     <div>
       {login ? <LoginOverLay loginEvent = {showHomePage} registerEvent ={showRegister} cancelEvent = {hideAllOverLays}/> : null}
       {register ? <RegisterOverLay loginEvent = {showLogin} cancelEvent={hideAllOverLays}/> : null}
-      {newPost ? <NewPostOverLay close = {hideAllOverLays}/> : null}
-      {DM ? <DMOverLay closeEvent ={hideAllOverLays}/> : null}
+      {newPost ? <NewPostOverLay close = {hideAllOverLays} previewPost ={showPostPreview}/> : null}
+      {DM ? <DMOverLay closeEvent ={hideAllOverLays} close ={hideAllOverLays}/> : null}
+      {previewPost ? <PostPreview close = {hideAllOverLays}/>: null}
       {navBar}
       {mainScreen}
     </div> 

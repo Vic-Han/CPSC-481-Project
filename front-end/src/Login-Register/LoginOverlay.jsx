@@ -6,18 +6,24 @@ function LoginOverLay(props) {
     const cancelEvent = props.cancelEvent
   return (
     <div className='popup_overlay'>
-        <div className='popup_contents'>
-            <div>Log In</div>
-            <div className='cancel_button' onClick={cancelEvent}>x</div>
-            <label>Username</label>
-            <input></input>
-            <div>Forgot Username?</div>
-            <label>Password</label>
-            <input></input>
-            <div>Forgot Password?</div>
-            <button onClick={loginEvent}>Log In</button>
-            <div>Not Registered?</div><span onClick={registerEvent}>Create an Account</span>
-            
+        <div className='popup-contents-login'>
+          <div  className='login-contents'>
+            <div className='flex-box-login'>
+              <div className='main-title-login'>Log In</div>
+              <div className='cancel-login-button' onClick={cancelEvent}>x</div>
+              <label className='input-label-login'>Username</label>
+              <input className='login-input'></input>
+              <div className='forgot-label-login'>Forgot Username?</div>
+              <label className='input-label-login'>Password</label>
+              <input className='login-input'></input>
+              <div className='forgot-label-login'>Forgot Password?</div>
+              <button onClick={loginEvent} className='login-button'>Login</button>
+            </div>
+            <div className='bottom-container-login'>
+              <div className='bottom-left-login'>Not Registered?</div>
+              <div onClick={registerEvent} className='bottom-right-login'>Create an Account</div>
+            </div>
+          </div> 
         </div>
     </div>
   );
