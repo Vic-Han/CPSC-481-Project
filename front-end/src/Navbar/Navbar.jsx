@@ -24,7 +24,7 @@ function Navbar(props) {
       <div className='navbar_right'>
         <button className='navbar_game btn' onClick={toggleGameStore}></button>
         <button className='navbar_dm btn' onClick={toggleDM}></button>
-        <button className='navbar_profile btn' onClick={toggleGameStore}></button>
+        <button className='navbar_profile btn' onClick={toggleProfile}></button>
       </div>
     </div>
   );
