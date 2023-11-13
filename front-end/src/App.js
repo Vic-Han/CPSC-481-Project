@@ -15,6 +15,12 @@ import SearchResults from './Search/SearchResults';
 import Gamestore from './Gamestore/Gamestore';
 
 function App() {
+
+  const [data, setData] = useState({
+    Title: "",
+    Description: ""
+  });
+
   const navbarClickHandlers = {
     toggleHomePage: showHomePage,
     toggleNewPost: showNewPostOverLay,
@@ -83,7 +89,7 @@ function App() {
     <div>
       {login ? <LoginOverLay loginEvent = {showHomePage} registerEvent ={showRegister} cancelEvent = {hideAllOverLays}/> : null}
       {register ? <RegisterOverLay loginEvent = {showLogin} cancelEvent={hideAllOverLays}/> : null}
-      {newPost ? <NewPostOverLay close = {hideAllOverLays}/> : null}
+      {newPost ? <NewPostOverLay close={hideAllOverLays} data={data} setData={setData}/> : null}
       {DM ? <DMOverLay closeEvent ={hideAllOverLays}/> : null}
       {navBar}
       {mainScreen}
