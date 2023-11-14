@@ -126,7 +126,7 @@
     height: 600.748px;
     flex-shrink: 0;
     opacity: 1;
-    transition: opacity 0.5s ease-in-out; /* Transition for the fade effect */
+    transition: opacity 0.5s ease-in-out; 
 }
 
 .image-slide.fade {
@@ -152,5 +152,35 @@
 }
 
 .dot.active {
-    background-color: #000000; /* Active dot color */
+    background-color: #000000; 
 }
+ 
+
+  .new-releases-container,
+  .recommended-games-container {
+    flex: 1;  
+  }
+  
+  .recommended-games-container {
+   color: #7E82DF;
+   margin-left: 200px;
+  }
+
+  .main-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 20px 0;
+}
+
+.recommended-games-title{
+    font: 32px Kanit, sans-serif; 
+    font-weight: bold;
+    padding: 0px;
+    background-color: rgb(62, 61, 117,0.24);
+    width: 400px;
+    text-align: center;
+    border-radius: 8px;
+}
+  
+  
