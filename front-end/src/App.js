@@ -1,4 +1,5 @@
-import {React, useState, useEffect} from "react"
+import {React, useState, useEffect} from "react";
+import { Tags } from './Posts/Tags.js';
 
 import LoggedOutHomepage from './Hompage/LoggedOutHompage';
 import Homepage from './Hompage/Homepage';
@@ -19,7 +20,8 @@ function App() {
   const [data, setData] = useState({
     Title: "",
     Description: "",
-    Tags: []
+    Tags: [],
+    UnusedTags: Tags
   });
 
   const navbarClickHandlers = {

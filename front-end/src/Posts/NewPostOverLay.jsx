@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Tags } from "./Tags";
+
 import './NewPostOverLay.css'
 
 function NewPostOverLay(props) {
@@ -10,6 +11,7 @@ function NewPostOverLay(props) {
   const [saved, setSave] = useState(false);
   const [title, setTitle] = useState();
   const [tags, setTags] = useState([]);
+  const [unusedTags, setUnusedTags] = useState(Tags);
   const [tagQuery, setTagQuery] = useState("");
 
   let files = [];
@@ -30,6 +32,7 @@ function NewPostOverLay(props) {
     document.getElementById('post_title').value = data.Title;
     document.getElementById('description_area').value = data.Description;
     setTags(data.Tags);
+    setUnusedTags(data.UnusedTags);
     setTitle(data.Title);
     setSave(true);
   }
@@ -65,7 +68,8 @@ function NewPostOverLay(props) {
     setData({
       Title: title,
       Description: document.getElementById('description_area').value,
-      Tags: tags
+      Tags: tags,
+      UnusedTags: unusedTags
     });
     setSave(true);
   }
@@ -79,7 +83,8 @@ function NewPostOverLay(props) {
     setData({
       Title: "",
       Description: "",
-      Tags: []
+      Tags: [],
+      UnusedTags: Tags
     });
     document.getElementById('invis_layer').style.zIndex = 2;
     document.getElementById('confirmation_overlay').style.display = "none";
@@ -90,7 +95,8 @@ function NewPostOverLay(props) {
     setData({
       Title: title,
       Description: document.getElementById('description_area').value,
-      Tags: tags
+      Tags: tags,
+      UnusedTags: unusedTags
     });
     document.getElementById('invis_layer').style.zIndex = 2;
     document.getElementById('confirmation_overlay').style.display = "none";
@@ -110,6 +116,7 @@ function NewPostOverLay(props) {
   const addTag = (e) => {
     if (!tags.includes(e.target.innerHTML)) {
       setTags([...tags, e.target.innerHTML]);
+      setUnusedTags(unusedTags.filter(tag => tag !== e.target.innerHTML));
     }
     setSave(false);
   }
@@ -165,7 +172,7 @@ function NewPostOverLay(props) {
         <button className='tags_close_btn btn' onClick={handleCloseTag}></button>
         <input type='text' placeholder='Search Tags...' maxLength={50} onChange={(e) => setTagQuery(e.target.value.toLowerCase())}></input>
         <ul className='tags_list'>
-          {Tags.filter(tag=>tag.toLowerCase().includes(tagQuery)).slice(0,45).map((tag, i) => (
+          {unusedTags.filter(tag=>tag.toLowerCase().includes(tagQuery)).slice(0,45).map((tag, i) => (
             <li key={i}>
               <button onClick={addTag} className='tags_item txt_btn'>{tag}</button>
             </li>
