@@ -1,0 +1,75 @@
+.search-page-container{
+    width: 1320px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.toggle_buttons-search{
+    display: grid;
+    grid-template-columns: 210px 170px 170px 170px 170px 170px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    background-color: #33344A;
+    border-radius: 10px;
+    padding: 20px;
+}
+.search-label{
+    font-size: 30px;
+    color: #fff;
+}
+.search-button{
+    width: 125px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 45px;
+    border-radius: 15px;
+    border: none;
+    background-color: #7E82DF;
+    color: #fff;
+    font-size: 20px;
+}
+.search-button.toggled{
+    background-color: #33344A;
+    color: #fff;
+    border: solid #7E82DF 4px;
+}
+.search-result{
+    width: 1320px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 180px 1000px;
+    background-color:  #33344A;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+.search-result-img{
+    width: 130px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    border: solid #7E82DF 3px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+.search-result-text{
+    display: flex;
+    flex-direction: column;
+}
+.search-result-title{
+    font-size: 36px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+.search-result-author{
+    font-size: 24px;
+    color: #7E82DF;
+    margin-bottom: 10px;
+}
+.search-result-description{
+    font-size: 15px;
+    color: #B0B0B0;
+
+}
