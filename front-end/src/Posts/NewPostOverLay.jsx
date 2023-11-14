@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Tags } from "./Tags";
 import './NewPostOverLay.css'
 
 function NewPostOverLay(props) {
@@ -8,6 +9,8 @@ function NewPostOverLay(props) {
 
   const [saved, setSave] = useState(false);
   const [title, setTitle] = useState();
+  const [tags, setTags] = useState([]);
+  const [tagQuery, setTagQuery] = useState("");
 
   let files = [];
 
@@ -26,6 +29,7 @@ function NewPostOverLay(props) {
   const handleLoadData = () => {
     document.getElementById('post_title').value = data.Title;
     document.getElementById('description_area').value = data.Description;
+    setTags(data.Tags);
     setTitle(data.Title);
     setSave(true);
   }
@@ -60,7 +64,8 @@ function NewPostOverLay(props) {
   const handleSave = () => {
     setData({
       Title: title,
-      Description: document.getElementById('description_area').value
+      Description: document.getElementById('description_area').value,
+      Tags: tags
     });
     setSave(true);
   }
@@ -73,7 +78,8 @@ function NewPostOverLay(props) {
   const handleDelete = () => {
     setData({
       Title: "",
-      Description: ""
+      Description: "",
+      Tags: []
     });
     document.getElementById('invis_layer').style.zIndex = 2;
     document.getElementById('confirmation_overlay').style.display = "none";
@@ -83,11 +89,29 @@ function NewPostOverLay(props) {
   const handleConfirmSave = () => {
     setData({
       Title: title,
-      Description: document.getElementById('description_area').value
+      Description: document.getElementById('description_area').value,
+      Tags: tags
     });
     document.getElementById('invis_layer').style.zIndex = 2;
     document.getElementById('confirmation_overlay').style.display = "none";
     cancelEvent();
+  }
+
+  const handleTagPress = () => {
+    document.getElementById('invis_layer').style.zIndex = 4;
+    document.getElementById('tags_overlay').style.display = "flex";
+  }
+
+  const handleCloseTag = () => {
+    document.getElementById('invis_layer').style.zIndex = 2;
+    document.getElementById('tags_overlay').style.display = "none";
+  }
+
+  const addTag = (e) => {
+    if (!tags.includes(e.target.innerHTML)) {
+      setTags([...tags, e.target.innerHTML]);
+    }
+    setSave(false);
   }
 
   return (
@@ -109,7 +133,15 @@ function NewPostOverLay(props) {
             <label className='upload_btn txt_btn'>
               <input multiple accept='image/*' id='upload' type='file' onChange={handleFileInput}></input>
             </label>
-            <button className='tag_btn txt_btn'>Tag </button>
+            <button onClick={handleTagPress} className='tag_btn txt_btn'>Tag</button>
+            <ul className='selected_tags'>
+              {tags.slice(0,3).map((tag, i) => (
+                <li key={i}>
+                  <button>{tag}</button>
+                </li>
+              ))}
+              {(tags.length > 3) ? <li>+ {tags.length - 3} more</li> : <li></li>}
+            </ul>
           </div>
           <div className='right_section'>
             <button onClick={handleSave} id='save_btn'>Save Draft</button>
@@ -127,6 +159,18 @@ function NewPostOverLay(props) {
           <button onClick={handleConfirmSave} className='confirm_save txt_btn'>Save Draft</button>
           <button onClick={handleDelete} className='confirm_delete txt_btn'>Delete Draft</button>
         </div>
+      </div>
+      <div id='tags_overlay'>
+        <p>Add Tags</p>
+        <button className='tags_close_btn btn' onClick={handleCloseTag}></button>
+        <input type='text' placeholder='Search Tags...' maxLength={50} onChange={(e) => setTagQuery(e.target.value.toLowerCase())}></input>
+        <ul className='tags_list'>
+          {Tags.filter(tag=>tag.toLowerCase().includes(tagQuery)).slice(0,45).map((tag, i) => (
+            <li key={i}>
+              <button onClick={addTag} className='tags_item txt_btn'>{tag}</button>
+            </li>
+          ))}
+        </ul>
       </div>
     </>
   );

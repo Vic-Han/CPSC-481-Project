@@ -18,7 +18,8 @@ function App() {
 
   const [data, setData] = useState({
     Title: "",
-    Description: ""
+    Description: "",
+    Tags: []
   });
 
   const navbarClickHandlers = {
