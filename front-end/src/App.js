@@ -25,7 +25,8 @@ function App() {
     Title: "",
     Description: "",
     Tags: [],
-    UnusedTags: Tags
+    UnusedTags: Tags,
+    Files: []
   });
 
   const navbarClickHandlers = {

@@ -11,11 +11,10 @@ function NewPostOverLay(props) {
 
   const [saved, setSave] = useState(false);
   const [title, setTitle] = useState();
+  const [files, setFiles] = useState([]);
   const [tags, setTags] = useState([]);
   const [unusedTags, setUnusedTags] = useState(Tags);
   const [tagQuery, setTagQuery] = useState("");
-
-  let files = [];
 
   useEffect(() => {
     handleLoadData();
@@ -35,21 +34,26 @@ function NewPostOverLay(props) {
     setTags(data.Tags);
     setUnusedTags(data.UnusedTags);
     setTitle(data.Title);
+    setFiles(data.Files);
+    console.log(data.Files);
     setSave(true);
   }
 
   const handleFileInput = (e) => {
     if (e.target.files.length > 0) {
+      let tempFiles = [];
       for (let i = 0; i < e.target.files.length; i++) {
-        let temp = {
-          name: e.target.files[i].name,
-          URL: URL.createObjectURL(e.target.files[i])
+        if (!files.filter(file=>file.name === e.target.files[i].name) > 0) {
+          let temp = {
+            name: e.target.files[i].name,
+            URL: URL.createObjectURL(e.target.files[i])
+          }
+          tempFiles.push(temp);
         }
-        files.push(temp);
-
         let text = document.getElementById('description_area').value;
         document.getElementById('description_area').value = text + `\n\`${e.target.files[i].name}\``;
       }
+      setFiles([...files, ...tempFiles]);
       setSave(false);
     }
     e.target.value = null;
@@ -70,7 +74,8 @@ function NewPostOverLay(props) {
       Title: title,
       Description: document.getElementById('description_area').value,
       Tags: tags,
-      UnusedTags: unusedTags
+      UnusedTags: unusedTags,
+      Files: files
     });
     setSave(true);
   }
@@ -85,7 +90,8 @@ function NewPostOverLay(props) {
       Title: "",
       Description: "",
       Tags: [],
-      UnusedTags: Tags
+      UnusedTags: Tags,
+      Files: []
     });
     document.getElementById('invis_layer').style.zIndex = 2;
     document.getElementById('confirmation_overlay').style.display = "none";
@@ -97,7 +103,8 @@ function NewPostOverLay(props) {
       Title: title,
       Description: document.getElementById('description_area').value,
       Tags: tags,
-      UnusedTags: unusedTags
+      UnusedTags: unusedTags,
+      Files: files
     });
     document.getElementById('invis_layer').style.zIndex = 2;
     document.getElementById('confirmation_overlay').style.display = "none";
