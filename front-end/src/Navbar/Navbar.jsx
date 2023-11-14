@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import './Navbar.css';
 
 function Navbar(props) {
@@ -8,7 +9,16 @@ function Navbar(props) {
 
   const toggleGameStore = props.clickHandlers.toggleGameStore
   const toggleDM = props.clickHandlers.toggleDM
-
+  function keyboardHandler(e){
+    const input = document.getElementById("nav-bar-input")
+    if(input.contains(e.target) && e.key === 'Enter'){
+      toggleSearchPage()
+    }
+  }
+  useEffect(()=>{
+    document.addEventListener('keydown', keyboardHandler)
+    return () => {document.removeEventListener('keydown', keyboardHandler)}
+  },[])
   return (
     <div className='navbar_container'>
       <div className='navbar_left'>
@@ -18,7 +28,7 @@ function Navbar(props) {
         </button>
       </div>
       <div className='navbar_middle'>
-        <input type='text' placeholder='Search'></input>
+        <input id ="nav-bar-input" type='text' placeholder='Search'></input>
         <button className='navbar_search btn' onClick={toggleSearchPage}></button>
       </div>
       <div className='navbar_right'>
