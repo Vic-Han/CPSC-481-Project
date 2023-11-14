@@ -1,4 +1,4 @@
-.invis_layer {
+#invis_layer {
     position: absolute;
     width: 100vw;
     height: 100vh;
@@ -8,6 +8,7 @@
 }
 
 .post_overlay{
+    overflow-y: visible;
     display: flex;
     flex-direction: column;
     position: fixed;
@@ -93,6 +94,8 @@
 .text_section textarea {
     width: 980px;
     height: 340px;
+    min-height: 260px;
+    max-height: 450px;
     resize: vertical;
 
     margin-left: auto;
@@ -121,7 +124,7 @@
 
 .left_section {
     display: flex;
-    width: 200px;
+    width: 500px;
     margin-left: 40px;
 }
 
@@ -135,6 +138,10 @@
     background-position: center;
     border-radius: 5px;
     border: none;
+}
+
+.upload_btn input {
+    display: none;
 }
 
 .tag_btn {
@@ -154,6 +161,32 @@
     text-align: left;
 }
 
+.selected_tags {
+    display: flex;
+    flex-wrap: wrap;
+    width: 300px;
+    padding: 0;
+    margin: 0;
+    margin-left: 20px;
+    list-style: none;
+}
+
+.selected_tags li {
+    color: white;
+    font: 400 16px Inter, sans-serif;
+}
+
+.selected_tags button {
+    margin: 5px;
+    margin-top: 0px;
+    padding: 2px 5px;
+    color: white;
+    font: 400 16px Inter, sans-serif;
+    background-color: #7E82DF;
+    border-radius: 5px;
+    border: none;
+}
+
 .right_section {
     display: flex;
     float: right;
@@ -162,7 +195,7 @@
     margin-right: 40px;
 }
 
-.save_btn {
+#save_btn {
     width: 150px;
     height: 50px;
     margin-right: 30px;
@@ -173,6 +206,11 @@
     color: white;
     font: 400 22px Inter, sans-serif;
     text-align: center;
+}
+
+#save_btn:hover {
+    cursor: pointer;
+    background-color: #4E5080;
 }
 
 .post_btn {
@@ -190,4 +228,175 @@
 .txt_btn:hover {
     cursor: pointer;
     background-color: #4E5080;
+}
+
+#confirmation_overlay {
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: fixed;
+    width: 440px;
+    height: 300px;
+
+    margin-left: 740px;
+    margin-right: 740px;
+    margin-top: 360px;
+
+    border-radius: 30px;
+    border: 4px solid #7E82DF;
+
+    background-color: #33344A;
+    z-index: 5;
+}
+
+.confirmation_title {
+    display: flex;
+    width: 100%;
+}
+
+.confirmation_title p {
+    padding: 0;
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+    color: #7E82DF;
+    font: 700 38.4px Inter, sans-serif;
+}
+
+.confirmation_title button {
+    position: absolute;
+    top: 18px;
+    left: 380px;
+}
+
+.confirm_close_btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #33344A;
+    background-image: url('../assets/Close.png');
+    background-size: contain;
+    border: none;
+}
+
+.confirmation_text {
+    color: white;
+    text-align: center;
+    font: 600 32px Inter, sans-serif;
+    margin: 0;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.confirmation_options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.confirm_save {
+    width: 150px;
+    height: 50px;
+    background-color: #7e82df;
+    border-radius: 5px;
+    border: none;
+
+    color: white;
+    font: 400 22px Inter, sans-serif;
+    text-align: center;
+}
+
+.confirm_delete {
+    width: 150px;
+    height: 50px;
+    background-color: #3b3d74;
+    border-radius: 5px;
+    border: none;
+
+    color: white;
+    font: 400 22px Inter, sans-serif;
+    text-align: center;
+}
+
+#tags_overlay {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    width: 740px;
+    height: 600px;
+
+    margin-left: 590px;
+    margin-right: 590px;
+    margin-top: 170px;
+
+    border-radius: 30px;
+    border: 4px solid #7E82DF;
+
+    background-color: #33344A;
+    z-index: 5;
+}
+
+#tags_overlay p {
+    padding: 0;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+    color: #7E82DF;
+    font: 700 38.4px Inter, sans-serif;
+}
+
+#tags_overlay input {
+    width: 300px;
+    height: 50px;
+
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+
+    background-color: #7e82df;
+    border-radius: 5px;
+    border: none;
+    align-self: center;
+    font: 400 24px Kanit, sans-serif;
+    color: white;
+    padding-left: 20px;
+}
+
+#tags_overlay input::placeholder {
+    color: white;
+}
+
+.tags_close_btn {
+    position: absolute;
+    left: 680px;
+    top: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #33344A;
+    background-image: url('../assets/Close.png');
+    background-size: contain;
+    border: none;
+}
+
+.tags_list {
+    padding: 0 20px;
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+
+    list-style: none;
+}
+
+.tags_item {
+    margin: 5px;
+    padding: 2px 5px;
+    color: white;
+    font: 400 16px Inter, sans-serif;
+    background-color: #7E82DF;
+    border-radius: 5px;
+    border: none;
 }
