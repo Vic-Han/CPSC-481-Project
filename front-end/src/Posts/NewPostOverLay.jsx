@@ -3,9 +3,10 @@ import { Tags } from "./Tags";
 
 import './NewPostOverLay.css'
 
+
 function NewPostOverLay(props) {
   const cancelEvent = props.close;
-  const previewPost = props.previewPost;
+  const previewPost = props.showPostPreview;
   const data = props.data;
   const setData = props.setData;
 
@@ -21,21 +22,24 @@ function NewPostOverLay(props) {
   }, [])
 
   useEffect(() => {
-    if (saved) {
+    if (saved && document.getElementById('save_btn') != null) {
       document.getElementById('save_btn').style.backgroundColor = "#4E5080";
-    } else {
+    } else if (document.getElementById('save_btn') != null){
       document.getElementById('save_btn').style.backgroundColor  = "#7e82df";
     }
   }, [saved]);
 
   const handleLoadData = () => {
-    document.getElementById('post_title').value = data.Title;
-    document.getElementById('description_area').value = data.Description;
+    if (document.getElementById('post_title') != null)
+      document.getElementById('post_title').value = data.Title;
+
+    if ( document.getElementById('description_area') != null)
+      document.getElementById('description_area').value = data.Description;
+
     setTags(data.Tags);
     setUnusedTags(data.UnusedTags);
     setTitle(data.Title);
     setFiles(data.Files);
-    console.log(data.Files);
     setSave(true);
   }
 
@@ -43,7 +47,7 @@ function NewPostOverLay(props) {
     if (e.target.files.length > 0) {
       let tempFiles = [];
       for (let i = 0; i < e.target.files.length; i++) {
-        if (!files.filter(file=>file.name === e.target.files[i].name) > 0) {
+        if (!files.some(file=>file.name === e.target.files[i].name)) {
           let temp = {
             name: e.target.files[i].name,
             URL: URL.createObjectURL(e.target.files[i])
@@ -129,6 +133,17 @@ function NewPostOverLay(props) {
     setSave(false);
   }
 
+  const handlePreview = () => {
+    setData({
+      Title: title,
+      Description: document.getElementById('description_area').value,
+      Tags: tags,
+      UnusedTags: unusedTags,
+      Files: files
+    });
+    previewPost();
+  }
+
   return (
     <>
       <div id='invis_layer'></div>
@@ -138,7 +153,7 @@ function NewPostOverLay(props) {
           <button className='close_btn btn' onClick={saved ? cancelEvent : askUser}></button>
         </div>
         <div className='title_section'>
-          <input id='post_title' onChange={handleChanges} type='text' placeholder='Title' maxLength={70}></input>
+          <input id='post_title' onChange={handleChanges} type='text' placeholder='Title' maxLength={70} autoComplete='off'></input>
         </div>
         <div className='text_section'>
           <textarea onChange={handleChanges} type='text' placeholder='Description' id='description_area'></textarea>
@@ -160,7 +175,7 @@ function NewPostOverLay(props) {
           </div>
           <div className='right_section'>
             <button onClick={handleSave} id='save_btn'>Save Draft</button>
-            <button className='post_btn txt_btn' onClick={previewPost}>Preview & Post</button>
+            <button className='post_btn txt_btn' onClick={handlePreview}>Preview & Post</button>
           </div>
         </div>
       </div>
