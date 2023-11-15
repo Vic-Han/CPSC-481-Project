@@ -8,18 +8,17 @@
 }
 
 .post_overlay{
-    overflow-y: visible;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
     position: fixed;
     width: 1060px;
-/*
+    max-height: 700px;
+
     margin-left: 430px;
     margin-right: 430px;
     margin-top: 160px;
-*/
-    left: 0px;
-    top:0px;
+
     border-radius: 50px;
     border: 4px solid #7E82DF;
 
