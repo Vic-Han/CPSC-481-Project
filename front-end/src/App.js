@@ -1,4 +1,5 @@
-import {React, useState, useEffect} from "react"
+import {React, useState, useEffect} from "react";
+import { Tags } from './Posts/Tags.js';
 
 import LoggedOutHomepage from './Hompage/LoggedOutHompage';
 import Homepage from './Hompage/Homepage';
@@ -19,6 +20,14 @@ import ExpandedPost from "./Posts/ExpandedPost.jsx";
 import ExpandedArticle from "./Posts/ExpandedArticle.jsx";
 import PostPreview from "./Posts/PostPreview.jsx";
 function App() {
+
+  const [data, setData] = useState({
+    Title: "",
+    Description: "",
+    Tags: [],
+    UnusedTags: Tags
+  });
+
   const navbarClickHandlers = {
     toggleHomePage: showHomePage,
     toggleNewPost: showNewPostOverLay,
@@ -103,7 +112,7 @@ function App() {
     <div>
       {login ? <LoginOverLay loginEvent = {showHomePage} registerEvent ={showRegister} cancelEvent = {hideAllOverLays}/> : null}
       {register ? <RegisterOverLay loginEvent = {showLogin} cancelEvent={hideAllOverLays}/> : null}
-      {newPost ? <NewPostOverLay close = {hideAllOverLays} previewPost ={showPostPreview}/> : null}
+      {newPost ? <NewPostOverLay close={hideAllOverLays} data={data} setData={setData}/> : null}
       {DM ? <DMOverLay closeEvent ={hideAllOverLays} close ={hideAllOverLays}/> : null}
       {previewPost ? <PostPreview close = {hideAllOverLays}/>: null}
       {navBar}
