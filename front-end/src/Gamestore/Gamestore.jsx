@@ -4,7 +4,11 @@ import totalWar3Kingdom from '../assets/TotalWar3Kingdom.jpg';
 import GenshinImpact from '../assets/GenshinImpact.png';
 import RocketLeague from '../assets/RocketLeague.webp';
 import PC from '../assets/PC.png';
+import PS from '../assets/PS.png';
 import PCXBOXPS from '../assets/PC-XBOX-PS.png';
+import MirageImage from '../assets/Mirage.png';
+import SpiderMan2 from '../assets/SM2.webp';
+import CS2 from '../assets/CS2.png';
 
 function GameStoreMain(props) {
     const [slideIndex, setSlideIndex] = useState(1);
@@ -85,24 +89,31 @@ function GameStoreMain(props) {
 
                 <div className="recommended-games-container">
                     <h2 className="recommended-games-title">Recommended Games</h2>
-                    <div className="recommended-games-list">
-                        <h3>Assassin's Creed Mirage</h3>
-                        <div className="game-info">
-                        <img src='../assets/Mirage.png'></img>
-                            <p className="game-price">Price: $69.99</p>
+                    <div className="recommended-game">
+                        <img src={MirageImage} alt="Assassin's Creed Mirage" className="game-image" />
+                        <div className="Right-Side1">
+                            <h3>Assassin's Creed Mirage</h3>
+                            <p className="game-price">Price: $69.99 CAD</p>
+                            <img src={PCXBOXPS}/>
                         </div>
-                        <h3>Spider-Man 2</h3>
-                        <div className="game-info">
-                            
-                            <p className="game-price">Price: $69.99</p>
+                    </div>
+                    <div className="recommended-game">
+                        <img src={SpiderMan2} alt="Marvel's Spider-Man 2" className="game-image" />
+                        <div className="Right-Side2">
+                            <h3>Spider-Man 2</h3>
+                            <p className="game-price">PC Price: $69.99 CAD</p>
+                            <img src={PS}/>
                         </div>
-                        <h3>Counter-Strike 2</h3>
-                        <div className="game-info">
+                    </div>
+                    <div className="recommended-game">
+                        <img src={CS2} alt="Counter-Strike 2" className="game-image" />
+                        <div className="Right-Side3">
+                            <h3>Counter-Strike 2</h3>
                             <p className="game-price">Free</p>
+                            <img src={PC}/>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     );
