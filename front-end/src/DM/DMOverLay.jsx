@@ -57,7 +57,13 @@ function NewMessage(props) {
             <button id='back_btn' onClick={toggleDefault}> </button>
         </header>
 
-        <div>List of people you can send a new dm to</div>
+        <div className='msg_type'>
+            <input id = 'txt_field' type="text" placeholder="Search"></input>
+        </div>
+
+        <div>
+            <UserList users={userListData} />
+        </div>
 
         <button onClick={toggleDM}> See DM with Zaraki</button>
 
@@ -77,8 +83,40 @@ function Messaging(props) {
     )
 }
 
-
-
+function UserList({ users }) {
+    const renderUserList = () => {
+      return users.map((user, index) => (
+        <div key={index} className="user_profile">
+          <img src={user.profilePic} alt="Profile" />
+          <div>
+            <p>Username: {user.username}</p>
+            <p>Display Name: {user.displayName}</p>
+          </div>
+        </div>
+      ));
+    };
+  
+    return (
+      <div className="user-list">
+        {renderUserList()}
+      </div>
+    );
+  }
+  
+  const userListData = [
+    {
+    //place holder 
+      profilePic: '../assets/Zarakipfp.png',  
+      username: 'Zaraki Kenpachi',
+      displayName: 'ZarakiTheGoat',
+    },
+    {
+      profilePic: '../assets/Person1.png',
+      username: 'user2',
+      displayName: 'User Two',
+    },
+  ];
+  
 
 
 function DMOverLay(props) {
