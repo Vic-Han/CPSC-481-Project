@@ -12,7 +12,7 @@
     position: relative;
 }
 
-/* Responsive adjustments */
+
 @media (max-width: 1920px) {
     .game-store {
         width: 100%;
@@ -66,8 +66,8 @@
 
 .prev,
 .next {
-    background-color: transparent; /* Make the button background transparent */
-    color: #7E82DF; /* Set the arrow color */
+    background-color: transparent; 
+    color: #7E82DF; 
     cursor: pointer;
     position: absolute;
     top: 40%;
@@ -270,28 +270,27 @@
     color: #7E82DF;
 }
 
-/* General Styles for Game Cards Container */
+
 .sale-slider {
     display: flex;
-    justify-content: center; /* Aligns items to the start of the container */
+    justify-content: center; 
     align-items: center;
-    gap: 20px; /* Adjust as needed for spacing between cards */
-    padding: 0 10px; /* Add padding to the left and right of the slider for spacing */
+    gap: 20px; 
+    padding: 0 10px; 
 }
 
 .sale-item {
-    background-color: rgba(62, 61, 117, 0.24); /* Semi-transparent background */
+    background-color: rgba(62, 61, 117, 0.24); 
     color: white;
-    width: 250px; /* Fixed width */
     min-width: 250px;
-    height: 370px; /* Fixed height, adjust as needed */
+    height: 370px; 
     padding: 20px;
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    box-sizing: border-box; 
     border-radius: 10px;
     margin: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* This will distribute space evenly between the items */
+    justify-content: space-between; 
     align-items: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     transition: transform 0.5s ease; 
@@ -300,15 +299,15 @@
 .original-price,
 .sale-price,
 .discount {
-    display: block; /* Make these span behave like block elements */
-    width: 100%; /* Full width */
-    text-align: center; /* Center the text */
+    display: block;
+    width: 100%; 
+    text-align: center; 
 }
 
-/* Ensure images have a consistent size */
+
 .sale-image {
-    height: 120px; /* Fixed height for images */
-    object-fit: cover; /* Cover the area without breaking the aspect ratio */
+    height: 120px; 
+    object-fit: cover; 
     border-radius: 5px;
 }
 .sale-info {
@@ -317,26 +316,25 @@
 }
 
 .original-price {
-    text-decoration: line-through; /* Strike through for original price */
-    color: #777; /* Grey out the original price */
+    text-decoration: line-through; 
+    color: #777; 
 }
 
 .sale-price {
-    color: #e0e0e0; /* Lighter text for sale price */
+    color: #e0e0e0;
     font-weight: bold;
 }
 
 .discount {
-    background-color: #7E82DF; /* Set the discount background color */
-    color: white; /* Set the text color to white */
-    font-size: 16px; /* Set the font size, adjust as needed */
-    width: 60px; /* Set a fixed width to ensure consistency */
-    height: 30px; /* Set a fixed height to ensure consistency */
-    line-height: 30px; /* Set the line height to match the height for vertical centering */
-    text-align: center; /* Center the text horizontally */
-    border-radius: 5px; /* Rounded corners for the discount tag */
-    margin: 10px auto; /* Center the discount badge horizontally */
-    display: block; /* Change display to block to enable margin auto to work */
+    background-color: #7E82DF; 
+    color: white; 
+    font-size: 16px; 
+    width: 60px; 
+    height: 30px;
+    line-height: 30px; 
+    text-align: center; 
+    margin: 10px auto; 
+    display: block; 
 }
 
 .game-name{
@@ -350,7 +348,7 @@
 .prev-button:hover,
 .next-button:hover {
     background-color: rgba(0, 0, 0, 0.8);
-    color: white; /* Text color on hover */
+    color: white; 
 }
 
 .next-button{
