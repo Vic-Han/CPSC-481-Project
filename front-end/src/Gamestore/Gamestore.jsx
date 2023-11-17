@@ -247,7 +247,7 @@ function GameStoreMain(props) {
                         &#10095;
                     </button>
                 </div>
-                <div className="Space"></div>
+                <div className="Space1"></div>
             </div>
         </div>
     );
