@@ -191,7 +191,7 @@ function GameStoreMain(props) {
                     <div className="recommended-game">
                         <img src={MirageImage} alt="Assassin's Creed Mirage" className="game-image" />
                         <div className="Right-Side1">
-                            <h3>Assassin's Creed Mirage</h3>
+                            <h3 className="RG-Title">Assassin's Creed Mirage</h3>
                             <p className="game-price">Price: $69.99 CAD</p>
                             <img src={PCXBOXPS} />
                         </div>
@@ -199,7 +199,7 @@ function GameStoreMain(props) {
                     <div className="recommended-game">
                         <img src={SpiderMan2} alt="Marvel's Spider-Man 2" className="game-image" />
                         <div className="Right-Side2">
-                            <h3>Spider-Man 2</h3>
+                            <h3 className="RG-Title">Spider-Man 2</h3>
                             <p className="game-price">PC Price: $69.99 CAD</p>
                             <img src={PS} />
                         </div>
@@ -207,7 +207,7 @@ function GameStoreMain(props) {
                     <div className="recommended-game">
                         <img src={CS2} alt="Counter-Strike 2" className="game-image" />
                         <div className="Right-Side3">
-                            <h3>Counter-Strike 2</h3>
+                            <h3 className="RG-Title">Counter-Strike 2</h3>
                             <p className="game-price">Free</p>
                             <img src={PC} />
                         </div>
