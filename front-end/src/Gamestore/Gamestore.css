@@ -4,6 +4,23 @@
     /* Firefox */
 }
 
+.game-store {
+    width: 1920px;
+    height: 1080px;
+    margin: 0 auto;
+    overflow: auto;
+    position: relative;
+}
+
+
+@media (max-width: 1920px) {
+    .game-store {
+        width: 100%;
+        height: auto;
+        min-height: 1080px;
+    }
+}
+
 .search-bar {
     margin-top: 40px;
     font-size: 20px;
@@ -35,8 +52,9 @@
     width: 1021px;
     margin-left: 86px;
     margin-right: 0px;
-    margin-bottom: 40px;
-    background-color: rgb(62, 61, 117,0.24);
+    margin-bottom: 20px;
+    background-color: rgb(62, 61, 117, 0.24);
+    position: relative;
 }
 
 .image-slide {
@@ -46,70 +64,77 @@
 
 }
 
-.prev, .next {
+.prev,
+.next {
+    background-color: transparent; 
+    color: #7E82DF; 
     cursor: pointer;
     position: absolute;
-    top: 50%;
+    top: 40%;
     width: auto;
     padding: 16px;
-    margin-top: -80px;
-    color:#7E82DF;
+    color: #7E82DF;
     font-weight: bold;
     font-size: 50px;
     transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
-    user-select: none;
+    z-index: 10;
 }
 
 .next {
-    right: 814px;
+    position: absolute;
+    right: -1px;
     border-radius: 3px 0 0 3px;
 }
 
 .prev {
-    left: 88px;
+    position: absolute;
+    left: -1px;
     border-radius: 3px 0 0 3px;
 }
-.prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.8);
+
+
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
-.new-releases-title{
-    font: 32px Kanit, sans-serif; 
+.new-releases-title {
+    font: 32px Kanit, sans-serif;
     font-weight: bold;
     padding: 0px;
     margin-left: 400.748px;
 }
 
-.Slides{
+.Slides {
     margin-top: 30px;
 }
 
-.Space{
-    margin-bottom: 40px;
+.Space {
+    margin-bottom: 70px;
 }
 
 .game-name-display {
-    font: 32px Kanit, sans-serif; 
+    font: 32px Kanit, sans-serif;
     color: white;
     font-weight: bold;
     border-bottom-style: solid;
     width: fit-content;
 }
 
-.game-price-display{
-    font: 24px Kanit, sans-serif; 
+.game-price-display {
+    font: 24px Kanit, sans-serif;
     color: #ffffff;
     margin-left: 20px;
     margin-top: 5px;
     margin-bottom: 30px;
 }
 
-.price-label{
+.price-label {
     color: #7E82DF;
 }
 
-.game-compatibility-display{
+.game-compatibility-display {
     position: absolute;
     margin-left: 840px;
     float: right;
@@ -126,7 +151,7 @@
     height: 600.748px;
     flex-shrink: 0;
     opacity: 1;
-    transition: opacity 0.5s ease-in-out; /* Transition for the fade effect */
+    transition: opacity 0.5s ease-in-out;
 }
 
 .image-slide.fade {
@@ -152,5 +177,209 @@
 }
 
 .dot.active {
-    background-color: #000000; /* Active dot color */
+    background-color: #000000;
+}
+
+
+.new-releases-container,
+.recommended-games-container {
+    flex: 1;
+}
+
+.recommended-games-container {
+    color: #7E82DF;
+    margin: 0px 86px 0px 95px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 0px 2px 0px 50px;
+    width: auto;
+}
+
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 20px 0;
+}
+
+.recommended-games-title {
+    font: 32px Kanit, sans-serif;
+    font-weight: bold;
+    padding: 10px 80px 10px 100px;
+    width: 400px;
+    text-align: center;
+    background-color: rgb(62, 61, 117, 0.24);
+    border-radius: 50px 50px 50px 50px;
+    margin: 0px 0px 0px 0px;
+}
+
+.recommended-game {
+    display: flex;
+    border-radius: 8px;
+    width: 100%;
+    text-align: center;
+    overflow: auto;
+    margin-left: 50px;
+}
+
+.recommended-game .game-price {
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.game-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 8px;
+}
+
+.Right-Side1 {
+    margin-right: 0px;
+    margin-left: 20px;
+    text-align: left;
+}
+
+.Right-Side2 {
+    margin-right: 0px;
+    margin-left: 20px;
+    text-align: left;
+}
+
+.Right-Side3 {
+    margin-right: 0px;
+    margin-left: 20px;
+    text-align: left;
+}
+
+.main-content2{
+    margin-bottom: 0px;
+}
+.line {
+    border-top: 1px #7E82DF;
+}
+
+.games-on-sale-title {
+    font: 32px Kanit, sans-serif;
+    font-weight: bold;
+    padding: 0px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #7E82DF;
+}
+
+
+.sale-slider {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    gap: 20px; 
+    padding: 0 10px; 
+}
+
+.sale-item {
+    background-color: rgba(62, 61, 117, 0.24); 
+    color: white;
+    min-width: 250px;
+    height: 370px; 
+    padding: 20px;
+    box-sizing: border-box; 
+    border-radius: 10px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.5s ease; 
+}
+
+.original-price,
+.sale-price,
+.discount {
+    display: block;
+    width: 100%; 
+    text-align: center; 
+}
+
+
+.sale-image {
+    height: 120px; 
+    object-fit: cover; 
+    border-radius: 5px;
+}
+.sale-info {
+    text-align: center;
+    margin: auto;
+}
+
+.original-price {
+    text-decoration: line-through; 
+    color: #777; 
+}
+
+.sale-price {
+    color: #e0e0e0;
+    font-weight: bold;
+}
+
+.discount {
+    background-color: #7E82DF; 
+    color: white; 
+    font-size: 16px; 
+    width: 60px; 
+    height: 30px;
+    line-height: 30px; 
+    text-align: center; 
+    margin: 10px auto; 
+    display: block; 
+}
+
+.game-name{
+    font-size: 18px;
+}
+
+.slider-controls{
+    margin-top: 20px;
+}
+
+.prev-button:hover,
+.next-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white; 
+}
+
+.next-button{
+    left: 50%; 
+    transform: translateX(0); 
+}
+
+.prev-button{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-100%);
+}
+
+.prev-button, .next-button{
+    background-color: transparent;
+    cursor: pointer;
+    position: absolute;
+    width: auto;
+    padding: 4px 15px 4px 15px;
+    color: #7E82DF;
+    font-weight: bold;
+    font-size: 50px;
+    transition: 0.6s ease;
+    z-index: 10;
+    border-color: transparent;
+}
+
+.Space1{
+    height: 100px;
+}
+
+.RG-Title{
+    margin-top: 2px;
 }
