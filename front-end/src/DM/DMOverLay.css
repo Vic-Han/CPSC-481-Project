@@ -164,7 +164,37 @@
 .user_profile{
     border: 1px solid var(--Highlights, #7E82DF);
 
+}
 
+.user_pfp{
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+    background: lightgray 50% / cover no-repeat;
+    border-radius: 80%;
+    border: 3px solid var(--Highlights, #7E82DF);
+    margin: 15px;
+
+}
+
+#usr_name{
+    color: var(--Title, #FFF);
+
+    font-family: Kanit;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+#Dp_name{
+    color: var(--Title, #FFF);
+
+    font-family: Kanit;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 
 

@@ -42,7 +42,7 @@ function Messages(props) {
                     <div>{person.username}</div>
                 ))}
 
-                not sure yet 
+                will change this function, probably...
             </div>
         </>
     )
@@ -87,10 +87,10 @@ function UserList({ users }) {
     const renderUserList = () => {
       return users.map((user, index) => (
         <div key={index} className="user_profile">
-          <img src={user.profilePic} alt="Profile" />
+          <img className='user_pfp' src={user.profilePic} alt="Profile" />
           <div>
-            <p>Username: {user.username}</p>
-            <p>Display Name: {user.displayName}</p>
+            <p id='usr_name'>Username: {user.username}</p>
+            <p id='Dp_name'>Display Name: {user.displayName}</p>
           </div>
         </div>
       ));
@@ -106,7 +106,7 @@ function UserList({ users }) {
   const userListData = [
     {
     //place holder 
-      profilePic: '../assets/Zarakipfp.png',  
+      profilePic: 'https://s3-alpha-sig.figma.com/img/dbe6/4d1c/ba64d72b3a554895fdd2547029d9946e?Expires=1701043200&Signature=Ey9nZaGvTd0AebDvufQUJJcjD7cJVAntfHep9yx7nF9fwUoa368TIkqtP601uSSW4FtOt3Pj8SsXyhCflRRckN4m4bUe5ukgu5o7UUHPThVNIlmXK444rvXW1sj28ET17xCtEa73QcBcl9TlBkQcvXmMQRRK-b~gIZ7SZyWd0yOhWwcDn8TZQGfeQ33rqAcq8yUUfctddbsUxlWEYvy~MqZHA9YP3ixmOb9X939bCOecg--kVcPxaXZcO~Hs0Vj1Vju1kVmQyy2cX5VE6S9lD~7FdOZixPVpkTnsYCBPJcYkB3Qvz1vPnUAXzrHeFwubElHGG9O2KdnBv6Q4FhGqMA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',  
       username: 'Zaraki Kenpachi',
       displayName: 'ZarakiTheGoat',
     },
