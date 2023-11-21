@@ -55,7 +55,7 @@ function GameStoreMain(props) {
     useEffect(() => {
         const interval = setInterval(() => {
             nextSlide();
-        }, 100000);
+        }, 5000);
 
         return () => clearInterval(interval);
     }, [slideIndex]);
@@ -234,7 +234,7 @@ function GameStoreMain(props) {
                 <div className="sale-slider">
                     {displayedGames.map((game, index) => (
                         <div key={index} className="sale-item">
-                            <img onClick={toggleGameDetails} src={game.image} alt={game.name} className="sale-image" />
+                            <img onClick={toggleGameDetails} src={game.image} alt={game.name} className="sale-image" style={{ width: '213.333px' }}/>
                             <div className="sale-info">
                                 <h3 onClick={toggleGameDetails} className="game-name">{game.name}</h3>
                                 <p className="original-price">{game.originalPrice}</p>
