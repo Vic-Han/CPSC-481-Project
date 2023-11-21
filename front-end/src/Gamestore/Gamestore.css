@@ -283,6 +283,7 @@
     background-color: rgba(62, 61, 117, 0.24); 
     color: white;
     min-width: 250px;
+    max-width: 250px;
     height: 370px; 
     padding: 20px;
     box-sizing: border-box; 
@@ -306,9 +307,12 @@
 
 
 .sale-image {
-    height: 120px; 
+    min-height: 120px;
+    max-height: 120px; 
     object-fit: cover; 
     border-radius: 5px;
+    min-width: 213.333px;
+    max-width: 213.333px;
 }
 .sale-info {
     text-align: center;
@@ -382,4 +386,13 @@
 
 .RG-Title{
     margin-top: 2px;
+}
+
+.game-name-display:hover, .game-name:hover{
+    color: #7E82DF
+    ;
+}
+
+.RG-Title:hover{
+    color: white;
 }

@@ -1,12 +1,12 @@
-import {react, useState} from "react"
+import React, { useState, useEffect } from 'react';
 import './GameDetails.css'
 function GameDetails(props){
-    const toggleMainPage = props.toggleMainPage
+    const toggleGameStore = props.toggleGameStore;
     return(
         <div>
             <h1>Game Details (three kingdoms)</h1>
-            <button onClick={toggleMainPage}> go back to gamestore page</button>
+            <button onClick={toggleGameStore}> go back to gamestore page</button>
         </div>
     )
 }
-export default GameDetails
+export default GameDetails;
