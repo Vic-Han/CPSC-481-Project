@@ -1,0 +1,220 @@
+*{
+    font-family: Kanit, sans-serif;
+}
+.game-detail {
+    width: 1920px;
+    height: 1080px;
+    margin: 0 auto;
+    overflow: auto;
+    position: relative;
+    
+}
+
+@media (max-width: 1920px) {
+    .game-detail {
+        width: 100%;
+        height: auto;
+        min-height: 1080px;
+    }
+}
+
+.TW3K_Title {
+    margin-top: 40px;
+    margin-left: 86px;
+    margin-bottom: 20px;
+    font-size: 45px;
+    color: #7E82DF;
+
+}
+
+.Game_Slides {
+    position: relative;
+    align-items: left;
+}
+
+.Slide_Images {
+    width: 1020.1px;
+    height: 600.748px;
+    margin-left: 86px;
+    border-radius: 40px;
+    flex-shrink: 0;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.Slide_Images.fade {
+    opacity: 0;
+}
+
+
+.Image_Prev,
+.Image_Next {
+    background-color: transparent;
+    color: #7E82DF;
+    cursor: pointer;
+    width: auto;
+    padding: 16px;
+    color: #7E82DF;
+    font-weight: bold;
+    font-size: 50px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    z-index: 1;
+    margin-top: 250px;
+}
+
+.Image_Next {
+    position: absolute;
+    left: 1047px;
+    border-radius: 3px 0 0 3px;
+}
+
+.Image_Prev {
+    position: absolute;
+    left: 85px;
+    border-radius: 3px 0 0 3px;
+}
+
+
+.Image_Prev:hover,
+.Image_Next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.TagsC {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.TagsR {
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+}
+
+.Tag1,
+.Tag2,
+.Tag3 {
+    color: white;
+    font-size: 8px;
+    font-weight: bold;
+    background-color: #7E82DF;
+}
+
+.Tag1 {
+    margin-left: 100px;
+    padding: 15px 10px 0px 10px;
+    border-radius: 50px 50px 50px 50px;
+    margin-top: 15px;
+}
+
+.Tag2 {
+    margin-left: 20px;
+    padding: 15px 10px 0px 10px;
+    border-radius: 50px 50px 50px 50px;
+    margin-top: 15px;
+}
+
+
+.Tag3 {
+    margin-left: 20px;
+    padding: 15px 10px 0px 10px;
+    border-radius: 50px 50px 50px 50px;
+    margin-top: 15px;
+}
+
+.TagName {
+    margin: 0px;
+}
+
+.PC_Logo {
+    margin-left: 440px;
+    margin-top: 19.5px;
+}
+
+.Game_Description {
+    font-size: 20px;
+    font-family: Kanit, sans-serif;
+    color: white;
+    margin-left: 100px;
+    width: 1000px;
+    line-height: 150%;
+}
+
+.dots-container2 {
+    display: flex;
+    justify-content: center; /* Centers the dots horizontally */
+    align-items: center; /* Centers the dots vertically if needed */
+    padding: 10px 0 10px 0;
+    width: fit-content; /* Adjust the width of the container to fit its content */
+    margin: auto;
+}
+
+.dot2 {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 5px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.dot2.active {
+    background-color: #000000;
+}
+
+.show {
+    display: block;
+}
+
+
+.Review_Button{
+    transition: 0.5s ease;
+}
+.Review1{
+    margin-top: 200px;
+    margin-left: 85px;
+    color: #ffffff;
+    width: 985px;
+    background-color: #7E82DF;
+    padding: 15px 15px 15px 15px;
+    border-radius: 8px;
+    font-size: 20px;
+}
+
+.Review2{
+    margin-left: 85px;
+    color: #ffffff;
+    width: 985px;
+    background-color: #7E82DF;
+    padding: 15px 15px 15px 15px;
+    border-radius: 8px;
+    font-size: 20px;
+}
+
+.Review3{
+    margin-left: 85px;
+    color: #ffffff;
+    width: 985px;
+    background-color: #7E82DF;
+    padding: 15px 15px 15px 15px;
+    border-radius: 8px;
+    font-size: 20px;
+}
+
+
+.Review_Button {
+    position: absolute;
+    margin-top: 25px; /* Adjust as needed */
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 25px;
+    font-family: Kanit, sans-serif;
+    font-weight: bold;
+    z-index: 2;
+    font-size: 20px;
+}

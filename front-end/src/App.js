@@ -13,12 +13,13 @@ import RegisterOverLay from './Login-Register/RegisterOverLay.jsx'
 import NewPostOverLay from './Posts/NewPostOverLay';
 import DMOverLay from './DM/DMOverLay';
 import SearchResults from './Search/SearchResults';
-import Gamestore from './Gamestore/Gamestore';
+import GameStore from './Gamestore/Gamestore.jsx';
 import MyProfile from './Profile/MyProfile.jsx';
 import OtherProfile from "./Profile/OtherProfile.jsx";
 import ExpandedPost from "./Posts/ExpandedPost.jsx";
 import ExpandedArticle from "./Posts/ExpandedArticle.jsx";
 import PostPreview from "./Posts/PostPreview.jsx";
+import GameDetails from "./Gamestore/GameDetails.jsx";
 function App() {
 
   const [data, setData] = useState({
@@ -34,7 +35,6 @@ function App() {
     toggleNewPost: showNewPostOverLay,
     toggleSearchPage : showSearchScreen,
     toggleProfile: showProfile,
-
     toggleGameStore: showGameStore,
     toggleDM: showDMOverLay,
   }
@@ -78,9 +78,13 @@ function App() {
     hideAllOverLays()
     setNewPost(true)
   }
-
+  
   function showGameStore() {
-    setMainScreen(<Gamestore></Gamestore>)
+    setMainScreen(<GameStore toggleGameDetails={showGameDetails} />);
+}
+
+  function showGameDetails() {
+    setMainScreen(<GameDetails toggleGameStore={showGameStore} />);
   }
 
   function showSearchScreen() {

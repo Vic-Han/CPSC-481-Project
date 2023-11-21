@@ -50,7 +50,7 @@
     color: #7E82DF;
     border: 2px solid #7E82DF;
     width: 1021px;
-    margin-left: 86px;
+    margin-left: 50px;
     margin-right: 0px;
     margin-bottom: 20px;
     background-color: rgb(62, 61, 117, 0.24);
@@ -78,7 +78,7 @@
     font-size: 50px;
     transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
-    z-index: 10;
+    z-index: 1;
 }
 
 .next {
@@ -283,6 +283,7 @@
     background-color: rgba(62, 61, 117, 0.24); 
     color: white;
     min-width: 250px;
+    max-width: 250px;
     height: 370px; 
     padding: 20px;
     box-sizing: border-box; 
@@ -306,9 +307,11 @@
 
 
 .sale-image {
-    height: 120px; 
+    min-height: 120px;
+    max-height: 120px; 
     object-fit: cover; 
     border-radius: 5px;
+    max-width: 213.333px;
 }
 .sale-info {
     text-align: center;
@@ -382,4 +385,13 @@
 
 .RG-Title{
     margin-top: 2px;
+}
+
+.game-name-display:hover, .game-name:hover{
+    color: #7E82DF
+    ;
+}
+
+.RG-Title:hover{
+    color: white;
 }
