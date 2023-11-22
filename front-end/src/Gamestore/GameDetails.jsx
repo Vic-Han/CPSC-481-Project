@@ -62,7 +62,6 @@ function GameDetails(props) {
 
     return (
         <div className='game-detail'>
-            <button> go back to gamestore page</button>
             <div className='main-content'>
                 <div className="Game_Slides">
                     <h1 className='TW3K_Title'>Total War: Three Kingdoms</h1>
