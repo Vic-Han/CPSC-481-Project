@@ -233,6 +233,7 @@
     width: 150px;
     height: 150px;
     border-radius: 8px;
+    cursor: pointer;
 }
 
 .Right-Side1 {
@@ -312,6 +313,7 @@
     object-fit: cover; 
     border-radius: 5px;
     max-width: 213.333px;
+    cursor: pointer;
 }
 .sale-info {
     text-align: center;
@@ -385,11 +387,12 @@
 
 .RG-Title{
     margin-top: 2px;
+    cursor: pointer;
 }
 
 .game-name-display:hover, .game-name:hover{
-    color: #7E82DF
-    ;
+    color: #7E82DF;
+    cursor: pointer;
 }
 
 .RG-Title:hover{
