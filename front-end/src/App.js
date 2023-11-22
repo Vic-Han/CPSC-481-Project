@@ -56,6 +56,21 @@ function App() {
     setConfirmDraft(false)
   }
 
+  function hideAllPostOverlays() {
+    setNewPost(false);
+    setPreviewPost(false);
+  }
+
+  function resetData() {
+    setData({
+      Title: "",
+      Description: "",
+      Tags: [],
+      UnusedTags: Tags,
+      Files: []
+    });
+  }
+
   function showHomePage() {
     hideAllOverLays()
     setNavBar(<Navbar clickHandlers = {navbarClickHandlers}/>)
@@ -115,7 +130,7 @@ function App() {
       {register ? <RegisterOverLay loginEvent = {showLogin} cancelEvent={hideAllOverLays}/> : null}
       {newPost ? <NewPostOverLay close={hideAllOverLays} data={data} setData={setData} showPostPreview={showPostPreview}/> : null}
       {DM ? <DMOverLay closeEvent ={hideAllOverLays} close ={hideAllOverLays}/> : null}
-      {previewPost ? <PostPreview back = {showNewPostOverLay} data={data}/>: null}
+      {previewPost ? <PostPreview back = {showNewPostOverLay} data={data} resetData={resetData} hidePosts={hideAllPostOverlays}/>: null}
       {navBar}
       {mainScreen}
     </div> 

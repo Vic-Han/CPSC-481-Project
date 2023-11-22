@@ -7,14 +7,20 @@ function PostPreview(props) {
   const d = new Date();
   const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
+  const handlePost = () => {
+    if (data.Title === "" || data.Description === "") alert("Please Fill out all the fields");
+    else {
+      props.resetData();
+      props.hidePosts();
+    }
+  }
+
   const Description = () => {
     let inside = false;
     let htmlCode = [];
     let tempFileName = "";
     let tempText = "";
     let tempImg;
-
-    console.log(data.Files);
 
     for (let i = 0; i < data.Description.length; i++) {
       if (data.Description.charAt(i) === "`" || inside) {
@@ -24,7 +30,7 @@ function PostPreview(props) {
             if (data.Files[j].name === tempFileName) {
               htmlCode.push(tempText);
               tempText = "";
-              tempImg = <img className="preview_img" key={i} src={data.Files[j].URL}/>;
+              tempImg = <img alt="post_img" className="preview_img" key={i} src={data.Files[j].URL}/>;
               htmlCode.push(tempImg);
               tempFileName = "";
             }
@@ -36,6 +42,7 @@ function PostPreview(props) {
         tempText += data.Description.charAt(i);
       }
     }
+    htmlCode.push(tempText);
     return <p className='preview_text'>{htmlCode}</p>;
   }
 
@@ -70,7 +77,7 @@ function PostPreview(props) {
           <Description/>
         </div>
         <div className='preview_post_btn'>
-          <button className='txt_btn'>Post</button>
+          <button className='txt_btn' onClick={handlePost}>Post</button>
         </div>
       </div>
     </>
