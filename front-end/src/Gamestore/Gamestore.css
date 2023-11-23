@@ -109,7 +109,13 @@
 .Slides {
     margin-top: 30px;
 }
-
+.top-container,.main-content,.main-content2,.Space{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1860px;
+}
+.main_d
 .Space {
     margin-bottom: 70px;
 }
