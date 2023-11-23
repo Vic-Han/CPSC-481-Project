@@ -12,10 +12,10 @@ function LoginOverLay(props) {
               <div className='main-title-login'>Log In</div>
               <div className='cancel-login-button' onClick={cancelEvent}>x</div>
               <label className='input-label-login'>Username</label>
-              <input className='login-input'></input>
+              <input type = "text" className='login-input'></input>
               <div className='forgot-label-login'>Forgot Username?</div>
               <label className='input-label-login'>Password</label>
-              <input className='login-input'></input>
+              <input type = "password"className='login-input'></input>
               <div className='forgot-label-login'>Forgot Password?</div>
               <button onClick={loginEvent} className='login-button'>Login</button>
             </div>
