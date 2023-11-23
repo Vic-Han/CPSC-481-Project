@@ -8,7 +8,10 @@ import user4 from '../assets/Person4.png'
 import user5 from '../assets/Person5.png'
 import user6 from '../assets/Person6.png'
 import user7 from '../assets/Person7.png'
+import user8 from '../assets/Person8.png'
 
+
+import basicpfp from '../assets/basicpfp.png'
 
 
 function Messages(props) {
@@ -133,24 +136,24 @@ function UserList({ users }) {
       displayName: 'ZarakiTheGoat',
     },
     {
-      profilePic: user2,
-      username: 'user2',
-      displayName: 'User Two',
+      profilePic: basicpfp,
+      username: 'Zara Ursa',
+      displayName: 'zara_ursa455',
     },
     {
-        profilePic: user2,
-        username: 'user2',
-        displayName: 'User Two',
+        profilePic: user1,
+        username: 'Zarz Gamez',
+        displayName: 'zarzxgamez_',
       },
       {
-        profilePic: user2,
-        username: 'user2',
-        displayName: 'User Two',
+        profilePic: user3,
+        username: 'Zaraki Ken',
+        displayName: 'zaraki1232Kenpashi',
       },   
        {
-        profilePic: user2,
-        username: 'user2',
-        displayName: 'User Two',
+        profilePic: user8,
+        username: 'Zarz Park',
+        displayName: 'zarzxparky',
       },
 
   ];
