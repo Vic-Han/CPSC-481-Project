@@ -5,11 +5,67 @@
     height: 100vh;
     z-index: 9999;
 }
-.popup_contents{
+.popup_contents-following{
     position: fixed;
-    width: 50vw;
-    left: 25vw;
-    top: 200px;
+    width:440px;
+    left: 640px;
+    height: 480px;
+    top: 100px;
     z-index: 10000;
-    background-color: rgb(4, 12, 122)
+    background-color: #33344A;
+    border-radius: 25px;
+    border: solid #6E72CF 3px;
+}
+.close-following-button{
+    position: absolute;
+    width: 35px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    border: solid #fff 3px;
+    font-size: 24px;
+    text-align: center;
+    color: #fff;
+    left: 382px;
+    top: 10px;
+    cursor: pointer;
+}
+.following-overlay-title{
+    position: relative;
+    width: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 30px;
+    text-align: center;
+    color: #fff;
+}
+.following-person{
+    border-top: solid #6E72CF 2px;
+    display: grid;
+    grid-template-columns: 80px 280px 100px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 12px;
+}
+.following-person-img{
+    width : 55px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+
+}
+.username-fullname-container-following{
+    display: flex;
+    flex-direction: column;
+}
+.following-person-fullname{
+    color: #fff;
+    font-size: 25px;
+}
+.following-person-username{
+    margin-top: 3px;
+    font-size: 18px;
+    color: #fff;
+}
+.remove-following{
+    font-size: 16px;
+    color: #fff;
 }

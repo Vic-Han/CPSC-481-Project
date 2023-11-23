@@ -14,8 +14,8 @@ function MyProfile(props){
       <div>My Profile</div>
       <button onClick={showFollower}> See followers list</button>
       <button onClick={showFollowing}> See following list</button>
-      {follower ? <FollowerOverLay close ={hideFollower}/>: null}
-      {following ? <FollowingOverLay close ={hideFollowing}/>: null}
+      {follower ? <FollowerOverLay close ={hideFollower} viewSelf = {true}/>: null}
+      {following ? <FollowingOverLay close ={hideFollowing} viewSelf = {true}/>: null}
       </>
     )
 }
