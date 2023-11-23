@@ -1,20 +1,85 @@
-import './NewPostOverLay.css'
-// Not sure if you wanna use a different css file since they are so similar
+import './PostPreview.css'
+
 function PostPreview(props) {
-  const cancelEvent = props.close
+  const back = props.back;
+  const data = props.data;
+
+  const d = new Date();
+  const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+  const handlePost = () => {
+    if (data.Title === "" || data.Description === "") alert("Please Fill out all the fields");
+    else {
+      props.resetData();
+      props.hidePosts();
+    }
+  }
+
+  const Description = () => {
+    let inside = false;
+    let htmlCode = [];
+    let tempFileName = "";
+    let tempText = "";
+    let tempImg;
+
+    for (let i = 0; i < data.Description.length; i++) {
+      if (data.Description.charAt(i) === "`" || inside) {
+        if (data.Description.charAt(i) === "`") inside = !inside;
+        if (data.Description.charAt(i) === "`" && !inside) {
+          for (let j = 0; j < data.Files.length; j++) {
+            if (data.Files[j].name === tempFileName) {
+              htmlCode.push(tempText);
+              tempText = "";
+              tempImg = <img alt="post_img" className="preview_img" key={i} src={data.Files[j].URL}/>;
+              htmlCode.push(tempImg);
+              tempFileName = "";
+            }
+          }
+        } else if (data.Description.charAt(i) !== "`") {
+          tempFileName += data.Description.charAt(i);
+        }
+      } else {
+        tempText += data.Description.charAt(i);
+      }
+    }
+    htmlCode.push(tempText);
+    return <p className='preview_text'>{htmlCode}</p>;
+  }
+
   return (
     <>
-      <div className='invis_layer'></div>
+      <div id='invis_layer'></div>
       <div className='post_overlay'>
-      <div className='info_section'>
-          <p>New Post</p>
-          <button className='close_btn btn' onClick={cancelEvent}></button>
+        <div className='preview_info'>
+          <button className='back_btn btn' onClick={back}></button>
+          <p>Preview</p>
         </div>
-            <button className='save_btn txt_btn'>Save Draft</button>
-            <button className='post_btn txt_btn' onClick={cancelEvent}>Post</button>
+        <div className='preview_post'>
+          <div className='preview_post_title'>
+            <p>{data.Title}</p>
+            <button></button>
           </div>
-      
-   
+          <div className='preview_post_author'>
+            <div className='preview_post_author_left'>
+              <p className='author_name'>AuthorName</p>
+              <p className='author_date'>{` | ${months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`}</p>
+            </div>
+            <ul className='preview_tags'>
+              {data.Tags.slice(0,3).map((tag, i) => (
+                <li key={i}>
+                  <button>{tag}</button>
+                </li>
+              ))}
+              {(data.Tags.length > 3) ? <li>+ {data.Tags.length - 3} more</li> : <li></li>}
+            </ul>
+          </div>
+          <div className='line'></div>
+          <Description/>
+        </div>
+        <div className='preview_post_btn'>
+          <button className='txt_btn' onClick={handlePost}>Post</button>
+        </div>
+      </div>
     </>
   );
 }

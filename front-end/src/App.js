@@ -1,4 +1,5 @@
-import {React, useState, useEffect} from "react"
+import {React, useState, useEffect} from "react";
+import { Tags } from './Posts/Tags.js';
 
 import LoggedOutHomepage from './Hompage/LoggedOutHompage';
 import Homepage from './Hompage/Homepage';
@@ -12,19 +13,28 @@ import RegisterOverLay from './Login-Register/RegisterOverLay.jsx'
 import NewPostOverLay from './Posts/NewPostOverLay';
 import DMOverLay from './DM/DMOverLay';
 import SearchResults from './Search/SearchResults';
-import Gamestore from './Gamestore/Gamestore';
+import GameStore from './Gamestore/Gamestore.jsx';
 import MyProfile from './Profile/MyProfile.jsx';
 import OtherProfile from "./Profile/OtherProfile.jsx";
 import ExpandedPost from "./Posts/ExpandedPost.jsx";
 import ExpandedArticle from "./Posts/ExpandedArticle.jsx";
 import PostPreview from "./Posts/PostPreview.jsx";
+import GameDetails from "./Gamestore/GameDetails.jsx";
 function App() {
+
+  const [data, setData] = useState({
+    Title: "",
+    Description: "",
+    Tags: [],
+    UnusedTags: Tags,
+    Files: []
+  });
+
   const navbarClickHandlers = {
     toggleHomePage: showHomePage,
     toggleNewPost: showNewPostOverLay,
     toggleSearchPage : showSearchScreen,
     toggleProfile: showProfile,
-
     toggleGameStore: showGameStore,
     toggleDM: showDMOverLay,
   }
@@ -44,6 +54,21 @@ function App() {
     setDM(false)
     setPreviewPost(false)
     setConfirmDraft(false)
+  }
+
+  function hideAllPostOverlays() {
+    setNewPost(false);
+    setPreviewPost(false);
+  }
+
+  function resetData() {
+    setData({
+      Title: "",
+      Description: "",
+      Tags: [],
+      UnusedTags: Tags,
+      Files: []
+    });
   }
 
   function showHomePage() {
@@ -68,9 +93,13 @@ function App() {
     hideAllOverLays()
     setNewPost(true)
   }
-
+  
   function showGameStore() {
-    setMainScreen(<Gamestore></Gamestore>)
+    setMainScreen(<GameStore toggleGameDetails={showGameDetails} />);
+}
+
+  function showGameDetails() {
+    setMainScreen(<GameDetails toggleGameStore={showGameStore} />);
   }
 
   function showSearchScreen() {
@@ -102,10 +131,10 @@ function App() {
   return (
     <div>
       {login ? <LoginOverLay loginEvent = {showHomePage} registerEvent ={showRegister} cancelEvent = {hideAllOverLays}/> : null}
-      {register ? <RegisterOverLay loginEvent = {showLogin} cancelEvent={hideAllOverLays}/> : null}
-      {newPost ? <NewPostOverLay close = {hideAllOverLays} previewPost ={showPostPreview}/> : null}
+      {register ? <RegisterOverLay loginEvent = {showLogin} cancelEvent={hideAllOverLays} registerEvent = {showHomePage}/> : null}
+      {newPost ? <NewPostOverLay close={hideAllOverLays} data={data} setData={setData} showPostPreview={showPostPreview}/> : null}
       {DM ? <DMOverLay closeEvent ={hideAllOverLays} close ={hideAllOverLays}/> : null}
-      {previewPost ? <PostPreview close = {hideAllOverLays}/>: null}
+      {previewPost ? <PostPreview back = {showNewPostOverLay} data={data} resetData={resetData} hidePosts={hideAllPostOverlays}/>: null}
       {navBar}
       {mainScreen}
     </div> 
