@@ -283,6 +283,8 @@
     background-color:#7E82DF;
     color: #fff;
 
+    overflow: auto;
+
   }
   
   #kenpfp{
