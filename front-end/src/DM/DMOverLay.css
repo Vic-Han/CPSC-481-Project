@@ -9,9 +9,8 @@
     background: var(--Elements, #33344A);
     overflow: auto;
 
-
     margin-left: 78%;
-    margin-top: 110px;
+    margin-top: 150px;
     padding: 10px;
 
 }
@@ -20,6 +19,8 @@
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+    text-align: center;
+
 
 }
 
@@ -33,7 +34,6 @@
     padding-top: 20px;
     padding-bottom: 20px;
 
-
 }
 
 .users_idf{
@@ -43,21 +43,14 @@
 }
 
 #txt_field{
-    height: 35px;
-    width: 90%;
+    height: 15px;
+    width: 82%;
     border-radius: 8px;
     background: var(--Highlights, #7E82DF);
     border: none;
-
-    font-size: 20px;
-
-
+    margin: auto;
 }
 
-.msg_header{
-    display: flex;
-    text-align: center;
-}
 
 #inbox_style{
     color: var(--Highlights, #7E82DF);
@@ -216,10 +209,99 @@
     line-height: normal;
 
     margin: auto;
-
-
-
-
 }
 
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+    margin-left: 2px;
+    margin-right: 0px;
+    margin: auto;
 
+  }
+  
+  .chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+  }
+  
+  .user-message {
+    background-color: #7E82DF;
+    color: #fff;
+    border-radius: 10px;
+    max-width: 70%;
+    padding: 10px;
+    margin-bottom: 8px;
+    margin-left: 100px;
+    word-wrap: break-word;
+
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+
+  }
+  
+  /* not being used at the moment 
+  .other-message {
+    align-self: flex-start;
+    background-color: #DDDDF5;
+    color: #ffffff;
+    border-radius: 10px;
+    max-width: 70%;
+    padding: 10px;
+    margin-bottom: 8px;
+    word-wrap: break-word;
+  }
+  */
+
+  .chat-input {
+    display: flex;
+    margin-top: 10px;
+    align-items: flex-end; /* Align items to the bottom */
+  }
+
+  #send_msg{
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    left: 340px;
+    top: 710px;
+
+    background-image: url(../assets/SendMsg_icon.png);
+    background-color: #7E82DF;
+    border: none;
+  }
+  
+  input {
+    flex: 1;
+    padding: 15px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color:#7E82DF;
+    color: #fff;
+
+    overflow: auto;
+
+  }
+  
+  #kenpfp{
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    border: 2px solid var(--Highlights, #7E82DF);
+
+    background-color: #33344A;
+
+  }
+
+  #msg_header2{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    border-bottom: 2px solid var(--Highlights, #7E82DF);
+
+  }
