@@ -97,14 +97,42 @@ function NewMessage(props) {
 }
 function Messaging(props) {
     const back = props.back
+    const [messages, setMessages] = useState([]);
+    const [newMessage, setNewMessage] = useState('');
+  
+    const handleSendMessage = () => {
+      if (newMessage.trim() !== '') {
+        setMessages([...messages, { text: newMessage, sender: 'user' }]);
+        setNewMessage('');
+      }
+    };
+
     return (
         <div>
-            <header>
+            <header id='msg_header2'>
+                <img id='kenpfp' src={Kenpachipfp} alt="Profile" />
+                <p id='inbox_style'>Kenpachi</p>
                 <button id='back_btn' onClick={back}></button>   
             </header>
-            
-            <div> DM with Zaraki</div>
 
+            <div className="chat-container">
+                <div className="chat-messages">
+                    {messages.map((message, index) => (
+                    <div key={index} className={message.sender === 'user' ? 'user-message' : 'other-message'}>
+                        {message.text}
+                    </div>
+                    ))}
+                </div>
+                <div className="chat-input">
+                    <input
+                    type="text"
+                    placeholder="Type your message..."
+                    value={newMessage}
+                    onChange={(e) => setNewMessage(e.target.value)}
+                    />
+                    <button id = 'send_msg' onClick={handleSendMessage}></button>
+                </div>
+            </div>
         </div>
     )
 }
@@ -162,6 +190,7 @@ function UserList({ users }) {
 
 function DMOverLay(props) {
     const [display, setDisplay] = useState(<Messages newDM={showNewMessage} />)
+    
     function showMessages() {
         setDisplay(<Messages newDM={showNewMessage} />)
     }
