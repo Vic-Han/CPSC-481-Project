@@ -1,19 +1,38 @@
 import './DMOverLay.css';
 import { React, useState } from "react"
+import Kenpachipfp from '../assets/Zarakipfp.png'
+import user1 from '../assets/Person1.png'
+import user2 from '../assets/Person2.png'
+import user3 from '../assets/Person3.png'
+import user4 from '../assets/Person4.png'
+import user5 from '../assets/Person5.png'
+import user6 from '../assets/Person6.png'
+import user7 from '../assets/Person7.png'
+
+
+
 function Messages(props) {
     const toggleNewDM = props.newDM
     const closePopup = props.closePopup
     const messagePeople = [{
-        username: "Zaraki",
+        profilePic: user4,
+        username: "Kenneth Longbottom",
+        chat: 'Yea, that was hype'
     },
     {
-        username: "Chad",
+        profilePic: user5,
+        username: "Chad Faxmachine",
+        chat: 'You seen that Barbie movie yet?'
     }]
     const requestPeople = [{
-        username: "Sally",
+        profilePic: user6,
+        username: "Sally Williams",
+        chat: 'Hello, my name is Sally Williams...'
     },
     {
-        username: "Barbie",
+        profilePic: user7,
+        username: "Tyler “Ninja” Blevins",
+        chat: 'Hey, I saw your clip, would you lik...'
     }]
     const [users, setUsers] = useState(messagePeople)
     const setMessages = () => {
@@ -38,11 +57,17 @@ function Messages(props) {
 
 
             <div className = 'users_idf' >
-            {users.map((person, index) => (
-                    <div>{person.username}</div>
-                ))}
+                {users.map((person, index) => (                    
+                        <div key={index} className="user_profile">
+                            <img className='user_pfp' src={person.profilePic} alt="Profile" />
+                            <div>
+                                <p id='usr_name'>{person.username}</p>
+                                <p id='dp_name'> {person.chat}</p>                            
+                            </div>
 
-                will change this function, probably...
+                        </div>
+                    ))}
+
             </div>
         </>
     )
@@ -61,11 +86,9 @@ function NewMessage(props) {
             <input id = 'txt_field' type="text" placeholder="Search"></input>
         </div>
 
-        <div>
+        <div onClick={toggleDM}>
             <UserList users={userListData} />
         </div>
-
-        <button onClick={toggleDM}> See DM with Zaraki</button>
 
     </div>)
 }
@@ -89,8 +112,8 @@ function UserList({ users }) {
         <div key={index} className="user_profile">
           <img className='user_pfp' src={user.profilePic} alt="Profile" />
           <div>
-            <p id='usr_name'>Username: {user.username}</p>
-            <p id='Dp_name'>Display Name: {user.displayName}</p>
+            <p id='usr_name'>{user.username}</p>
+            <p id='dp_name'>{user.displayName}</p>
           </div>
         </div>
       ));
@@ -105,16 +128,31 @@ function UserList({ users }) {
   
   const userListData = [
     {
-    //place holder 
-      profilePic: 'https://s3-alpha-sig.figma.com/img/dbe6/4d1c/ba64d72b3a554895fdd2547029d9946e?Expires=1701043200&Signature=Ey9nZaGvTd0AebDvufQUJJcjD7cJVAntfHep9yx7nF9fwUoa368TIkqtP601uSSW4FtOt3Pj8SsXyhCflRRckN4m4bUe5ukgu5o7UUHPThVNIlmXK444rvXW1sj28ET17xCtEa73QcBcl9TlBkQcvXmMQRRK-b~gIZ7SZyWd0yOhWwcDn8TZQGfeQ33rqAcq8yUUfctddbsUxlWEYvy~MqZHA9YP3ixmOb9X939bCOecg--kVcPxaXZcO~Hs0Vj1Vju1kVmQyy2cX5VE6S9lD~7FdOZixPVpkTnsYCBPJcYkB3Qvz1vPnUAXzrHeFwubElHGG9O2KdnBv6Q4FhGqMA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',  
+      profilePic: Kenpachipfp,  
       username: 'Zaraki Kenpachi',
       displayName: 'ZarakiTheGoat',
     },
     {
-      profilePic: '../assets/Person1.png',
+      profilePic: user2,
       username: 'user2',
       displayName: 'User Two',
     },
+    {
+        profilePic: user2,
+        username: 'user2',
+        displayName: 'User Two',
+      },
+      {
+        profilePic: user2,
+        username: 'user2',
+        displayName: 'User Two',
+      },   
+       {
+        profilePic: user2,
+        username: 'user2',
+        displayName: 'User Two',
+      },
+
   ];
   
 
