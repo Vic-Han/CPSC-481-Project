@@ -274,7 +274,8 @@
     border: none;
   }
   
-  input {
+  /* This is what I changed, previously 'input' */
+  .msg_type input, .chat-input input {
     flex: 1;
     padding: 15px;
     margin-right: 10px;
