@@ -5,11 +5,14 @@
     height: 100vh;
     z-index: 9999;
 }
-.popup_contents{
+.popup_contents-follower{
     position: fixed;
-    width: 50vw;
-    left: 25vw;
-    top: 200px;
+    width:440px;
+    left: 640px;
+    height: 420px;
+    top: 100px;
     z-index: 10000;
-    background-color: rgb(4, 12, 122)
+    background-color: #33344A;
+    border-radius: 25px;
+    border: solid #6E72CF 3px;
 }
