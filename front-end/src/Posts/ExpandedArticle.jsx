@@ -7,11 +7,11 @@ function ExpandedArticle(props) {
       <div className='article-overlay'>
         <div className='title-overlay'>
           <h1 className = 'title-text'>Viewership for CS2's first tier-one event wasn't spectacular, but there was plenty to blame</h1>
-          <img onClick={} src={} className='options-button' />
+          <button onClick={} className='options-button' />
         <div className="info-overlay">
           <h1 classname='author-date-text'>Carlito Smith | Oct 23, 2023</h1>
           <div className="tags">
-            <div className="tag1">
+            <div className="tag">
               <h1 className='tag-name'>Counter-Strike 2</h1>
             </div>
             </div>
@@ -34,28 +34,28 @@ But when the event rolled out, the numbers didn't quite stack up. Several factor
       </div>
       <div className='suggestion-overlay'>
         <h1 className='related-articles'>Related News Articles</h1>
-        <hr className='sug-line-space'></hr>
-        <div className='sug-article1'>
+        <hr className='line-space'></hr>
+        <div className='sug-article'>
           <h1 OnClick={} className='sug-article-title'><u>Saudi Prime Minister unveils</u></h1>
           <p className='sug-article-text'>Saudi Arabia is climbing up the ranks in the esports and games industry, making huge investments and hosting events that are...</p>
           <img src={} className='sug-article-image'></img>
-          <div className='tags'>
+          <div className='sug-tags'>
             <div className='tag'>
               <h1 className='tag-name'>E-Sports Events</h1>
             </div>
           </div>
         </div>
-        <hr className='sug-line-space'></hr>
-        <div className='sug-article2'>
+        <hr className='line-space'></hr>
+        <div className='sug-article'>
           <h1 OnClick={} className='sug-article-title'><u>Esports 2023: A Look at the Latest and Greatest Events on the Horizon</u></h1>
           <p className='sug-post-text'>The esports world is constantly evolving, and 2023 promises to be a thrilling year for gamers and enthusiasts. As we gear up for a slew...</p>
-          <div className='tags'>
+          <div className='sug-tags'>
             <div className='tag'>
               <h1 className='tag-name'>E-Sports</h1>
             </div>
           </div>
         </div>
-        <hr className='sug-line-space'></hr>
+        <hr className='line-space'></hr>
         <h1 OnClick={} className='load-more-btn'><u>Load More</u></h1>
       </div>
       <button onClick={back}>Go back to homepage</button>
