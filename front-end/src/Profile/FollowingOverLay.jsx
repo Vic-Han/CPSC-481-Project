@@ -37,6 +37,11 @@ function FollowingOverLay(props){
     }
     const defaultList = [person1,person2,person3,person4,person5]
     const [people, setPeople] = useState(defaultList)
+    const removePerson = (fullName) =>{
+        const removedList = people.filter(person => person.fullName !== fullName)
+        const newList = [...removedList, person6];
+        setPeople(newList)
+    }
     return(
         <div className='popup_overlay'>
         <div className='popup_contents-following'>
@@ -49,7 +54,7 @@ function FollowingOverLay(props){
                         <div className="following-person-fullname">{person.fullName}</div>
                         <div className="following-person-username">{person.userName}</div>
                     </div>
-                    {viewSelf ? <div className="remove-following">Remove</div> : null}
+                    {viewSelf ? <div className="remove-following" onClick={() => removePerson(person.fullName)}>Remove</div> : null}
                 </div>
             ))}
            
