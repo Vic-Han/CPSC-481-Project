@@ -15,7 +15,7 @@ import basicpfp from '../assets/basicpfp.png'
 //function for displaying Inbox items 
 function Messages(props) {
     const toggleNewDM = props.newDM
-    const closePopup = props.closePopup
+    const closePopup = props.close
     const messagePeople = [{
         profilePic: user4,
         username: "Kenneth Longbottom",
@@ -132,8 +132,9 @@ function NewMessage(props) {
     return (<div>
 
         <header className='msg_header'>
-            <h1 id='newMsgheader'>New Message</h1>
             <button id='back_btn' onClick={toggleDefault}> </button>
+            <h1 id='newMsgheader'>New Message</h1>
+            
         </header>
 
         <div className='msg_type'>
@@ -198,16 +199,17 @@ function Messaging(props) {
 
 
 function DMOverLay(props) {
-    const [display, setDisplay] = useState(<Messages newDM={showNewMessage} />)
-    
+    const close = props.close
+    const [display, setDisplay] = useState(<Messages newDM={showNewMessage} close = {close}/>)
+
     function showMessages() {
-        setDisplay(<Messages newDM={showNewMessage} />)
+        setDisplay(<Messages newDM={showNewMessage} close = {close}/>)
     }
     function showNewMessage() {
         setDisplay(<NewMessage displayDM={showMessaging} back={showMessages} />)
     }
     function showMessaging() {
-        setDisplay(<Messaging back={showNewMessage} />)
+        setDisplay(<Messaging back={showMessages} />)
     }
 
     return (
