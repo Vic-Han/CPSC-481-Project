@@ -11,7 +11,7 @@ import WarHammer3 from '../assets/TWW3.jpg';
 import HeartofIron4 from '../assets/HOI4.jpg';
 import TroyGame from '../assets/Troy.bmp';
 import AOE4 from '../assets/AOE4.bmp';
-
+import BackButtonStore from '../assets/BackButton.png';
 
 
 function GameDetails(props) {
@@ -64,7 +64,10 @@ function GameDetails(props) {
         <div className='game-detail'>
             <div className='main-content'>
                 <div className="Game_Slides">
-                    <h1 className='TW3K_Title'>Total War: Three Kingdoms</h1>
+                    <div className="title-container">
+                        <img onClick={toggleGameStore} src={BackButtonStore} className='GS_BackButton2' />
+                        <h1 className='TW3K_Title'>Total War: Three Kingdoms</h1>
+                    </div>
                     <img onClick={toggleGameDetails} className={`Slide_Images ${fade ? 'fade' : ''}`} src={slides[slideIndex]} alt="Game_Slides" />
                     <a className="Image_Prev" onClick={previousSlide}>&#10094;</a>
                     <a className="Image_Next" onClick={nextSlide}>&#10095;</a>
@@ -157,7 +160,7 @@ function GameDetails(props) {
                                     <div className='Buy_PC'>Buy on Steam  <img src={Redirect} className="Redirect_Img" alt="Redirect to Steam" /></div>
                                 </a>
                                 <a href="https://www.xbox.com/en-CA/games/store/total-war-three-kingdoms/9PJDSPZKQD6W" target="_blank" rel="noopener noreferrer" className='Buy_Link'>
-                                <div className="Buy_XBOX">Buy on Xbox <img src={Redirect} className="Redirect_Img" /></div>
+                                    <div className="Buy_XBOX">Buy on Xbox <img src={Redirect} className="Redirect_Img" /></div>
                                 </a>
                             </div>
                         </div>

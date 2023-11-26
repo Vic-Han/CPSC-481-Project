@@ -32,7 +32,8 @@
     border-color: #7E82DF;
     border-style: solid 1px;
     font: 400 24px Kanit, sans-serif;
-    margin-left: 200px;
+    margin-left: 320px;
+    margin-bottom: 20px;
 }
 
 .search-bar-container{
@@ -409,6 +410,26 @@
 .GS_BackButton{
     margin-left: 50px; /* Removes any margin on the left */
    transform: rotate(180deg);
-   margin-top: 41px;
-   
+   margin-top: 22px;
+}
+
+.GS_BackButton:hover{
+    cursor: pointer;
+    opacity: 0.4;
+}
+
+.GameSearch-Button{
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    top: 50px;
+    left: 1325px;
+    background-color: #7e82df;
+    background-image: url(../assets/Search.png);
+    border: none;
+}
+
+.GameSearch-Button:hover {
+    cursor: pointer;
+    opacity: 0.4;
 }

@@ -20,11 +20,13 @@ import theFinals from '../assets/theFinals.webp';
 import GTA5 from '../assets/GTA5.bmp';
 import Back_Button from '../assets/BackButton.png';
 
+
 function GameStoreMain(props) {
-    const toggleGameDetails = props.toggleGameDetails;
-    const toggleHomePage = props.clickHandlers.toggleHomePage2;
-    
-     // State for managing slide index and fade effect in the slider
+
+    const {toggleGameDetails, toggleGameSearch, toggleHomePage2} = props;
+    // const toggleHomePage = props.clickHandlers.toggleHomePage2;
+
+    // State for managing slide index and fade effect in the slider
     const [slideIndex, setSlideIndex] = useState(1);
     const [fade, setFade] = useState(false);
 
@@ -34,7 +36,7 @@ function GameStoreMain(props) {
     const gamePrice = ["$71.99 CAD", "Free", "Free"];
     const compatibility = [PC, PCXBOXPS, PCXBOXPS];
 
-     // Function to change slides with fade effect
+    // Function to change slides with fade effect
     const changeSlide = (newIndex) => {
         setFade(true);
         setTimeout(() => {
@@ -140,7 +142,7 @@ function GameStoreMain(props) {
     const totalPages = Math.ceil(saleGames.length / gamesToShow);
     const [currentPage, setCurrentPage] = useState(0);
 
-      // Functions for handling page navigation in sale games
+    // Functions for handling page navigation in sale games
     const handleNextClick = () => {
         setCurrentPage((prevPage) => (prevPage + 1) % totalPages);
     };
@@ -155,30 +157,37 @@ function GameStoreMain(props) {
         (currentPage + 1) * gamesToShow
     );
 
+    function handleSearch() {
+        const searchValue = document.querySelector(".search-bar").value;
+        toggleGameSearch(searchValue);
+      }
+      
+
     return (
         <div className="game-store">
-              {/* Search bar section */}
+            {/* Search bar section */}
             <div className="top-container">
-                    <div className="search-bar-container">
-                    <img  onClick={toggleHomePage} src={Back_Button} className="GS_BackButton"/>
-                    <input className="search-bar" type="text" placeholder="Search Games"></input>
-                    </div>
+                <div className="search-bar-container">
+                    <img onClick={toggleHomePage2} src={Back_Button} className="GS_BackButton" />
+                    <input className="search-bar" type="text" placeholder="Search Games" onKeyDown={e => e.key === 'Enter' && handleSearch()} />
+                    <button className='GameSearch-Button' onClick={handleSearch}></button>
+                </div>
             </div>
             <div className="Space"></div>
-             {/* Main content section */}
+            {/* Main content section */}
             <div className="main-content">
-                 {/* New releases slider */}
+                {/* New releases slider */}
                 <div className="new-releases-container">
-                     {/* ... New releases content */}
+                    {/* ... New releases content */}
                     <h1 className="new-releases-title">New Releases</h1>
 
                     <div className="Slides">
-                        <img onClick={toggleGameDetails} className={`image-slide ${fade ? 'fade' : ''}`} src={slides[slideIndex]} alt="Slide"/>
+                        <img onClick={toggleGameDetails} className={`image-slide ${fade ? 'fade' : ''}`} src={slides[slideIndex]} alt="Slide" />
                         <div className="dots-container">
                             {slides.map((_, idx) => (
-                                <span key={idx} 
-                                className={`dot ${slideIndex === idx ? 'active' : ''}`} 
-                                onClick={() => setSlideIndex(idx)}></span>
+                                <span key={idx}
+                                    className={`dot ${slideIndex === idx ? 'active' : ''}`}
+                                    onClick={() => setSlideIndex(idx)}></span>
                             ))}
                         </div>
                     </div>
@@ -199,12 +208,12 @@ function GameStoreMain(props) {
                         <span className="price-value">{gamePrice[slideIndex]}</span>
                     </div>
                 </div>
-                
-                 {/* Recommended games section */}
+
+                {/* Recommended games section */}
                 <div className="recommended-games-container">
                     <h2 className="recommended-games-title">Recommended Games</h2>
                     <div className="recommended-game">
-                        <img onClick={toggleGameDetails} src={MirageImage} alt="Assassin's Creed Mirage" className="game-image"/>
+                        <img onClick={toggleGameDetails} src={MirageImage} alt="Assassin's Creed Mirage" className="game-image" />
                         <div className="Right-Side1">
                             <h3 onClick={toggleGameDetails} className="RG-Title">Assassin's Creed Mirage</h3>
                             <p className="game-price">Price: $69.99 CAD</p>
@@ -212,9 +221,9 @@ function GameStoreMain(props) {
                         </div>
                     </div>
                     <div className="recommended-game">
-                     
-                        <img onClick={toggleGameDetails} src={SpiderMan2} alt="Marvel's Spider-Man 2" className="game-image"/>
-                       
+
+                        <img onClick={toggleGameDetails} src={SpiderMan2} alt="Marvel's Spider-Man 2" className="game-image" />
+
                         <div className="Right-Side2">
                             <h3 onClick={toggleGameDetails} className="RG-Title">Spider-Man 2</h3>
                             <p className="game-price">PC Price: $69.99 CAD</p>
@@ -238,13 +247,13 @@ function GameStoreMain(props) {
                 <div className="sale-slider">
                     {displayedGames.map((game, index) => (
                         <div key={index} className="sale-item">
-                            <img onClick={toggleGameDetails} src={game.image} alt={game.name} className="sale-image" style={{ width: '213.333px' }}/>
+                            <img onClick={toggleGameDetails} src={game.image} alt={game.name} className="sale-image" style={{ width: '213.333px' }} />
                             <div className="sale-info">
                                 <h3 onClick={toggleGameDetails} className="game-name">{game.name}</h3>
                                 <p className="original-price">{game.originalPrice}</p>
                                 <p className="sale-price">{game.salePrice}</p>
                                 <div className="discount">{game.discount}</div>
-                                <img onClick={toggleGameDetails} src={game.availability} className="availability"/>
+                                <img onClick={toggleGameDetails} src={game.availability} className="availability" />
                             </div>
                         </div>
                     ))}

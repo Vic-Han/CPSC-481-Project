@@ -1,13 +1,14 @@
-*{
+* {
     font-family: Kanit, sans-serif;
 }
+
 .game-detail {
     width: 1920px;
     height: 1080px;
     margin: 0 auto;
     overflow: auto;
     position: relative;
-    
+
 }
 
 @media (max-width: 1920px) {
@@ -23,6 +24,7 @@
     margin-bottom: 20px;
     font-size: 45px;
     color: #7E82DF;
+    position: relative;
 
 }
 
@@ -141,10 +143,10 @@
 
 .dots-container2 {
     display: flex;
-    justify-content: center; 
-    align-items: center; 
+    justify-content: center;
+    align-items: center;
     padding: 10px 0 10px 0;
-    width: fit-content; 
+    width: fit-content;
     margin: 0 auto;
 }
 
@@ -167,15 +169,17 @@
     display: block;
 }
 
-.Review_Button:hover, .More_Similar_Games:hover{
-    color: #7E82DF; 
+.Review_Button:hover,
+.More_Similar_Games:hover {
+    color: #7E82DF;
 }
-.Review_Button{
+
+.Review_Button {
     transition: 0.5s ease;
     cursor: pointer;
 }
 
-.Review1{
+.Review1 {
     margin-top: 145px;
     color: #ffffff;
     width: 985px;
@@ -185,7 +189,7 @@
     font-size: 20px;
 }
 
-.Review2{
+.Review2 {
     color: #ffffff;
     width: 985px;
     background-color: #37384F;
@@ -195,7 +199,7 @@
     margin-top: 34px;
 }
 
-.Review3{
+.Review3 {
     color: #ffffff;
     width: 985px;
     background-color: #37384F;
@@ -208,7 +212,7 @@
 
 .Review_Button {
     position: absolute;
-    margin-top: 25px; 
+    margin-top: 25px;
     background-color: transparent;
     color: white;
     border: none;
@@ -223,10 +227,10 @@
 
 .main-content {
     display: flex;
-    align-items: start; 
+    align-items: start;
 }
 
-.Rightside_Content{
+.Rightside_Content {
     margin-top: 112px;
     flex-grow: 1;
     margin-left: 30px;
@@ -234,8 +238,8 @@
     justify-content: flex-start;
 }
 
-.Buy_Container{
-    margin-top: 0px; 
+.Buy_Container {
+    margin-top: 0px;
     background-color: #37384F;
     padding: 10px 15px 10px 15px;
     border-radius: 20px;
@@ -244,60 +248,69 @@
     top: 20px;
 }
 
-.ButtonR{
+.ButtonR {
     display: flex;
     flex-direction: row;
     align-items: left;
 }
 
-.ButtonC{
+.ButtonC {
     display: flex;
     flex-direction: column;
     align-items: left;
 }
 
-.Buy_PC, .Buy_XBOX{
+.Buy_PC,
+.Buy_XBOX {
     background-color: #7E82DF;
     color: white;
     font-size: 24px;
     font-weight: bold;
     padding: 10px 20px 10px 20px;
     border-radius: 8px;
-    
+
 }
 
-.Buy_PC{
+.Buy_PC {
     margin-left: 45px;
 }
 
-.Buy_XBOX{
+.Buy_XBOX {
     margin-left: 20px;
 }
 
-.Line_Space{
-    height: 3px; /* Set the height of the line */
-    border: none; /* Remove any default border */
-    background-color: #7E82DF; /* Set the line color */
-    width: 100%; /* Set the line to take the full width of its container */
+.Line_Space {
+    height: 3px;
+    /* Set the height of the line */
+    border: none;
+    /* Remove any default border */
+    background-color: #7E82DF;
+    /* Set the line color */
+    width: 100%;
+    /* Set the line to take the full width of its container */
     margin-top: 10px;
 }
 
-.Line_Space2{
-    height: 3px; /* Set the height of the line */
-    border: none; /* Remove any default border */
-    background-color: #7E82DF; /* Set the line color */
-    width: 100%; /* Set the line to take the full width of its container */
+.Line_Space2 {
+    height: 3px;
+    /* Set the height of the line */
+    border: none;
+    /* Remove any default border */
+    background-color: #7E82DF;
+    /* Set the line color */
+    width: 100%;
+    /* Set the line to take the full width of its container */
     margin-top: 10px;
     margin-bottom: 20px;
 }
 
-.Rating{
+.Rating {
     color: #ffffff;
 }
 
-.Similar_Games_Container{
+.Similar_Games_Container {
     color: #7E82DF;
-    margin-top: 0px; 
+    margin-top: 0px;
     background-color: #37384F;
     padding: 10px 15px 10px 15px;
     border-radius: 20px;
@@ -305,15 +318,15 @@
     margin-left: 86px;
     top: 20px;
     margin-top: 80px;
-    display: flex; 
+    display: flex;
     flex-direction: column;
 }
 
-.Similar_Games_Title{
+.Similar_Games_Title {
     text-align: center;
 }
 
-.Similar_Game_Names{
+.Similar_Game_Names {
     color: white;
     text-decoration: underline;
     font-weight: lighter;
@@ -325,7 +338,7 @@
     cursor: pointer;
 }
 
-.Similar_Game_Names2{
+.Similar_Game_Names2 {
     color: white;
     text-decoration: underline;
     font-weight: lighter;
@@ -337,25 +350,50 @@
 }
 
 
-.WarHammer3, .HeartofIron4, .TroyGame, .AOE4{
+.WarHammer3,
+.HeartofIron4,
+.TroyGame,
+.AOE4 {
     width: 550px;
     margin: auto;
     cursor: pointer;
 }
 
-.More_Similar_Games{
+.More_Similar_Games {
     background-color: transparent;
     color: white;
     border: none;
     font-size: 25px;
     font-family: Kanit, sans-serif;
     font-weight: bold;
-    margin-top: 10px; 
+    margin-top: 10px;
     margin-bottom: 10px;
-    width: auto; 
+    width: auto;
     cursor: pointer;
 }
 
 .Buy_Link {
-    text-decoration: none; 
-  }
+    text-decoration: none;
+}
+
+
+.GS_BackButton2 {
+    margin-left: 0px;
+    margin-top: 19px;
+    margin-right: 20px;
+    height: auto;
+    /* Removes any margin on the left */
+    transform: rotate(180deg);
+    
+}
+
+.title-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.GS_BackButton2:hover{
+    cursor: pointer;
+    opacity: 0.4;
+}
