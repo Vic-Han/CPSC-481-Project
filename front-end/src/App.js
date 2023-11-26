@@ -40,7 +40,8 @@ function App() {
   }
 
   const gameStoreClickHandlers = {
-    toggleHomePage2: showHomePage2
+    toggleHomePage: showHomePage,
+    toggleGameDetails: showGameDetails
   }
 
 
@@ -52,7 +53,6 @@ function App() {
   const [DM, setDM] = useState(false)
   const [previewPost, setPreviewPost] = useState(false)
   const [confirmDraft, setConfirmDraft] = useState(false)
-  const [gs, setGameStore] = useState(<GameStore toggleGameDetails={showGameDetails}/>)
 
   function hideAllOverLays() {
     setLogin(false)
@@ -85,11 +85,6 @@ function App() {
     
   }
 
-  function showHomePage2(){
-    hideAllOverLays()
-    setGameStore(<GameStore clickHandlers = {gameStoreClickHandlers}/>)
-  }
-
   function showLogin() {
     hideAllOverLays()
     setLogin(true)
@@ -106,7 +101,7 @@ function App() {
   }
   
   function showGameStore() {
-    setMainScreen(<GameStore toggleGameDetails={showGameDetails} />);
+    setMainScreen(<GameStore clickHandlers = {gameStoreClickHandlers} />);
 }
 
   function showGameDetails() {
@@ -149,7 +144,6 @@ function App() {
       {previewPost ? <PostPreview back = {showNewPostOverLay} data={data} resetData={resetData} hidePosts={hideAllPostOverlays}/>: null}
       {navBar}
       {mainScreen}
-      {gs}
     </div> 
   );
 }
