@@ -22,7 +22,8 @@ import Back_Button from '../assets/BackButton.png';
 
 function GameStoreMain(props) {
     const toggleGameDetails = props.toggleGameDetails;
-    const toggleHomePage = props.backhome;
+    const toggleHomePage = props.clickHandlers.toggleHomePage2;
+    
      // State for managing slide index and fade effect in the slider
     const [slideIndex, setSlideIndex] = useState(1);
     const [fade, setFade] = useState(false);

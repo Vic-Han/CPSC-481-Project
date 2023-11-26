@@ -39,6 +39,11 @@ function App() {
     toggleDM: showDMOverLay,
   }
 
+  const gameStoreClickHandlers = {
+    toggleHomePage2: showHomePage2
+  }
+
+
   const [navBar, setNavBar] = useState(<LoggedOutNavbar loginEvent ={showLogin} registerEvent = {showRegister}/>)
   const [mainScreen, setMainScreen] = useState(<LoggedOutHomepage registerEvent2 = {showRegister}/>)
   const [login, setLogin] = useState(false)
@@ -47,6 +52,8 @@ function App() {
   const [DM, setDM] = useState(false)
   const [previewPost, setPreviewPost] = useState(false)
   const [confirmDraft, setConfirmDraft] = useState(false)
+  const [gs, setGameStore] = useState(<GameStore toggleGameDetails={showGameDetails}/>)
+
   function hideAllOverLays() {
     setLogin(false)
     setRegister(false)
@@ -74,9 +81,13 @@ function App() {
   function showHomePage() {
     hideAllOverLays()
     setNavBar(<Navbar clickHandlers = {navbarClickHandlers}/>)
-   
     setMainScreen(<Homepage togglePost = {showExpandedPost} toggleArticle = {showExpandedNewsArticle} toggleOtherProfile={showOtherProfile}/>)
     
+  }
+
+  function showHomePage2(){
+    hideAllOverLays()
+    setGameStore(<GameStore clickHandlers = {gameStoreClickHandlers}/>)
   }
 
   function showLogin() {
@@ -100,10 +111,6 @@ function App() {
 
   function showGameDetails() {
     setMainScreen(<GameDetails toggleGameStore={showGameStore} />);
-  }
-
-  function backHome () {
-    setMainScreen(<GameStore toggleGameStore={showHomePage} />);
   }
 
   function showSearchScreen() {
@@ -142,6 +149,7 @@ function App() {
       {previewPost ? <PostPreview back = {showNewPostOverLay} data={data} resetData={resetData} hidePosts={hideAllPostOverlays}/>: null}
       {navBar}
       {mainScreen}
+      {gs}
     </div> 
   );
 }
