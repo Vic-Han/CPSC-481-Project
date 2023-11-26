@@ -18,9 +18,11 @@ import mha from '../assets/mha.jpg';
 import GoT from '../assets/Tsushima.jpg';
 import theFinals from '../assets/theFinals.webp';
 import GTA5 from '../assets/GTA5.bmp';
+import Back_Button from '../assets/BackButton.png';
 
 function GameStoreMain(props) {
     const toggleGameDetails = props.toggleGameDetails;
+    const toggleHomePage = props.backhome;
      // State for managing slide index and fade effect in the slider
     const [slideIndex, setSlideIndex] = useState(1);
     const [fade, setFade] = useState(false);
@@ -156,9 +158,10 @@ function GameStoreMain(props) {
         <div className="game-store">
               {/* Search bar section */}
             <div className="top-container">
-                <div className="search-bar-container">
+                    <div className="search-bar-container">
+                    <img  onClick={toggleHomePage} src={Back_Button} className="GS_BackButton"/>
                     <input className="search-bar" type="text" placeholder="Search Games"></input>
-                </div>
+                    </div>
             </div>
             <div className="Space"></div>
              {/* Main content section */}

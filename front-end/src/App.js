@@ -102,6 +102,10 @@ function App() {
     setMainScreen(<GameDetails toggleGameStore={showGameStore} />);
   }
 
+  function backHome () {
+    setMainScreen(<GameStore toggleGameStore={showHomePage} />);
+  }
+
   function showSearchScreen() {
     setMainScreen(<SearchResults/>)
   }
@@ -128,6 +132,7 @@ function App() {
     setPreviewPost(true)
   }
   
+ 
   return (
     <div>
       {login ? <LoginOverLay loginEvent = {showHomePage} registerEvent ={showRegister} cancelEvent = {hideAllOverLays}/> : null}

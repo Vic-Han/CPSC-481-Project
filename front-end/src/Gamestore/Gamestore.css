@@ -28,17 +28,17 @@
     color: white;
     width: 950px;
     height: 50px;
-    align-items: center;
     border-radius: 8px;
     border-color: #7E82DF;
     border-style: solid 1px;
     font: 400 24px Kanit, sans-serif;
+    margin-left: 200px;
 }
 
-.search-bar-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.search-bar-container{
+        display: flex;
+        align-items: center; /* This will vertically center the children within the container */
+        justify-content: flex-start; /* This will align children items to the start of the container horizontally */
 }
 
 .search-bar-icon {
@@ -55,6 +55,7 @@
     margin-bottom: 20px;
     background-color: rgb(62, 61, 117, 0.24);
     position: relative;
+    margin-top: 0px;
 }
 
 .image-slide {
@@ -403,4 +404,11 @@
 
 .RG-Title:hover{
     color: white;
+}
+
+.GS_BackButton{
+    margin-left: 50px; /* Removes any margin on the left */
+   transform: rotate(180deg);
+   margin-top: 41px;
+   
 }
