@@ -424,7 +424,7 @@ function SearchGame(props) {
                                 <button className={`genre-button ${genreFilter === 'Fantasy' ? 'active-genre' : ''}`} onClick={() => applyGenreFilter('Fantasy')}>Fantasy</button>
                                 <button className={`genre-button ${genreFilter === 'Historical' ? 'active-genre' : ''}`} onClick={() => applyGenreFilter('Historical')}>Historical</button>
                                 <button className={`genre-button ${genreFilter === 'Racing' ? 'active-genre' : ''}`} onClick={() => applyGenreFilter('Racing')}>Racing</button>
-                                <button className={`genre-button ${genreFilter === 'SpoRPG' ? 'active-genre' : ''}`} onClick={() => applyGenreFilter('SpoRPG')}>SpoRPG</button>
+                                <button className={`genre-button ${genreFilter === 'Sport' ? 'active-genre' : ''}`} onClick={() => applyGenreFilter('Sport')}>Sport</button>
                                 <button className={`genre-button ${genreFilter === 'Horror' ? 'active-genre' : ''}`} onClick={() => applyGenreFilter('Horror')}>Horror</button>
                                 <button className={`genre-button ${genreFilter === 'Platformer' ? 'active-genre' : ''}`} onClick={() => applyGenreFilter('Platformer')}>Platformer</button>
                                 <button className={`genre-button ${genreFilter === 'Survival' ? 'active-genre' : ''}`} onClick={() => applyGenreFilter('Survival')}>Survival</button>
