@@ -1,7 +1,6 @@
 ::placeholder {
     color: rgb(255, 255, 255);
     opacity: 10;
-    /* Firefox */
 }
 
 .game-store {
@@ -38,8 +37,8 @@
 
 .search-bar-container{
         display: flex;
-        align-items: center; /* This will vertically center the children within the container */
-        justify-content: flex-start; /* This will align children items to the start of the container horizontally */
+        align-items: center; 
+        justify-content: flex-start;
 }
 
 .search-bar-icon {
@@ -408,7 +407,7 @@
 }
 
 .GS_BackButton{
-    margin-left: 50px; /* Removes any margin on the left */
+    margin-left: 50px; 
    transform: rotate(180deg);
    margin-top: 22px;
 }

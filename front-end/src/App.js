@@ -85,7 +85,6 @@ function App() {
 
   }
 
-
   function showLogin() {
     hideAllOverLays()
     setLogin(true)
@@ -109,7 +108,7 @@ function App() {
     setMainScreen(<Homepage2 togglePost={showExpandedPost} toggleArticle={showExpandedNewsArticle} toggleOtherProfile={showOtherProfile} />)
   }
   function showGameSearch(searchQuery) {
-    setMainScreen(<SearchGame searchQuery={searchQuery} toggleGameSearch={showGameSearch} />);
+    setMainScreen(<SearchGame searchQuery={searchQuery} toggleGameSearch={showGameSearch} toggleGameStore={showGameStore} toggleGameDetails={showGameDetails}/>);
   }
 
   function showGameDetails() {
@@ -153,6 +152,7 @@ function App() {
       {navBar}
       {mainScreen}
     </div>
+    
   );
 }
 

@@ -33,7 +33,7 @@ function GameStoreMain(props) {
     // Arrays for slider content
     const slides = [totalWar3Kingdom, GenshinImpact, RocketLeague];
     const gameNames = ["Total War: Three Kingdoms", "Genshin Impact", "Rocket League"];
-    const gamePrice = ["$71.99 CAD", "Free", "Free"];
+    const gamePrice = ["$24.47 CAD", "Free", "Free"];
     const compatibility = [PC, PCXBOXPS, PCXBOXPS];
 
     // Function to change slides with fade effect
