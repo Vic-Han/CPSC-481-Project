@@ -39,10 +39,10 @@
     width: 1320px;
     padding: 20px;
     display: grid;
-    grid-template-columns: 180px 1000px;
+    grid-template-columns: 180px 800px 200px;
     background-color:  #33344A;
     margin-bottom: 20px;
-    border-radius: 5px;
+    border-radius: 15px;
 }
 .search-result-img{
     width: 130px;
@@ -72,4 +72,10 @@
     font-size: 15px;
     color: #B0B0B0;
 
+}
+.search-type{
+    font-size: 36px;
+    color: #fff;
+    margin-bottom: 10px;
+    margin-top: 50px;
 }

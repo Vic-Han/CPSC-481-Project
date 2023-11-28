@@ -2,43 +2,154 @@ import './SearchResults.css'
 import {React, useState, useTransition} from "react"
 import Person1 from '../assets/Person1.png'
 import Person2 from '../assets/Person2.png'
-const ninjaUser = {
+const account1 = {
   img: Person1,
   desc: "I love video games. Use Code Ninja on item shop",
   title: "Tyler 'Ninja' Belvins",
-  acc_name: "Ninja"
+  acc_name: "Ninja",
+  type: "User"
 }
 
-const ninjaKiwi = {
+const account2 = {
   img: Person2,
   desc: "Indie game developer and creator of hit games Bloons TD 6, Bloons TD Battles, Bloons TD 5, and SAS Zombie ...",
   title: "Ninja Kiwi",
-  acc_name: "NinjaKiwiGames"
+  acc_name: "NinjaKiwiGames",
+  type: "User"
 }
-const ninjaTurtles = {
+const account3 = {
+  img: Person1,
+  desc: "I love video games. Use Code Ninja on item shop",
+  title: "Tyler 'Ninja' Belvins",
+  acc_name: "Ninja",
+  type: "User"
+}
+
+const account4 = {
+  img: Person2,
+  desc: "Indie game developer and creator of hit games Bloons TD 6, Bloons TD Battles, Bloons TD 5, and SAS Zombie ...",
+  title: "Ninja Kiwi",
+  acc_name: "NinjaKiwiGames",
+  type: "User"
+}
+const account5 = {
+  img: Person2,
+  desc: "Indie game developer and creator of hit games Bloons TD 6, Bloons TD Battles, Bloons TD 5, and SAS Zombie ...",
+  title: "Ninja Kiwi",
+  acc_name: "NinjaKiwiGames",
+  type: "User"
+}
+const game1 = {
   img: Person2,
   desc: "Teenage Mutant Ninja Turtles: Shredders Revenge reunites Leonardo, Michaelangelo, Donatello, and Raphael as ...",
   title: "Teenage Mutant Ninja Turtles: Shredders Revenge",
-  acc_name: "Dotemu"
+  acc_name: "Dotemu",
+  type: "Game"
 }
-const ninjaGameRecommendations = {
+const game2 = {
+  img: Person2,
+  desc: "Teenage Mutant Ninja Turtles: Shredders Revenge reunites Leonardo, Michaelangelo, Donatello, and Raphael as ...",
+  title: "Teenage Mutant Ninja Turtles: Shredders Revenge",
+  acc_name: "Dotemu",
+  type: "Game"
+}
+const game3 = {
+  img: Person2,
+  desc: "Teenage Mutant Ninja Turtles: Shredders Revenge reunites Leonardo, Michaelangelo, Donatello, and Raphael as ...",
+  title: "Teenage Mutant Ninja Turtles: Shredders Revenge",
+  acc_name: "Dotemu",
+  type: "Game"
+}
+const game4 = {
+  img: Person2,
+  desc: "Teenage Mutant Ninja Turtles: Shredders Revenge reunites Leonardo, Michaelangelo, Donatello, and Raphael as ...",
+  title: "Teenage Mutant Ninja Turtles: Shredders Revenge",
+  acc_name: "Dotemu",
+  type: "Game"
+}
+const game5 = {
+  img: Person2,
+  desc: "Teenage Mutant Ninja Turtles: Shredders Revenge reunites Leonardo, Michaelangelo, Donatello, and Raphael as ...",
+  title: "Teenage Mutant Ninja Turtles: Shredders Revenge",
+  acc_name: "Dotemu",
+  type: "Game"
+}
+const post1 = {
   img: Person2,
   desc: "I just finished Sekiro and I loved it. Wreaking havoc as a ninja was so fun. Please give me recommendations for ...",
   title: "Need good ninja game recommendations",
-  acc_name: "WiseOldFella"
+  acc_name: "WiseOldFella",
+  type: "Post"
 }
-const ninjaGaiden = {
+const post2 = {
+  img: Person2,
+  desc: "I just finished Sekiro and I loved it. Wreaking havoc as a ninja was so fun. Please give me recommendations for ...",
+  title: "Need good ninja game recommendations",
+  acc_name: "WiseOldFella",
+  type: "Post"
+}
+const post3 = {
+  img: Person2,
+  desc: "I just finished Sekiro and I loved it. Wreaking havoc as a ninja was so fun. Please give me recommendations for ...",
+  title: "Need good ninja game recommendations",
+  acc_name: "WiseOldFella",
+  type: "Post"
+}
+const post4 = {
+  img: Person2,
+  desc: "I just finished Sekiro and I loved it. Wreaking havoc as a ninja was so fun. Please give me recommendations for ...",
+  title: "Need good ninja game recommendations",
+  acc_name: "WiseOldFella",
+  type: "Post"
+}
+const post5 = {
+  img: Person2,
+  desc: "I just finished Sekiro and I loved it. Wreaking havoc as a ninja was so fun. Please give me recommendations for ...",
+  title: "Need good ninja game recommendations",
+  acc_name: "WiseOldFella",
+  type: "Post"
+}
+const article1 = {
   img: Person1,
   desc: "3 high speed ninja action titles are now available in one package!",
   title: "Ninja Gaiden: Master Collection",
-  acc_name: "KOEI TECMO GAMES CO."
+  acc_name: "KOEI TECMO GAMES CO.",
+  type: "Article"
+}
+const article2 = {
+  img: Person1,
+  desc: "3 high speed ninja action titles are now available in one package!",
+  title: "Ninja Gaiden: Master Collection",
+  acc_name: "KOEI TECMO GAMES CO.",
+  type: "Article"
+}
+const article3 = {
+  img: Person1,
+  desc: "3 high speed ninja action titles are now available in one package!",
+  title: "Ninja Gaiden: Master Collection",
+  acc_name: "KOEI TECMO GAMES CO.",
+  type: "Article"
+}
+const article4 = {
+  img: Person1,
+  desc: "3 high speed ninja action titles are now available in one package!",
+  title: "Ninja Gaiden: Master Collection",
+  acc_name: "KOEI TECMO GAMES CO.",
+  type: "Article"
+}
+const article5 = {
+  img: Person1,
+  desc: "3 high speed ninja action titles are now available in one package!",
+  title: "Ninja Gaiden: Master Collection",
+  acc_name: "KOEI TECMO GAMES CO.",
+  type: "Article"
 }
 function SearchResults(props) {
-    const allItems = [ninjaUser,ninjaTurtles,ninjaKiwi,ninjaGameRecommendations,ninjaGaiden]
-    const userItems = [ninjaUser,ninjaKiwi]
-    const gameItems = [ninjaTurtles]
-    const postItems = [ninjaGameRecommendations]
-    const articleItems = [ninjaGaiden]
+    const allItems = [game1,game4,account4,post4,article4]
+    const userItems = [account1, account2, account3, account4,account5]
+    const gameItems = [game1,game2,game3,game4,game5]
+    const postItems = [post1,post2,post3,post4,post5]
+    const articleItems = [article1,article2,article3,article4,article5]
 
     const [searchItems, setSearchItems] = useState(allItems)
     const [toggledButton, setToggledButton] = useState(0)
@@ -80,6 +191,7 @@ function SearchResults(props) {
               <div className='search-result-author'>{result.acc_name}</div>
               <div className='search-result-description'>{result.desc}</div>
             </div>
+            {toggledButton === 0 ? <div className='search-type'> {result.type}</div> : null}
           </div>
         ))}
     </div>
