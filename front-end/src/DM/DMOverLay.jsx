@@ -37,10 +37,13 @@ function Messages(props) {
         chat: 'Hey, I saw your clip, would you lik...'
     }]
     const [users, setUsers] = useState(messagePeople)
+    const [selected, setSelected] = useState(0)
     const setMessages = () => {
+        setSelected(0)
         setUsers(messagePeople)
     }
     const setRequests = () => {
+        setSelected(1)
         setUsers(requestPeople)
     }
     return (
@@ -53,8 +56,8 @@ function Messages(props) {
 
             <div className='msg_type'>
                 <input id = 'txt_field' type="text" placeholder="Search"></input>
-                <button className='msg_btn' onClick={setMessages}> Messages</button>
-                <button className='msg_btn' onClick={setRequests}> Requests</button>
+                <button className= {'msg_btn' + (selected === 0 ? ' selected' : '')} onClick={setMessages}> Messages</button>
+                <button className={'msg_btn' + (selected === 1 ? ' selected' : '')} onClick={setRequests}> Requests</button>
             </div>
 
 

@@ -82,7 +82,9 @@
     border: none;
     text-align: center;
 }
-
+.msg_btn.selected{
+    background-color:  #3E4070;
+}
 .msg_btn:hover{
     background: var(--On-Hover, #4E5080);
     cursor: pointer;
@@ -143,7 +145,7 @@
     height: 50px;
     border-radius: 20%;
     background-color: #33344A;
-    background-image: url('../assets/BackButton.png');
+    background-image: url('../assets/Back.png');
     border: none;
     cursor: pointer;
 
@@ -220,19 +222,23 @@
   }
   
   .chat-messages {
-    flex: 1;
-    overflow-y: auto;
+    position: absolute;
+    bottom: 70px;
     padding: 10px;
+    left: 25px;
+    width: 80%;
   }
   
   .user-message {
     background-color: #7E82DF;
     color: #fff;
+    position: relative;
     border-radius: 10px;
     max-width: 70%;
     padding: 10px;
     margin-bottom: 8px;
-    margin-left: 100px;
+    left: 95%;
+    transform: translateX(-100%);
     word-wrap: break-word;
 
     display: flex;
@@ -255,17 +261,18 @@
   */
 
   .chat-input {
-    display: flex;
+    display: grid;
+    grid-template-columns: 350px 50px;
     margin-top: 10px;
-    align-items: flex-end; /* Align items to the bottom */
+    position: absolute;
+    bottom: 15px;
   }
 
   #send_msg{
-    position: absolute;
-    height: 40px;
-    width: 40px;
-    left: 340px;
-    top: 710px;
+    position: relative;
+    top: 1px;
+    height: 42px;
+    width: 42px;
 
     background-image: url(../assets/SendMsg_icon.png);
     background-color: #7E82DF;
@@ -281,7 +288,7 @@
     border-radius: 5px;
     background-color:#7E82DF;
     color: #fff;
-
+    font-size: 16px;
     overflow: auto;
 
   }
