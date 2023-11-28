@@ -191,7 +191,7 @@ function SearchResults(props) {
               <div className='search-result-author'>{result.acc_name}</div>
               <div className='search-result-description'>{result.desc}</div>
             </div>
-            <div className='search-type'> {result.type}</div>
+            {toggledButton === 0 ? <div className='search-type'> {result.type}</div> : null}
           </div>
         ))}
     </div>
