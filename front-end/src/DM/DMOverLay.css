@@ -65,6 +65,7 @@
     height: 40px;
     width: 40%;
     border-radius: 8px;
+   
     flex-shrink: 0;
     position: relative;
     background: var(--Highlights, #7E82DF);    
@@ -79,11 +80,11 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-    border: none;
+    border: solid #7E82DF 4px;
     text-align: center;
 }
 .msg_btn.selected{
-    background-color:  #3E4070;
+    background-color:  #33344A;
 }
 .msg_btn:hover{
     background: var(--On-Hover, #4E5080);
@@ -237,7 +238,7 @@
     max-width: 70%;
     padding: 10px;
     margin-bottom: 8px;
-    left: 95%;
+    left: 100%;
     transform: translateX(-100%);
     word-wrap: break-word;
 
@@ -270,9 +271,9 @@
 
   #send_msg{
     position: relative;
-    top: 1px;
-    height: 42px;
-    width: 42px;
+    top: 4px;
+    height: 45px;
+    width: 45px;
 
     background-image: url(../assets/SendMsg_icon.png);
     background-color: #7E82DF;
@@ -291,6 +292,9 @@
     font-size: 16px;
     overflow: auto;
 
+  }
+  .chat-input input{
+    width: 365px;
   }
   
   #kenpfp{
