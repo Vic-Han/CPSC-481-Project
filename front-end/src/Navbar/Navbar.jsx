@@ -32,6 +32,7 @@ function Navbar(props) {
         <button className='navbar_search btn' onClick={toggleSearchPage}></button>
       </div>
       <div className='navbar_right'>
+        <button className='navbar_notif btn' onClick={null}></button>
         <button className='navbar_game btn' onClick={toggleGameStore}></button>
         <button className='navbar_dm btn' onClick={toggleDM}></button>
         <button className='navbar_profile btn' onClick={toggleProfile}></button>

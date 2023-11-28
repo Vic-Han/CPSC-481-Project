@@ -77,7 +77,8 @@ function PostPreview(props) {
           <Description/>
         </div>
         <div className='preview_post_btn'>
-          <button className='txt_btn' onClick={handlePost}>Post</button>
+          <button className='txt_btn' onClick={handlePost}>Private Post</button>
+          <button className='txt_btn' onClick={handlePost}>Public Post</button>
         </div>
       </div>
     </>
