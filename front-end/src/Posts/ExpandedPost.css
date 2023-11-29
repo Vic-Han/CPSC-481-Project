@@ -5,7 +5,8 @@
     margin: 0 auto;
     overflow: auto;
     position: relative;
-    
+    display: flex;
+    flex-direction:row;
 }
 
 @media (max-width: 1920px) {
@@ -19,34 +20,34 @@
 .post-overlay {
     display: flex;
     flex-direction: column;
-    position: fixed;
+    position: relative;
     width: 1185px;
-    height: 636px;
+    height: 775px;
 
     margin-left:75px;
-    margin-top:150px;
+    margin-top:50px;
 
     border-radius: 50px;
 
     background-color:#33344A;
 }
 
-.title-overlay {
+.post-title-overlay {
     display: flex;
     align-items: center;
     width: 100%
 }
 
-.title-overlay h1 {
+.post-title-overlay h1 {
     padding:0;
     margin-top:16px;
-    margin-bottom:30px;
+    margin-bottom:10px;
     margin-left:18px;
     color:#ffffff;
     font: 500 24px Inter, sans-serif;
 }
 
-.title-overlay button {
+.post-title-overlay button {
     position: absolute;
     top: 25px;
     left: 1135px;
@@ -60,14 +61,22 @@
     border:none;
 }
 
-.info-overlay{
+.comment-options-button {
+    width: 20px;
+    height: 6px;
+    background-color:#4E5080;
+    background-image: url('../assets/More.png');
+    border:none;
+}
+
+.post-info-overlay{
     display: flex;
     flex-direction: row;
     align-items: center;
     width: 100%;
 }
 
-.info-overlay h1 {
+.post-info-overlay h1 {
     padding:0;
     margin-bottom:8px;
     margin-left:18px;
@@ -75,11 +84,11 @@
     font: 500 20px Inter, sans-serif;
 }
 
-.tags{
+.post-tags{
     display: flex;
     flex-direction:row;
     align-items: center;
-    margin-right:30px;
+    margin-left:380px;
 }
 
 .tag{
@@ -88,13 +97,22 @@
     background-color: #7E82DF;
     padding: 0px 10px 0px 10px;
     border-radius: 50px 50px 50px 50px;
+    margin-left:5px;
 }
 
 .tag-name {
     margin: 0px;
 }
 
-.line-space {
+.post-line-space {
+    height:3px;
+    border:none;
+    background-color: #7E82DF;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.post-sug-line-space {
     height:3px;
     border:none;
     background-color: #7E82DF;
@@ -118,17 +136,17 @@
 
 .like-button {
     width: 24px;
-    height: 28px;
+    height: 20px;
     background-color:#33344A;
-    background-image: url('../assets/More.png');
+    background-image: url('../assets/likeicon.png');
     border:none;
 }
 
 .comment-like-button {
     width: 24px;
     height: 20px;
-    background-color:#7e82df;
-    background-image: url('../assets/More.png');
+    background-color:#4E5080;
+    background-image: url('../assets/likeicon.png');
     border:none;
 }
 
@@ -140,7 +158,7 @@
 
 .like-and-comment button{
     position:absolute;
-    margin-left:18px;
+    margin-left:30px;
 }
 
 .add-a-comment{
@@ -148,7 +166,7 @@
     font: 500 16px Inter, sans-serif;
     background-color: #7E82DF;
     border-radius: 10px 10px 10px 10px;
-    margin-right:30px;
+    margin-left:100px;
 }
 
 .comment-section{
@@ -157,19 +175,20 @@
     width:100%
 }
 
-.comment{
+.comment1,
+.comment2{
     display: flex;
     flex-direction: column;
-    position: fixed;
+    position: relative;
     width: 488px;
-    height: 118px;
+    height: 150px;
 
     margin-left:18px;
     margin-top:20px;
 
     border-radius: 15px;
 
-    background-color:#7e82df;
+    background-color:#4E5080;
 }
 
 .poster-overlay{
@@ -180,7 +199,8 @@
 }
 
 .poster-overlay button{
-    margin-right:18px;
+    position:absolute;
+    left:450px;
 }
 
 .poster-overlay img{
@@ -188,7 +208,7 @@
 }
 
 .poster-overlay h1{
-    margin-left:60px;
+    margin-left:6px;
     color: #ffffff;
     font: 500 16px Inter, sans-serif;
 }
@@ -196,7 +216,7 @@
 .pfp {
     width: 40px;
     height: 40px;
-    
+    border-radius:50%;
 }
 
 .comment-text{
@@ -225,12 +245,12 @@
 .suggestion-overlay {
     display: flex;
     flex-direction: column;
-    position: fixed;
+    position: relative;
     width: 510px;
-    height: 672px;
+    height: 900px;
 
-    left:1328px;
-    margin-top:150px;
+    margin-left:65px;
+    margin-top:50px;
 
     border-radius: 50px;
 
