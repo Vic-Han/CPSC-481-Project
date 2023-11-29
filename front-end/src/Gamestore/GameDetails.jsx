@@ -153,7 +153,7 @@ function GameDetails(props) {
                 <div className="Rightside_Content">
                     <div className="Buy_Container">
                         <h1 className='Rating'><span style={{ color: "#7E82DF" }}>Rating:</span> 9.3/10</h1>
-                        <h1 className='Rating'><span style={{ color: "#7E82DF" }}>PC Price:</span> $71.99 CAD</h1>
+                        <h1 className='Rating'><span style={{ color: "#7E82DF" }}>PC Price:</span> $24.47 CAD</h1>
                         <div className='ButtonC'>
                             <div className='ButtonR'>
                                 <a href="https://store.steampowered.com/app/779340/Total_War_THREE_KINGDOMS/" target="_blank" rel="noopener noreferrer" className='Buy_Link'>
