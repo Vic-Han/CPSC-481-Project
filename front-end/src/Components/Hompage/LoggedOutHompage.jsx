@@ -7,7 +7,7 @@ import './LoggedOutHomepage.css';
 import './Circles.css';
 
 function LoggedOutHomepage(props) {
-  const registerEvent = props.registerEvent2;
+  const setRegister = props.registerClick;
 
   const [offsetY, setOffsetY] = useState(0);
   const handleScroll = () => setOffsetY(window.scrollY);
@@ -47,10 +47,10 @@ function LoggedOutHomepage(props) {
       </div>
       <div className='text_container2'>
         <h1 className='intro_title'>Don't want to miss all the <span className='highlighted'>ACTION</span>?</h1>
-        <p className='intro_text'><a className='link' onClick={registerEvent}>Create an Account</a> and dive right in and explore the fun.</p>
+        <p className='intro_text'><a href="#/" className='link' onClick={setRegister}>Create an Account</a> and dive right in and explore the fun.</p>
       </div>
-      <img className='example' id='example1' src={example1}></img>
-      <img className='example' id='example2' src={example2}></img>
+      <img className='example' id='example1' src={example1} alt="Site Example"></img>
+      <img className='example' id='example2' src={example2} alt="Site Example"></img>
       <div className='text_container3' id='about'>
         <h1 className='intro_title'>Who are <span className='highlighted'>we</span>?</h1>
         <br></br>
@@ -75,9 +75,9 @@ function LoggedOutHomepage(props) {
       <div className='footer'>
         <div className='left_footer'>© 2023 ESports Zone Inc. All rights reserved.</div>
         <div className='right_footer'>
-          <a href='#'>Feedback</a>
-          <a href='#'>User Agreement</a>
-          <a href='#'>Privacy Policy</a>
+          <a href='#/'>Feedback</a>
+          <a href='#/'>User Agreement</a>
+          <a href='#/'>Privacy Policy</a>
         </div>
       </div>
     </div>

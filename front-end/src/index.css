@@ -59,6 +59,22 @@ code {
   background-color: lightcoral;
 }
 
+/* For More Options button on posts, articles, and more */
+.three_dots {
+  width: 20px;
+  height: 6px;
+  margin-right: 4px;
+  border: none;
+  background-color: transparent;
+  background-image: url('./assets/Options.png');
+  align-self: center;
+}
+
+.three_dots:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
 /*
 Custom Scrollbar for all pages
 */

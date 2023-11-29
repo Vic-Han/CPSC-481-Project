@@ -30,7 +30,7 @@ const HomepageLoggedOut = () => {
       {login ? <LoginOverlay close={handleClose} registerClick={handleRegisterClick}/> : null}
       {register ? <RegisterOverLay close={handleClose} loginClick={handleLoginClick}/> : null}
       <Navbar loginClick={handleLoginClick} registerClick={handleRegisterClick}/>
-      <Homepage />
+      <Homepage registerClick={handleRegisterClick}/>
     </>
   )
 }

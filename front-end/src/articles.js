@@ -1,5 +1,6 @@
 export const articles = [
   {
+    "id": 0,
     "title": "Viewership for CS2’s first tier-one event wasn’t spectacular, but there was plenty to blame",
     "description": "Counter-Strike 2’s trial by fire at IEM Sydney proved an unequivocal success, " +
       "with hundreds of thousands of viewers tuning in with the Aussie crowd to cheer home the world’s " +
@@ -17,6 +18,7 @@ export const articles = [
     "tags": ['Counter-Strike 2', 'ESports-Events']
   },
   {
+    "id": 1,
     "title": "Saudi Prime Minister unveils ‘ESPORTS WORLD CUP’ in Riyadh",
     "description": "Saudi Arabia is climbing up the ranks in the esports "+
     "and games industry, making huge investments and hosting events that "+

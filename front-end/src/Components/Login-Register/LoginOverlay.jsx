@@ -67,7 +67,7 @@ function LoginOverLay(props) {
           <button onClick={handleLogin} className='login_button txt_btn'>Login</button>
         </form>
         <div className="login_overlay_bottom">
-          <p>Not Registered? <a href={null} onClick={registerClick}>Create an Account</a></p>
+          <p>Not Registered? <a href="#/" onClick={registerClick}>Create an Account</a></p>
         </div>
       </div>
     </>

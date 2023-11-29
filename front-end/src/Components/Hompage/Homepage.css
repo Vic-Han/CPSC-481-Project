@@ -3,6 +3,7 @@
     flex-direction: row;
     justify-content: space-evenly;
     width: 100%;
+    height: fit-content;
     margin-top: 50px;
 }
 
@@ -11,10 +12,10 @@
     flex-direction: column;
 
     width: 400px;
-    height: auto;
+    height: fit-content;
 
     background-color: #33344A;
-    border-radius: 50px;
+    border-radius: 40px;
 }
 
 .home_articles p {
@@ -39,7 +40,7 @@
     height: 830px;
 
     background-color: #33344A;
-    border-radius: 10px;
+    border-radius: 40px;
 }
 
 .article_load_more {

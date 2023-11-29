@@ -22,8 +22,8 @@ function RegisterOverLay(props) {
   const [passValid, setPassValid] = useState(true);
   const [verifyValid, setVerifyValid] = useState(true);
 
-  const emailReg = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
-  const passReg = /[!-\@\[-\`{-~]/;
+  const emailReg = /^([a-zA-Z0-9_\-.]+)@([a-zA-Z0-9_\-.]+).([a-zA-Z]{2,5})$/;
+  const passReg = /[!-@[-`{-~]/;
   const nameReg = /([^a-zA-Z.])/;
 
   const firstNameChanged = (e) => {
@@ -114,6 +114,7 @@ function RegisterOverLay(props) {
       && !(firstName === "" || lastName === "" || username === "" || email === "" || password === "" || verifyPassword === "")) {
 
       let tempObj = {
+        id: users[(users.length-1)].id+1,
         firstName: firstName,
         lastName: lastName,
         username: username,
@@ -164,7 +165,7 @@ function RegisterOverLay(props) {
           <button onClick={handleRegister} className='register_button txt_btn'>Register</button>
         </form>
         <div className="register_overlay_bottom">
-          <p>Already Registered? <a href={null} onClick={loginClick}>Sign In</a></p>
+          <p>Already Registered? <a href="#/" onClick={loginClick}>Sign In</a></p>
         </div>
       </div>
     </>

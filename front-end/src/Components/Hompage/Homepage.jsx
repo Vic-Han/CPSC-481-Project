@@ -18,14 +18,14 @@ function Homepage(props) {
         <div className='home_articles'>
           <p>Latest ESports News</p>
           <div className='line'></div>
-          {articles.map((art, i) => (
-            <Article key={i} data={art} />
+          {articles.map(art => (
+            <Article key={art.id} data={art} />
           ))}
           <a className="article_load_more">Load More</a>
         </div>
         <div className='home_posts'>
-          {posts.map((post, i) => (
-            <Post key={i} data={post} />
+          {posts.map(post => (
+            <Post key={post.id} data={post} />
           ))}
         </div>
         <div className='home_extra'>
