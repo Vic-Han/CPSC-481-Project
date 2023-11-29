@@ -146,7 +146,7 @@ function NewPostOverLay(props) {
 
   return (
     <>
-      <div id='invis_layer'></div>
+      <div id='invis_layer' className='invis_background'></div>
       <div className='post_overlay'>
         <div className='info_section'>
           <p>New Post</p>

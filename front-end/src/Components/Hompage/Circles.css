@@ -107,7 +107,7 @@
     top: 700px;
     left: 107px;
 
-    background-image: url('../assets/Person1.png');
+    background-image: url('../../assets/Person1.png');
     background-position: center;
     background-size: cover;
 }
@@ -117,7 +117,7 @@
     top: 715px;
     left: 1091px;
 
-    background-image: url('../assets/Person2.png');
+    background-image: url('../../assets/Person2.png');
     background-position: center;
     background-size: cover;
 }
@@ -127,7 +127,7 @@
     top: 308px;
     left: 1412px;
 
-    background-image: url('../assets/Person3.png');
+    background-image: url('../../assets/Person3.png');
     background-position: center;
     background-size: cover;
 }

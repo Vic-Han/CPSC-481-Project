@@ -1,8 +1,10 @@
+import {React, useEffect, useState} from "react";
+
+import example1 from '../../assets/example1.png';
+import example2 from '../../assets/example2.png';
+
 import './LoggedOutHomepage.css';
 import './Circles.css';
-import {React, useEffect, useState} from "react";
-import example1 from '../assets/example1.png';
-import example2 from '../assets/example2.png';
 
 function LoggedOutHomepage(props) {
   const registerEvent = props.registerEvent2;
@@ -66,6 +68,9 @@ function LoggedOutHomepage(props) {
         <p className='text2'> Our website offers unique elements to the gaming and ESports community. We have latest ESports 
         news for those who like to keep up with all the latest events, we also have a game store where gamers can browse for games 
         and find the hottest deals going on.</p>
+      </div>
+      <div className="faq-section">
+
       </div>
       <div className='footer'>
         <div className='left_footer'>© 2023 ESports Zone Inc. All rights reserved.</div>

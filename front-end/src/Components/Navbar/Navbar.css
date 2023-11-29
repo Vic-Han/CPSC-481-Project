@@ -25,7 +25,7 @@
     height: 80px;
     border: none;
     background-color: #33344A;
-    background-image: url('../assets/EZLogo-v2.png');
+    background-image: url('../../assets/EZLogo-v2.png');
     background-size: cover;
 }
 
@@ -93,7 +93,7 @@
     top: 30px;
     left: 1330px;
     background-color: #7e82df;
-    background-image: url(../assets/Search.png);
+    background-image: url(../../assets/Search.png);
     border: none;
 }
 
@@ -112,7 +112,7 @@
     width: 50px;
     height: 59px;
     background-color: #33344A;
-    background-image: url('../assets/GameStore.png');
+    background-image: url('../../assets/GameStore.png');
     border: none;
 }
 
@@ -120,7 +120,7 @@
     width: 54px;
     height: 50px;
     background-color: #33344A;
-    background-image: url('../assets/DM.png');
+    background-image: url('../../assets/DM.png');
     border: none;
 }
 
@@ -128,7 +128,7 @@
     width: 54px;
     height: 54px;
     background-color: #33344A;
-    background-image: url('../assets/ProfileDefault.png');
+    background-image: url('../../assets/ProfileDefault.png');
     border: none;
 }
 
