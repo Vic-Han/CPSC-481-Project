@@ -147,20 +147,20 @@ function RegisterOverLay(props) {
         </div>
         <form className="register_overlay_form">
           <label className='register_label'>First Name</label>
-          <input className={firstValid ? 'register_input' : 'register_input field_error'} type="text" onChange={firstNameChanged} value={firstName}></input>
+          <input className={firstValid ? 'overlay_input' : 'overlay_input field_error'} type="text" onChange={firstNameChanged} value={firstName}></input>
           <label className='register_label'>Last Name</label>
-          <input className={lastValid ? 'register_input' : 'register_input field_error'} type="text" onChange={lastNameChanged} value={lastName}></input>
+          <input className={lastValid ? 'overlay_input' : 'overlay_input field_error'} type="text" onChange={lastNameChanged} value={lastName}></input>
           <label className='register_label'>Username</label>
-          <input className={userValid ? 'register_input' : 'register_input field_error'} type="text" onChange={userChanged} value={username}></input>
+          <input className={userValid ? 'overlay_input' : 'overlay_input field_error'} type="text" onChange={userChanged} value={username}></input>
           <label className='register_label'>Email</label>
-          <input className={emailValid ? 'register_input' : 'register_input field_error'} type="email" onChange={emailChanged} value={email}></input>
+          <input className={emailValid ? 'overlay_input' : 'overlay_input field_error'} type="email" onChange={emailChanged} value={email}></input>
           <label className='register_label'>Password</label>
-          <input className={passValid ? 'register_input' : 'register_input field_error'} type="password" required onChange={passwordChanged} value={password}></input>
+          <input className={passValid ? 'overlay_input' : 'overlay_input field_error'} type="password" required onChange={passwordChanged} value={password}></input>
           <div className='password_requirement' id="characterLimit">At least 9 Characters</div>
           <div className='password_requirement' id="upperLimit">At least 1 Uppercase Character</div>
           <div className='password_requirement' id="numberLimit">At least 1 non-alphabetic charcter</div>
           <label className='register_label'> Verify Password</label>
-          <input className={verifyValid ? 'register_input' : 'register_input field_error'} type="password" onChange={verifyChanged} value={verifyPassword}></input>
+          <input className={verifyValid ? 'overlay_input' : 'overlay_input field_error'} type="password" onChange={verifyChanged} value={verifyPassword}></input>
           <button onClick={handleRegister} className='register_button txt_btn'>Register</button>
         </form>
         <div className="register_overlay_bottom">

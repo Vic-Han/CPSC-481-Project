@@ -48,25 +48,13 @@
 }
 
 .login_label {
-    color: rgb(255,255,255);
+    color: white;
     font-size: 20px;
     margin-bottom: 7px;
-}
-
-.login_input {
-    color: rgb(255,255,255);
-    height: 30px;
-    width: 380px;
-    font-size: 20px;
-    background-color: #7E82DF;
-    margin-bottom: 7px;
-    border: none;
-    border-radius: 2px;;
-    padding-left: 10px;
 }
 
 .login_forgot_label {
-    color: rgb(255,255,255);
+    color: white;
     text-decoration: underline;
     margin-bottom: 25px;
     cursor: pointer;

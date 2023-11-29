@@ -32,6 +32,28 @@ code {
   background-color: #4E5080;
 }
 
+/* Overlay Input fields style */
+.overlay_input {
+  color: white;
+  background-color: #7E82DF;
+
+  height: 30px;
+  width: 380px;
+  margin-bottom: 7px;
+  
+  font-size: 20px;
+  border: none;
+  border-radius: 2px;;
+  padding-left: 10px;
+}
+
+/* Line that covers the whole element width */ 
+.line {
+  width: 100%;
+  min-height: 3px;
+  background-color: #7E82DF;
+}
+
 /* For input fields that will have an error */
 .field_error {
   background-color: lightcoral;

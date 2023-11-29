@@ -19,13 +19,12 @@ function LoginOverLay(props) {
     e.preventDefault();
     setPasswordValid(true);
     setUserValid(true);
+
     if (users.some(user=>user.username === username && user.password === password)) {
       setPasswordValid(true);
       setUserValid(true);
       navigate("/home");
     } else if (username === "" || password === "") {
-      setPasswordValid(true);
-      setUserValid(true);
 
       if (username === "" && password !== "") setUserValid(false);
       if (password === "" && username !== "") setPasswordValid(false);
@@ -50,19 +49,18 @@ function LoginOverLay(props) {
           <label className='login_label'>Username</label>
           <input
             type="text"
-            className={userValid ? 'login_input' : 'login_input field_error'}
+            className={userValid ? 'overlay_input' : 'overlay_input field_error'}
             onChange={(e) => {setUsername(e.target.value)}}
-            value={username} required
+            value={username}
           />
           <div className='login_forgot_label'>Forgot Username?</div>
 
           <label className='login_label'>Password</label>
           <input
             type="password"
-            className={passwordValid ? 'login_input' : 'login_input field_error'}
+            className={passwordValid ? 'overlay_input' : 'overlay_input field_error'}
             onChange={(e) => {setPassword(e.target.value)}}
             value={password}
-            required
           />
           <div className='login_forgot_label'>Forgot Password?</div>
 

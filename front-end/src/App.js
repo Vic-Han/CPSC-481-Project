@@ -22,6 +22,7 @@ import { Routes, Route } from "react-router-dom";
 
 //Pages Imports
 import HomepageLoggedOut from "./pages/HomepageLoggedOut.jsx";
+import HomepageLoggedIn from "./pages/HomepageLoggedIn.jsx";
 
 function App() {
 
@@ -42,7 +43,7 @@ function App() {
   //   toggleDM: showDMOverLay,
   // }
 
-  
+
 
   // const [navBar, setNavBar] = useState(<LoggedOutNavbar loginEvent={showLogin} registerEvent={showRegister} />)
   // const [mainScreen, setMainScreen] = useState(<LoggedOutHomepage registerEvent2={showRegister} />)
@@ -153,17 +154,17 @@ function App() {
       {navBar}
       {mainScreen} */}
       <Routes>
-        <Route path="/" element={<HomepageLoggedOut />}/>
-        <Route path="/home" element={null}/>
-        <Route path="/post/:id" element={null}/>
-        <Route path="/article/:id" element={null}/>
-        <Route path="/store" element={null}/>
-        <Route path="/store/:id" element={null}/>
-        <Route path="/account" element={null}/>
-        <Route path="/account/:id" element={null}/>
+        <Route path="/" element={<HomepageLoggedOut />} />
+        <Route path="/home" element={<HomepageLoggedIn />} />
+        <Route path="/post/:id" element={null} />
+        <Route path="/article/:id" element={null} />
+        <Route path="/store" element={null} />
+        <Route path="/store/:id" element={null} />
+        <Route path="/account" element={null} />
+        <Route path="/account/:id" element={null} />
       </Routes>
     </div>
-    
+
   );
 }
 
