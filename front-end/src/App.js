@@ -1,5 +1,6 @@
+import { Routes, Route } from "react-router-dom";
 import { React, useState, useEffect } from "react";
-import { Tags } from './Posts/Tags.js';
+import { Tags } from './Components/Posts/Tags.js';
 
 // import LoginOverLay from './Login-Register/LoginOverlay';
 // import RegisterOverLay from './Login-Register/RegisterOverLay.jsx'
@@ -17,12 +18,15 @@ import { Tags } from './Posts/Tags.js';
 // import SearchGame from "./Gamestore/SearchGame.jsx";
 // import Homepage2 from "./Hompage/Homepage.jsx";
 
-
-import { Routes, Route } from "react-router-dom";
+//Components Imports
+import NewPostOverLay from "./Components/Posts/NewPostOverLay.jsx";
+import PostPreview from "./Components/Posts/PostPreview.jsx";
+import DMOverLay from "./Components/DM/DMOverLay.jsx";
 
 //Pages Imports
 import HomepageLoggedOut from "./pages/HomepageLoggedOut.jsx";
 import HomepageLoggedIn from "./pages/HomepageLoggedIn.jsx";
+import Store from "./pages/Store.jsx";
 
 function App() {
 
@@ -143,8 +147,51 @@ function App() {
   //   setPreviewPost(true)
   // }
 
-  const [loggedUser, setLoggedUser] = useState("");
+  //----------------------------Post Close/Open Functions----------------------------
+  const [newPost, setNewPost] = useState(false);
+  const [previewPost, setPreviewPost] = useState(false);
 
+  const handlePostOpen = () => {
+    setPreviewPost(false);
+    setNewPost(true);
+  }
+  const handlePostClose = () => {
+    setPreviewPost(false);
+    setNewPost(false);
+  }
+  const handlePreviewOpen = () => {
+    setPreviewPost(true);
+    setNewPost(false);
+  }
+
+  const resetData = () => {
+    setData({
+      Title: "",
+      Description: "",
+      Tags: [],
+      UnusedTags: Tags,
+      Files: []
+    });
+  }
+
+  //-------------------------DM Close/Open Functions-------------------------
+  const [DMopen, setDMOpen] = useState(false);
+
+  const handleDMOpen = () => {
+    setDMOpen(true);
+  }
+
+  const handleDMClose = () => {
+    setDMOpen(false);
+  }
+
+  //----------------------------Navbar Functions----------------------------
+  const navbarClickHandlers = {
+    openPost: handlePostOpen,
+    openDM: handleDMOpen
+  }
+
+  //-----------------------------Main Elements-----------------------------
 
   return (
     <div>
@@ -155,18 +202,20 @@ function App() {
       {previewPost ? <PostPreview back={showNewPostOverLay} data={data} resetData={resetData} hidePosts={hideAllPostOverlays} /> : null}
       {navBar}
       {mainScreen} */}
+      {newPost ? <NewPostOverLay close={handlePostClose} data={data} setData={setData} showPostPreview={handlePreviewOpen} /> : null}
+      {previewPost ? <PostPreview back={handlePostOpen} data={data} resetData={resetData} hidePosts={handlePostClose} /> : null}
+      {DMopen ? <DMOverLay close={handleDMClose} /> : null}
       <Routes>
-        <Route path="/" element={<HomepageLoggedOut setLoggedUser={setLoggedUser}/>} />
-        <Route path="/home" element={<HomepageLoggedIn loggedUser={loggedUser}/>} />
+        <Route path="/" element={<HomepageLoggedOut />} />
+        <Route path="/home" element={<HomepageLoggedIn clickHandlers={navbarClickHandlers} />} />
         <Route path="/post/:id" element={null} />
         <Route path="/article/:id" element={null} />
-        <Route path="/store" element={null} />
+        <Route path="/store" element={<Store clickHandlers={navbarClickHandlers}/>} />
         <Route path="/store/:id" element={null} />
         <Route path="/account" element={null} />
         <Route path="/account/:id" element={null} />
       </Routes>
     </div>
-
   );
 }
 

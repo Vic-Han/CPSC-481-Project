@@ -25,7 +25,7 @@
     height: 50px;
     border-radius: 50%;
     background-color: #33344A;
-    background-image: url('../assets/Back.png');
+    background-image: url('../../assets/Back.png');
     border: none;
 }
 
@@ -61,7 +61,7 @@
     height: 6px;
     align-self: center;
     background-color: #33344A;
-    background-image: url('../assets/More.png');
+    background-image: url('../../assets/More.png');
     border: none;
     margin-right: 20px;
 }

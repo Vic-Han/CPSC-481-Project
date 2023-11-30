@@ -27,7 +27,7 @@ const HomepageLoggedOut = (props) => {
 
   return (
     <>
-      {login ? <LoginOverlay close={handleClose} registerClick={handleRegisterClick} setLoggedUser={props.setLoggedUser} /> : null}
+      {login ? <LoginOverlay close={handleClose} registerClick={handleRegisterClick} /> : null}
       {register ? <RegisterOverLay close={handleClose} loginClick={handleLoginClick}/> : null}
       <Navbar loginClick={handleLoginClick} registerClick={handleRegisterClick}/>
       <Homepage registerClick={handleRegisterClick}/>

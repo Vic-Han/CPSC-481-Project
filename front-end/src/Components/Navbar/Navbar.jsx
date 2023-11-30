@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
-import './Navbar.css';
 import { Link } from 'react-router-dom';
+import { users } from '../../users';
+
+import './Navbar.css';
 
 function Navbar(props) {
   // const toggleHomePage = props.clickHandlers.toggleHomePage
@@ -19,12 +21,23 @@ function Navbar(props) {
   const toggleGameStore = null
   const toggleDM = null
 
+  const currentUser = users.filter(function (user) {
+    return user.username == JSON.parse(localStorage.getItem("loggedUser"));
+  });
+
+  const userImageStyle = {
+    backgroundImage: `url(${require(`../../assets/${currentUser[0].profileURL}`)})`,
+    borderRadius: "50%",
+    border: "4px solid #7E82DF"
+  }
+
   function keyboardHandler(e) {
     const input = document.getElementById("nav-bar-input")
     if (input.contains(e.target) && e.key === 'Enter') {
       toggleSearchPage()
     }
   }
+
   useEffect(() => {
     document.addEventListener('keydown', keyboardHandler)
     return () => { document.removeEventListener('keydown', keyboardHandler) }
@@ -36,7 +49,7 @@ function Navbar(props) {
         <Link to={"/home"}>
           <button className='navbar_logo'></button>
         </Link>
-        <button className='navbar_post_container' onClick={toggleNewPost}>
+        <button className='navbar_post_container' onClick={props.clickHandlers.openPost}>
           <div className='navbar_post'>New Post</div>
         </button>
       </div>
@@ -48,9 +61,9 @@ function Navbar(props) {
         <Link to={"/store"}>
           <button className='navbar_game btn'></button>
         </Link>
-        <button className='navbar_dm btn' onClick={toggleDM}></button>
+        <button className='navbar_dm btn' onClick={props.clickHandlers.openDM}></button>
         <Link to={"/account"}>
-          <button className='navbar_profile btn'></button>
+          <button className='navbar_profile btn' style={(currentUser[0].profileURL === "ProfileDefault.png") ? null : userImageStyle}></button>
         </Link>
       </div>
     </div>

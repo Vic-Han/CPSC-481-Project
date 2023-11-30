@@ -32,6 +32,14 @@
     margin: 10px auto;
 }
 
+.load_end {
+    text-align: center;
+    color: white;
+    font: 700 24px Inter, sans-serif;
+    text-decoration: none;
+    margin: 10px auto;
+}
+
 .load_more:hover {
     cursor: pointer;
     text-decoration: underline;

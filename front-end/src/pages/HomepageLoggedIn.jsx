@@ -1,12 +1,12 @@
-import Navbar from "../Components/Navbar/Navbar";
 import Homepage from "../Components/Hompage/Homepage.jsx"
+import Navbar from "../Components/Navbar/Navbar.jsx";
 
 const HomepageLoggedIn = (props) => {
 
   return (
     <>
-      <Navbar />
-      <Homepage loggedUser={props.loggedUser}/>
+      <Navbar clickHandlers={props.clickHandlers} />
+      <Homepage />
     </>
   )
 }

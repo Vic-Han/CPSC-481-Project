@@ -7,7 +7,6 @@ import './LoginOverLay.css';
 function LoginOverLay(props) {
   const close = props.close;
   const registerClick = props.registerClick;
-  const setLoggedUser = props.setLoggedUser;
 
   const navigate = useNavigate();
 
@@ -21,10 +20,18 @@ function LoginOverLay(props) {
     setPasswordValid(true);
     setUserValid(true);
 
-    if (users.some(user=>user.username === username && user.password === password)) {
+    if (users.some(user => user.username === username && user.password === password)) {
       setPasswordValid(true);
       setUserValid(true);
-      setLoggedUser(username);
+
+      for (let i = 0; i < users.length; i++) {
+        if (users[i].username === username && users[i].password === password) {
+          users[i].loggedIn = true;
+          localStorage.setItem("loggedUser", JSON.stringify(username));
+        }
+        else users[i].loggedIn = false;
+      }
+
       console.log(`Looged in as: ${username}`);
       navigate("/home");
     } else if (username === "" || password === "") {
@@ -35,7 +42,7 @@ function LoginOverLay(props) {
         setPasswordValid(false);
         setUserValid(false);
       }
-      
+
       alert("Please fill the highlighted fields");
     } else alert("Username or Password or both are incorrect");
   }
@@ -53,7 +60,7 @@ function LoginOverLay(props) {
           <input
             type="text"
             className={userValid ? 'overlay_input' : 'overlay_input field_error'}
-            onChange={(e) => {setUsername(e.target.value)}}
+            onChange={(e) => { setUsername(e.target.value) }}
             value={username}
           />
           <div className='login_forgot_label'>Forgot Username?</div>
@@ -62,7 +69,7 @@ function LoginOverLay(props) {
           <input
             type="password"
             className={passwordValid ? 'overlay_input' : 'overlay_input field_error'}
-            onChange={(e) => {setPassword(e.target.value)}}
+            onChange={(e) => { setPassword(e.target.value) }}
             value={password}
           />
           <div className='login_forgot_label'>Forgot Password?</div>

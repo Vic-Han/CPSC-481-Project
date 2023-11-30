@@ -120,7 +120,8 @@ function RegisterOverLay(props) {
         username: username,
         email: email,
         password: password,
-        profileURL: '../../assets/ProfileDefault.png'
+        profileURL: 'ProfileDefault.png',
+        loggedIn: false
       };
 
       if (!users.some(user => user.email === email)) {
