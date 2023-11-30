@@ -59,7 +59,7 @@ function RegisterOverLay(props) {
     if (!emailReg.test(mail) || email === "") setEmailValid(false);
     else setEmailValid(true);
 
-    setEmail(mail);
+    setEmail(mail.toLowerCase());
   }
 
   const passwordChanged = (e) => {
@@ -119,7 +119,8 @@ function RegisterOverLay(props) {
         lastName: lastName,
         username: username,
         email: email,
-        password: password
+        password: password,
+        profileURL: '../../assets/ProfileDefault.png'
       };
 
       if (!users.some(user => user.email === email)) {

@@ -7,6 +7,7 @@ import './LoginOverLay.css';
 function LoginOverLay(props) {
   const close = props.close;
   const registerClick = props.registerClick;
+  const setLoggedUser = props.setLoggedUser;
 
   const navigate = useNavigate();
 
@@ -23,6 +24,8 @@ function LoginOverLay(props) {
     if (users.some(user=>user.username === username && user.password === password)) {
       setPasswordValid(true);
       setUserValid(true);
+      setLoggedUser(username);
+      console.log(`Looged in as: ${username}`);
       navigate("/home");
     } else if (username === "" || password === "") {
 

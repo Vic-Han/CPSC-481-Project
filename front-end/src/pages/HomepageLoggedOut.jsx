@@ -5,7 +5,7 @@ import Homepage from "../Components/Hompage/LoggedOutHompage.jsx";
 import RegisterOverLay from "../Components/Login-Register/RegisterOverLay";
 import LoginOverlay from "../Components/Login-Register/LoginOverlay";
 
-const HomepageLoggedOut = () => {
+const HomepageLoggedOut = (props) => {
 
   const [login, setLogin] = useState(false);
   const [register, setRegister] = useState(false);
@@ -27,7 +27,7 @@ const HomepageLoggedOut = () => {
 
   return (
     <>
-      {login ? <LoginOverlay close={handleClose} registerClick={handleRegisterClick}/> : null}
+      {login ? <LoginOverlay close={handleClose} registerClick={handleRegisterClick} setLoggedUser={props.setLoggedUser} /> : null}
       {register ? <RegisterOverLay close={handleClose} loginClick={handleLoginClick}/> : null}
       <Navbar loginClick={handleLoginClick} registerClick={handleRegisterClick}/>
       <Homepage registerClick={handleRegisterClick}/>

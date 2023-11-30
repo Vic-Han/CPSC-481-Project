@@ -18,10 +18,23 @@
     border-radius: 40px;
 }
 
-.home_articles p {
+.home_element_titles {
     margin: 15px auto;
     color: #7E82DF;
     font: 700 24px Inter, sans-serif;
+}
+
+.load_more {
+    text-align: center;
+    color: white;
+    font: 700 24px Inter, sans-serif;
+    text-decoration: none;
+    margin: 10px auto;
+}
+
+.load_more:hover {
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 .home_posts {
@@ -37,21 +50,17 @@
     flex-direction: column;
 
     width: 400px;
-    height: 830px;
+    height: fit-content;
+}
+
+.home_people, .home_games {
+    display: flex;
+    flex-direction: column;
+    
+    width: 100%;
+    height: fit-content;
 
     background-color: #33344A;
     border-radius: 40px;
-}
-
-.article_load_more {
-    text-align: center;
-    color: white;
-    font: 700 24px Inter, sans-serif;
-
-    margin: 10px auto;
-}
-
-.article_load_more:hover {
-    cursor: pointer;
-    text-decoration: underline;
+    margin-bottom: 35px;
 }

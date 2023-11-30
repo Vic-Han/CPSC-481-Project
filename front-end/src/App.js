@@ -143,6 +143,8 @@ function App() {
   //   setPreviewPost(true)
   // }
 
+  const [loggedUser, setLoggedUser] = useState("");
+
 
   return (
     <div>
@@ -154,8 +156,8 @@ function App() {
       {navBar}
       {mainScreen} */}
       <Routes>
-        <Route path="/" element={<HomepageLoggedOut />} />
-        <Route path="/home" element={<HomepageLoggedIn />} />
+        <Route path="/" element={<HomepageLoggedOut setLoggedUser={setLoggedUser}/>} />
+        <Route path="/home" element={<HomepageLoggedIn loggedUser={loggedUser}/>} />
         <Route path="/post/:id" element={null} />
         <Route path="/article/:id" element={null} />
         <Route path="/store" element={null} />
