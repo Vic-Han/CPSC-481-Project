@@ -17,8 +17,8 @@ function ExpandedArticle(props) {
           <div className="info-overlay">
             <h1 classname='author-date-text'>Carlito Smith | Oct 23, 2023</h1>
             <div className="tags">
-              <div className="tag">
-                <h1 className='tag-name'>Counter-Strike 2</h1>
+              <div className="tag1">
+                <h2 className='tag-name'>Counter-Strike 2</h2>
               </div>
             </div>
           </div>
@@ -45,8 +45,8 @@ But when the event rolled out, the numbers didn't quite stack up. Several factor
             <p className='sug-article-text'>Saudi Arabia is climbing up the ranks in the esports and games industry, making huge investments and hosting events that are...</p>
             <img src={articleimage2} className='sug-article-image'></img>
             <div className='sug-tags'>
-              <div className='tag'>
-                <h1 className='tag-name'>E-Sports Events</h1>
+              <div className='tag3'>
+                <h2 className='tag-name3'>E-Sports Events</h2>
               </div>
             </div>
           </div>
@@ -56,8 +56,8 @@ But when the event rolled out, the numbers didn't quite stack up. Several factor
             <p className='sug-article-text'>The esports world is constantly evolving, and 2023 promises to be a thrilling year for gamers and enthusiasts. As we gear up for a slew...</p>
             <img src={articleimage3} className='sug-article-image'></img>
             <div className='sug-tags'>
-              <div className='tag'>
-                <h1 className='tag-name'>E-Sports</h1>
+              <div className='tag3'>
+                <h1 className='tag-name3'>E-Sports</h1>
               </div>
             </div>
           </div>
