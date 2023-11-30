@@ -55,7 +55,7 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-
+    max-width: 400px;
     margin-top: 5px;
     margin-bottom: 20px;
     text-align: center;
@@ -234,17 +234,19 @@
     background-color: #7E82DF;
     color: #fff;
     position: relative;
-    border-radius: 10px;
-    max-width: 70%;
+    border-radius: 20px;
+   width: fit-content;
+   max-width: 250px;
     padding: 10px;
     margin-bottom: 8px;
-    left: 100%;
+    left: 105%;
+    border: #fff;
     transform: translateX(-100%);
     word-wrap: break-word;
-
     display: flex;
     flex-direction: column;
     align-self: flex-end;
+    border: solid 2px rgb(162, 236, 166);
 
   }
   
@@ -263,7 +265,7 @@
 
   .chat-input {
     display: grid;
-    grid-template-columns: 350px 50px;
+    grid-template-columns: 330px 50px;
     margin-top: 10px;
     position: absolute;
     bottom: 15px;
@@ -272,12 +274,14 @@
   #send_msg{
     position: relative;
     top: 4px;
-    height: 45px;
-    width: 45px;
+    height: 40px;
+    width: 40px;
+    right: 10%;
 
     background-image: url(../assets/SendMsg_icon.png);
     background-color: #7E82DF;
     border: none;
+    
   }
   
   /* This is what I changed, previously 'input' */
@@ -294,7 +298,9 @@
 
   }
   .chat-input input{
-    width: 365px;
+    width: 350px;
+    align-items: center;
+    border-radius: 20px;
   }
   
   #kenpfp{

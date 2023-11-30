@@ -171,9 +171,9 @@ function Messaging(props) {
     return (
         <div>
             <header id='msg_header2'>
+            <button id='back_btn' onClick={back}></button>
                 <img id='kenpfp' src={Kenpachipfp} alt="Profile" />
-                <p id='inbox_style'>Zaraki Kenpachi</p>
-                <button id='back_btn' onClick={back}></button>   
+                <p id='inbox_style'>Zaraki Kenpachi</p>   
             </header>
 
             <div className="chat-container">
