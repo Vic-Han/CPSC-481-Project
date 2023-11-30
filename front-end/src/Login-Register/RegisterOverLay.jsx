@@ -22,7 +22,7 @@ function RegisterOverLay(props) {
             <input className = 'register-input' type ="password"></input>
             <div className='password-desc-register'>At least 9 Characters</div>
             <div className='password-desc-register'>At least 1 Uppercase Character</div>
-            <div className='password-desc-register'>At least 1 non-alphabetic charcter</div>
+            <div className='password-desc-register'>At least 1 non-alphabetic character</div>
             <label className='register-label'> Verify Password</label>
             <input className = 'register-input' type ="password"></input>
             <button onClick={registerEvent} className='register-button'> Register</button>
