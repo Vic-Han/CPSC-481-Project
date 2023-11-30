@@ -172,7 +172,6 @@ function Messaging(props) {
         <div>
             <header id='msg_header2'>
             <button id='back_btn' onClick={back}></button>
-                <img id='kenpfp' src={Kenpachipfp} alt="Profile" />
                 <p id='inbox_style'>Zaraki Kenpachi</p>   
             </header>
 

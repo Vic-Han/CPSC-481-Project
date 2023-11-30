@@ -57,9 +57,10 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    max-width: 400px;
+    max-width: 500px;
     margin-top: 5px;
     margin-bottom: 20px;
+    margin-right: 40px;
     text-align: center;
 }
 
@@ -242,7 +243,7 @@
    max-width: 250px;
     padding: 10px;
     margin-bottom: 8px;
-    left: 105%;
+    left: 109%;
     border: #fff;
     transform: translateX(-100%);
     word-wrap: break-word;
@@ -268,10 +269,11 @@
 
   .chat-input {
     display: grid;
-    grid-template-columns: 330px 50px;
+    grid-template-columns: 320px 50px;
     margin-top: 10px;
     position: absolute;
     bottom: 15px;
+    margin-left: 2px;
   }
 
   #send_msg{
@@ -301,9 +303,10 @@
 
   }
   .chat-input input{
-    width: 350px;
+    width: 320px;
     align-items: center;
     border-radius: 20px;
+    margin-left: 15px;
   }
   
   #kenpfp{
