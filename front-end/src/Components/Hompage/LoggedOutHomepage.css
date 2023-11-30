@@ -1,7 +1,7 @@
 .main_content {
     background-color: #2D2E37;
     width: 1920px;
-    height: auto;
+    height: 3000px;
 }
 
 .text_container1 {
@@ -92,7 +92,8 @@
     width: 1920px;
     height: 100px;
     background-color: #33344A;
-    top: 2604px;
+    /*Temp disabled so that I can include FAQ*/
+    /* top: 2604px; */
     display: flex;
     justify-content: space-between;
 }
@@ -119,4 +120,56 @@
 
 .right_footer a:hover {
     color: #7E82DF;
+}
+
+.FAQ_container {
+    width: 837px;
+    text-align: center;
+
+    position: relative;
+    top: 1594px;
+    left: 541px;
+}
+
+.Space{
+    margin-bottom: 75px;
+}
+
+.QuestionButton{
+    margin-top: 25px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 25px;
+    font-family: Kanit, sans-serif;
+    font-weight: bold;
+    z-index: 2;
+    font-size: 20px;
+    margin-bottom: 60px;
+}
+
+
+.QuestionButton:hover{
+    opacity: 0.4;
+    cursor: pointer;
+}
+
+.Question{
+    color: #7E82DF;
+}
+
+.Answer{
+    color: white;
+    font-weight: lighter;
+    margin-bottom: 30px;
+}
+
+.QuestionContainer{
+   border-radius: 4px;
+   color: #000;
+   margin-bottom: 70px;
+}
+
+.FAQ_Question{
+    margin-bottom: 70px;
 }
