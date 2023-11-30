@@ -10,7 +10,7 @@ function Games(props) {
           <h1>{data.title}</h1>
           <button onClick={null}></button>
         </div>
-        <p className='game_short_description'>{data.description}</p>
+        <p className='game_short_description'>{data.description.substring(0,150)}...</p>
         {data.images.length > 0 ? <img className='game_short_image' src={data.images[0]}></img>: null}
       </div>
       <div className='line'></div>
