@@ -144,11 +144,11 @@ function App() {
 
   return (
     <div>
-      {login ? <LoginOverLay loginEvent={showHomePage} registerEvent={showRegister} cancelEvent={hideAllOverLays} /> : null}
-      {register ? <RegisterOverLay loginEvent={showLogin} cancelEvent={hideAllOverLays} registerEvent={showHomePage} /> : null}
-      {newPost ? <NewPostOverLay close={hideAllOverLays} data={data} setData={setData} showPostPreview={showPostPreview} /> : null}
-      {DM ? <DMOverLay closeEvent={hideAllOverLays} close={hideAllOverLays} /> : null}
-      {previewPost ? <PostPreview back={showNewPostOverLay} data={data} resetData={resetData} hidePosts={hideAllPostOverlays} /> : null}
+      {login ? <LoginOverLay loginEvent = {showHomePage} registerEvent ={showRegister} cancelEvent = {hideAllOverLays}/> : null}
+      {register ? <RegisterOverLay loginEvent = {showLogin} cancelEvent={hideAllOverLays} registerEvent = {showHomePage}/> : null}
+      {newPost ? <NewPostOverLay close={hideAllOverLays} data={data} setData={setData} showPostPreview={showPostPreview}/> : null}
+      {DM ? <DMOverLay close ={hideAllOverLays}/> : null}
+      {previewPost ? <PostPreview back = {showNewPostOverLay} data={data} resetData={resetData} hidePosts={hideAllPostOverlays}/>: null}
       {navBar}
       {mainScreen}
     </div>

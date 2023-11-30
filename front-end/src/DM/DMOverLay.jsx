@@ -15,7 +15,7 @@ import basicpfp from '../assets/basicpfp.png'
 //function for displaying Inbox items 
 function Messages(props) {
     const toggleNewDM = props.newDM
-    const closePopup = props.closePopup
+    const closePopup = props.close
     const messagePeople = [{
         profilePic: user4,
         username: "Kenneth Longbottom",
@@ -37,10 +37,13 @@ function Messages(props) {
         chat: 'Hey, I saw your clip, would you lik...'
     }]
     const [users, setUsers] = useState(messagePeople)
+    const [selected, setSelected] = useState(0)
     const setMessages = () => {
+        setSelected(0)
         setUsers(messagePeople)
     }
     const setRequests = () => {
+        setSelected(1)
         setUsers(requestPeople)
     }
     return (
@@ -53,8 +56,8 @@ function Messages(props) {
 
             <div className='msg_type'>
                 <input id = 'txt_field' type="text" placeholder="Search"></input>
-                <button className='msg_btn' onClick={setMessages}> Messages</button>
-                <button className='msg_btn' onClick={setRequests}> Requests</button>
+                <button className= {'msg_btn' + (selected === 0 ? ' selected' : '')} onClick={setMessages}> Messages</button>
+                <button className={'msg_btn' + (selected === 1 ? ' selected' : '')} onClick={setRequests}> Requests</button>
             </div>
 
 
@@ -132,8 +135,9 @@ function NewMessage(props) {
     return (<div>
 
         <header className='msg_header'>
-            <h1 id='newMsgheader'>New Message</h1>
             <button id='back_btn' onClick={toggleDefault}> </button>
+            <h1 id='newMsgheader'>New Message</h1>
+            
         </header>
 
         <div className='msg_type'>
@@ -198,16 +202,17 @@ function Messaging(props) {
 
 
 function DMOverLay(props) {
-    const [display, setDisplay] = useState(<Messages newDM={showNewMessage} />)
-    
+    const close = props.close
+    const [display, setDisplay] = useState(<Messages newDM={showNewMessage} close = {close}/>)
+
     function showMessages() {
-        setDisplay(<Messages newDM={showNewMessage} />)
+        setDisplay(<Messages newDM={showNewMessage} close = {close}/>)
     }
     function showNewMessage() {
         setDisplay(<NewMessage displayDM={showMessaging} back={showMessages} />)
     }
     function showMessaging() {
-        setDisplay(<Messaging back={showNewMessage} />)
+        setDisplay(<Messaging back={showMessages} />)
     }
 
     return (
