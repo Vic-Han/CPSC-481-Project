@@ -9,12 +9,52 @@
     width: 100%;
 }
 
+.game_store_top {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.game_store_search {
+    width: 850px;
+    height: 50px;
+    background-color: #7E82DF;
+    border-radius: 5px;
+
+    border: none;
+    align-self: center;
+    font: 400 24px Inter, sans-serif;
+    color: white;
+
+    box-sizing: border-box;
+    padding-left: 20px;
+    margin-left: 40px;
+}
+
+.game_store_search_button {
+    position: relative;
+    height: 40px;
+    width: 40px;
+    top: 5px;
+    left: -45px;
+    background-color: transparent;
+    background-image: url('../../assets/Search.png');
+    border: none;
+}
+
+.game_store_search_button:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
 .game_store_main {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
 
     margin-top: 50px;
+    margin-bottom: 40px;
 }
 
 .game_store_release {
@@ -22,7 +62,7 @@
     flex-direction: column;
 
     width: 1018px;
-    height: auto;
+    height: fit-content;
 
     background-color: #33344A;
     border-radius: 30px;
@@ -45,7 +85,7 @@
 .release_prev_button,
 .release_next_button {
     position: absolute;
-    top: 50%;
+    top: 60%;
 
     width: auto;
     color: #7E82DF;
@@ -54,7 +94,6 @@
     transition: 0.6s ease;
     border: none;
     opacity: 0.5;
-    
     z-index: 1;
 }
 
@@ -63,7 +102,7 @@
 }
 
 .release_next_button {
-    left: 1055px;
+    left: 1051px;
     border-radius: 10px 0 0 10px;
 }
 
@@ -134,7 +173,7 @@
     background-color: #ffffff;
     border-radius: 50%;
     display: inline-block;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.6s ease;
 }
 
 .release_dot:hover {
@@ -165,6 +204,156 @@
     margin: 10px auto;
 }
 
+.game_store_recom_games {
+    display: flex;
+    flex-direction: column;
+
+    width: 658px;
+    height: fit-content;
+    margin: 20px 10px;
+}
+
+.store_sale_section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sale_title {
+    color: #7E82DF;
+    font: 700 32px Inter, sans-serif;
+}
+
+.sale_slider {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    gap: 20px; 
+    padding: 0 10px; 
+}
+
+.sale_item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 330px;
+    height: 390px;
+
+    color: white;
+    background-color: #33344A;
+
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    box-sizing: border-box;
+    border-radius: 30px;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.5s ease; 
+}
+
+.sale_image {
+    width: 310px;
+    object-fit: contain;
+    border-radius: 20px;
+}
+
+.sale_info {
+    display: flex;
+    flex-direction: column;
+}
+
+.sale_game_title {
+    color: white;
+    font: 700 24px Inter, sans-serif;
+}
+
+.sale_game_title:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    color: #7E82DF;
+}
+
+.sale_info_section {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sale_price_section {
+    display: flex;
+    flex-direction: row;;
+}
+
+.sale_original_price {
+    color: #7E82DF;
+    margin: 0;
+    text-decoration: line-through;
+    font: 300 20px Inter, sans-serif;
+}
+
+.sale_sale_price {
+    color: white;
+    margin: 0;
+    margin-left: 10px;
+    font: 300 20px Inter, sans-serif;
+}
+
+.sale_discount {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    
+    width: 60px;
+    height: 30px;
+
+    color: white;
+    background-color: #7E82DF; 
+     
+    font: 800 20px Inter, sans-serif; 
+    border-radius: 20px;
+}
+
+.sale_game_availability {
+    margin: 10px 10px;
+}
+
+.sale_game_availability img {
+    margin: 10px 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media (max-width: 1920px) {
     .game-store {
@@ -189,11 +378,7 @@
     margin-bottom: 20px;
 }
 
-.search-bar-container{
-        display: flex;
-        align-items: center; 
-        justify-content: flex-start;
-}
+
 
 .search-bar-icon {
     margin-left: 20px;
@@ -385,9 +570,7 @@
 .main-content2{
     margin-bottom: 0px;
 }
-.line {
-    border-top: 1px #7E82DF;
-}
+
 
 .games-on-sale-title {
     font: 32px Kanit, sans-serif;
@@ -400,31 +583,9 @@
 }
 
 
-.sale-slider {
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    gap: 20px; 
-    padding: 0 10px; 
-}
 
-.sale-item {
-    background-color: rgba(62, 61, 117, 0.24); 
-    color: white;
-    min-width: 250px;
-    max-width: 250px;
-    height: 370px; 
-    padding: 20px;
-    box-sizing: border-box; 
-    border-radius: 10px;
-    margin: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; 
-    align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    transition: transform 0.5s ease; 
-}
+
+
 
 .original-price,
 .sale-price,

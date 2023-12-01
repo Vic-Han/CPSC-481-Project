@@ -1,0 +1,56 @@
+.recommended_store {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+.recommended_game_image {
+    width: 200px;
+    object-fit: contain;
+    border-radius: 15px;
+}
+
+.recommended_game_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.recommended_game_text {
+    display: flex;
+    flex-direction: column;
+}
+
+.recommended_game_text h1 {
+    margin: 0;
+    color: white;
+    font: 500 24px Inter, sans-serif;
+    text-decoration: none;
+}
+
+.recommended_game_text h1:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.recommended_game_text h3 {
+    margin: 0;
+    margin-top: 10px;
+    color: #7E82DF;
+    font: 400 20px Inter, sans-serif;
+}
+
+.recommended_game_text p {
+    display: inline;
+    margin: 0;
+    color: white;
+    font: 400 20px Inter, sans-serif;
+}
+
+.recommeded_game_availability img{
+    margin-right: 10px;   
+}

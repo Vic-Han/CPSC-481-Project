@@ -75,6 +75,11 @@ code {
   opacity: 0.5;
 }
 
+/* For any text that needs a strikethrough decoration*/
+.strikethrough {
+  text-decoration: line-through;
+}
+
 /*
 Custom Scrollbar for all pages
 */

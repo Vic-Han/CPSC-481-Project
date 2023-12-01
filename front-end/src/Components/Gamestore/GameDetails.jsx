@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import './GameDetails.css'
-import TW3K1 from '../assets/TotalWar3Kingdom.jpg';
-import TW3K2 from '../assets/TW3K2.jpg';
-import TW3K3 from '../assets/TW3K3.jpg';
-import TW3K4 from '../assets/TW3K4.jpg';
-import TW3K5 from '../assets/TW3K5.jpg';
-import PC from '../assets/PC.png';
-import Redirect from '../assets/Redirect.png';
-import WarHammer3 from '../assets/TWW3.jpg';
-import HeartofIron4 from '../assets/HOI4.jpg';
-import TroyGame from '../assets/Troy.bmp';
-import AOE4 from '../assets/AOE4.bmp';
-import BackButtonStore from '../assets/BackButton.png';
+import TW3K1 from '../../assets/TotalWar3Kingdom.jpg';
+import TW3K2 from '../../assets/TW3K2.jpg';
+import TW3K3 from '../../assets/TW3K3.jpg';
+import TW3K4 from '../../assets/TW3K4.jpg';
+import TW3K5 from '../../assets/TW3K5.jpg';
+import PC from '../../assets/PC.png';
+import Redirect from '../../assets/Redirect.png';
+import WarHammer3 from '../../assets/TWW3.jpg';
+import HeartofIron4 from '../../assets/HOI4.jpg';
+import TroyGame from '../../assets/Troy.bmp';
+import AOE4 from '../../assets/AOE4.bmp';
+import BackButtonStore from '../../assets/BackButton.png';
 
 
 function GameDetails(props) {

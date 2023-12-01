@@ -31,6 +31,7 @@ import HomepageLoggedIn from "./pages/HomepageLoggedIn.jsx";
 import Store from "./pages/Store.jsx";
 import Posts from "./pages/Posts.jsx";
 import Articles from "./pages/Articles.jsx";
+import Game from "./pages/Game.jsx";
 
 function App() {
 
@@ -215,7 +216,7 @@ function App() {
         <Route path="/post/:id" element={<Posts clickHandlers={navbarClickHandlers}/>} />
         <Route path="/article/:id" element={<Articles clickHandlers={navbarClickHandlers} />} />
         <Route path="/store" element={<Store clickHandlers={navbarClickHandlers}/>} />
-        <Route path="/store/:id" element={null} />
+        <Route path="/store/:id" element={<Game clickHandlers={navbarClickHandlers}/>} />
         <Route path="/account" element={null} />
         <Route path="/account/:id" element={null} />
       </Routes>

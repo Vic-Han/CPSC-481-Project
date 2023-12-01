@@ -7,19 +7,8 @@ import PC from '../../assets/PC.png';
 import PS from '../../assets/PS.png';
 import XBOX from '../../assets/Xbox.png';
 import SWITCH from '../../assets/Switch.png';
-import PCXBOXPS from '../../assets/PC-XBOX-PS.png';
-import MirageImage from '../../assets/Mirage.png';
-import SpiderMan2 from '../../assets/SM2.webp';
-import CS2 from '../../assets/CS2.png';
-import BF2042 from '../../assets/BF2042.png';
-import NFL from '../../assets/NFL.png';
-import RD2 from '../../assets/RD2.png';
-import ReadyorNot from '../../assets/ReadyorNot.png';
-import mha from '../../assets/mha.jpg';
-import GoT from '../../assets/Tsushima.jpg';
-import theFinals from '../../assets/theFinals.webp';
-import GTA5 from '../../assets/GTA5.bmp';
-import Back_Button from '../../assets/BackButton.png';
+
+import StoreRecommended from "../../Elements/StoreRecommended";
 
 
 function GameStoreMain(props) {
@@ -43,8 +32,35 @@ function GameStoreMain(props) {
     return ratingB - ratingA;
   };
 
-  const sortedGames = games.sort(sortByReleaseDate).slice(0, 6);
-  const recommendedGames = games.sort(sortByRating).slice(0, 3);
+  const sortBySale = (gameA, gameB) => {
+    const saleA = 100 - ((gameA.salePrice / gameA.price).toFixed(2)) * 100;
+    const saleB = 100 - ((gameB.salePrice / gameB.price).toFixed(2)) * 100;
+    return saleB - saleA;
+  }
+
+  function getRecommendedGames(chosenGames) {
+    const temp = games.sort(sortByRating);
+    const chosenIds = chosenGames.map(game => game.id);
+    const recommended = temp.filter(function (game) {
+      return !chosenIds.includes(game.id);
+    })
+    return recommended.slice(0, 3);
+  }
+
+  function getSaleGames() {
+    const temp = games.sort(sortBySale);
+    const temp1 = temp.filter(function (game) {
+      return 100 - ((game.salePrice / game.price).toFixed(2)) * 100 !== 0;
+    })
+    const saleGames = temp1.filter(function (game) {
+      return game.price !== 0;
+    })
+    return saleGames;
+  }
+
+  const sortedGames = games.sort(sortByReleaseDate).slice(0, 3);
+  const recommendedGames = getRecommendedGames(sortedGames);
+  const saleGames = getSaleGames();
 
   const changeSlide = (newIndex) => {
     setFade(true);
@@ -72,77 +88,77 @@ function GameStoreMain(props) {
     return () => clearInterval(interval);
   }, [slideIndex]);
 
-  // Data for games on sale
-  const saleGames = [
-    {
-      image: BF2042,
-      name: 'Battlefield 2042',
-      originalPrice: '$79.99 CAD',
-      salePrice: '$12.79 CAD',
-      discount: '-84%',
-      availability: PCXBOXPS
-    },
+  // // Data for games on sale
+  // const saleGames = [
+  //   {
+  //     image: BF2042,
+  //     name: 'Battlefield 2042',
+  //     originalPrice: '$79.99 CAD',
+  //     salePrice: '$12.79 CAD',
+  //     discount: '-84%',
+  //     availability: PCXBOXPS
+  //   },
 
-    {
-      image: NFL,
-      name: 'Madden NFL 24',
-      originalPrice: '$89.99 CAD',
-      salePrice: '$58.49 CAD',
-      discount: '-35%',
-      availability: PCXBOXPS
-    },
+  //   {
+  //     image: NFL,
+  //     name: 'Madden NFL 24',
+  //     originalPrice: '$89.99 CAD',
+  //     salePrice: '$58.49 CAD',
+  //     discount: '-35%',
+  //     availability: PCXBOXPS
+  //   },
 
-    {
-      image: RD2,
-      name: 'Red Dead Redemption 2',
-      originalPrice: '$79.99 CAD',
-      salePrice: '$31.99 CAD',
-      discount: '-60%',
-      availability: PCXBOXPS
-    },
-    {
-      image: ReadyorNot,
-      name: 'Ready or Not',
-      originalPrice: '$45.99 CAD',
-      salePrice: '$36.79 CAD',
-      discount: '-20%',
-      availability: PC
-    },
+  //   {
+  //     image: RD2,
+  //     name: 'Red Dead Redemption 2',
+  //     originalPrice: '$79.99 CAD',
+  //     salePrice: '$31.99 CAD',
+  //     discount: '-60%',
+  //     availability: PCXBOXPS
+  //   },
+  //   {
+  //     image: ReadyorNot,
+  //     name: 'Ready or Not',
+  //     originalPrice: '$45.99 CAD',
+  //     salePrice: '$36.79 CAD',
+  //     discount: '-20%',
+  //     availability: PC
+  //   },
 
-    {
-      image: mha,
-      name: 'My Hero Ultra Rumble',
-      originalPrice: '$79.99 CAD',
-      salePrice: '$0.80 CAD',
-      discount: '-99%',
-      availability: PC
-    },
+  //   {
+  //     image: mha,
+  //     name: 'My Hero Ultra Rumble',
+  //     originalPrice: '$79.99 CAD',
+  //     salePrice: '$0.80 CAD',
+  //     discount: '-99%',
+  //     availability: PC
+  //   },
 
-    {
-      image: GoT,
-      name: 'Ghost of Tsushima',
-      originalPrice: '$79.99 CAD',
-      salePrice: '$39.99 CAD',
-      discount: '-50%',
-      availability: PS
-    },
-    {
-      image: theFinals,
-      name: 'The Finals',
-      originalPrice: '$79.99 CAD',
-      salePrice: '$71.99 CAD',
-      discount: '-10%',
-      availability: PC
-    },
-    {
-      image: GTA5,
-      name: 'Grand Theft Auto V',
-      originalPrice: '$19.99 CAD',
-      salePrice: '$14.99 CAD',
-      discount: '-25%',
-      availability: PCXBOXPS
-    }
-  ];
+  //   {
+  //     image: GoT,
+  //     name: 'Ghost of Tsushima',
+  //     originalPrice: '$79.99 CAD',
+  //     salePrice: '$39.99 CAD',
+  //     discount: '-50%',
+  //     availability: PS
+  //   },
+  //   {
+  //     image: theFinals,
+  //     name: 'The Finals',
+  //     originalPrice: '$79.99 CAD',
+  //     salePrice: '$71.99 CAD',
+  //     discount: '-10%',
+  //     availability: PC
+  //   },
+  //   {
+  //     image: GTA5,
+  //     name: 'Grand Theft Auto V',
+  //     originalPrice: '$19.99 CAD',
+  //     salePrice: '$14.99 CAD',
+  //     discount: '-25%',
+  //     availability: PCXBOXPS
+  //   }
+  // ];
 
   // Pagination logic for sale games
   const gamesToShow = 4;
@@ -172,7 +188,8 @@ function GameStoreMain(props) {
   return (
     <div className="game_store">
       <div className="game_store_top">
-
+        <input className="game_store_search" type='text' placeholder='Browse Games' onKeyDown={e => e.key === 'Enter' && handleSearch()}></input>
+        <button className='game_store_search_button' onClick={handleSearch}></button>
       </div>
 
       <div className="game_store_main">
@@ -184,7 +201,9 @@ function GameStoreMain(props) {
           <div className="game_release_bottom">
             <div className="game_release_info">
               <h2>{sortedGames[slideIndex].title}</h2>
-              <h3>PC Price: <p>${sortedGames[slideIndex].price}</p></h3>
+              {((sortedGames[slideIndex].price - sortedGames[slideIndex].salePrice) > 0) ?
+                <h3>PC Price: <p className='strikethrough'>${sortedGames[slideIndex].price}</p> <p>${sortedGames[slideIndex].salePrice}</p></h3> :
+                <h3>PC Price: <p>${sortedGames[slideIndex].price}</p></h3>}
             </div>
             <div className="game_release_availability">
               {sortedGames[slideIndex].availability.map((type, i) => {
@@ -202,9 +221,48 @@ function GameStoreMain(props) {
           </div>
         </div>
 
-        <div className="game_store_recommended">
-          <h1>Recommended Games</h1>
-          {/*Add discount property to games for sales, and create separate list for recommended games (probably take the rest of the release date sliced games)*/}
+        <div>
+          <div className="game_store_recommended">
+            <h1>Recommended Games</h1>
+          </div>
+          <div className="game_store_recom_games">
+            {recommendedGames.map((game, i) => (
+              <StoreRecommended data={game} />
+            ))}
+          </div>
+        </div>
+      </div>
+      <div className="line"></div>
+
+      <div className="store_sale_section">
+        <h1 className="sale_title">Games on Sale</h1>
+        <div className="sale_slider">
+          {displayedGames.map((game, i) => (
+            <div key={i} className="sale_item">
+              <img onClick={null} src={game.images[0]} alt={game.title} className="sale_image" />
+              <h3 onClick={null} className="sale_game_title">{game.title}</h3>
+              <div className="sale_info_section">
+                <div className="sale_price_section">
+                  <p className="sale_original_price">${game.price}</p>
+                  <p className="sale_sale_price">${game.salePrice}</p>
+                </div>
+                <div className="sale_discount">{(100 - ((game.salePrice / game.price).toFixed(2)) * 100)}%</div>
+              </div>
+              <div className='sale_game_availability'>
+                {game.availability.map((type, i) => {
+                  if (type === "PC") return <img key={i} src={PC}></img>;
+                  else if (type === "PS") return <img key={i} src={PS}></img>;
+                  else if (type === "Xbox") return <img key={i} src={XBOX}></img>;
+                  else if (type === "Switch") return <img key={i} src={SWITCH}></img>;
+                  return null;
+                })}
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="slider-controls">
+          <button className="prev-button" onClick={handlePrevClick} disabled={currentPage === 0}>&#10094;</button>
+          <button className="next-button" onClick={handleNextClick} disabled={currentPage === totalPages - 1}>&#10095;</button>
         </div>
       </div>
     </div>
