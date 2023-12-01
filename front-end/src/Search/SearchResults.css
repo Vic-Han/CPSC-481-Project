@@ -6,6 +6,7 @@
 }
 
 .toggle_buttons-search{
+    width: 1320px;
     display: grid;
     grid-template-columns: 210px 170px 170px 170px 170px 170px;
     margin-top: 25px;
