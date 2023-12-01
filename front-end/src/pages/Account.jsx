@@ -1,12 +1,12 @@
 import Navbar from "../Components/Navbar/Navbar";
-import MyProfile from "../Components/Profile/MyProfile";
+import Profile from "../Components/Profile/Profile";
 
 const Store = (props) => {
 
   return (
     <>
       <Navbar clickHandlers={props.clickHandlers} />
-      <MyProfile/>
+      <Profile/>
     </>
   )
 }
