@@ -1,0 +1,29 @@
+.account_page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.account_info {
+    width: 1770px;
+    height: fit-content;
+    margin-top: 50px;
+}
+
+.account_top_buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.account_logout_button {
+    width: 90px;
+    height: 42px;
+
+    color: white;
+    font: 600 18px Inter, sans-serif;
+
+    border: 2px solid red;
+    border-radius: 10px;
+    background-color: #7E82DF;
+}

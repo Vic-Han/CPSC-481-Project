@@ -1,7 +1,7 @@
 import {React, useState, useEffect} from "react"
 import './FollowingOverLay.css'
-import example1 from '../assets/example1.png';
-import example2 from '../assets/example2.png';
+import example1 from '../../assets/example1.png';
+import example2 from '../../assets/example2.png';
 function FollowingOverLay(props){
     const close = props.close
     const viewSelf = (props.viewSelf === true)
