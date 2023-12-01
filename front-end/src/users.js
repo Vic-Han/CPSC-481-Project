@@ -117,6 +117,8 @@ export var users = [
     "email": "will@gmail.com",
     "password": "Vibez1234",
     "profileURL": 'ProfileDefault.png',
-    "loggedIn": false
+    "loggedIn": false,
+    "followers": ["IamA10", "ahritina"],
+    "following": ["IamA10", "ahritina"]
   },
 ];

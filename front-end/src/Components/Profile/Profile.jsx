@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
-import './MyProfile.css'
+import './Profile.css'
 import FollowerOverLay from "./FollowerOverLay"
 import FollowingOverLay from "./FollowingOverLay"
 import user from "../../assets/Person9.png"
@@ -46,18 +46,19 @@ function MyProfile(props) {
   return (
     <div className="profile_page">
       <div className="profile_container">
-        <div className="profile_info">
-          <img id="myProfile_pfp" src={user} alt="profile pic" />
-          <div className="profile_details">
-            <div id="myProfile_dp">Ken Barbie</div>
-            <div id="myProfile_username">Ken4Lyfe</div>
-            <p id="myProfile_bio">I am a professional ESports Enjoyer. It's awesome.</p>
-            <div className="myPofile_follow">
-              <button onClick={showFollower}>Followers <br />102</button>
-              <button onClick={showFollowing}>Following<br />121</button>
-              {follower ? <FollowerOverLay close={hideFollower} viewSelf={true} /> : null}
-              {following ? <FollowingOverLay close={hideFollowing} viewSelf={true} /> : null}
-            </div>
+        <div className="profile_button_top">
+          
+        </div>
+        <img id="myProfile_pfp" src={user} alt="profile pic" />
+        <div className="profile_details">
+          <div id="myProfile_dp">Ken Barbie</div>
+          <div id="myProfile_username">Ken4Lyfe</div>
+          <p id="myProfile_bio">I am a professional ESports Enjoyer. It's awesome.</p>
+          <div className="myPofile_follow">
+            <button onClick={showFollower}>Followers <br />102</button>
+            <button onClick={showFollowing}>Following<br />121</button>
+            {follower ? <FollowerOverLay close={hideFollower} viewSelf={true} /> : null}
+            {following ? <FollowingOverLay close={hideFollowing} viewSelf={true} /> : null}
           </div>
         </div>
         <div className="profile_actions">
