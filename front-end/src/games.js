@@ -15,7 +15,8 @@ export var games = [
     "genres": ["Stealth", "Action-Adventure", "Platform", "Fighting"],
     "developer": ["Ubisoft", "Ubisoft Bordeaux"],
     "publisher": ["Ubisoft"],
-    "release": "October 5, 2023"
+    "release": "October 5, 2023",
+    "buyOn": ["Steam", "PS Store", "XBox"]
   },
   {
     "id": 1,
@@ -35,7 +36,8 @@ export var games = [
     "genres": ["Action-Adventure", "Platform", "Fighting"],
     "developer": ["Insomniac Games"],
     "publisher": ["Sony Interactive Entertainment"],
-    "release": "October 20, 2023"
+    "release": "October 20, 2023",
+    "buyOn": ["Steam", "PS Store", "XBox"]
   },
   {
     "id": 2,
@@ -53,7 +55,8 @@ export var games = [
     "genres": ["JRPG", "Social Simulation", "Strategy"],
     "developer": ["Atlus", "P Studio"],
     "publisher": ["Sega", "SEGA of America"],
-    "release": "November 17, 2023"
+    "release": "November 17, 2023",
+    "buyOn": ["Steam", "PS Store", "XBox"]
   },
   {
     "id": 3,
@@ -71,7 +74,8 @@ export var games = [
     "genres": ["Action", "Strategy"],
     "developer": ["Frontier Developments plc"],
     "publisher": ["Frontier Developments plc"],
-    "release": "October 9, 2023"
+    "release": "October 9, 2023",
+    "buyOn": ["Steam", "PS Store", "XBox"]
   },
   {
     "id": 4,
@@ -89,7 +93,8 @@ export var games = [
     "genres": ["First-Person Shooter"],
     "developer": ["Infinity Ward", "Sledgehammer Games"],
     "publisher": ["Activision"],
-    "release": "November 10, 2023"
+    "release": "November 10, 2023",
+    "buyOn": ["Steam", "PS Store", "XBox"]
   },
   {
     "id": 5,
@@ -107,7 +112,8 @@ export var games = [
     "genres": ["Puzzle", "Adventure", "Action"],
     "developer": ["Croteam"],
     "publisher": ["Devolver Digital"],
-    "release": "November 2, 2023"
+    "release": "November 2, 2023",
+    "buyOn": ["Steam", "PS Store", "XBox"]
   },
   {
     "id": 6,
@@ -124,7 +130,8 @@ export var games = [
     "genres": ["RPG", "Action"],
     "developer": ["CD Projekt"],
     "publisher": ["CD Projekt"],
-    "release": "December 10, 2020"
+    "release": "December 10, 2020",
+    "buyOn": ["Steam", "PS Store", "XBox"]
   },
   {
     "id": 7,
@@ -141,7 +148,8 @@ export var games = [
     "genres": ["First-Person Shooter"],
     "developer": ["343 Industries"],
     "publisher": ["Xbox Game Studios"],
-    "release": "November 15, 2021"
+    "release": "November 15, 2021",
+    "buyOn": ["Steam", "PS Store", "XBox"]
   },
   {
     "id": 8,
@@ -158,13 +166,14 @@ export var games = [
     "genres": ["RPG"],
     "developer": ["Square Enix"],
     "publisher": ["Square Enix"],
-    "release": "June 22, 2023"
+    "release": "June 22, 2023",
+    "buyOn": ["Steam", "PS Store", "XBox"]
   },
   {
     "id": 9,
     "title": "Rocket League",
-    "description": "Rocket League is a vehicular soccer video game developed and published by Psyonix. "+
-    "The game was first released for PlayStation 4 and Windows in July 2015, with ports for Xbox One and Nintendo Switch being released later on.",
+    "description": "Rocket League is a vehicular soccer video game developed and published by Psyonix. " +
+      "The game was first released for PlayStation 4 and Windows in July 2015, with ports for Xbox One and Nintendo Switch being released later on.",
     "images": ['https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1240/b_white/f_auto/q_auto/ncom/software/switch/70010000000457/d817e8f61be9883bf788d97f6a4b5b1b8e3985b5548cedd74c51aa630b0cfc3d',
       'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Rocket_League_coverart.jpg/640px-Rocket_League_coverart.jpg'],
     "price": 0,
@@ -175,7 +184,8 @@ export var games = [
     "genres": ["Sports", "Action", "Car Racing"],
     "developer": [" Psyonix"],
     "publisher": [" Psyonix"],
-    "release": "July 7, 2015"
+    "release": "July 7, 2015",
+    "buyOn": ["Steam", "PS Store", "XBox"]
   },
   {
     "id": 10,
@@ -183,7 +193,12 @@ export var games = [
     "description": "Journey through a dark and mysterious world in Elden Ring, an action RPG developed by FromSoftware " +
       "and published by Bandai Namco Entertainment. Explore vast landscapes, battle formidable foes, and uncover the secrets of the Elden Ring.",
     "images": ['https://i.ytimg.com/vi/JldMvQMO_5U/maxresdefault.jpg',
-      'https://image.api.playstation.com/vulcan/ap/rnd/202110/2000/aGhopp3MHppi7kooGE2Dtt8C.png'],
+      'https://image.api.playstation.com/vulcan/ap/rnd/202110/2000/aGhopp3MHppi7kooGE2Dtt8C.png',
+      'https://www.godisageek.com/wp-content/uploads/Elden-Ring-combat.jpg',
+      'https://www.godisageek.com/wp-content/uploads/Elden-Ring-UI.jpg',
+      'https://i.ytimg.com/vi/l1i0RkxxiLs/maxresdefault.jpg',
+      'https://cdn.mos.cms.futurecdn.net/Rgvoh6dyCGcBgNVhvZtf3R.jpg',
+      'https://cdn.thewirecutter.com/wp-content/media/2022/03/elden-ring-2048px-0001.jpg?auto=webp&quality=75&width=1024'],
     "price": 79.99,
     "salePrice": 74.99,
     "availability": ['PC', "PS", "Xbox"],
@@ -192,7 +207,8 @@ export var games = [
     "genres": ["Action RPG"],
     "developer": ["FromSoftware"],
     "publisher": ["Bandai Namco Entertainment"],
-    "release": "February 25, 2022"
+    "release": "February 25, 2022",
+    "buyOn": ["Steam", "PS Store", "XBox"]
   },
   {
     "id": 11,
@@ -209,13 +225,14 @@ export var games = [
     "genres": ["Space Exploration"],
     "developer": ["Bethesda Game Studios"],
     "publisher": ["Bethesda Softworks"],
-    "release": "September 6, 2023"
+    "release": "September 6, 2023",
+    "buyOn": ["Steam", "PS Store", "XBox"]
   },
   {
     "id": 12,
     "title": "Resident Evil Village",
-    "description": "Resident Evil Village is a 2021 survival horror game developed and published by Capcom. It is the sequel to "+
-    "Resident Evil 7: Biohazard. Players control Ethan Winters, who searches for his kidnapped daughter in a village filled with mutant creatures.",
+    "description": "Resident Evil Village is a 2021 survival horror game developed and published by Capcom. It is the sequel to " +
+      "Resident Evil 7: Biohazard. Players control Ethan Winters, who searches for his kidnapped daughter in a village filled with mutant creatures.",
     "images": ['https://cdn.mos.cms.futurecdn.net/7rxe9Tiq5rXS5u4beXwzHQ.jpg',
       'https://image.api.playstation.com/vulcan/ap/rnd/202101/0812/FkzwjnJknkrFlozkTdeQBMub.png'],
     "price": 59.99,
@@ -226,7 +243,8 @@ export var games = [
     "genres": ["Survival Horror"],
     "developer": ["Capcom"],
     "publisher": ["Capcom"],
-    "release": "May 7, 2021"
+    "release": "May 7, 2021",
+    "buyOn": ["Steam", "PS Store", "XBox"]
   },
   {
     "id": 13,
@@ -243,14 +261,15 @@ export var games = [
     "genres": ["First-Person Shooter"],
     "developer": ["Blizzard Entertainment"],
     "publisher": ["Activision Blizzard"],
-    "release": "October 4, 2022"
+    "release": "October 4, 2022",
+    "buyOn": ["Steam", "PS Store", "XBox"]
   },
   {
     "id": 14,
     "title": "Total War: Three Kingdoms",
-    "description": "Total War: THREE KINGDOMS is the first in the award-winning series to recreate epic "+
-    "conflict across ancient China. Combining a gripping turn-based campaign of empire-building & conquest "+
-    "with stunning real-time battles, THREE KINGDOMS redefines the series in an age of heroes & legends.",
+    "description": "Total War: THREE KINGDOMS is the first in the award-winning series to recreate epic " +
+      "conflict across ancient China. Combining a gripping turn-based campaign of empire-building & conquest " +
+      "with stunning real-time battles, THREE KINGDOMS redefines the series in an age of heroes & legends.",
     "images": ['https://xxboxnews.blob.core.windows.net/prod/sites/2/2022/06/3K-Title-Hero-Art-1920x1080_JPG-7a0024793415b1f22076.jpg',
       'http://t3.gstatic.com/images?q=tbn:ANd9GcQ0QtoePNT9z3IYC2Xeg7i3R25Uh5EJ3KIX12hGrdLMzxJCWwUkZULLU3vT3Ojrm7ljJi_w'],
     "price": 71.99,
@@ -261,6 +280,7 @@ export var games = [
     "genres": ["Action", "Strategy"],
     "developer": ["Creative Assembly", "Feral Interactive"],
     "publisher": ["SEGA", "Feral Interactive"],
-    "release": "May 23, 2019"
+    "release": "May 23, 2019",
+    "buyOn": ["Steam", "PS Store", "XBox"]
   }
 ];

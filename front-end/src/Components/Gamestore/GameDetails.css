@@ -1,29 +1,235 @@
-* {
-    font-family: Kanit, sans-serif;
+.game_detail_page {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    width: 100%;
+    margin-top: 50px;
 }
 
-.game-detail {
-    width: 1920px;
-    height: 1080px;
-    margin: 0 auto;
-    overflow: auto;
-    position: relative;
-
+.game_detail_left {
+    width: 1085px;
 }
 
-@media (max-width: 1920px) {
-    .game-detail {
-        width: 100%;
-        height: auto;
-        min-height: 1080px;
-    }
+.game_detail_title {
+    margin: 0;
+    margin: 10px 0px;
+    color: #7E82DF;
+    font: 700 36px Inter, sans-serif;
 }
+
+.game_detail_slide_image {
+    width: 1085px;
+    height: 600px;
+    border-radius: 40px;
+    transition: opacity 0.5s ease-in-out;
+    border: 1px solid #7E82DF;
+}
+
+.fade {
+    opacity: 0;
+}
+
+.detail_prev_button,
+.detail_next_button {
+    position: absolute;
+    top: 50%;
+
+    width: auto;
+    color: #7E82DF;
+    background-color: transparent; 
+    font: bold 50px Inter, sans-serif;
+    transition: 0.6s ease;
+    border: none;
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.detail_prev_button {
+    left: 72px;
+    padding: 0px 8px;
+    border-radius: 0 10px 10px 0;
+}
+
+.detail_next_button {
+    left: 1115px;
+    padding: 0px 8px;
+    border-radius: 10px 0 0 10px;
+}
+
+.detail_prev_button:hover,
+.detail_next_button:hover {
+    opacity: 1;
+    cursor: pointer;
+    background-color: #33344A;
+}
+
+.game_detail_dots {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.game_detail_bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.game_detail_tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.game_detail_tags li {
+    color: white;
+    font: 400 16px Inter, sans-serif;
+    margin-left: 5px;
+}
+
+.detail_tag {
+    margin-right: 0;
+    margin-left: 10px;
+    padding: 2px 5px;
+    color: white;
+    font: 400 16px Inter, sans-serif;
+    background-color: #7E82DF;
+    border-radius: 8px;
+    border: none;
+}
+
+.game_detail_availability img{
+    margin-left: 15px;
+}
+
+.game_detail_description {
+    margin: 20px;
+    color: #B0B0B0;
+    font: 400 24px Inter, sans-serif;
+}
+
+.detail_review_button {
+    width: 100%;
+    color: white;
+    background-color: transparent;
+    border: none;
+    font: bold 20px Inter, sans-serif;
+
+    margin-top: 20px;
+    align-self: center;
+    transition: 0.4s ease;
+}
+
+.detail_review_button:hover {
+    cursor: pointer;
+    color: #7E82DF;
+}
+
+.detail_review {
+    color: white;
+    background-color: #37384F;
+    padding: 15px;
+    border-radius: 15px;
+    font: 400 20px Inter, sans-serif;
+}
+
+.game_detail_right {
+    display: flex;
+    flex-direction: column;
+    width: 610px;
+}
+
+.game_detail_info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #37384F;
+    border-radius: 40px;
+    box-sizing: border-box;
+    padding-top: 20px;
+    margin-top: 60px;
+}
+
+.game_detail_info h2 {
+    margin: 0;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    color: #7E82DF;
+    font: 600 30px Inter, sans-serif;
+}
+
+.game_detail_info h3 {
+    margin: 0;
+    margin-left: 20px;
+    margin-bottom: 15px;
+    color: #7E82DF;
+    font: 500 22px Inter, sans-serif;
+}
+
+.game_detail_info p {
+    display: inline;
+    margin: 0;
+    color: white;
+}
+
+.game_detail_buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 15px;
+}
+
+.game_detail_buttons button {
+    padding: 10px 8px;
+    color: white;
+    background-color: #7E82DF;
+    border: none;
+    border-radius: 10px;
+    font: 600 20px Inter, sans-serif;
+}
+
+.detail_similar_games {
+    display: flex;
+    flex-direction: column;
+    
+    width: 100%;
+    height: fit-content;
+
+    background-color: #33344A;
+    border-radius: 40px;
+    margin-top: 75px;
+    margin-bottom: 35px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .TW3K_Title {
     margin-top: 40px;
     margin-bottom: 20px;
-    font-size: 45px;
     color: #7E82DF;
+    font: 700 36px Inter, sans-serif;
     position: relative;
 
 }
@@ -169,61 +375,7 @@
     display: block;
 }
 
-.Review_Button:hover,
-.More_Similar_Games:hover {
-    color: #7E82DF;
-}
 
-.Review_Button {
-    transition: 0.5s ease;
-    cursor: pointer;
-}
-
-.Review1 {
-    margin-top: 145px;
-    color: #ffffff;
-    width: 985px;
-    background-color: #37384F;
-    padding: 15px 15px 15px 15px;
-    border-radius: 8px;
-    font-size: 20px;
-}
-
-.Review2 {
-    color: #ffffff;
-    width: 985px;
-    background-color: #37384F;
-    padding: 15px 15px 15px 15px;
-    border-radius: 8px;
-    font-size: 20px;
-    margin-top: 34px;
-}
-
-.Review3 {
-    color: #ffffff;
-    width: 985px;
-    background-color: #37384F;
-    padding: 15px 15px 15px 15px;
-    border-radius: 8px;
-    font-size: 20px;
-    margin-top: 34px;
-}
-
-
-.Review_Button {
-    position: absolute;
-    margin-top: 25px;
-    background-color: transparent;
-    color: white;
-    border: none;
-    font-size: 25px;
-    font-family: Kanit, sans-serif;
-    font-weight: bold;
-    z-index: 2;
-    font-size: 20px;
-    /* Will fix this later */
-    left: 442px;
-}
 
 .main-content {
     display: flex;

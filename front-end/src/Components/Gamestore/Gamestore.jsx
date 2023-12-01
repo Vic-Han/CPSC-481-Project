@@ -9,17 +9,44 @@ import XBOX from '../../assets/Xbox.png';
 import SWITCH from '../../assets/Switch.png';
 
 import StoreRecommended from "../../Elements/StoreRecommended";
+import { Link } from "react-router-dom";
 
 
 function GameStoreMain(props) {
 
   const { toggleGameDetails, toggleGameSearch, toggleHomePage2 } = props;
-  // const toggleHomePage = props.clickHandlers.toggleHomePage2;
 
   //--------------------------Slideshow Function/States--------------------------
   const [slideIndex, setSlideIndex] = useState(0);
   const [fade, setFade] = useState(false);
 
+  const nextSlide = () => {
+    const newIndex = (slideIndex === sortedGames.length - 1) ? 0 : slideIndex + 1;
+    changeSlide(newIndex);
+  };
+
+  const previousSlide = () => {
+    const newIndex = (slideIndex === 0) ? sortedGames.length - 1 : slideIndex - 1;
+    changeSlide(newIndex);
+  };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [slideIndex]);
+
+  const changeSlide = (newIndex) => {
+    setFade(true);
+    setTimeout(() => {
+      setSlideIndex(newIndex);
+      setFade(false);
+    }, 500);
+  };
+
+  //--------------------------Calculating Game Lists--------------------------
   const sortByReleaseDate = (gameA, gameB) => {
     const releaseDateA = new Date(gameA.release);
     const releaseDateB = new Date(gameB.release);
@@ -62,110 +89,11 @@ function GameStoreMain(props) {
   const recommendedGames = getRecommendedGames(sortedGames);
   const saleGames = getSaleGames();
 
-  const changeSlide = (newIndex) => {
-    setFade(true);
-    setTimeout(() => {
-      setSlideIndex(newIndex);
-      setFade(false);
-    }, 500);
-  };
-
-  const nextSlide = () => {
-    const newIndex = (slideIndex === sortedGames.length - 1) ? 0 : slideIndex + 1;
-    changeSlide(newIndex);
-  };
-
-  const previousSlide = () => {
-    const newIndex = (slideIndex === 0) ? sortedGames.length - 1 : slideIndex - 1;
-    changeSlide(newIndex);
-  };
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [slideIndex]);
-
-  // // Data for games on sale
-  // const saleGames = [
-  //   {
-  //     image: BF2042,
-  //     name: 'Battlefield 2042',
-  //     originalPrice: '$79.99 CAD',
-  //     salePrice: '$12.79 CAD',
-  //     discount: '-84%',
-  //     availability: PCXBOXPS
-  //   },
-
-  //   {
-  //     image: NFL,
-  //     name: 'Madden NFL 24',
-  //     originalPrice: '$89.99 CAD',
-  //     salePrice: '$58.49 CAD',
-  //     discount: '-35%',
-  //     availability: PCXBOXPS
-  //   },
-
-  //   {
-  //     image: RD2,
-  //     name: 'Red Dead Redemption 2',
-  //     originalPrice: '$79.99 CAD',
-  //     salePrice: '$31.99 CAD',
-  //     discount: '-60%',
-  //     availability: PCXBOXPS
-  //   },
-  //   {
-  //     image: ReadyorNot,
-  //     name: 'Ready or Not',
-  //     originalPrice: '$45.99 CAD',
-  //     salePrice: '$36.79 CAD',
-  //     discount: '-20%',
-  //     availability: PC
-  //   },
-
-  //   {
-  //     image: mha,
-  //     name: 'My Hero Ultra Rumble',
-  //     originalPrice: '$79.99 CAD',
-  //     salePrice: '$0.80 CAD',
-  //     discount: '-99%',
-  //     availability: PC
-  //   },
-
-  //   {
-  //     image: GoT,
-  //     name: 'Ghost of Tsushima',
-  //     originalPrice: '$79.99 CAD',
-  //     salePrice: '$39.99 CAD',
-  //     discount: '-50%',
-  //     availability: PS
-  //   },
-  //   {
-  //     image: theFinals,
-  //     name: 'The Finals',
-  //     originalPrice: '$79.99 CAD',
-  //     salePrice: '$71.99 CAD',
-  //     discount: '-10%',
-  //     availability: PC
-  //   },
-  //   {
-  //     image: GTA5,
-  //     name: 'Grand Theft Auto V',
-  //     originalPrice: '$19.99 CAD',
-  //     salePrice: '$14.99 CAD',
-  //     discount: '-25%',
-  //     availability: PCXBOXPS
-  //   }
-  // ];
-
-  // Pagination logic for sale games
+  //---------------------------Games On Sale Sliding Functions---------------------------
   const gamesToShow = 4;
   const totalPages = Math.ceil(saleGames.length / gamesToShow);
   const [currentPage, setCurrentPage] = useState(0);
 
-  // Functions for handling page navigation in sale games
   const handleNextClick = () => {
     setCurrentPage((prevPage) => (prevPage + 1) % totalPages);
   };
@@ -174,7 +102,6 @@ function GameStoreMain(props) {
     setCurrentPage((prevPage) => (prevPage - 1 + totalPages) % totalPages);
   };
 
-  // Calculating games to be displayed on the current page
   const displayedGames = saleGames.slice(
     currentPage * gamesToShow,
     (currentPage + 1) * gamesToShow
@@ -195,15 +122,15 @@ function GameStoreMain(props) {
       <div className="game_store_main">
         <div className="game_store_release">
           <h1>New Releases</h1>
-          <img className={`image-slide ${fade ? 'fade' : null}`} src={sortedGames[slideIndex].images[0]}></img>
+          <Link to={`/store/${sortedGames[slideIndex].id}`}><img className={`image-slide ${fade ? 'fade' : null}`} src={sortedGames[slideIndex].images[0]}></img></Link>
           <button className="release_prev_button" onClick={previousSlide}>&#10094;</button>
           <button className="release_next_button" onClick={nextSlide}>&#10095;</button>
           <div className="game_release_bottom">
             <div className="game_release_info">
-              <h2>{sortedGames[slideIndex].title}</h2>
+              <Link to={`/store/${sortedGames[slideIndex].id}`}><h2>{sortedGames[slideIndex].title}</h2></Link>
               {((sortedGames[slideIndex].price - sortedGames[slideIndex].salePrice) > 0) ?
-                <h3>PC Price: <p className='strikethrough'>${sortedGames[slideIndex].price}</p> <p>${sortedGames[slideIndex].salePrice}</p></h3> :
-                <h3>PC Price: <p>${sortedGames[slideIndex].price}</p></h3>}
+                <h3>Price: <p className='strikethrough'>${sortedGames[slideIndex].price}</p> <p>${sortedGames[slideIndex].salePrice}</p></h3> :
+                <h3>Price: <p>${sortedGames[slideIndex].price}</p></h3>}
             </div>
             <div className="game_release_availability">
               {sortedGames[slideIndex].availability.map((type, i) => {
@@ -239,8 +166,8 @@ function GameStoreMain(props) {
         <div className="sale_slider">
           {displayedGames.map((game, i) => (
             <div key={i} className="sale_item">
-              <img onClick={null} src={game.images[0]} alt={game.title} className="sale_image" />
-              <h3 onClick={null} className="sale_game_title">{game.title}</h3>
+              <Link to={`/store/${game.id}`}><img src={game.images[0]} alt={game.title} className="sale_image" /></Link>
+              <Link to={`/store/${game.id}`}><h3 className="sale_game_title">{game.title}</h3></Link>
               <div className="sale_info_section">
                 <div className="sale_price_section">
                   <p className="sale_original_price">${game.price}</p>
