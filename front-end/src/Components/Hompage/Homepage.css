@@ -7,6 +7,10 @@
     margin-top: 50px;
 }
 
+.home_main a {
+    text-decoration: none;
+}
+
 .home_articles {
     display: flex;
     flex-direction: column;

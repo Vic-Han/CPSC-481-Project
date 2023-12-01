@@ -23,10 +23,14 @@ import NewPostOverLay from "./Components/Posts/NewPostOverLay.jsx";
 import PostPreview from "./Components/Posts/PostPreview.jsx";
 import DMOverLay from "./Components/DM/DMOverLay.jsx";
 
+
+
 //Pages Imports
 import HomepageLoggedOut from "./pages/HomepageLoggedOut.jsx";
 import HomepageLoggedIn from "./pages/HomepageLoggedIn.jsx";
 import Store from "./pages/Store.jsx";
+import Posts from "./pages/Posts.jsx";
+import Articles from "./pages/Articles.jsx";
 
 function App() {
 
@@ -208,8 +212,8 @@ function App() {
       <Routes>
         <Route path="/" element={<HomepageLoggedOut />} />
         <Route path="/home" element={<HomepageLoggedIn clickHandlers={navbarClickHandlers} />} />
-        <Route path="/post/:id" element={null} />
-        <Route path="/article/:id" element={null} />
+        <Route path="/post/:id" element={<Posts clickHandlers={navbarClickHandlers}/>} />
+        <Route path="/article/:id" element={<Articles clickHandlers={navbarClickHandlers} />} />
         <Route path="/store" element={<Store clickHandlers={navbarClickHandlers}/>} />
         <Route path="/store/:id" element={null} />
         <Route path="/account" element={null} />

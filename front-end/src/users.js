@@ -98,5 +98,25 @@ export var users = [
     "password": "Awesome321",
     "profileURL": 'ProfileDefault.png',
     "loggedIn": false
-  }
+  },
+  {
+    "id": 10,
+    "firstName": "Ahri",
+    "lastName": "Tina",
+    "username": "ahritina",
+    "email": "ahri@gmail.com",
+    "password": "TinaTina1",
+    "profileURL": 'ProfileDefault.png',
+    "loggedIn": false
+  },
+  {
+    "id": 11,
+    "firstName": "Jaiden",
+    "lastName": "Will",
+    "username": "xXVibesForeverXx",
+    "email": "will@gmail.com",
+    "password": "Vibez1234",
+    "profileURL": 'ProfileDefault.png',
+    "loggedIn": false
+  },
 ];

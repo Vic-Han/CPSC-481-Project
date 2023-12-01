@@ -41,6 +41,7 @@
     margin: 0;
     font: 500 20px Inter, sans-serif;
     color: #7E82DF;
+    text-decoration: none;
 }
 
 .post_short_author:hover {

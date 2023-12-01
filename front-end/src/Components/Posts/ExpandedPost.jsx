@@ -1,156 +1,94 @@
-import './ExpandedPost.css';
 import { React, useState } from "react"
-import postimage1 from '../assets/postimage1.png';
-import SallyWilliams from '../assets/SallyWilliams.png';
-import ChadFaxmachine from '../assets/ChadFaxmachine.png';
-import Optic from '../assets/OGaming.bmp';
+import { useParams } from 'react-router-dom';
+import { users } from '../../users';
+import { posts } from '../../posts';
+
+import PostMini from "../../Elements/PostMini";
+
+import './ExpandedPost.css';
 
 function ExpandedPost(props) {
-  const back = props.back
+  const { id } = useParams();
+  const data = posts.filter(function (post) {
+    return post.id == id;
+  })[0];
 
-  const [DropdownVisibleYes, setYesDropdownVisible] = useState(false);
+  const [shownPosts, setShownPosts] = useState(2);
+  const relatedPosts = posts.filter(function (post) {
+    return post.id != id;
+  })
 
-  const toggleDropdownPost = () => {
-    setYesDropdownVisible(!DropdownVisibleYes);
+  const likePost = (e) => {
+    if (e.target.classList.contains('expanded_filled')) e.target.classList.remove('expanded_filled');
+    else e.target.classList.add('expanded_filled');
   }
+
+  function profilePic(username) {
+    const user = users.filter(function (user) {
+      return user.username == username;
+    })[0];
+    return user.profileURL;
+  }
+  
   return (
-    <div className='expanded-post'>
-      <div className='post-overlay'>
-        <div className='post-title-overlay'>
-          <h1>Carlos steps down as CEO of G2 E-Sports</h1>
-          <button className='options-button' />
+    <div className='expanded_post_screen'>
+      <div className='expanded_post'>
+        <div className='expanded_post_title'>
+          <h1>{data.title}</h1>
+          <button className='three_dots'></button>
         </div>
-        <div className="post-info-overlay">
-          <h1 className="User_Time">ahritina | Oct 24, 2023</h1>
-          <div className="post-tags">
-            <div className="tag1">
-              <h2 className='tag-name'>League of Legends</h2>
-            </div>
-            <div className="tag1">
-              <h2 className='tag-name'>G2 ESports</h2>
-            </div>
-            <div className="tag1">
-              <h2 className='tag-name'>Counter-Strike</h2>
-            </div>
-          </div>
+        <div className='expanded_post_author'>
+          <h1>{data.author}<p> | {data.date}</p></h1>
+          <ul className='expanded_post_tags'>
+            {data.tags.slice(0, 5).map((tag, i) => (
+              <li key={i}>
+                <button className='expanded_tag'>{tag}</button>
+              </li>
+            ))}
+            {(data.tags.length > 5) ? <li>+ {data.tags.length - 5} more</li> : <li></li>}
+          </ul>
         </div>
-        {/* Not sure why the line below isnt working */}
-        <hr className='post-line-space'></hr>
-        <p className='post-text'>
-          Carlos "Ocelote" Rodriguez, the OG of G2 Esports, is stepping down as CEO. 🎮👋 He's been a legend in the scene, going from a pro player to running the show at G2, making them kings in games like League of Legends and CS:GO. 🏆 We don't know all the deets behind his departure yet, but it's bound to be a game-changer for G2. Fans are buzzing about who'll take the reins next. Ocelote's impact on ESports is massive, and the community is showing major love. 🥺🙌 In a nutshell, it's the end of an era, but G2's future is still a mystery waiting to be solved. 🕵️‍♂️🎮<br></br><br></br>
-          It's also likely that after G2 failed with their Valorant bid, this was effectively the last "step" that pushed him to stand down.
-          <br></br> <br></br>
-          Carlos has also released a video, <a href="https://twitter.com/carlosr/status/1573426535104532480" style={{ color: '#0070E0' }}>https://twitter.com/carlosr/status/1573426535104532480</a>
-        </p>
-        {/* Not sure why the line below isnt working */}
-        <hr className='post-line-space'></hr>
-        <div className='comment-overlay'>
-          <div className='like-and-comment'>
-            <button className='like-button' />
-            <div className='comment-button'>
-              <h1 className='add-a-comment' >Add a Comment</h1>
-            </div>
-          </div>
-          <div className='comment-section'>
-            <div className='comment1'>
-              <div className='poster-overlay'>
-                <img src={SallyWilliams} className='pfp' />
-                <h1 className='username'>Sally Williams</h1>
-                <button className='comment-options-button' />
+        <div className='line'></div>
+        {data.description.split('\n').map((str, i) => <p key={i} className='expanded_post_description'>{str}</p>)}
+        {data.images.length > 0 ? data.images.map((url, i) => (
+          <img key={i} className='expanded_post_image' src={url}></img>)) : null}
+        <div className='expanded_post_bottom'>
+          <button className='expanded_post_like' onClick={likePost}></button>
+        </div>
+        <div className='line'></div>
+        <div className='expanded_post_comment_top'>
+          <p>Sort by: Latest</p>
+          <button className='txt_btn'>Add a Comment</button>
+        </div>
+        <div className='expanded_post_comments'>
+          {(data.comments.length > 0) ? data.comments.map((comment, i) => (
+            <div key={`div1${i}`} className='post_comment'>
+              <div key={`div2${i}`} className='post_comment_author'>
+                <div key={`div3${i}`} className='post_comment_profile'>
+                  <img key={i} className={(profilePic(comment.username) === "ProfileDefault.png") ?
+                    "comment_default_image" : "comment_person_image"} src={require(`../../assets/${profilePic(comment.username)}`)}></img>
+                  <p key={`p${i}`} >{comment.firstName} {comment.lastName}</p>
+                </div>
+                <button className='three_dots'></button>
               </div>
-              <p className='comment-text'>Carlos was the GOAT, I wonder if the new CEO will make any significant changes to the org</p>
-              <div className='comment-reaction'>
-                <h1 className='reply-button'>Reply</h1>
-                <button className='comment-like-button' />
-              </div>
-            </div>
-            <div className='comment2'>
-              <div className='poster-overlay'>
-                <img src={ChadFaxmachine} className='pfp' />
-                <h1 className='username'>Chad Faxmachine</h1>
-                <button className='comment-options-button' />
-              </div>
-              <p className='comment-text'>Maybe after this G2 will finally start winning some events, this was a needed change</p>
-              <div className='comment-reaction'>
-                <h1 className='reply-button'>Reply</h1>
-                <button className='comment-like-button' />
+              <p className='comment_description'>{comment.comment}</p>
+              <div className='comment_bottom'>
+                <p>Reply</p>
+                <button className='expanded_post_like' onClick={likePost}></button>
               </div>
             </div>
-          </div>
+          )) : null}
         </div>
       </div>
-      <div className='suggestion-overlay'>
-        <h1 className='related-posts'>Related Posts</h1>
-        <hr className='post-sug-line-space'></hr>
-        <div className='sug-post'>
-          <h1 className='sug-post-title'><u>Sentinels Gonna Win Next Valorant Esports!!!!</u></h1>
-          <p className='sug-post-text'>Sentinels is on my mind, and I'm feeling stoked for the next Valorant Esports showdown. Seriously, it's a no-brainer...</p>
-          <img src={postimage1} className='sug-post-image'></img>
-          <div className='sug-tags'>
-            <div className='tag2'>
-              <h2 className='tag-name2'>Sentinels</h2>
-            </div>
-            <div className='tag2'>
-              <h2 className='tag-name2'>Valorant</h2>
-            </div>
-            <div className='tag2'>
-              <h2 className='tag-name2'>E-Sports Event</h2>
-            </div>
-          </div>
-        </div>
-        <hr className='post-sug-line-space'></hr>
-        <div className='sug-post'>
-          <h1 className='sug-post-title'><u>Opinions on upcoming League of Legends ESports Teams?</u></h1>
-          <p className='sug-post-text'>Upcoming League of Legends ESports teams compared to the previous existing ones, in my opinion are very different. Their meta...</p>
-          <div className='sug-tags'>
-            <div className='tag3'>
-              <h2 className='tag-name3'>Sentinels</h2>
-            </div>
-            <div className='tag3'>
-              <h2 className='tag-name3'>Valorant</h2>
-            </div>
-          </div>
-        </div>
-        {/* Not sure why the line below isnt working */}
-        <hr className='line-space'></hr>
-        <button className="More_Post" onClick={toggleDropdownPost}>
-          {DropdownVisibleYes ? 'View Less' : 'View More'}
-        </button>
-        {DropdownVisibleYes && (
-          <div className="dropdown-post">
-            <div className='sug-post'>
-              <h1 className='sug-post-title'><u>Will OpTic Gaming make a comeback??</u></h1>
-              <p className='sug-post-text'>OpTic Gaming are a close second to Gambit in terms of their place in Valorant history since 2020. </p>
-              <img src={Optic} className='sug-post-image'></img>
-              <div className='sug-tags'>
-                <div className='tag2'>
-                  <h2 className='tag-name2'>Sentinels</h2>
-                </div>
-                <div className='tag2'>
-                  <h2 className='tag-name2'>Valorant</h2>
-                </div>
-                <div className='tag2'>
-                  <h2 className='tag-name2'>E-Sports Event</h2>
-                </div>
-              </div>
-            </div>
-            <hr className='post-sug-line-space'></hr>
-            <div className='sug-post'>
-              <h1 className='sug-post-title'><u>Current state of Valorant Esports</u></h1>
-              <p className='sug-post-text'>The current state of Valorent Esports seems to be pretty good considering the fund...</p>
-              <div className='sug-tags'>
-                <div className='tag3'>
-                  <h2 className='tag-name3'>E-Sports</h2>
-                </div>
-                <div className='tag3'>
-                  <h2 className='tag-name3'>Valorant</h2>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        )}
-
+      <div className='related_posts'>
+        <p className="home_element_titles">Related Posts</p>
+        <div className='line'></div>
+        {relatedPosts.slice(0, shownPosts).map(post => (
+          <PostMini key={post.id} data={post} />
+        ))}
+        {(shownPosts >= relatedPosts.length) ?
+          <p className="load_end">Reached the End</p> :
+          <a href="#/" className="load_more" onClick={() => setShownPosts(shownPosts + 2)}>Load More</a>}
       </div>
     </div>
   );

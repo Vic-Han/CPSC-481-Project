@@ -1,8 +1,16 @@
 import { Link } from 'react-router-dom';
 import './Post.css';
+import { users } from '../users';
 
 function Post(props) {
   const data = props.data;
+
+  function findUserId(username) {
+    const user = users.filter(function (user) {
+      return user.username === username;
+    })[0];
+    return user.id;
+  }
 
   const likePost = (e) => {
     if (e.target.classList.contains('filled')) e.target.classList.remove('filled');
@@ -12,13 +20,13 @@ function Post(props) {
   return (
     <div className='post_background'>
       <div className='post_short_title_section'>
-        <Link>
+        <Link to={`/post/${data.id}`}>
           <h1 className='post_short_title'>{data.title}</h1>
         </Link>
         <button className='three_dots'></button>
       </div>
       <div className='post_short_author_section'>
-        <Link className='post_short_author'>{data.author}</Link>
+        <Link to={`/account/${findUserId(data.author)}`} className='post_short_author'>{data.author}</Link>
         <ul className='post_short_tags'>
           {data.tags.slice(0, 4).map((tag, i) => (
             <li key={i}>

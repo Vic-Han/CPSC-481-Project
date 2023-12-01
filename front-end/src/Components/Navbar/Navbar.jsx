@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { users } from '../../users';
 
+import Tooltip from "../Tooltip";
+
 import './Navbar.css';
 
 function Navbar(props) {
@@ -47,7 +49,9 @@ function Navbar(props) {
     <div className='navbar_container'>
       <div className='navbar_left'>
         <Link to={"/home"}>
-          <button className='navbar_logo'></button>
+          <Tooltip text="Home">
+            <button className='navbar_logo'></button>
+          </Tooltip>
         </Link>
         <button className='navbar_post_container' onClick={props.clickHandlers.openPost}>
           <div className='navbar_post'>New Post</div>
@@ -59,11 +63,17 @@ function Navbar(props) {
       </div>
       <div className='navbar_right'>
         <Link to={"/store"}>
-          <button className='navbar_game btn'></button>
+          <Tooltip text="Game Store">
+            <button className='navbar_game btn'></button>
+          </Tooltip>
         </Link>
-        <button className='navbar_dm btn' onClick={props.clickHandlers.openDM}></button>
+        <Tooltip text="Direct Message">
+          <button className='navbar_dm btn' onClick={props.clickHandlers.openDM}></button>
+        </Tooltip>
         <Link to={"/account"}>
-          <button className='navbar_profile btn' style={(currentUser[0].profileURL === "ProfileDefault.png") ? null : userImageStyle}></button>
+          <Tooltip text="Your Account">
+            <button className='navbar_profile btn' style={(currentUser[0].profileURL === "ProfileDefault.png") ? null : userImageStyle}></button>
+          </Tooltip>
         </Link>
       </div>
     </div>
