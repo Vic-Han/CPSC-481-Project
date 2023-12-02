@@ -1,7 +1,7 @@
 .main_content {
     background-color: #2D2E37;
     width: 1920px;
-    height: 3000px;
+    height: 3875px;
 }
 
 .text_container1 {
@@ -93,8 +93,9 @@
     height: 100px;
     background-color: #33344A;
     /*Temp disabled so that I can include FAQ*/
-    /* top: 2604px; */
+    top: 3875px;
     display: flex;
+    margin-top: auto; /* This will push the footer to the bottom */
     justify-content: space-between;
 }
 
