@@ -23,6 +23,7 @@ import GameDetails from "./Gamestore/GameDetails.jsx";
 import SearchGame from "./Gamestore/SearchGame.jsx";
 import Homepage2 from "./Hompage/Homepage.jsx";
 import NotificationOverLay from "./Components/Notification/NotificationOverLay.jsx";
+import './bubble.css'
 function App() {
   const [notifcation,setNotification] = useState(false)
   const [data, setData] = useState({
@@ -53,8 +54,11 @@ function App() {
   const [DM, setDM] = useState(false)
   const [previewPost, setPreviewPost] = useState(false)
   const [confirmDraft, setConfirmDraft] = useState(false)
-
-
+  const [bubble, setBubble] = useState(3)
+  function decrementNotifcation(){
+    const new_bub = bubble -1 ;
+    setBubble(new_bub)
+  }
   function hideAllOverLays() {
     setLogin(false)
     setRegister(false)
@@ -151,7 +155,8 @@ function App() {
       {newPost ? <NewPostOverLay close={hideAllOverLays} data={data} setData={setData} showPostPreview={showPostPreview} /> : null}
       {DM ? <DMOverLay closeEvent={hideAllOverLays} close={hideAllOverLays} /> : null}
       {previewPost ? <PostPreview back={showNewPostOverLay} data={data} resetData={resetData} hidePosts={hideAllPostOverlays} /> : null}
-      {notifcation ? <NotificationOverLay back ={() => setNotification(false)}/> : null}
+      {notifcation ? <NotificationOverLay back ={() => setNotification(false)} updateBubble = {decrementNotifcation}/> : null}
+      {bubble > 0 ? <div id = "notification_bubble">{bubble}</div> : null}
       {navBar}
       {mainScreen}
     </div>

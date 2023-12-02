@@ -6,16 +6,18 @@ function Notification(props){
         <div className="notification-wrapper">
             <img src ={props.pfp} className="notification_img"></img>
             <div className="notification-text">{props.message}</div>
-            <div className="delete-notification-button" onClick={props.delete}> X </div>
+            <div className="delete-notification-button" onClick={props.delete}> - </div>
         </div>
     )
 }
 function NotificationOverLay(props){
     const [not,setnot] = useState(notifcations)
+    const updateBubble = props.updateBubble
     const deleteNotification = (index) =>{
         notifcations.splice(index, 1);
         const newnot = [...notifcations]
         //newnot.splice(index,1)
+        updateBubble();
         setnot(newnot)
     }
     const close = props.back
@@ -24,7 +26,7 @@ function NotificationOverLay(props){
             <div className="notification-overlay">
                 <div className="notification-header">
                     <div className="notification-desc"> Notifications</div>
-                    <div className="notification-close" onClick={close}> Close</div>
+                    <div className="notification-close" onClick={close}></div>
                 </div>
                 {not.length > 0 ?
                     not.map((notification,index) =>(
