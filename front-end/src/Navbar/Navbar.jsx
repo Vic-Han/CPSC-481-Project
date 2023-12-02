@@ -6,7 +6,7 @@ function Navbar(props) {
   const toggleNewPost = props.clickHandlers.toggleNewPost
   const toggleSearchPage = props.clickHandlers.toggleSearchPage
   const toggleProfile = props.clickHandlers.toggleProfile
-
+  const toggleNotification = props.clickHandlers.showNotification;
   const toggleGameStore = props.clickHandlers.toggleGameStore
   const toggleDM = props.clickHandlers.toggleDM
   function keyboardHandler(e){
@@ -32,7 +32,7 @@ function Navbar(props) {
         <button className='navbar_search btn' onClick={toggleSearchPage}></button>
       </div>
       <div className='navbar_right'>
-        <button className='navbar_notif btn' onClick={null}></button>
+        <button className='navbar_notif btn' onClick={toggleNotification}></button>
         <button className='navbar_game btn' onClick={toggleGameStore}></button>
         <button className='navbar_dm btn' onClick={toggleDM}></button>
         <button className='navbar_profile btn' onClick={toggleProfile}></button>

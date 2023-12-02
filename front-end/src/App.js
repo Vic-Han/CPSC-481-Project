@@ -22,9 +22,9 @@ import PostPreview from "./Posts/PostPreview.jsx";
 import GameDetails from "./Gamestore/GameDetails.jsx";
 import SearchGame from "./Gamestore/SearchGame.jsx";
 import Homepage2 from "./Hompage/Homepage.jsx";
-
+import NotificationOverLay from "./Components/Notification/NotificationOverLay.jsx";
 function App() {
-
+  const [notifcation,setNotification] = useState(false)
   const [data, setData] = useState({
     Title: "",
     Description: "",
@@ -40,6 +40,7 @@ function App() {
     toggleProfile: showProfile,
     toggleGameStore: showGameStore,
     toggleDM: showDMOverLay,
+    showNotification: () => setNotification(true)
   }
 
   
@@ -150,6 +151,7 @@ function App() {
       {newPost ? <NewPostOverLay close={hideAllOverLays} data={data} setData={setData} showPostPreview={showPostPreview} /> : null}
       {DM ? <DMOverLay closeEvent={hideAllOverLays} close={hideAllOverLays} /> : null}
       {previewPost ? <PostPreview back={showNewPostOverLay} data={data} resetData={resetData} hidePosts={hideAllPostOverlays} /> : null}
+      {notifcation ? <NotificationOverLay back ={() => setNotification(false)}/> : null}
       {navBar}
       {mainScreen}
     </div>
