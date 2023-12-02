@@ -7,7 +7,10 @@ export var users = [
     "email": "kenbarbie@gmail.com",
     "password": "KenBarbie21",
     "profileURL": 'Ken.png',
-    "loggedIn": false
+    "loggedIn": false,
+    "followers": ["SallyTheGamer", "ZarakiTheGoat", "EvaExplorer"],
+    "following": ["Maximus", "LunaStar", "OscarTheGreat", "ahritina"],
+    "Bio": 'I am a professional ESports Enjoyer It’s awesome.'
   },
   {
     "id": 1,
@@ -17,7 +20,11 @@ export var users = [
     "email": "sallywilliams@gmail.com",
     "password": "SallyGG21",
     "profileURL": 'Sally.png',
-    "loggedIn": false
+    "loggedIn": false,
+    "followers": ["ChaddyDaddy", "EvaExplorer", "LunaStar"],
+    "following": ["IamA10", "ZarakiTheGoat", "OscarTheGreat"],
+    "Bio": 'Dedicated gamer and aspiring pro. Grinding for victories and achievements. #GamingLife'
+    
   },
   {
     "id": 2,
@@ -27,7 +34,10 @@ export var users = [
     "email": "chadfax@gmail.com",
     "password": "I@GigaChad",
     "profileURL": 'Chad.png',
-    "loggedIn": false
+    "loggedIn": false,
+    "followers": ["IamA10", "ZarakiTheGoat", "BobTheBuilder"],
+    "following": ["SallyTheGamer", "Maximus", "ahritina"],
+    "Bio": 'Exploring virtual worlds and mastering every level. Lets team up for epic adventures!'
   },
   {
     "id": 3,
@@ -37,7 +47,10 @@ export var users = [
     "email": "zarakik@gmail.com",
     "password": "Kenpachi1",
     "profileURL": 'Zaraki.png',
-    "loggedIn": false
+    "loggedIn": false,
+    "followers": ["IamA10", "EvaExplorer", "LunaStar"],
+    "following": ["SallyTheGamer", "ChaddyDaddy", "OscarTheGreat", "xXVibesForeverXx"],
+    "Bio": 'asd'
   },
   {
     "id": 4,
@@ -47,7 +60,10 @@ export var users = [
     "email": "alice.j@gmail.com",
     "password": "Wonderland22",
     "profileURL": 'ProfileDefault.png',
-    "loggedIn": false
+    "loggedIn": false,
+    "followers": ["BobTheBuilder", "OscarTheGreat", "xXVibesForeverXx"],
+    "following": ["ZarakiTheGoat", "ahritina"],
+    "Bio": 'Pixel pusher turned game explorer. Always up for a challenge and a good laugh.'
   },
   {
     "id": 5,
@@ -57,7 +73,10 @@ export var users = [
     "email": "bob.smith@gmail.com",
     "password": "BuildIt123",
     "profileURL": 'ProfileDefault.png',
-    "loggedIn": false
+    "loggedIn": false,
+    "followers": ["ZarakiTheGoat", "EvaExplorer", "ahritina"],
+    "following": ["ChaddyDaddy", "Maximus", "LunaStar", "Alicious"],
+    "Bio": 'Retro gaming enthusiast with a modern twist. Nostalgia meets high scores in my world.'
   },
   {
     "id": 6,
@@ -67,7 +86,10 @@ export var users = [
     "email": "eva.martinez@gmail.com",
     "password": "Adventure21",
     "profileURL": 'ProfileDefault.png',
-    "loggedIn": false
+    "loggedIn": false,
+    "followers": ["ChaddyDaddy", "ZarakiTheGoat", "OscarTheGreat"],
+    "following": ["SallyTheGamer", "IamA10", "Maximus", "LunaStar"],
+    "Bio": 'Strategic gamer with a love for FPS. Always up for a challenge and a good match.'
   },
   {
     "id": 7,
@@ -77,7 +99,10 @@ export var users = [
     "email": "max.turner@gmail.com",
     "password": "Powerful123",
     "profileURL": 'ProfileDefault.png',
-    "loggedIn": false
+    "loggedIn": false,
+    "followers": ["IamA10", "ChaddyDaddy", "Alicious"],
+    "following": ["SallyTheGamer", "ZarakiTheGoat", "OscarTheGreat", "ahritina"],
+    "Bio": '"In-game tactician, out-of-game dreamer. Transforming coffee into successful gaming sessions'
   },
   {
     "id": 8,
@@ -87,7 +112,10 @@ export var users = [
     "email": "luna.chang@gmail.com",
     "password": "Celestial22",
     "profileURL": 'ProfileDefault.png',
-    "loggedIn": false
+    "loggedIn": false,
+    "followers": ["IamA10", "SallyTheGamer", "ZarakiTheGoat", "OscarTheGreat"],
+    "following": ["EvaExplorer", "Maximus", "ahritina"],
+    "Bio": 'asd'
   },
   {
     "id": 9,
@@ -97,7 +125,10 @@ export var users = [
     "email": "oscar.ramirez@gmail.com",
     "password": "Awesome321",
     "profileURL": 'ProfileDefault.png',
-    "loggedIn": false
+    "loggedIn": false,
+    "followers": ["IamA10", "ChaddyDaddy", "EvaExplorer", "xXVibesForeverXx"],
+    "following": ["SallyTheGamer", "ZarakiTheGoat", "LunaStar", "ahritina"],
+    "Bio": 'Console enthusiast on a quest for the next big title. Join me for some co-op fun!'
   },
   {
     "id": 10,
@@ -107,7 +138,10 @@ export var users = [
     "email": "ahri@gmail.com",
     "password": "TinaTina1",
     "profileURL": 'ProfileDefault.png',
-    "loggedIn": false
+    "loggedIn": false,
+    "followers": ["IamA10", "BobTheBuilder", "LunaStar"],
+    "following": ["ChaddyDaddy", "ZarakiTheGoat", "Maximus"],
+    "Bio": 'E-sports follower and competitive player. Chasing victories and perfecting my skills.'
   },
   {
     "id": 11,
@@ -118,7 +152,73 @@ export var users = [
     "password": "Vibez1234",
     "profileURL": 'ProfileDefault.png',
     "loggedIn": false,
-    "followers": ["IamA10", "ahritina"],
-    "following": ["IamA10", "ahritina"]
+    "followers": ["IamA10", "SallyTheGamer", "ZarakiTheGoat", "EvaExplorer"],
+    "following": ["ChaddyDaddy", "OscarTheGreat", "ahritina"],
+    "Bio": 'Casual gamer, serious about fun. Collecting achievements and unlocking new levels.'
+  },
+  {
+    "id": 12,
+    "firstName": "Elijah",
+    "lastName": "Smith",
+    "username": "GamerEli",
+    "email": "elijah.smith@gmail.com",
+    "password": "EliGamer123",
+    "profileURL": "ProfileDefault.png",
+    "loggedIn": false,
+    "followers": ["Jaiden", "SallyTheGamer", "ZarakiTheGoat", "EvaExplorer"],
+    "following": ["ChaddyDaddy", "OscarTheGreat", "ahritina"],
+    "Bio": "Exploring virtual worlds and mastering every level. Let's team up for epic adventures!"
+  },
+  {
+    "id": 13,
+    "firstName": "Lila",
+    "lastName": "Anderson",
+    "username": "GamerLila",
+    "email": "lila.anderson@gmail.com",
+    "password": "LilaGamer123",
+    "profileURL": "ProfileDefault.png",
+    "loggedIn": false,
+    "followers": ["Jaiden", "SallyTheGamer", "ZarakiTheGoat", "EvaExplorer"],
+    "following": ["ChaddyDaddy", "OscarTheGreat", "ahritina"],
+    "Bio": "In-game tactician, out-of-game dreamer. Transforming coffee into successful gaming sessions."
+  },
+  {
+    "id": 14,
+    "firstName": "Oliver",
+    "lastName": "Martin",
+    "username": "GamerOlly",
+    "email": "oliver.martin@gmail.com",
+    "password": "OllyGamer123",
+    "profileURL": "ProfileDefault.png",
+    "loggedIn": false,
+    "followers": ["Jaiden", "SallyTheGamer", "ZarakiTheGoat", "EvaExplorer"],
+    "following": ["ChaddyDaddy", "OscarTheGreat", "ahritina"],
+    "Bio": "Dedicated gamer and aspiring pro. Grinding for victories and achievements. #GamingLife"
+  },
+  {
+    "id": 15,
+    "firstName": "Aria",
+    "lastName": "Gomez",
+    "username": "GamerAria",
+    "email": "aria.gomez@gmail.com",
+    "password": "AriaGamer123",
+    "profileURL": "ProfileDefault.png",
+    "loggedIn": false,
+    "followers": ["Jaiden", "SallyTheGamer", "ZarakiTheGoat", "EvaExplorer"],
+    "following": ["ChaddyDaddy", "OscarTheGreat", "ahritina"],
+    "Bio": "Leveling up in the gaming world, one achievement at a time. Ready for epic quests!"
+  },
+  {
+    "id": 16,
+    "firstName": "Leo",
+    "lastName": "Rodriguez",
+    "username": "GamerLeo",
+    "email": "leo.rodriguez@gmail.com",
+    "password": "LeoGamer123",
+    "profileURL": "ProfileDefault.png",
+    "loggedIn": false,
+    "followers": ["Jaiden", "SallyTheGamer", "ZarakiTheGoat", "EvaExplorer"],
+    "following": ["ChaddyDaddy", "OscarTheGreat", "ahritina"],
+    "Bio": "Pixel warrior exploring the digital frontier. FPS enthusiast and snack connoisseur."
   },
 ];
