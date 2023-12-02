@@ -57,13 +57,12 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    max-width: 500px;
+    width: 100%;
     margin-top: 5px;
     margin-bottom: 20px;
     margin-right: 40px;
     text-align: center;
 }
-
 .msg_btn {
     height: 40px;
     width: 40%;
@@ -238,11 +237,11 @@
     background-color: #7E82DF;
     color: #fff;
     position: relative;
-    border-radius: 20px;
-   width: fit-content;
-   max-width: 250px;
+    border-radius: 18px;
+    width: fit-content;
+    max-width: 250px;
     padding: 10px;
-    margin-bottom: 8px;
+    margin-bottom: 13px;
     left: 109%;
     border: #fff;
     transform: translateX(-100%);
@@ -250,22 +249,23 @@
     display: flex;
     flex-direction: column;
     align-self: flex-end;
-    border: solid 2px rgb(162, 236, 166);
+    border: solid 2px rgb(201, 152, 113);
 
   }
   
-  /* not being used at the moment 
   .other-message {
     align-self: flex-start;
-    background-color: #DDDDF5;
+    background-color: blue;
     color: #ffffff;
-    border-radius: 10px;
-    max-width: 70%;
+    border-radius: 18px;
+    max-width: 250px;
     padding: 10px;
     margin-bottom: 8px;
+    margin-left: -14px;
     word-wrap: break-word;
+    border: solid 2px rgb(162, 236, 166);
   }
-  */
+  
 
   .chat-input {
     display: grid;
@@ -321,9 +321,8 @@
   }
 
   #msg_header2{
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
+    display: grid;
+    grid-template-columns: 70px 275px;
     border-bottom: 2px solid var(--Highlights, #7E82DF);
 
   }

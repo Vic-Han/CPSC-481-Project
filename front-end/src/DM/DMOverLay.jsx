@@ -16,16 +16,8 @@ import basicpfp from '../assets/basicpfp.png'
 function Messages(props) {
     const toggleNewDM = props.newDM
     const closePopup = props.close
-    const messagePeople = [{
-        profilePic: user4,
-        username: "Kenneth Longbottom",
-        chat: 'Yea, that was hype'
-    },
-    {
-        profilePic: user5,
-        username: "Chad Faxmachine",
-        chat: 'You seen that Barbie movie yet?'
-    }]
+    const messagePeople = props.msglist
+    console.log(props.msglist)
     const requestPeople = [{
         profilePic: user6,
         username: "Sally Williams",
@@ -36,11 +28,11 @@ function Messages(props) {
         username: "Tyler “Ninja” Blevins",
         chat: 'Hey, I saw your clip, would you lik...'
     }]
-    const [users, setUsers] = useState(messagePeople)
+    const [users, setUsers] = useState(props.msglist)
     const [selected, setSelected] = useState(0)
     const setMessages = () => {
         setSelected(0)
-        setUsers(messagePeople)
+        setUsers(props.msglist)
     }
     const setRequests = () => {
         setSelected(1)
@@ -132,6 +124,11 @@ function UserList({ users }) {
 function NewMessage(props) {
     const toggleDefault = props.back
     const toggleDM = props.displayDM
+    const addMSG = props.newMessageEvent
+    const clickEvent = ()=>{
+        toggleDM()
+        addMSG()
+    }
     return (<div>
 
         <header className='msg_header'>
@@ -144,7 +141,7 @@ function NewMessage(props) {
             <input id = 'txt_field' type="text" placeholder="Search"></input>
         </div>
 
-        <div onClick={toggleDM}>
+        <div onClick={clickEvent}>
             <UserList users={userListData} />
         </div>
 
@@ -152,14 +149,21 @@ function NewMessage(props) {
 }
 function Messaging(props) {
     const back = props.back
+    
+    
     const [messages, setMessages] = useState([]);
     const [newMessage, setNewMessage] = useState('');
-  
-    const handleSendMessage = () => {
+    const handleSendMessage = async() => {
       if (newMessage.trim() !== '') {
-        setMessages([...messages, { text: newMessage, sender: 'user' }]);
+        const newlist  = [...messages, { text: newMessage, sender: 'user' }]
+        setMessages(newlist);
         setNewMessage('');
+        setTimeout(() => {
+            const newerlist = [...newlist, { text: "Thanks bro, we should do it again", sender: 'other' }]
+            setMessages(newerlist);
+          }, 3000);
       }
+      
     };
 
     const handleKeyPress = (e) => {
@@ -167,7 +171,7 @@ function Messaging(props) {
           handleSendMessage();
         }
       };
-
+    
     return (
         <div>
             <header id='msg_header2'>
@@ -202,13 +206,36 @@ function Messaging(props) {
 
 function DMOverLay(props) {
     const close = props.close
-    const [display, setDisplay] = useState(<Messages newDM={showNewMessage} close = {close}/>)
-
-    function showMessages() {
-        setDisplay(<Messages newDM={showNewMessage} close = {close}/>)
+    const messagePeople = [{
+        profilePic: user4,
+        username: "Kenneth Longbottom",
+        chat: 'Yea, that was hype'
+    },
+    {
+        profilePic: user5,
+        username: "Chad Faxmachine",
+        chat: 'You seen that Barbie movie yet?'
+    }]
+    
+    //const [msgList, setmsgList] = useState(messagePeople)
+    let msgList = messagePeople
+    const [display, setDisplay] = useState(<Messages newDM={showNewMessage} close = {close} msglist = {msgList}/>)
+    const addMSGList = async() =>{
+        const newPerson = 
+        {
+            profilePic: Kenpachipfp,
+            username: "Zaraki Kenpachi",
+            chat: 'Thanks bro, we should do it again'
+        }
+        const newarr = [newPerson, ...msgList]
+        msgList = newarr
+        //setmsgList(newarr)
+    }
+    function showMessages(){
+        setDisplay(<Messages newDM={showNewMessage} close = {close} msglist = {msgList}/>)
     }
     function showNewMessage() {
-        setDisplay(<NewMessage displayDM={showMessaging} back={showMessages} />)
+        setDisplay(<NewMessage displayDM={showMessaging} back={showMessages} newMessageEvent = {addMSGList}/>)
     }
     function showMessaging() {
         setDisplay(<Messaging back={showMessages} />)
