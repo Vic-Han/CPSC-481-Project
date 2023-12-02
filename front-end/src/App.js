@@ -219,7 +219,7 @@ function App() {
         <Route path="/store" element={<Store clickHandlers={navbarClickHandlers}/>} />
         <Route path="/store/:id" element={<Game clickHandlers={navbarClickHandlers}/>} />
         <Route path="/account" element={<Account clickHandlers={navbarClickHandlers}/>} />
-        <Route path="/account/:id" element={null} />
+        <Route path="/account/:id" element={<Account clickHandlers={navbarClickHandlers}/>} />
       </Routes>
     </div>
   );

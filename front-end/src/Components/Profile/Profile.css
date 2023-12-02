@@ -4,7 +4,7 @@
     align-items: center;
 }
 
-.profile_container{
+.profile_container {
     display: flex;
     flex-direction: row;
     width: 1770px;
@@ -12,35 +12,120 @@
     border-radius: 40px;
     background-color: #33344A;
     margin-top: 50px;
+    justify-content: space-between;
 }
 
 .profile_info {
     display: flex;
-    align-items: flex-start;
-  }
+    flex-direction: row;
+}
 
-  .profile_details{
-    padding-left: 2%;
-    margin: auto;
-  }
-  
-#myProfile_pfp{
+.profile_img {
     width: 256px;
     height: 256px;
+    box-sizing: border-box;
     border-radius: 50%;
-    border: 4px solid var(--Highlights, #7E82DF);
-    margin: 1%;
+    border: 10px solid #7E82DF;
+    margin: 40px;
 }
 
-#myProfile_dp{
-    color: var(--Title, #FFF);
-    font-family: Inter;
-    font-size: 36px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+.profile_details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
-#myProfile_username{
+
+.profile_name {
+    color: white;
+    font: bold 40px Inter, sans-serif;
+}
+
+.profile_username {
+    color: #7E82DF;
+    font: 500 24px Inter, sans-serif;
+    margin-top: 5px;
+}
+
+.profile_bio {
+    width: 400px;
+    color: white;
+    font: 500 24px Inter, sans-serif;
+    margin-top: 15px;
+}
+
+.profile_follow_section {
+    display: flex;
+    flex-direction: row;
+}
+
+.profile_txt_btn {
+    height: 50px;
+
+    color: white;
+    background-color: #7E82DF;
+    font: 400 24px Inter, sans-serif;
+
+    border: none;
+    border-radius: 15px;
+
+    margin-right: 30px;
+    padding: 0 20px;
+}
+
+.profile_followers {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile_follow_txt_button {
+    border: none;
+    
+    color: white;
+    background-color: transparent;
+
+    font: 400 20px Inter, sans-serif;
+    border-bottom: 2px solid white;
+
+    margin-right: 30px;
+}
+
+.profile_follow_txt_button:hover {
+    cursor: pointer;
+    color: #7E82DF;
+}
+
+.profile_follow_number {
+    margin: 0;
+    padding: 0;
+
+    margin-top: 4px;
+    margin-right: 30px;
+
+    color: white;
+    font: 400 20px Inter, sans-serif;
+
+    text-align: center;
+}
+
+.profile_actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.profile_top_actions {
+    
+}
+
+
+
+
+
+
+
+
+
+#myProfile_username {
     color: var(--Highlights, #7E82DF);
     font-family: Inter;
     font-size: 24px;
@@ -49,7 +134,7 @@
     line-height: normal;
 }
 
-#myProfile_bio{
+#myProfile_bio {
     color: var(--Title, #FFF);
     font-family: Inter;
     font-size: 24px;
@@ -58,7 +143,7 @@
     line-height: normal;
 }
 
-.myPofile_follow button{
+.myPofile_follow button {
     margin-right: 30px;
     border: none;
     background-color: #33344A;
@@ -68,26 +153,13 @@
 
 }
 
-.profile_actions{
-    display: block;
-    margin-left: auto;
-}
-
-.profile_actions button {
-    border: none;
-    margin-right: 10px;
-    cursor: pointer;
-    margin: 10px;
-    
-  }
-
-  .top_actions{
+.top_actions {
     display: flex;
     align-items: center;
-  }
+}
 
 
-#setting_button{
+#setting_button {
     width: 50px;
     height: 50px;
     border-radius: 20%;
@@ -95,7 +167,7 @@
     background-image: url('../../assets/Settings.png');
 }
 
-#share_button{
+#share_button {
     position: relative;
     width: 50px;
     height: 50px;
@@ -107,7 +179,7 @@
     margin-top: 80%;
 }
 
-#myProfile_logout{
+#myProfile_logout {
     width: 90px;
     height: 42px;
     font-size: 20px;
@@ -120,18 +192,20 @@
     background: #CD4B4B;
 }
 
-#setting_button:hover, #share_button:hover, #myProfile_logout:hover{
+#setting_button:hover,
+#share_button:hover,
+#myProfile_logout:hover {
     opacity: .7;
 }
 
-.myProfile_post{
+.myProfile_post {
     margin-bottom: 30px;
     margin-left: 15%;
     margin-top: 2%;
 
 }
 
-#myProfile_post_header{
+#myProfile_post_header {
     margin: auto;
     margin-right: 2%;
     margin-left: 29.2%;
@@ -151,7 +225,7 @@
 }
 
 
-.myProfile_tagList{
+.myProfile_tagList {
     width: 510px;
     height: 264px;
     flex-shrink: 0;
@@ -168,7 +242,7 @@
 
 }
 
-.myProfile_tagList p{
+.myProfile_tagList p {
     color: var(--Highlights, #7E82DF);
     font-family: Inter;
     font-size: 36px;
@@ -182,7 +256,4 @@
     padding-bottom: 2%;
     margin: auto;
     margin-bottom: 10px;
-    }
-  
-
-
+}

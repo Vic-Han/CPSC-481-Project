@@ -8,9 +8,20 @@ import { users } from "../../users"
 
 function MyProfile(props) {
   const { id } = useParams();
-  const data = users.filter(function (user) {
+
+  let currentUser = false;
+  
+  let data = users.filter(function (user) {
     return user.id == id;
   })[0];
+
+  let loggedUser = users.filter(function (user) {
+    return user.username == JSON.parse(localStorage.getItem("loggedUser"));
+  })[0];
+
+  if (data === undefined) data = loggedUser;
+  if (data.id === loggedUser.id) currentUser = true;
+  else currentUser = false;
 
   const [follower, setFollower] = useState(false)
   const [following, setFollowing] = useState(false)
@@ -46,20 +57,29 @@ function MyProfile(props) {
   return (
     <div className="profile_page">
       <div className="profile_container">
-        <div className="profile_button_top">
-          
-        </div>
-        <img id="myProfile_pfp" src={user} alt="profile pic" />
-        <div className="profile_details">
-          <div id="myProfile_dp">Ken Barbie</div>
-          <div id="myProfile_username">Ken4Lyfe</div>
-          <p id="myProfile_bio">I am a professional ESports Enjoyer. It's awesome.</p>
-          <div className="myPofile_follow">
-            <button onClick={showFollower}>Followers <br />102</button>
-            <button onClick={showFollowing}>Following<br />121</button>
-            {follower ? <FollowerOverLay close={hideFollower} viewSelf={true} /> : null}
-            {following ? <FollowingOverLay close={hideFollowing} viewSelf={true} /> : null}
+        <div className="profile_info">
+          <img alt="Profile Pic" className={(data.profileURL === "ProfileDefault.png") ? "profile_default_img" : "profile_img"} src={require(`../../assets/${data.profileURL}`)}></img>
+          <div className="profile_details">
+            <div className="profile_name">{data.firstName} {data.lastName}</div>
+            <div className="profile_username">{data.username}</div>
+            <p className="profile_bio">I am a professional ESports Enjoyer. It's awesome.</p>
+            <div className="profile_follow_section">
+              {currentUser ? <div className="profile_followers">
+                <button className="profile_follow_txt_button">Followers</button>
+                <p className="profile_follow_number">2</p>
+              </div> : <button className="profile_txt_btn txt_btn">Follow</button>}
+              {currentUser ? <div className="profile_following">
+                <button className="profile_follow_txt_button">Followers</button>
+                <p className="profile_follow_number">4</p>
+              </div> : <button className="profile_txt_btn txt_btn">Direct Message</button>}
+            </div>
           </div>
+        </div>
+        <div className="profile_actions">
+          <div className="profile_top_actions">
+
+          </div>
+
         </div>
         <div className="profile_actions">
           <div className="top_actions">
