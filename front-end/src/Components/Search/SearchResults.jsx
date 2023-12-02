@@ -1,5 +1,5 @@
 import './SearchResults.css'
-import { React, useState } from "react"
+import { React, useEffect, useState } from "react"
 
 import { useSearchParams } from 'react-router-dom'
 
@@ -70,8 +70,14 @@ function SearchResults() {
 
   const allData = getAllData();
 
-  const [searchType, setSearchType] = useState("All")
-  const [toggledButton, setToggledButton] = useState(0)
+  const [searchType, setSearchType] = useState("All");
+  const [toggledButton, setToggledButton] = useState(0);
+  const [results, setResults] = useState(allData.filter(data => (data.title.toLowerCase().includes(query.toLowerCase())) && (data.type.includes(searchType))).length);
+
+  useEffect(() => {
+    setResults(allData.filter(data => (data.title.toLowerCase().includes(query.toLowerCase())) && (data.type.includes(searchType))).length);
+  }, [query, searchType]);
+
   const searchAll = () => {
     setSearchType("All")
     setToggledButton(0)
@@ -101,6 +107,7 @@ function SearchResults() {
         <button onClick={searchGame} className={`sort_button ${toggledButton === 2 ? "toggled" : ""} `}> Games</button>
         <button onClick={searchPost} className={`sort_button ${toggledButton === 3 ? "toggled" : ""} `}> Posts</button>
         <button onClick={searchArticle} className={`sort_button ${toggledButton === 4 ? "toggled" : ""} `}> Articles</button>
+        <h1 className='search_page_sort_results'>Results: {results}</h1>
       </div>
       {allData.filter(data => (data.title.toLowerCase().includes(query.toLowerCase())) && (data.type.includes(searchType))).map((result, index) => (
         <div key={index} className='search_result'>

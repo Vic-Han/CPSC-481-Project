@@ -54,6 +54,13 @@
     background-color: #33344A;
 }
 
+.search_page_sort_results {
+    margin: 0;
+    color: white;
+    font: 600 26px Inter, sans-serif;
+    margin-left: auto;
+}
+
 .search_result {
     display: flex;
     flex-direction: row;
