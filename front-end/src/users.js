@@ -214,7 +214,7 @@ export var users = [
     "lastName": "Rodriguez",
     "username": "GamerLeo",
     "email": "leo.rodriguez@gmail.com",
-    "password": "LeoGamer123",
+    "password": "LeoGamer1234",
     "profileURL": "ProfileDefault.png",
     "loggedIn": false,
     "followers": ["Jaiden", "SallyTheGamer", "ZarakiTheGoat", "EvaExplorer"],
