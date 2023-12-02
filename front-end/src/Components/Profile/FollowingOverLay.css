@@ -1,45 +1,103 @@
-.popup_overlay{
+.following_overlay_background {
     position: fixed;
-    background-color: rgba(0,0,0,0.5);
-    width: 1920px;
-    height: 1080px;
-    top: 0;
-    left: 0;
-    z-index: 9999;
-}
-.popup_contents-following{
-    position: fixed;
-    width:440px;
-    left: 640px;
-    height: 480px;
-    top: 100px;
-    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 80px 720px;
+
+    width: 500px;
+    height: 600px;
+
+
     background-color: #33344A;
     border-radius: 25px;
-    border: solid #6E72CF 3px;
+    border: 4px solid #7E82DF;
+
+    z-index: 2;
 }
-.close-following-button{
-    position: absolute;
-    width: 35px;
-    aspect-ratio: 1/1;
+.following_overlay_title {
+    color: #7E82DF;
+    font: bold 32px Inter, sans-serif;
+}
+
+.following_close {
+    position: fixed;
+    background-color: transparent;
+    background-image: url('../../assets/Close.png');
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border: none;
+    top: 200px;
+    left: 1160px;
+}
+
+.following_people {
+    width: 100%;
+    overflow-y: auto;
+}
+
+.following_person_section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+}
+
+.following_person {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+
+    margin: 20px 0px;
+}
+
+.follow_person_default_img {
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
-    border: solid #fff 3px;
-    font-size: 24px;
-    text-align: center;
-    color: #fff;
-    left: 382px;
-    top: 10px;
-    cursor: pointer;
+    margin-left: 20px;
 }
-.following-overlay-title{
-    position: relative;
-    width: 200px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 30px;
-    text-align: center;
-    color: #fff;
+
+.follow_person_img {
+    width: 53px;
+    height: 53px;
+    border-radius: 50%;
+    border: 2px solid #7E82DF;
+    margin-left: 20px;
 }
+
+.following_person_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.following_person_info h1 {
+    margin: 0px 15px;
+    color: white;
+    font: 500 20px Inter, sans-serif
+}
+
+.following_person_info h2 {
+    margin: 0px 15px;
+    color: #7E82DF;
+    font: 500 20px Inter, sans-serif
+}
+
+.following_remove {
+    background-color: transparent;
+    background-image: url('../../assets/close2.png');
+    width: 25px;
+    height: 25px;
+    border: none;
+    margin-right: 20px;
+}
+
 .following-person{
     border-top: solid #6E72CF 2px;
     display: grid;

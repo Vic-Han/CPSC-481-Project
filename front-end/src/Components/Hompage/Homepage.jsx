@@ -11,12 +11,17 @@ import Games from "../../Elements/Games";
 
 import './Homepage.css';
 
-function Homepage(props) {
-  const togglePost = props.togglePost
-  const toggleArticle = props.toggleArticle
-  const toggleOtherProfile = props.toggleOtherProfile
-
+function Homepage() {
   const [shownArticles, setShownArticles] = useState(3);
+
+  //---------------------------------Posts Functions---------------------------------
+  const loggedUser = users.filter(function (user) {
+    return user.username == JSON.parse(localStorage.getItem("loggedUser"));
+  })[0];
+
+  const postsToShow = posts.filter(function(post) {
+    return post.author !== loggedUser.username;
+  });
 
   //---------------------------Recommended Users Functions---------------------------
   const [shownUsers, setShownUsers] = useState(3);
@@ -52,7 +57,7 @@ function Homepage(props) {
               <a href="#/" className="load_more" onClick={() => setShownArticles(shownArticles + 3)}>Load More</a>}
         </div>
         <div className='home_posts'>
-          {posts.map(post => (
+          {postsToShow.map(post => (
             <Post key={post.id} data={post} />
           ))}
         </div>
@@ -83,9 +88,6 @@ function Homepage(props) {
           </div>
         </div>
       </div>
-      <button onClick={togglePost}> Show the full Post</button>
-      <button onClick={toggleArticle}> Show the full article</button>
-      <button onClick={toggleOtherProfile}> Show Sally William</button>
     </>
   );
 }

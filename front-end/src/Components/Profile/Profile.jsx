@@ -1,16 +1,19 @@
-import { React, useState, useEffect } from "react"
-import { useParams } from "react-router-dom"
+import { React, useState, useEffect, useCallback } from "react"
+import { useNavigate, useParams, Link } from "react-router-dom"
 import './Profile.css'
 import FollowerOverLay from "./FollowerOverLay"
 import FollowingOverLay from "./FollowingOverLay"
 import user from "../../assets/Person9.png"
 import { users } from "../../users"
+import { posts } from "../../posts"
+import Post from "../../Elements/Post"
 
-function MyProfile(props) {
+function Profile() {
+  //-----------------------------User Decide Function-----------------------------
   const { id } = useParams();
 
   let currentUser = false;
-  
+
   let data = users.filter(function (user) {
     return user.id == id;
   })[0];
@@ -23,97 +26,148 @@ function MyProfile(props) {
   if (data.id === loggedUser.id) currentUser = true;
   else currentUser = false;
 
-  const [follower, setFollower] = useState(false)
-  const [following, setFollowing] = useState(false)
-  const showFollower = () => { setFollower(true) }
-  const showFollowing = () => { setFollowing(true) }
-  const hideFollower = () => { setFollower(false) }
-  const hideFollowing = () => { setFollowing(false) }
+  //-----------------------------Logout User Functions-----------------------------
+  const navigate = useNavigate();
 
-  const post1 = {
-    Title: 'Why is ESports Dying :(',
-    Date: 'November 28, 2023',
-    Tag: 'E-Sports Event',
-    Tag2: 'asdasd',
-    Discription: 'Just the Title, why is ESports Dying?!?!?!? I Enjoy ESports and I don’t want it to die off, it’s like the only thing keeping me interested in the gaming industry and if it dies off I won’t be able to cheer for my favorite team. I don’t watch sports because I am not too interested in sports, but I am interested in gaming, why must ESports be dying.'
-  }
-  const post2 = {
-    Title: 'Upcoming Valorant ESports Event Locations?',
-    Date: 'October 26, 2023',
-    Tag: ['Valorant', 'asdsa'],
-    Discription: 'Looking for the inside scoop on upcoming Valorant esports event locations? Dive into the action-packed world of Valorant and discover where the hottest competitions are set to take place! With Valorants esports scene heating up, fans and players are eager to know where the next big showdowns will be. Stay in the loop and find out the exciting cities and venues that will host the thrilling Valorant tournaments, creating an electric atmosphere for both players and viewers alike.'
-  }
-  const post3 = {
-    Title: 'need to make more uniqe posts',
-    Date: 'October 26, 2023',
-    Tag: ['Valorant'],
-    Discription: 'Just the Title, why is ESports Dying?!?!?!? I Enjoy ESports and I don’t want it to die off, it’s like the only thing keeping me interested in the gaming industry and if it dies off I won’t be able to cheer for my favorite team. I don’t watch sports because I am not too interested in sports, but I am interested in gaming, why must ESports be dying.'
+  const logoutUser = () => {
+    localStorage.setItem("loggedUser", JSON.stringify(""));
+    navigate('/');
+  };
+
+  //------------------------------User Posts/Comments Functions------------------------------
+  const [shownComments, setShownComments] = useState(3);
+
+  const userPosts = posts.filter(function (post) {
+    return data.username === post.author;
+  });
+
+  function findUserComments() {
+    let temp = [];
+    for (let i = 0; i < posts.length; i++) {
+      for (let j = 0; j < posts[i].comments.length; j++) {
+        if (posts[i].comments[j].username === data.username) {
+          let temp1 = {
+            "post": posts[i],
+            "comment": posts[i].comments[j].comment
+          }
+          temp.push(temp1);
+        }
+      }
+    }
+    return temp;
   }
 
-  const tagList = {
-    tags: ['asdasd', 'asdasd', 'asdasda', 'asdasdassss']
+  const userComments = findUserComments();
+
+  //-------------------------Follower/Following Functions-------------------------
+  const [follow, setFollow] = useState("");
+  const [overlay, setOverlay] = useState(null);
+  const [userFollows, setUserFollows] = useState(loggedUser.following.includes(data.username));
+
+  useEffect(() => {
+    if (follow === "Following") setOverlay(<FollowingOverLay data={data.following} type={follow} setFollow={setFollow} />)
+    else if (follow === "Follower") setOverlay(<FollowingOverLay data={data.followers} type={follow} setFollow={setFollow} />)
+    else setOverlay(null)
+  }, [follow]);
+
+  const followingClick = useCallback(() => {
+    setFollow("Following");
+  });
+
+  const followerClick = useCallback(() => {
+    setFollow("Follower");
+  });
+
+  const addFollowing = () => {
+    loggedUser.following.push(data.username);
+    setUserFollows(loggedUser.following.includes(data.username));
+  }
+
+  const removeFollowing = () => {
+    loggedUser.following = loggedUser.following.filter(user => {
+      return user !== data.username;
+    });
+    setUserFollows(loggedUser.following.includes(data.username));
   }
 
   return (
-    <div className="profile_page">
-      <div className="profile_container">
-        <div className="profile_info">
-          <img alt="Profile Pic" className={(data.profileURL === "ProfileDefault.png") ? "profile_default_img" : "profile_img"} src={require(`../../assets/${data.profileURL}`)}></img>
-          <div className="profile_details">
-            <div className="profile_name">{data.firstName} {data.lastName}</div>
-            <div className="profile_username">{data.username}</div>
-            <p className="profile_bio">I am a professional ESports Enjoyer. It's awesome.</p>
-            <div className="profile_follow_section">
-              {currentUser ? <div className="profile_followers">
-                <button className="profile_follow_txt_button">Followers</button>
-                <p className="profile_follow_number">2</p>
-              </div> : <button className="profile_txt_btn txt_btn">Follow</button>}
-              {currentUser ? <div className="profile_following">
-                <button className="profile_follow_txt_button">Followers</button>
-                <p className="profile_follow_number">4</p>
-              </div> : <button className="profile_txt_btn txt_btn">Direct Message</button>}
+    <>
+      {overlay}
+      <div className="profile_page">
+        <div className="profile_container">
+          <div className="profile_info">
+            <img alt="Profile Pic" className={(data.profileURL === "ProfileDefault.png") ? "profile_default_img" : "profile_img"} src={require(`../../assets/${data.profileURL}`)}></img>
+            <div className="profile_details">
+              <div className="profile_name">{data.firstName} {data.lastName}</div>
+              <div className="profile_username">{data.username}</div>
+              <p className="profile_bio">{data.bio}</p>
+              <div className="profile_follow_section">
+                {currentUser ? null : 
+                <>{userFollows ? 
+                <button onClick={removeFollowing} className="profile_txt_btn txt_btn">Unfollow</button> : 
+                <button onClick={addFollowing} className="profile_txt_btn txt_btn">Follow</button>}</>}
+                <div className="profile_followers">
+                  <button onClick={followerClick} className="profile_follow_txt_button">Followers</button>
+                  <p className="profile_follow_number">{data.followers.length}</p>
+                </div>
+                <div className="profile_following">
+                  <button onClick={followingClick} className="profile_follow_txt_button">Following</button>
+                  <p className="profile_follow_number">{data.following.length}</p>
+                </div>
+                {currentUser ? null : <button className="profile_txt_btn txt_btn">Direct Message</button>}
+              </div>
+            </div>
+          </div>
+          <div className="profile_actions">
+            {currentUser ? <div className="profile_top_actions">
+              <button onClick={logoutUser} className="profile_logout_button">Logout</button>
+              <button className="profile_settings_button img_btn"></button>
+            </div> : null}
+            <div className="profile_bottom_actions">
+              {currentUser ? null : <button className="profile_report_button img_btn"></button>}
+              {currentUser ? null : <button className="profile_block_button img_btn"></button>}
+              <button className="profile_share_button img_btn"></button>
             </div>
           </div>
         </div>
-        <div className="profile_actions">
-          <div className="profile_top_actions">
-
+        <div className="after_profile">
+          <div className="profile_extra">
+            <div className="profile_comments">
+              <h1>Comments Posted</h1>
+              <div className="line"></div>
+              {userComments.slice(0, shownComments).map((comment, i) => (
+                <>
+                  <div key={i} className="profile_user_comment">
+                    <h1>Commented on <Link to={`/post/${comment.post.id}`}>{comment.post.title}</Link></h1>
+                    <p>{comment.comment}</p>
+                  </div>
+                  <div className="line"></div>
+                </>
+              ))}
+              {(shownComments >= userComments.length) ?
+                <>{userComments.length > 0 ? <p className="load_end">Reached the End</p> : <p className="load_end">{`No Comments :(`}</p>}</> :
+                <a href="#/" className="load_more" onClick={() => setShownComments(shownComments + 3)}>Load More</a>}
+            </div>
           </div>
-
-        </div>
-        <div className="profile_actions">
-          <div className="top_actions">
-            <button id="myProfile_logout">Logout</button>
-            <button id="setting_button"></button>
-          </div>
-          <div className="bottom_action">
-            <button id="share_button"></button>
+          <div className="profile_posts_section">
+            <div className="profile_posts_title">Posts ({userPosts.length})</div>
+            <div className="profile_posts">
+              {userPosts.length > 0 ? null :
+                <>{currentUser ?
+                  <p className="profile_post_warning">{`You haven't created any posts :(. Click the 'New Post' button top right to start creating a post`}</p> :
+                  <p className="profile_post_warning">{`This user hasn't made any posts`}</p>}</>}
+              {userPosts.map(post => (
+                <Post key={post.id} data={post} />
+              ))}
+            </div>
           </div>
         </div>
       </div>
-
-      <div className="myProfile_tagList">
-        <p >Recent Tag</p>
-        <div>
-          {/* <TagList tagList={tagList} /> */}
-        </div>
-      </div>
-
-      <div id="myProfile_post_header">
-        <p>Posts (14)</p>
-      </div>
-
-      {/* <div className="myProfile_post">
-        <PostComponent post={post1} />
-        <PostComponent post={post2} />
-        <PostComponent post={post3} />
-      </div> */}
-
-    </div>
+    </>
   )
 }
 
 
 
 
-export default MyProfile
+export default Profile

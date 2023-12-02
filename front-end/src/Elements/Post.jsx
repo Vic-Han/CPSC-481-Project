@@ -5,6 +5,10 @@ import { users } from '../users';
 function Post(props) {
   const data = props.data;
 
+  const loggedUser = users.filter(function (user) {
+    return user.username == JSON.parse(localStorage.getItem("loggedUser"));
+  })[0];
+
   function findUserId(username) {
     const user = users.filter(function (user) {
       return user.username === username;
@@ -37,11 +41,15 @@ function Post(props) {
         </ul>
       </div>
       <div className='line'></div>
-      {data.description.split('\n').map((str, i) => <p key={i} className='post_short_description'>{str}</p>)}
+      {data.description.slice(0, 650).split('\n').map((str, i) => {
+        if ((i == (data.description.slice(0, 650).split('\n').length - 1)) && data.description.length > 650)
+          return <p key={i} className='post_short_description'>{str}...</p>
+        else return <p key={i} className='post_short_description'>{str}</p>
+      })}
       {data.images.length > 0 ? data.images.map((url, i) => (
-      <img key={i} className='post_short_image' src={url}></img>)): null}
+        <img key={i} className='post_short_image' src={url}></img>)) : null}
       <div className='post_short_bottom'>
-        <button className='post_short_like' onClick={likePost}></button>
+        {(loggedUser.username === data.author) ? null : <button className='post_short_like' onClick={likePost}></button>}
       </div>
     </div>
   )
