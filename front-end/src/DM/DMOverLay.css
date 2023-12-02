@@ -222,7 +222,6 @@
     margin-left: 2px;
     margin-right: 0px;
     margin: auto;
-
   }
   
   .chat-messages {
@@ -234,7 +233,7 @@
   }
   
   .user-message {
-    background-color: #7E82DF;
+    background-color: #5154af;
     color: #fff;
     position: relative;
     border-radius: 18px;
@@ -249,13 +248,13 @@
     display: flex;
     flex-direction: column;
     align-self: flex-end;
-    border: solid 2px rgb(201, 152, 113);
+    border: solid 2px rgb(113, 201, 117);
 
   }
   
   .other-message {
     align-self: flex-start;
-    background-color: blue;
+    background-color: #7E82DF;
     color: #ffffff;
     border-radius: 18px;
     max-width: 250px;
@@ -263,7 +262,7 @@
     margin-bottom: 8px;
     margin-left: -14px;
     word-wrap: break-word;
-    border: solid 2px rgb(162, 236, 166);
+    border: solid 2px  #4b4e97;
   }
   
 
