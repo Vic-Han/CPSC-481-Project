@@ -12,7 +12,7 @@ const account1 = {
 
 const account2 = {
   img: Person2,
-  desc: "Indie game developer and creator of hit games Bloons TD 6, Bloons TD Battles, Bloons TD 5, and SAS Zombie ...",
+  desc: "Indie game developer asdasand creator of hit games Bloons TD 6, Bloons TD Battles, Bloons TD 5, and SAS Zombie ...",
   title: "Ninja Kiwi",
   acc_name: "NinjaKiwiGames",
   type: "User"
