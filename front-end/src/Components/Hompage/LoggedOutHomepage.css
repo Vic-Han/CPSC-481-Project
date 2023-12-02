@@ -1,7 +1,8 @@
 .main_content {
-    background-color: #2D2E37;
-    width: 1920px;
-    height: 3875px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
 }
 
 .text_container1 {
@@ -65,10 +66,16 @@
 .text_container3 {
     width: 837px;
     text-align: center;
-
     position: relative;
     top: 1594px;
     left: 541px;
+}
+
+.text_container4 {
+    width: 1920px;
+    text-align: center;
+    position: relative;
+    top: 1594px;
 }
 
 .text {
@@ -88,28 +95,32 @@
 }
 
 .footer {
-    position: absolute;
-    width: 1920px;
     height: 100px;
+    /* Adjust as per your footer's height */
     background-color: #33344A;
-    /*Temp disabled so that I can include FAQ*/
-    top: 3875px;
     display: flex;
-    margin-top: auto; /* This will push the footer to the bottom */
-    justify-content: space-between;
+    justify-content: center;
+    /* Align items to the left */
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-container {
+    width: 100%;
+    /* Set the width to 100% of the viewport */
 }
 
 .left_footer {
     color: white;
-    margin-left: 100px;
     align-self: center;
     font: 400 24px Inter, sans-serif;
+    margin-right: 550px;
 }
 
 .right_footer {
     display: flex;
     justify-content: space-between;
-    width: 760px;
 }
 
 .right_footer a {
@@ -132,11 +143,11 @@
     left: 541px;
 }
 
-.Space{
+.Space {
     margin-bottom: 75px;
 }
 
-.QuestionButton{
+.QuestionButton {
     margin-top: 25px;
     background-color: transparent;
     color: white;
@@ -145,32 +156,33 @@
     font-family: Kanit, sans-serif;
     font-weight: bold;
     z-index: 2;
-    font-size: 20px;
     margin-bottom: 60px;
+    font: 900 24px Inter, sans-serif;
 }
 
 
-.QuestionButton:hover{
+.QuestionButton:hover {
     opacity: 0.4;
     cursor: pointer;
 }
 
-.Question{
+.Question {
     color: #7E82DF;
 }
 
-.Answer{
+.Answer {
     color: white;
     font-weight: lighter;
     margin-bottom: 30px;
+    font: 16px Inter, sans-serif;
 }
 
-.QuestionContainer{
-   border-radius: 4px;
-   color: #000;
-   margin-bottom: 70px;
+.QuestionContainer {
+    border-radius: 4px;
+    color: #000;
+    margin-bottom: 70px;
 }
 
-.FAQ_Question{
+.FAQ_Question {
     margin-bottom: 70px;
 }
