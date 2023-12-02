@@ -84,7 +84,7 @@ function ExpandedPost(props) {
         <p className="home_element_titles">Related Posts</p>
         <div className='line'></div>
         {relatedPosts.slice(0, shownPosts).map(post => (
-          <PostMini key={post.id} data={post} />
+          <PostMini key={post.id} data={post} type={"post"} />
         ))}
         {(shownPosts >= relatedPosts.length) ?
           <p className="load_end">Reached the End</p> :

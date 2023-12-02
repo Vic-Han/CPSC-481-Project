@@ -28,7 +28,7 @@ function Homepage() {
   const [deletedUsers, setDeletedUsers] = useState([]);
 
   const recommendedUsers = users.filter(function (user) {
-    return user.loggedIn === false;
+    return user.username !== loggedUser.username;
   });
 
   //---------------------------Recommended Games Functions---------------------------

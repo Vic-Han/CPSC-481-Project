@@ -6,7 +6,7 @@ function PostMini(props) {
 
   return (
     <>
-      <Link>
+      <Link to={`/${props.type}/${data.id}`}>
         <h1 className='article_short_title'>{data.title.substring(0, 36)}...</h1>
       </Link>
       <h1 className='article_short_description'>{data.description.substring(0, 135)}...</h1>

@@ -66,7 +66,7 @@ function Profile() {
 
   useEffect(() => {
     if (follow === "Following") setOverlay(<FollowingOverLay data={data.following} type={follow} setFollow={setFollow} />)
-    else if (follow === "Follower") setOverlay(<FollowingOverLay data={data.followers} type={follow} setFollow={setFollow} />)
+    else if (follow === "Followers") setOverlay(<FollowingOverLay data={data.followers} type={follow} setFollow={setFollow} />)
     else setOverlay(null)
   }, [follow]);
 
@@ -75,7 +75,7 @@ function Profile() {
   });
 
   const followerClick = useCallback(() => {
-    setFollow("Follower");
+    setFollow("Followers");
   });
 
   const addFollowing = () => {
@@ -102,10 +102,10 @@ function Profile() {
               <div className="profile_username">{data.username}</div>
               <p className="profile_bio">{data.bio}</p>
               <div className="profile_follow_section">
-                {currentUser ? null : 
-                <>{userFollows ? 
-                <button onClick={removeFollowing} className="profile_txt_btn txt_btn">Unfollow</button> : 
-                <button onClick={addFollowing} className="profile_txt_btn txt_btn">Follow</button>}</>}
+                {currentUser ? null :
+                  <>{userFollows ?
+                    <button onClick={removeFollowing} className="profile_txt_btn txt_btn">Unfollow</button> :
+                    <button onClick={addFollowing} className="profile_txt_btn txt_btn">Follow</button>}</>}
                 <div className="profile_followers">
                   <button onClick={followerClick} className="profile_follow_txt_button">Followers</button>
                   <p className="profile_follow_number">{data.followers.length}</p>

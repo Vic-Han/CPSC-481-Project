@@ -1,5 +1,5 @@
 import './Games.css';
-
+import { Link } from 'react-router-dom';
 function Games(props) {
   const data = props.data;
 
@@ -7,7 +7,7 @@ function Games(props) {
     <>
       <div className="game_short_main">
         <div className='game_short_title'>
-          <h1>{data.title}</h1>
+          <Link to={`/store/${data.id}`}><h1>{data.title}</h1></Link>
           <button onClick={() => {
             props.setDeletedGames([...props.deletedGames, data.id]);
           }}></button>
