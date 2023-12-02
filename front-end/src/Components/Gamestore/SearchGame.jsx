@@ -1,27 +1,27 @@
 import React, { useState, useEffect } from "react";
 import './SearchGame.css';
-import PC from '../assets/PC.png';
-import Back_Button from '../assets/BackButton.png';
+import PC from '../../assets/PC.png';
+import Back_Button from '../../assets/BackButton.png';
 
-import Game2000 from '../TotalWar/1.bmp';
-import Game2002 from '../TotalWar/2.bmp';
-import Game2004 from '../TotalWar/3.bmp';
-import Game2006 from '../TotalWar/4.bmp';
+import Game2000 from '../../TotalWar/1.bmp';
+import Game2002 from '../../TotalWar/2.bmp';
+import Game2004 from '../../TotalWar/3.bmp';
+import Game2006 from '../../TotalWar/4.bmp';
 
-import Game2009 from '../TotalWar/5.bmp';
-import Game2010 from '../TotalWar/6.bmp';
-import Game2011 from '../TotalWar/7.bmp';
-import Game2013 from '../TotalWar/8.bmp';
+import Game2009 from '../../TotalWar/5.bmp';
+import Game2010 from '../../TotalWar/6.bmp';
+import Game2011 from '../../TotalWar/7.bmp';
+import Game2013 from '../../TotalWar/8.bmp';
 
-import Game2015 from '../TotalWar/9.bmp';
-import Game2016 from '../TotalWar/10.bmp';
-import Game2017 from '../TotalWar/11.bmp';
-import Game2018 from '../TotalWar/12.bmp';
+import Game2015 from '../../TotalWar/9.bmp';
+import Game2016 from '../../TotalWar/10.bmp';
+import Game2017 from '../../TotalWar/11.bmp';
+import Game2018 from '../../TotalWar/12.bmp';
 
-import Game2019 from '../TotalWar/13.bmp';
-import Game2020 from '../TotalWar/14.bmp';
-import Game2022 from '../TotalWar/15.bmp';
-import Game2023 from '../TotalWar/16.bmp';
+import Game2019 from '../../TotalWar/13.bmp';
+import Game2020 from '../../TotalWar/14.bmp';
+import Game2022 from '../../TotalWar/15.bmp';
+import Game2023 from '../../TotalWar/16.bmp';
 
 function SearchGame(props) {
     //Data for games by on the search "Total War"

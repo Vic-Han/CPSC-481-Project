@@ -34,6 +34,7 @@ import Articles from "./pages/Articles.jsx";
 import Game from "./pages/Game.jsx";
 import Account from "./pages/Account.jsx";
 import Search from "./pages/Search.jsx";
+import GameSearch from "./pages/GameSearch.jsx";
 
 function App() {
 
@@ -222,6 +223,7 @@ function App() {
         <Route path="/account" element={<Account clickHandlers={navbarClickHandlers} />} />
         <Route path="/account/:id" element={<Account clickHandlers={navbarClickHandlers} />} />
         <Route path="/search" element={<Search clickHandlers={navbarClickHandlers} />} />
+        <Route path="/game" element={<GameSearch clickHandlers={navbarClickHandlers} />} />
       </Routes>
     </div>
   );
