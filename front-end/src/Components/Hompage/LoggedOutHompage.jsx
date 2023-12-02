@@ -20,6 +20,7 @@ function LoggedOutHomepage(props) {
   const toggleDropdownQA = () => {
     setDropdownVisible(!DropdownVisible);
   };
+
   return (
     <div className='main_content'>
       <div>
@@ -73,10 +74,10 @@ function LoggedOutHomepage(props) {
           and find the hottest deals going on.</p>
       </div>
       <br></br>
-
+      <br></br>
+      <br></br>
       <div className='FAQ_container'>
         <div className='intro_title'>Frequently Asked Questions</div>
-        <div className='Space'></div>
         <div className="FAQ_Question">
           <button className="QuestionButton" onClick={toggleDropdownQA}>
             {DropdownVisible ? 'Close' : 'View Questions'}
@@ -89,8 +90,12 @@ function LoggedOutHomepage(props) {
               and creative username. After this, input a valid email address. For your password, ensure it meets the security criteria: 
               at least 9 characters long, includes 1 uppercase character, and contains at least 1 non-alphabetic character. Confirm your 
               password by re-entering it. Once all these steps are completed, you can proceed to register your account on ESports Zone. </h3>
+
               <h1 className='Question'>How do I sign out?</h1>
-              <h3 className='Answer'>Still needs to be implemented</h3>
+              <h3 className='Answer'>To sign out of the platform, first ensure that you are signed in. Then, navigate to the top right corner of the page 
+              and click on the profile icon. In the menu that appears, you will find a Logout button, highlighted in red. 
+              Click on this button to successfully log out of your account. </h3>
+              
               <h1 className='Question'>How do I create a post and post content?</h1>
               <h3 className='Answer'>To create a post, first ensure you are logged in. Once logged in, navigate to the top of the page and
                 click the "New Post" button. When creating your post, it's important to include a clear title for easy identification by
@@ -99,10 +104,14 @@ function LoggedOutHomepage(props) {
                 post can improve its visibility and help users identify its theme or topic. Before posting, you have the option to save
                 your post as a draft or use the "Preview & Post" feature to see how your post will appear to others. Once you're satisfied
                 with your post, click "Post" to upload it to the platform. </h3>
+
               <h1 className='Question'>Can I purchase games on this website?</h1>
               <h3 className='Answer'>Unfortunately, driect game purchases are not available on our website. However, we provide links to the official game websites where you can make your purchase directly.</h3>
-              <h1 className='Question'>How do I direct message someone?</h1>
-              <h3 className='Answer'>To sign up for ESports Zone, scroll up to the top and to the right click 'Sign Up' button.</h3>
+
+              <h1 className='Question'>How do I direct message someone on the platform?</h1>
+              <h3 className='Answer'>To send a direct message (DM) on the platform, first ensure you are logged into your account. Then, locate the DM icon, which is positioned at the top right of the page, between 'Gamestore' and 'Profile'. 
+              Click on the top left button within the DM area to initiate a new conversation. Use the search bar to find the user you wish to message. Once you have located the user, type your message in the text box provided and send it. 
+              This process allows you to easily communicate directly with other users on the platform.</h3>
             </div>
 
           )}
@@ -113,14 +122,14 @@ function LoggedOutHomepage(props) {
 
 
 
-      {/* <div className='footer'>
+      <div className='footer'>
         <div className='left_footer'>© 2023 ESports Zone Inc. All rights reserved.</div>
         <div className='right_footer'>
           <a href='#'>Feedback</a>
           <a href='#'>User Agreement</a>
           <a href='#'>Privacy Policy</a>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 }
