@@ -6,7 +6,7 @@ function Notification(props){
         <div className="notification-wrapper">
             <img src ={props.pfp} className="notification_img"></img>
             <div className="notification-text">{props.message}</div>
-            <div className="delete-button" onClick={props.delete}> X </div>
+            <div className="delete-notification-button" onClick={props.delete}> X </div>
         </div>
     )
 }

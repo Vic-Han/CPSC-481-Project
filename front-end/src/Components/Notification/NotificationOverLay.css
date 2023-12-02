@@ -19,7 +19,7 @@
 }
 .notification-wrapper{
     display: grid;
-    grid-template-columns: 80px 300px 80px;
+    grid-template-columns: 80px 380px 80px;
     padding: 10px;
     height: 100px;
     width: 86%;
@@ -31,8 +31,8 @@
     border: solid black 2px;
 }
 .notification_img{
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     position: relative;
     top: 15px;
@@ -40,32 +40,52 @@
     transform: translateX(-50%);
 }
 .notification-text{
-    width: 250px;
+    width: 340px;
     height: 90px;
     border-radius: 50%;
     position: relative;
-    padding-top: 10px;
+    padding-top: 15px;
     padding-bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
+    font-size: 22px;
     
 }
 .notification-header{
-    margin: 10px;
     position: relative;
-    top: -5px;
-    padding: 20px;
+    top: -10px;
+    left: -10px;
     border-radius: 15px;
-    width: 100%;
+    width: 102%;
+    border: solid black 2px;
 }
 .notification-desc{
     text-align: center;
     position: relative;
     transform: translateX(-50%);
     left: 50%;
+    padding: 20px;
+    font-size: 36px;
 }
 .notification-close{
     position: absolute;
     left: 81%;
     top: 18px;
+}
+.delete-notification-button{
+    position: relative;
+    top: 10px;
+    width: 30px;
+    padding: 15px;
+    aspect-ratio: 1/1;
+    color: white;
+    border-radius: 50%;
+    border: solid white 3px;
+    text-align: center;
+    font-size: 23px;
+    background-color: rgba(245,15,15,0.0);
+    transition: 1s;
+}
+.delete-notification-button:hover{
+    background-color: rgba(245,15,15,1.0);
 }
