@@ -1,9 +1,7 @@
 import { React, useState, useEffect, useCallback } from "react"
 import { useNavigate, useParams, Link } from "react-router-dom"
 import './Profile.css'
-import FollowerOverLay from "./FollowerOverLay"
 import FollowingOverLay from "./FollowingOverLay"
-import user from "../../assets/Person9.png"
 import { users } from "../../users"
 import { posts } from "../../posts"
 import Post from "../../Elements/Post"

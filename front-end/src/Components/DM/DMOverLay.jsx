@@ -1,15 +1,15 @@
 import './DMOverLay.css';
 import { React, useState } from "react"
-import Kenpachipfp from '../../assets/Zarakipfp.png'
+import Kenpachipfp from '../../assets/Zaraki.png'
 import user1 from '../../assets/Person1.png'
 import user2 from '../../assets/Person2.png'
 import user3 from '../../assets/Person3.png'
 import user4 from '../../assets/Person4.png'
-import user5 from '../../assets/Person5.png'
-import user6 from '../../assets/Person6.png'
+import user5 from '../../assets/Chad.png'
+import user6 from '../../assets/Sally.png'
 import user7 from '../../assets/Person7.png'
 import user8 from '../../assets/Person8.png'
-import basicpfp from '../../assets/basicpfp.png'
+import basicpfp from '../../assets/ProfileDefault.png'
 
 
 //function for displaying Inbox items 

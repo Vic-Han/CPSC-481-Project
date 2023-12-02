@@ -1,8 +1,8 @@
 import './LoggedOutHomepage.css';
 import './Circles.css';
 import { React, useEffect, useState } from "react";
-import example1 from '../assets/example1.png';
-import example2 from '../assets/example2.png';
+import example1 from '../../assets/example1.png';
+import example2 from '../../assets/example2.png';
 
 function LoggedOutHomepage(props) {
   const registerEvent = props.registerEvent2;
