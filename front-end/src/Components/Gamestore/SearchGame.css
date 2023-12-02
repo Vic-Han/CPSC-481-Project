@@ -4,13 +4,26 @@
     justify-content: space-evenly;
 }
 
+.search_game_container a {
+    text-decoration: none;
+}
+
 .search_game_left {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
 
     width: 1200px;
+    max-height: 500px;
     margin-top: 50px;
     row-gap: 50px;
+}
+
+.game_price_free {
+    color: white;
+    margin: 0;
+    text-align: center;
+    margin-left: 110px;
+    font: 500 24px Inter, sans-serif;
 }
 
 .search_game_right {
@@ -48,8 +61,27 @@
     border: none;
 }
 
+.search_game_info {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+
+    justify-content: space-between;
+
+    margin-top: -20px;
+    margin-bottom: 20px;
+}
+
+.search_game_info h1{
+    margin: 0;
+    color: white;
+    font: 600 26px Inter, sans-serif;
+}
+
 .filter_clear_button {
-    width: 200px;
+    width: 250px;
     height: 55px;
 
     color: white;
@@ -58,9 +90,6 @@
     background-color: #7E82DF;
     border: none;
     border-radius: 15px;
-
-    margin-top: -20px;
-    margin-bottom: 20px;
 }
 
 .sort_title {
@@ -152,400 +181,6 @@
     text-align: start;
 }
 
-.filter-button {
-    display: block;
-    /* Makes each button a block-level element */
-    width: 100%;
-    /* Each button takes the full width of its container */
-    margin-bottom: 10px;
-    /* Adds some space below each button */
-    text-align: center;
-    /* Aligns text to the left */
-    color: white;
-    /* Color of the button text */
-    background-color: transparent;
-    border: none;
-    /* Removes border */
-    cursor: pointer;
-    /* Changes cursor to pointer on hover */
-    padding: 10px;
-    /* Adds padding inside the buttons */
-    font-size: 18px;
-
-}
-
-.filter-button:hover {
-    color: white;
-    opacity: .8;
-}
-
-.dropdown-contentFilter button {
-    background-color: #7E82DF;
-    color: white;
-    border: none;
-    padding: 10px;
-    margin: 5px 0;
-    /* Add space between buttons */
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    text-align: center;
-}
-
-/* Change hover effect for buttons */
-.dropdown-contentFilter button:hover {
-    background-color: #6568b4;
-}
-
-/* If you want to change the background of the entire dropdown container */
-.dropdown-contentFilter {
-    background-color: #7E82DF;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.SG-row {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    /* Adjusts space between the cards */
-    margin-bottom: 20px;
-    /* Spacing between rows */
-    margin-left: 76px;
-}
-
-.search-item {
-    background-color: rgba(62, 61, 117, 0.24);
-    color: white;
-    min-width: 300px;
-    max-width: 300px;
-    height: 550px;
-    padding: 20px 0px 20px 0px;
-    box-sizing: border-box;
-    border-radius: 10px;
-    margin: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    transition: transform 0.5s ease;
-}
-
-.pricing-info {
-    text-align: center;
-    margin: 0px auto 0px auto;
-    padding-bottom: 6px;
-}
-
-
-.original-price2,
-.sale-price2,
-.discount2 {
-    display: block;
-    width: 100%;
-    text-align: center;
-}
-
-
-.searchGame-image {
-    min-height: 312px;
-    max-height: 312px;
-    min-width: 220px;
-    max-width: 220px;
-    border-radius: 5px;
-    cursor: pointer;
-    object-fit: cover;
-}
-
-.original-price2 {
-    text-decoration: line-through;
-    color: #777;
-    margin: 5px auto 10px auto;
-}
-
-.sale-price2 {
-    color: #e0e0e0;
-    font-weight: bold;
-    margin: 5px auto 10px auto;
-}
-
-.discount2 {
-    background-color: #7E82DF;
-    color: white;
-    font-size: 16px;
-    height: 30px;
-    width: 50px;
-    line-height: 30px;
-    text-align: center;
-    margin: auto;
-    display: block;
-}
-
-.game-name {
-    font-size: 18px;
-    margin-bottom: 10px;
-    margin-top: 0px;
-}
-
-
-.GSearch_BackButton {
-    transform: rotate(180deg);
-    margin-left: 86px;
-    margin-top: 20px;
-}
-
-.GSearch_BackButton:hover {
-    cursor: pointer;
-    opacity: 0.4;
-}
-
-.leftside-container {
-    max-width: 1356px;
-    min-width: 1356px;
-}
-
-.rightside-container {
-    flex-grow: 1;
-    /* Allow it to take up the remaining space */
-    display: flex;
-    /* Add flex display */
-    justify-content: center;
-    /* Center the child horizontally */
-    align-items: start;
-    /* Align the child to the top */
-    padding-right: 20px;
-    /* Optional: Add some padding */
-}
-
-.filter-container {
-
-    width: 100%;
-    /* Take full width of the parent container */
-    text-align: center;
-    /* Align the text to the right */
-    margin-top: 80px;
-    margin-left: 80px;
-    margin-right: 86px;
-    border-radius: 8px;
-    border-color: #7E82DF;
-    border-style: solid 50px;
-}
-
-.Filter-title {
-    color: #7E82DF;
-}
-
-.small-search {
-    font-size: 20px;
-    background-color: #7E82DF;
-    color: white;
-    height: 50px;
-    border-radius: 8px;
-    border-color: #7E82DF;
-    border-style: solid 1px;
-    font: 400 24px Kanit, sans-serif;
-    margin-bottom: 20px;
-    width: 380px;
-}
-
-.GameSearch-Button2 {
-    position: absolute;
-    height: 40px;
-    width: 40px;
-    top: 270px;
-    left: 1770px;
-    background-color: #7e82df;
-    background-image: url(../../assets/Search.png);
-    border: none;
-}
-
-.Sortby-filter {
-    background-color: transparent;
-    color: #7e82df;
-    border: none;
-    font-size: 25px;
-    font-family: Kanit, sans-serif;
-    font-weight: bold;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: auto;
-    cursor: pointer;
-}
-
-.Sortby-filter:hover {
-    color: white;
-}
-
-.filter-button {
-    display: block;
-    /* Makes each button a block-level element */
-    width: 100%;
-    /* Each button takes the full width of its container */
-    margin-bottom: 10px;
-    /* Adds some space below each button */
-    text-align: center;
-    /* Aligns text to the left */
-    color: white;
-    /* Color of the button text */
-    background-color: transparent;
-    border: none;
-    /* Removes border */
-    cursor: pointer;
-    /* Changes cursor to pointer on hover */
-    padding: 10px;
-    /* Adds padding inside the buttons */
-    font-size: 18px;
-
-}
-
-.filter-button:hover {
-    color: white;
-    opacity: .8;
-}
-
-.active-filter {
-    background-color: #7E82DF;
-    /* Change color for active state */
-    color: rgb(0, 0, 0);
-    /* Add other styling as needed */
-}
-
-.sort-button {
-    display: block;
-    /* Makes each button a block-level element */
-    width: 100%;
-    /* Each button takes the full width of its container */
-    margin-bottom: 10px;
-    /* Adds some space below each button */
-    text-align: center;
-    /* Aligns text to the left */
-    color: white;
-    /* Color of the button text */
-    background-color: transparent;
-    border: none;
-    /* Removes border */
-    cursor: pointer;
-    /* Changes cursor to pointer on hover */
-    padding: 10px;
-    /* Adds padding inside the buttons */
-    font-size: 18px;
-}
-
-.active-sort {
-    background-color: #7E82DF;
-    /* Change color for active state */
-    color: black
-        /* Add other styling as needed */
-}
-
-.genre-button {
-    display: block;
-    /* Makes each button a block-level element */
-    width: 100%;
-    /* Each button takes the full width of its container */
-    margin-bottom: 10px;
-    /* Adds some space below each button */
-    text-align: center;
-    /* Aligns text to the left */
-    color: white;
-    /* Color of the button text */
-    background-color: transparent;
-    border: none;
-    /* Removes border */
-    cursor: pointer;
-    /* Changes cursor to pointer on hover */
-    padding: 10px;
-    /* Adds padding inside the buttons */
-    font-size: 18px;
-}
-
-.active-genre {
-    background-color: #7E82DF;
-    /* Change color for active state */
-    color: black
-        /* Add other styling as needed */
-}
-
-.clear-genre-button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    background-color: #7E82DF;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 25px;
-    font-weight: bold;
-}
-
-.clear-genre-button:hover {
-    background-color: #6568b4;
-}
-
-.dropdown-contentFilter button {
-    background-color: #7E82DF;
-    color: white;
-    border: none;
-    padding: 10px;
-    margin: 5px 0;
-    /* Add space between buttons */
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    text-align: center;
-}
-
-/* Change hover effect for buttons */
-.dropdown-contentFilter button:hover {
-    background-color: #6568b4;
-}
-
-/* If you want to change the background of the entire dropdown container */
-.dropdown-contentFilter {
-    background-color: #7E82DF;
-}
-
-/* For active state styling of genre and filter buttons */
-.active-genre,
-.active-filter,
-.active-sort {
-    background-color: #6568b4;
-    /* A slightly different shade for active state */
+.sort_enabled {
+    border-left: 4px solid #7E82DF;
 }
