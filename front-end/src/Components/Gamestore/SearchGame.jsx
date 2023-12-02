@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
+import React, { useState, useEffect, useCallback } from "react";
+import { useSearchParams, Link } from "react-router-dom";
+import { games } from "../../games";
 
 import './SearchGame.css';
 import PC from '../../assets/PC.png';
-import Back_Button from '../../assets/BackButton.png';
+import PS from '../../assets/PS.png';
+import XBOX from '../../assets/Xbox.png';
+import SWITCH from '../../assets/Switch.png';
 
 import Game2000 from '../../TotalWar/1.bmp';
 import Game2002 from '../../TotalWar/2.bmp';
@@ -313,7 +316,7 @@ function SearchGame(props) {
 
   };
 
-  const rows = chunkArray(displayedGames(), 4);
+  const rows = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   const clearFilters = () => {
     setPriceFilter(null);
@@ -322,133 +325,188 @@ function SearchGame(props) {
   };
 
 
+  const sortBySale = (gameA, gameB) => {
+    const saleA = 100 - ((gameA.salePrice / gameA.price).toFixed(2)) * 100;
+    const saleB = 100 - ((gameB.salePrice / gameB.price).toFixed(2)) * 100;
+    return saleB - saleA;
+  }
 
+  const sortByReleaseDate = (gameA, gameB) => {
+    const releaseDateA = new Date(gameA.release);
+    const releaseDateB = new Date(gameB.release);
+    return releaseDateB - releaseDateA;
+  };
 
+  const sortByPrice = (gameA, gameB) => {
+    const priceA = gameA.salePrice;
+    const priceB = gameB.salePrice;
+    return priceA - priceB;
+  };
 
+  const sortByTitle = (gameA, gameB) => {
+    return gameA.title.localeCompare(gameB.title);
+  };
 
-
-
+  function sortFunction() {
+    if (sortType === 0) setGamesData(games.sort(sortByTitle));
+  }
 
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query');
+  const [sortType, setSortType] = useState(-1);
+  const [gamesData, setGamesData] = useState(games);
+
+  useEffect(() => {
+    let temp = undefined;
+    setGamesData(temp);
+    if (sortType === 0) temp = games.sort(sortByTitle)
+    else if (sortType === 1) temp = games.sort(sortByTitle).reverse();
+    else if (sortType === 2) temp = games.sort(sortByPrice);
+    else if (sortType === 3) temp = games.sort(sortByPrice).reverse();
+    else if (sortType === 4) temp = games.sort(sortByReleaseDate);
+    else if (sortType === 5) temp = games.sort(sortByReleaseDate).reverse();
+    else if (sortType === -1) temp = games;
+    setGamesData(temp);
+  }, [sortType])
+
+  function handleSearch() {
+    setSearchParams({ query: document.getElementById("filter_search").value });
+  }
+
+  function keyboardHandler(e) {
+    const input = document.getElementById("filter_search")
+    if (input.contains(e.target) && e.key === 'Enter') {
+      handleSearch();
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener('keydown', keyboardHandler)
+    return () => { document.removeEventListener('keydown', keyboardHandler) }
+  }, [])
 
   return (
-
-    <div className="searchGame-container">
-      <div className="leftside-container">
-        <img onClick={toggleGameStore} src={Back_Button} className="GSearch_BackButton" />
-        {rows.map((row, index) => (
-          <div key={index} className="SG-row">
-            {row.map(game => (
-              <div key={game.name} className="search-item">
-                <img onClick={game.image === Game2019 ? toggleGameDetails : null} src={game.image} alt={game.name} className="searchGame-image" />
-                <div className="pricing-info">
-                  <h3 className="game-name">{game.name}</h3>
-                  <h3 className="discount2">{game.discount}</h3>
-                  <h3 className="original-price2">{game.originalPrice}</h3>
-                  <h3 className="sale-price2">{game.salePrice}</h3>
-                  <img src={game.availability} className="PC-icon" />
-                </div>
+    <div className="search_game_container">
+      <div className="search_game_left">
+        {gamesData.filter(game => (game.title.toLowerCase().includes(query.toLowerCase()))).map((game, i) => (
+          <div key={i} className="sale_item">
+            <Link to={`/store/${game.id}`}><img src={game.images[0]} alt={game.title} className="sale_image" /></Link>
+            <Link to={`/store/${game.id}`}><h3 className="sale_game_title">{game.title}</h3></Link>
+            <div className="sale_info_section">
+              <div className="sale_price_section">
+                <p className="sale_original_price">${game.price}</p>
+                <p className="sale_sale_price">${game.salePrice}</p>
               </div>
-            ))}
+              <div className="sale_discount">{(100 - ((game.salePrice / game.price).toFixed(2)) * 100)}%</div>
+            </div>
+            <div className='sale_game_availability'>
+              {game.availability.map((type, i) => {
+                if (type === "PC") return <img key={i} src={PC}></img>;
+                else if (type === "PS") return <img key={i} src={PS}></img>;
+                else if (type === "Xbox") return <img key={i} src={XBOX}></img>;
+                else if (type === "Switch") return <img key={i} src={SWITCH}></img>;
+                return null;
+              })}
+            </div>
           </div>
         ))}
       </div>
-      <div className="rightside-container">
-        <div className="filter-container">
-          <h1 className="Filter-title">Filters</h1>
-          <input className="small-search" type="text" placeholder={""} value={inputValue} onChange={e => setInputValue(e.target.value)} />
-          <button className="clear-genre-button" onClick={clearFilters}>Clear</button>
-          <button className='GameSearch-Button2' ></button>
-          <div>
-            <button className="Sortby-filter" onClick={toggleDropdown3}>
-              {isDropdownVisible3 ? 'Close Sort by' : 'Sort by'}
-            </button>
-            {isDropdownVisible3 && (
-              <div className="dropdown-contentFilter">
-                <button className={`sort-button ${sortMethod === 'Alphabetical: A-Z' ? 'active-sort' : ''}`}
-                  onClick={() => sortGames('Alphabetical: A-Z')}>
-                  Alphabetical: A-Z
-                </button>
-                <button className={`sort-button ${sortMethod === 'Alphabetical: Z-A' ? 'active-sort' : ''}`}
-                  onClick={() => sortGames('Alphabetical: Z-A')}>
-                  Alphabetical: Z-A
-                </button>
-                <button className={`sort-button ${sortMethod === 'Lowest Price' ? 'active-sort' : ''}`}
-                  onClick={() => sortGames('Lowest Price')}>
-                  Lowest Price
-                </button>
-                <button className={`sort-button ${sortMethod === 'Highest Price' ? 'active-sort' : ''}`}
-                  onClick={() => sortGames('Highest Price')}>
-                  Highest Price
-                </button>
-                <button className={`sort-button ${sortMethod === 'Release date: Newest first' ? 'active-sort' : ''}`}
-                  onClick={() => sortGames('Release date: Newest first')}>
-                  Release date: Newest first
-                </button>
-                <button className={`sort-button ${sortMethod === 'Release date: Oldest first' ? 'active-sort' : ''}`}
-                  onClick={() => sortGames('Release date: Oldest first')}>
-                  Release date: Oldest first
-                </button>
-              </div>
-            )}
-          </div>
+      <div className="search_game_right">
+        <input id="filter_search" type="text" placeholder={"Search Games..."} />
+        <button className='filter_search_button img_btn' onClick={handleSearch}></button>
+        <button className="filter_clear_button txt_btn" onClick={null}>Clear Filters</button>
+        <div className="sort_title">Sort By:</div>
+        <button onClick={() => {setGamesData([]); setSortType(0)}} className="sorting_button">Alphabetically (A-Z)</button>
+        <button onClick={() => {setGamesData([]); setSortType(1)}} className="sorting_button">Alphabetically (Z-A)</button>
+        <button onClick={() => {setGamesData([]); setSortType(2)}} className="sorting_button">Price (Lowest-Highest)</button>
+        <button onClick={() => {setGamesData([]); setSortType(3)}} className="sorting_button">Price (Highest-Lowest)</button>
+        <button onClick={() => {setGamesData([]); setSortType(4)}} className="sorting_button">Release Date (Newest First)</button>
+        <button onClick={() => {setGamesData([]); setSortType(5)}} className="sorting_button">Release Date (Oldest First)</button>
+        <div className="filter_title">Filters</div>
 
-          <div>
-            <button className="Sortby-filter" onClick={toggleDropdown4}>
-              {isDropdownVisible4 ? 'Close Price' : 'Price'}
-            </button>
-            {isDropdownVisible4 && (
-              <div className="dropdown-contentFilter">
-                <button className={`filter-button ${priceFilter === 'Under $10 CAD' ? 'active-filter' : ''}`}
-                  onClick={() => applyPriceFilter('Under $10 CAD')}>
-                  Under $10 CAD
-                </button>
-                <button className={`filter-button ${priceFilter === 'Under $20 CAD' ? 'active-filter' : ''}`}
-                  onClick={() => applyPriceFilter('Under $20 CAD')}>
-                  Under $20 CAD
-                </button>
-                <button className={`filter-button ${priceFilter === 'Under $40 CAD' ? 'active-filter' : ''}`}
-                  onClick={() => applyPriceFilter('Under $40 CAD')}>
-                  Under $40 CAD
-                </button>
-                <button className={`filter-button ${priceFilter === '$50 CAD and above' ? 'active-filter' : ''}`}
-                  onClick={() => applyPriceFilter('$50 CAD and above')}>
-                  $50 CAD and above
-                </button>
-              </div>
-            )}
+        {/* <div>
+          <button className="Sortby-filter" onClick={toggleDropdown3}>
+            {isDropdownVisible3 ? 'Close Sort by' : 'Sort by'}
+          </button>
+          {isDropdownVisible3 && (
+            <div className="dropdown-contentFilter">
+              <button className={`sort-button ${sortMethod === 'Alphabetical: A-Z' ? 'active-sort' : ''}`}
+                onClick={() => sortGames('Alphabetical: A-Z')}>
+                Alphabetical: A-Z
+              </button>
+              <button className={`sort-button ${sortMethod === 'Alphabetical: Z-A' ? 'active-sort' : ''}`}
+                onClick={() => sortGames('Alphabetical: Z-A')}>
+                Alphabetical: Z-A
+              </button>
+              <button className={`sort-button ${sortMethod === 'Lowest Price' ? 'active-sort' : ''}`}
+                onClick={() => sortGames('Lowest Price')}>
+                Lowest Price
+              </button>
+              <button className={`sort-button ${sortMethod === 'Highest Price' ? 'active-sort' : ''}`}
+                onClick={() => sortGames('Highest Price')}>
+                Highest Price
+              </button>
+              <button className={`sort-button ${sortMethod === 'Release date: Newest first' ? 'active-sort' : ''}`}
+                onClick={() => sortGames('Release date: Newest first')}>
+                Release date: Newest first
+              </button>
+              <button className={`sort-button ${sortMethod === 'Release date: Oldest first' ? 'active-sort' : ''}`}
+                onClick={() => sortGames('Release date: Oldest first')}>
+                Release date: Oldest first
+              </button>
+            </div>
+          )}
+        </div> */}
 
-          </div>
-          <div>
-            <button className="Sortby-filter" onClick={toggleDropdown5}>
-              {isDropdownVisible5 ? 'Close Genre' : 'Genre'}
+        <button className="filter_option" onClick={toggleDropdown4}>
+          {isDropdownVisible4 ? 'Close Price' : 'Price'}
+        </button>
+        {isDropdownVisible4 && (
+          <div className="filter_dropdown">
+            <button className={`filter_button ${priceFilter === 'Under $10 CAD' ? 'active-filter' : ''}`}
+              onClick={() => applyPriceFilter('Under $10 CAD')}>
+              {`Free`}
             </button>
-            {isDropdownVisible5 && (
-              <div className="dropdown-contentFilter">
-                <button className={`genre-button ${genreFilter === 'Action' ? 'active-genre' : ''}`} onClick={() => applyGenreFilter('Action')}>Action</button>
-                <button className={`genre-button ${genreFilter === 'Adventure' ? 'active-genre' : ''}`} onClick={() => applyGenreFilter('Adventure')}>Adventure</button>
-                <button className={`genre-button ${genreFilter === 'RPG' ? 'active-genre' : ''}`} onClick={() => applyGenreFilter('RPG')}>RPG</button>
-                <button className={`genre-button ${genreFilter === 'Simulation' ? 'active-genre' : ''}`} onClick={() => applyGenreFilter('Simulation')}>Simulation</button>
-                <button className={`genre-button ${genreFilter === 'Strategy' ? 'active-genre' : ''}`} onClick={() => applyGenreFilter('Strategy')}>Strategy</button>
-                <button className={`genre-button ${genreFilter === 'Puzzle' ? 'active-genre' : ''}`} onClick={() => applyGenreFilter('Puzzle')}>Puzzle</button>
-                <button className={`genre-button ${genreFilter === 'Shooter' ? 'active-genre' : ''}`} onClick={() => applyGenreFilter('Shooter')}>Shooter</button>
-                <button className={`genre-button ${genreFilter === 'Fighting' ? 'active-genre' : ''}`} onClick={() => applyGenreFilter('Fighting')}>Fighting</button>
-                <button className={`genre-button ${genreFilter === 'Fantasy' ? 'active-genre' : ''}`} onClick={() => applyGenreFilter('Fantasy')}>Fantasy</button>
-                <button className={`genre-button ${genreFilter === 'Historical' ? 'active-genre' : ''}`} onClick={() => applyGenreFilter('Historical')}>Historical</button>
-                <button className={`genre-button ${genreFilter === 'Racing' ? 'active-genre' : ''}`} onClick={() => applyGenreFilter('Racing')}>Racing</button>
-                <button className={`genre-button ${genreFilter === 'Sport' ? 'active-genre' : ''}`} onClick={() => applyGenreFilter('Sport')}>Sport</button>
-                <button className={`genre-button ${genreFilter === 'Horror' ? 'active-genre' : ''}`} onClick={() => applyGenreFilter('Horror')}>Horror</button>
-                <button className={`genre-button ${genreFilter === 'Platformer' ? 'active-genre' : ''}`} onClick={() => applyGenreFilter('Platformer')}>Platformer</button>
-                <button className={`genre-button ${genreFilter === 'Survival' ? 'active-genre' : ''}`} onClick={() => applyGenreFilter('Survival')}>Survival</button>
-                <button className={`genre-button ${genreFilter === 'Music/Rhythm' ? 'active-genre' : ''}`} onClick={() => applyGenreFilter('Music/Rhythm')}>Music/Rhythm</button>
-                <button className={`genre-button ${genreFilter === 'Visual Novel' ? 'active-genre' : ''}`} onClick={() => applyGenreFilter('Visual Novel')}>Visual Novel</button>
-                <button className={`genre-button ${genreFilter === 'Mythology' ? 'active-genre' : ''}`} onClick={() => applyGenreFilter('Mythology')}>Mythology</button>
-              </div>
-
-            )}
+            <button className={`filter_button ${priceFilter === 'Under $20 CAD' ? 'active-filter' : ''}`}
+              onClick={() => applyPriceFilter('Under $20 CAD')}>
+              {`Under $30`}
+            </button>
+            <button className={`filter_button ${priceFilter === 'Under $40 CAD' ? 'active-filter' : ''}`}
+              onClick={() => applyPriceFilter('Under $40 CAD')}>
+              {`Under $70`}
+            </button>
+            <button className={`filter_button ${priceFilter === '$50 CAD and above' ? 'active-filter' : ''}`}
+              onClick={() => applyPriceFilter('$50 CAD and above')}>
+              {`Above $70`}
+            </button>
           </div>
-        </div>
+        )}
+
+        <button className="filter_option" onClick={toggleDropdown5}>
+          {isDropdownVisible5 ? 'Close Genre' : 'Genre'}
+        </button>
+        {isDropdownVisible5 && (
+          <div className="filter_dropdown">
+            <button className={`filter_button ${genreFilter === 'Action' ? 'active-genre' : ''}`} onClick={() => applyGenreFilter('Action')}>Action</button>
+            <button className={`filter_button ${genreFilter === 'Adventure' ? 'active-genre' : ''}`} onClick={() => applyGenreFilter('Adventure')}>Adventure</button>
+            <button className={`filter_button ${genreFilter === 'RPG' ? 'active-genre' : ''}`} onClick={() => applyGenreFilter('RPG')}>RPG</button>
+            <button className={`filter_button ${genreFilter === 'Simulation' ? 'active-genre' : ''}`} onClick={() => applyGenreFilter('Simulation')}>Simulation</button>
+            <button className={`filter_button ${genreFilter === 'Strategy' ? 'active-genre' : ''}`} onClick={() => applyGenreFilter('Strategy')}>Strategy</button>
+            <button className={`filter_button ${genreFilter === 'Puzzle' ? 'active-genre' : ''}`} onClick={() => applyGenreFilter('Puzzle')}>Puzzle</button>
+            <button className={`filter_button ${genreFilter === 'Shooter' ? 'active-genre' : ''}`} onClick={() => applyGenreFilter('Shooter')}>Shooter</button>
+            <button className={`filter_button ${genreFilter === 'Fighting' ? 'active-genre' : ''}`} onClick={() => applyGenreFilter('Fighting')}>Fighting</button>
+            <button className={`filter_button ${genreFilter === 'Fantasy' ? 'active-genre' : ''}`} onClick={() => applyGenreFilter('Fantasy')}>Fantasy</button>
+            <button className={`filter_button ${genreFilter === 'Historical' ? 'active-genre' : ''}`} onClick={() => applyGenreFilter('Historical')}>Historical</button>
+            <button className={`filter_button ${genreFilter === 'Racing' ? 'active-genre' : ''}`} onClick={() => applyGenreFilter('Racing')}>Racing</button>
+            <button className={`filter_button ${genreFilter === 'Sport' ? 'active-genre' : ''}`} onClick={() => applyGenreFilter('Sport')}>Sport</button>
+            <button className={`filter_button ${genreFilter === 'Horror' ? 'active-genre' : ''}`} onClick={() => applyGenreFilter('Horror')}>Horror</button>
+            <button className={`filter_button ${genreFilter === 'Platformer' ? 'active-genre' : ''}`} onClick={() => applyGenreFilter('Platformer')}>Platformer</button>
+            <button className={`filter_button ${genreFilter === 'Survival' ? 'active-genre' : ''}`} onClick={() => applyGenreFilter('Survival')}>Survival</button>
+            <button className={`filter_button ${genreFilter === 'Music/Rhythm' ? 'active-genre' : ''}`} onClick={() => applyGenreFilter('Music/Rhythm')}>Music/Rhythm</button>
+            <button className={`filter_button ${genreFilter === 'Visual Novel' ? 'active-genre' : ''}`} onClick={() => applyGenreFilter('Visual Novel')}>Visual Novel</button>
+            <button className={`filter_button ${genreFilter === 'Mythology' ? 'active-genre' : ''}`} onClick={() => applyGenreFilter('Mythology')}>Mythology</button>
+          </div>
+        )}
       </div>
     </div>
   );
