@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { users } from '../../users';
 
 import Tooltip from "../Tooltip";
@@ -7,22 +7,8 @@ import Tooltip from "../Tooltip";
 import './Navbar.css';
 
 function Navbar(props) {
-  // const toggleHomePage = props.clickHandlers.toggleHomePage
-  // const toggleNewPost = props.clickHandlers.toggleNewPost
-  // const toggleSearchPage = props.clickHandlers.toggleSearchPage
-  // const toggleProfile = props.clickHandlers.toggleProfile
-
-  // const toggleGameStore = props.clickHandlers.toggleGameStore
-  // const toggleDM = props.clickHandlers.toggleDM
-
-  const toggleHomePage = null
-  const toggleNewPost = null
-  const toggleSearchPage = null
-  const toggleProfile = null
-
-  const toggleGameStore = null
-  const toggleDM = null
-
+  const navigate = useNavigate();
+  
   const currentUser = users.filter(function (user) {
     return user.username == JSON.parse(localStorage.getItem("loggedUser"));
   });
@@ -33,10 +19,14 @@ function Navbar(props) {
     border: "4px solid #7E82DF"
   }
 
+  function searchClicked() {
+    navigate(`/search?query=${document.getElementById("nav-bar-input").value}`);
+  }
+
   function keyboardHandler(e) {
     const input = document.getElementById("nav-bar-input")
     if (input.contains(e.target) && e.key === 'Enter') {
-      toggleSearchPage()
+      searchClicked();
     }
   }
 
@@ -59,7 +49,7 @@ function Navbar(props) {
       </div>
       <div className='navbar_middle'>
         <input id="nav-bar-input" type='text' placeholder='Search'></input>
-        <button className='navbar_search btn' onClick={toggleSearchPage}></button>
+        <button className='navbar_search btn' onClick={searchClicked}></button>
       </div>
       <div className='navbar_right'>
         <Link to={"/store"}>

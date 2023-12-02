@@ -3,6 +3,7 @@ import { React, useState } from "react"
 import { articles } from '../../articles';
 import { useParams } from 'react-router-dom';
 import PostMini from '../../Elements/PostMini';
+import { users } from '../../users';
 
 function ExpandedArticle() {
 
@@ -10,6 +11,12 @@ function ExpandedArticle() {
   const data = articles.filter(function (art) {
     return art.id == id;
   })[0];
+
+  function findUser(username) {
+    return users.filter(function (user) {
+      return user.username === username;
+    })[0];
+  }
 
   const [shownArticles, setShownArticles] = useState(2);
   const relatedArticles = articles.filter(function (art) {
@@ -24,7 +31,7 @@ function ExpandedArticle() {
           <button className='three_dots'></button>
         </div>
         <div className='expanded_article_author'>
-          <h1>{data.author}<p> | {data.date}</p></h1>
+          <h1>{`${findUser(data.author).firstName} ${findUser(data.author).lastName}`}<p> | {data.date}</p></h1>
           <ul className='expanded_article_tags'>
             {data.tags.slice(0, 5).map((tag, i) => (
               <li key={i}>

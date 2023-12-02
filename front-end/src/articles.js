@@ -2,7 +2,7 @@ export const articles = [
   {
     "id": 0,
     "title": "Viewership for CS2’s first tier-one event wasn’t spectacular, but there was plenty to blame",
-    "author": "Carlito Smith",
+    "author": "CarloWriter",
     "date": "October 23, 2023",
     "description": "Counter-Strike 2’s trial by fire at IEM Sydney proved an unequivocal success, " +
       "with hundreds of thousands of viewers tuning in with the Aussie crowd to cheer home the world’s " +
@@ -21,7 +21,7 @@ export const articles = [
   {
     "id": 1,
     "title": "Saudi Prime Minister unveils ‘ESPORTS WORLD CUP’ in Riyadh",
-    "author": "Carlito Smith",
+    "author": "CarloWriter",
     "date": "October 21, 2023",
     "description": "Saudi Arabia is climbing up the ranks in the esports "+
     "and games industry, making huge investments and hosting events that "+
@@ -44,7 +44,7 @@ export const articles = [
   {
     "id": 2,
     "title": "New CS2 Teams Shake Up the Competitive Scene",
-    "author": "Carlito Smith",
+    "author": "CarloWriter",
     "date": "October 28, 2023",
     "description": "The recent expansion of Counter-Strike 2 saw the formation of several new teams, " +
       "bringing fresh faces and strategies to the competitive scene. Fans are eagerly anticipating " +
@@ -58,7 +58,7 @@ export const articles = [
   {
     "id": 3,
     "title": "Growing Popularity of Mobile Esports in Asia",
-    "author": "Carlito Smith",
+    "author": "CarloWriter",
     "date": "November 7, 2023",
     "description": "Mobile esports is experiencing a surge in popularity across Asia, with millions of players " +
       "joining tournaments and leagues. The convenience of mobile gaming is reshaping the esports landscape, " +
@@ -72,7 +72,7 @@ export const articles = [
   {
     "id": 4,
     "title": "Top Strategies Revealed: Mastering CS2 Gameplay",
-    "author": "Carlito Smith",
+    "author": "CarloWriter",
     "date": "November 2, 2023",
     "description": "In-depth analysis of the top strategies employed by professional players in Counter-Strike 2. " +
       "Learn the secrets behind their success and discover how these strategies can elevate your gameplay in CS2.",
@@ -84,7 +84,7 @@ export const articles = [
   {
     "id": 5,
     "title": "ESports World Cup 2023: Teams to Watch",
-    "author": "Carlito Smith",
+    "author": "CarloWriter",
     "date": "November 14, 2023",
     "description": "As the ESports World Cup 2023 approaches, the spotlight is on the teams that are poised to make " +
       "a significant impact. Explore the rosters, strengths, and potential challenges faced by these standout teams.",
@@ -97,7 +97,7 @@ export const articles = [
   {
     "id": 6,
     "title": "Inside Look: Riyadh's State-of-the-Art Esports Arenas",
-    "author": "Carlito Smith",
+    "author": "CarloWriter",
     "date": "November 23, 2023",
     "description": "Take a virtual tour inside Riyadh's cutting-edge esports arenas. From high-tech gaming setups to " +
       "spectacular event spaces, discover the facilities that are redefining the esports experience in Saudi Arabia.",

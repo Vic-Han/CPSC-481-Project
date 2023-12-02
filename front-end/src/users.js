@@ -221,4 +221,17 @@ export var users = [
     "following": ["ChaddyDaddy", "OscarTheGreat", "ahritina"],
     "bio": "Pixel warrior exploring the digital frontier. FPS enthusiast and snack connoisseur."
   },
+  {
+    "id": 17,
+    "firstName": "Carlito",
+    "lastName": "Smith",
+    "username": "CarloWriter",
+    "email": "Carlito@gmail.com",
+    "password": "Carly1234",
+    "profileURL": "ProfileDefault.png",
+    "loggedIn": false,
+    "followers": ["SallyTheGamer", "ZarakiTheGoat", "EvaExplorer"],
+    "following": ["ChaddyDaddy", "OscarTheGreat", "ahritina"],
+    "bio": "Writing is my passion, and Gaming is my hobby, a perfect mix of both gives me content to write"
+  }
 ];

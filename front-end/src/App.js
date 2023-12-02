@@ -33,6 +33,7 @@ import Posts from "./pages/Posts.jsx";
 import Articles from "./pages/Articles.jsx";
 import Game from "./pages/Game.jsx";
 import Account from "./pages/Account.jsx";
+import Search from "./pages/Search.jsx";
 
 function App() {
 
@@ -214,12 +215,13 @@ function App() {
       <Routes>
         <Route path="/" element={<HomepageLoggedOut />} />
         <Route path="/home" element={<HomepageLoggedIn clickHandlers={navbarClickHandlers} />} />
-        <Route path="/post/:id" element={<Posts clickHandlers={navbarClickHandlers}/>} />
+        <Route path="/post/:id" element={<Posts clickHandlers={navbarClickHandlers} />} />
         <Route path="/article/:id" element={<Articles clickHandlers={navbarClickHandlers} />} />
-        <Route path="/store" element={<Store clickHandlers={navbarClickHandlers}/>} />
-        <Route path="/store/:id" element={<Game clickHandlers={navbarClickHandlers}/>} />
-        <Route path="/account" element={<Account clickHandlers={navbarClickHandlers}/>} />
-        <Route path="/account/:id" element={<Account clickHandlers={navbarClickHandlers}/>} />
+        <Route path="/store" element={<Store clickHandlers={navbarClickHandlers} />} />
+        <Route path="/store/:id" element={<Game clickHandlers={navbarClickHandlers} />} />
+        <Route path="/account" element={<Account clickHandlers={navbarClickHandlers} />} />
+        <Route path="/account/:id" element={<Account clickHandlers={navbarClickHandlers} />} />
+        <Route path="/search" element={<Search clickHandlers={navbarClickHandlers} />} />
       </Routes>
     </div>
   );
