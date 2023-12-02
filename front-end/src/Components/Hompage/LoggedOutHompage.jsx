@@ -99,8 +99,8 @@ function LoggedOutHomepage(props) {
                 post can improve its visibility and help users identify its theme or topic. Before posting, you have the option to save
                 your post as a draft or use the "Preview & Post" feature to see how your post will appear to others. Once you're satisfied
                 with your post, click "Post" to upload it to the platform. </h3>
-              <h1 className='Question'>How do I delete a post?</h1>
-              <h3 className='Answer'>To sign up for ESports Zone, scroll up to the top and to the right click 'Sign Up' button.</h3>
+              <h1 className='Question'>Can I purchase games on this website?</h1>
+              <h3 className='Answer'>Unfortunately, driect game purchases are not available on our website. However, we provide links to the official game websites where you can make your purchase directly.</h3>
               <h1 className='Question'>How do I direct message someone?</h1>
               <h3 className='Answer'>To sign up for ESports Zone, scroll up to the top and to the right click 'Sign Up' button.</h3>
             </div>
