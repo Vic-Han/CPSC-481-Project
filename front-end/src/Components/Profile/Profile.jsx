@@ -78,12 +78,16 @@ function Profile() {
 
   const addFollowing = () => {
     loggedUser.following.push(data.username);
+    data.followers.push(loggedUser.username);
     setUserFollows(loggedUser.following.includes(data.username));
   }
 
   const removeFollowing = () => {
     loggedUser.following = loggedUser.following.filter(user => {
       return user !== data.username;
+    });
+    data.followers = data.followers.filter(user => {
+      return user !== loggedUser.username;
     });
     setUserFollows(loggedUser.following.includes(data.username));
   }
