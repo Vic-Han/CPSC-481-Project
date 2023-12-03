@@ -1,4 +1,5 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { articles } from "../../articles";
 import { posts } from "../../posts";
 import { users } from "../../users";
@@ -15,13 +16,26 @@ function Homepage() {
   const [shownArticles, setShownArticles] = useState(3);
 
   //---------------------------------Posts Functions---------------------------------
-  const loggedUser = users.filter(function (user) {
+  const sortByReleaseDate = (gameA, gameB) => {
+    const releaseDateA = new Date(gameA.date);
+    const releaseDateB = new Date(gameB.date);
+    return releaseDateB - releaseDateA;
+  };
+
+  let loggedUser = users.filter(function (user) {
     return user.username == JSON.parse(localStorage.getItem("loggedUser"));
   })[0];
 
+  if (!loggedUser) loggedUser={"username": null};
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (loggedUser.username === null) navigate('/');
+  }, [])
+
   const postsToShow = posts.filter(function(post) {
     return post.author !== loggedUser.username;
-  });
+  }).sort(sortByReleaseDate);
 
   //---------------------------Recommended Users Functions---------------------------
   const [shownUsers, setShownUsers] = useState(3);

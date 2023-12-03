@@ -9,13 +9,10 @@ import XBOX from '../../assets/Xbox.png';
 import SWITCH from '../../assets/Switch.png';
 
 import StoreRecommended from "../../Elements/StoreRecommended";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
-function GameStoreMain(props) {
-
-  const { toggleGameDetails, toggleGameSearch, toggleHomePage2 } = props;
-
+function GameStoreMain() {
   //--------------------------Slideshow Function/States--------------------------
   const [slideIndex, setSlideIndex] = useState(0);
   const [fade, setFade] = useState(false);
@@ -107,15 +104,28 @@ function GameStoreMain(props) {
     (currentPage + 1) * gamesToShow
   );
 
+  const navigate = useNavigate();
+
   function handleSearch() {
-    const searchValue = document.querySelector(".search-bar").value;
-    toggleGameSearch(searchValue);
+    navigate(`/game?query=${document.getElementById("game_store_search").value}`);
   }
+
+  function keyboardHandler(e) {
+    const input = document.getElementById("game_store_search")
+    if (input.contains(e.target) && e.key === 'Enter') {
+      handleSearch();
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener('keydown', keyboardHandler)
+    return () => { document.removeEventListener('keydown', keyboardHandler) }
+  }, [])
 
   return (
     <div className="game_store">
       <div className="game_store_top">
-        <input className="game_store_search" type='text' placeholder='Browse Games' onKeyDown={e => e.key === 'Enter' && handleSearch()}></input>
+        <input id="game_store_search" type='text' placeholder='Browse Games' onKeyDown={e => e.key === 'Enter' && handleSearch()}></input>
         <button className='game_store_search_button' onClick={handleSearch}></button>
       </div>
 

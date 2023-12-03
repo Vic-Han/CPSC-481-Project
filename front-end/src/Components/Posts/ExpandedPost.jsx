@@ -1,22 +1,78 @@
-import { React, useState } from "react"
-import { useParams } from 'react-router-dom';
-import { users } from '../../users';
+import { React, useEffect, useState } from "react";
+import { useNavigate, useParams } from 'react-router-dom';
 import { posts } from '../../posts';
-
+import { users } from '../../users';
+import Tooltip from "../Tooltip";
 import PostMini from "../../Elements/PostMini";
 
 import './ExpandedPost.css';
 
 function ExpandedPost(props) {
   const { id } = useParams();
-  const data = posts.filter(function (post) {
+  let data = posts.filter(function (post) {
     return post.id == id;
   })[0];
+
+  const navigate = useNavigate();
+  if (data === undefined) {
+    data = {
+      "id": -1,
+      "title": "",
+      "author": "",
+      "date": "",
+      "tags": ['', ''],
+      "description": "",
+      "images": [],
+      "comments": []
+    }
+  }
 
   const [shownPosts, setShownPosts] = useState(2);
   const relatedPosts = posts.filter(function (post) {
     return post.id != id;
   })
+
+  const Description = (props) => {
+    const limit = props.limit;
+    const string = props.string;
+
+    let charCount = 0;
+    let inside = false;
+    let htmlCode = [];
+    let tempFileName = "";
+    let tempText = "";
+    let tempImg;
+
+    for (let i = 0; i < string.length; i++) {
+      if (limit > 0) {
+        if (!inside) charCount += 1;
+        if ((charCount > limit) && !inside) {
+          tempText += '...';
+          break;
+        }
+      }
+      if (string.charAt(i) === "`" || inside) {
+        if (string.charAt(i) === "`") inside = !inside;
+        if (string.charAt(i) === "`" && !inside) {
+          for (let j = 0; j < data.images.length; j++) {
+            if (data.images[j].name === tempFileName) {
+              htmlCode.push(tempText);
+              tempText = "";
+              tempImg = <img alt='Post Image' key={i} className='expanded_post_image' src={data.images[j].URL} />;
+              htmlCode.push(tempImg);
+              tempFileName = "";
+            }
+          }
+        } else if (string.charAt(i) !== "`") {
+          tempFileName += string.charAt(i);
+        }
+      } else {
+        tempText += string.charAt(i);
+      }
+    }
+    htmlCode.push(tempText);
+    return <p className='expanded_post_description'>{htmlCode}</p>;
+  }
 
   const likePost = (e) => {
     if (e.target.classList.contains('expanded_filled')) e.target.classList.remove('expanded_filled');
@@ -29,13 +85,18 @@ function ExpandedPost(props) {
     })[0];
     return user.profileURL;
   }
-  
+
+  useEffect(() => {
+    if (data.id === -1) navigate('/home');
+  })
+
   return (
     <div className='expanded_post_screen'>
       <div className='expanded_post'>
         <div className='expanded_post_title'>
           <h1>{data.title}</h1>
-          <button className='three_dots'></button>
+          <Tooltip text="Under Development"><button className='three_dots'></button></Tooltip>
+
         </div>
         <div className='expanded_post_author'>
           <h1>{data.author}<p> | {data.date}</p></h1>
@@ -49,16 +110,19 @@ function ExpandedPost(props) {
           </ul>
         </div>
         <div className='line'></div>
-        {data.description.split('\n').map((str, i) => <p key={i} className='expanded_post_description'>{str}</p>)}
+        {data.description.split('\n').map((str, i) => (
+          <Description key={i} limit={-1} string={str} />
+        ))}
+        {/* {data.description.split('\n').map((str, i) => <p key={i} className='expanded_post_description'>{str}</p>)}
         {data.images.length > 0 ? data.images.map((url, i) => (
-          <img key={i} className='expanded_post_image' src={url}></img>)) : null}
+          <img key={i} className='expanded_post_image' src={url}></img>)) : null} */}
         <div className='expanded_post_bottom'>
           <button className='expanded_post_like' onClick={likePost}></button>
         </div>
         <div className='line'></div>
         <div className='expanded_post_comment_top'>
           <p>Sort by: Latest</p>
-          <button className='txt_btn'>Add a Comment</button>
+          <Tooltip text="Under Development"><button className='txt_btn'>Add a Comment</button></Tooltip>
         </div>
         <div className='expanded_post_comments'>
           {(data.comments.length > 0) ? data.comments.map((comment, i) => (
@@ -69,7 +133,7 @@ function ExpandedPost(props) {
                     "comment_default_image" : "comment_person_image"} src={require(`../../assets/${profilePic(comment.username)}`)}></img>
                   <p key={`p${i}`} >{comment.firstName} {comment.lastName}</p>
                 </div>
-                <button className='three_dots'></button>
+                <Tooltip text="Under Development"><button className='three_dots'></button></Tooltip>
               </div>
               <p className='comment_description'>{comment.comment}</p>
               <div className='comment_bottom'>

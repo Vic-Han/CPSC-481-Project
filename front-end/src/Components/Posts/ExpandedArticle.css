@@ -95,7 +95,8 @@
 }
 
 .expanded_article_image {
-    margin: 10px 20px;
+    display: flex;
+    margin: 10px auto;
     border-radius: 20px;
     width: 60%;
     height: auto;

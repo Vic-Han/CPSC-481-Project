@@ -37,6 +37,11 @@
     margin-bottom: 10px;
 }
 
+.post_short_author_section p{
+    display: inline;
+    color: #B0B0B0;
+}
+
 .post_short_author {
     margin: 0;
     font: 500 20px Inter, sans-serif;
@@ -77,13 +82,14 @@
 }
 
 .post_short_description {
+    word-wrap: break-word;
     color: #B0B0B0;
     margin: 10px 25px;
     font: 500 14px Inter, sans-serif;
 }
 
 .post_short_image {
-    margin: 10px 20px;
+    width: 100%;
     border-radius: 20px;
 }
 

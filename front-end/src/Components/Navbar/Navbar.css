@@ -62,7 +62,7 @@
     width: 850px;
     height: 80px;
     margin: 10px 0;
-    padding: 0 100px;
+    padding: 0 50px;
 
     display: flex;
     align-items: flex-start;
@@ -106,6 +106,14 @@
     align-items: flex-start;
     align-self: center;
     justify-content: space-between;
+}
+
+.navbar_notif {
+    width: 50px;
+    height: 50px;
+    background-color: #33344A;
+    background-image: url('../../assets/Notif.png');
+    border: none;
 }
 
 .navbar_game {
