@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
 import { posts } from '../../posts';
 import { users } from '../../users';
@@ -12,7 +12,7 @@ function ExpandedPost(props) {
   const data = posts.filter(function (post) {
     return post.id == id;
   })[0];
-
+ 
   const [shownPosts, setShownPosts] = useState(2);
   const relatedPosts = posts.filter(function (post) {
     return post.id != id;
@@ -78,7 +78,7 @@ function ExpandedPost(props) {
         <div className='expanded_post_title'>
           <h1>{data.title}</h1>
           <Tooltip text="Under Development"><button className='three_dots'></button></Tooltip>
-          
+
         </div>
         <div className='expanded_post_author'>
           <h1>{data.author}<p> | {data.date}</p></h1>

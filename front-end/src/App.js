@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { React, useState, useEffect } from "react";
 import { Tags } from './Components/Posts/Tags.js';
 
@@ -22,8 +22,7 @@ import { Tags } from './Components/Posts/Tags.js';
 import NewPostOverLay from "./Components/Posts/NewPostOverLay.jsx";
 import PostPreview from "./Components/Posts/PostPreview.jsx";
 import DMOverLay from "./Components/DM/DMOverLay.jsx";
-import NotificationOverLay from "./Components/Notification/NotificationOverLay.jsx";
-import './bubble.css'
+
 
 //Pages Imports
 import HomepageLoggedOut from "./pages/HomepageLoggedOut.jsx";
@@ -36,8 +35,6 @@ import Account from "./pages/Account.jsx";
 import Search from "./pages/Search.jsx";
 import GameSearch from "./pages/GameSearch.jsx";
 function App() {
-
-  const [notifcation, setNotification] = useState(false)
   const [data, setData] = useState({
     Title: "",
     Description: "",
@@ -45,12 +42,6 @@ function App() {
     UnusedTags: Tags,
     Files: []
   });
-
-  const [bubble, setBubble] = useState(3)
-  function decrementNotifcation() {
-    const new_bub = bubble - 1;
-    setBubble(new_bub)
-  }
 
   //----------------------------Post Close/Open Functions----------------------------
   const [newPost, setNewPost] = useState(false);
@@ -94,7 +85,6 @@ function App() {
   const navbarClickHandlers = {
     openPost: handlePostOpen,
     openDM: handleDMOpen,
-    showNotification: () => setNotification(true)
   }
 
   //-----------------------------Main Elements-----------------------------
@@ -113,8 +103,6 @@ function App() {
       {newPost ? <NewPostOverLay close={handlePostClose} data={data} setData={setData} showPostPreview={handlePreviewOpen} /> : null}
       {previewPost ? <PostPreview back={handlePostOpen} data={data} resetData={resetData} hidePosts={handlePostClose} /> : null}
       {DMopen ? <DMOverLay close={handleDMClose} /> : null}
-      {notifcation ? <NotificationOverLay back={() => setNotification(false)} updateBubble={decrementNotifcation} /> : null}
-      {bubble > 0 ? <div id="notification_bubble">{bubble}</div> : null}
       <Routes>
         <Route path="/" element={<HomepageLoggedOut />} />
         <Route path="/home" element={<HomepageLoggedIn clickHandlers={navbarClickHandlers} />} />
@@ -126,6 +114,7 @@ function App() {
         <Route path="/account/:id" element={<Account clickHandlers={navbarClickHandlers} />} />
         <Route path="/search" element={<Search clickHandlers={navbarClickHandlers} />} />
         <Route path="/game" element={<GameSearch clickHandlers={navbarClickHandlers} />} />
+        <Route path="*" element={<Navigate to={'/home'} replace/>} />
       </Routes>
     </div>
   );
