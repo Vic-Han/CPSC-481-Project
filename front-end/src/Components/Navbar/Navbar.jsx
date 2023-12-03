@@ -9,13 +9,12 @@ import Tooltip from "../Tooltip";
 import './Navbar.css';
 
 function Navbar(props) {
-  const [bubble, setBubble] = useState(3);
   const [notifcation, setNotification] = useState(false);
-
   function decrementNotifcation() {
-    const new_bub = bubble - 1;
-    setBubble(new_bub)
+    const new_bub = props.clickHandlers.bubble - 1;
+    props.clickHandlers.setBubble(new_bub)
   }
+
   const navigate = useNavigate();
 
   let currentUser = users.filter(function (user) {
@@ -52,8 +51,8 @@ function Navbar(props) {
 
   return (
     <>
+      {props.clickHandlers.bubble > 0 ? <div id='notification_bubble'>{props.clickHandlers.bubble}</div> : null}
       {notifcation ? <NotificationOverLay back={() => setNotification(false)} updateBubble={decrementNotifcation} /> : null}
-      {bubble > 0 ? <div id='notification_bubble'>{bubble}</div> : null}
       <div className='navbar_container'>
         <div className='navbar_left'>
           <Link to={"/home"}>

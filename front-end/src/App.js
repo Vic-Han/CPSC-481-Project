@@ -25,6 +25,12 @@ function App() {
     UnusedTags: Tags,
     Files: []
   });
+  const [bubble, setBubble] = useState(3);
+
+  function decrementNotifcation() {
+    const new_bub = bubble - 1;
+    setBubble(new_bub)
+  }
 
   //----------------------------Post Close/Open Functions----------------------------
   const [newPost, setNewPost] = useState(false);
@@ -68,6 +74,8 @@ function App() {
   const navbarClickHandlers = {
     openPost: handlePostOpen,
     openDM: handleDMOpen,
+    bubble: bubble,
+    setBubble: setBubble
   }
 
   //-----------------------------Main Elements-----------------------------
