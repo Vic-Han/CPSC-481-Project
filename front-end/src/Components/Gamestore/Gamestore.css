@@ -19,7 +19,7 @@
     margin-top: 50px;
 }
 
-.game_store_search {
+#game_store_search {
     width: 850px;
     height: 50px;
     background-color: #7E82DF;
@@ -287,7 +287,7 @@
 
 .sale_price_section {
     display: flex;
-    flex-direction: row;;
+    flex-direction: row;
 }
 
 .sale_original_price {

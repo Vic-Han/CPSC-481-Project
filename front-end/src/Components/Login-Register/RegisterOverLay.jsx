@@ -121,7 +121,10 @@ function RegisterOverLay(props) {
         email: email,
         password: password,
         profileURL: 'ProfileDefault.png',
-        loggedIn: false
+        loggedIn: false,
+        followers: [],
+        following: [],
+        bio: ""
       };
 
       if (!users.some(user => user.email === email)) {

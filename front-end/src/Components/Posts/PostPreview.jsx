@@ -1,8 +1,14 @@
 import './PostPreview.css'
+import { users } from "../../users";
+import { posts } from "../../posts";
 
 function PostPreview(props) {
   const back = props.back;
   const data = props.data;
+
+  const loggedUser = users.filter(function (user) {
+    return user.username == JSON.parse(localStorage.getItem("loggedUser"));
+  })[0];
 
   const d = new Date();
   const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -10,6 +16,18 @@ function PostPreview(props) {
   const handlePost = () => {
     if (data.Title === "" || data.Description === "") alert("Please Fill out all the fields");
     else {
+      let temp = {
+        "id": posts.length,
+        "title": data.Title,
+        "author": loggedUser.username,
+        "date": `${months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`,
+        "tags": data.Tags,
+        "description": data.Description,
+        "images": [...data.Files],
+        "comments": []
+      }
+      console.log(temp);
+      posts.push(temp);
       props.resetData();
       props.hidePosts();
     }
@@ -61,7 +79,7 @@ function PostPreview(props) {
           </div>
           <div className='preview_post_author'>
             <div className='preview_post_author_left'>
-              <p className='author_name'>AuthorName</p>
+              <p className='author_name'>{loggedUser.username}</p>
               <p className='author_date'>{` | ${months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`}</p>
             </div>
             <ul className='preview_tags'>
@@ -77,7 +95,8 @@ function PostPreview(props) {
           <Description/>
         </div>
         <div className='preview_post_btn'>
-          <button className='txt_btn' onClick={handlePost}>Post</button>
+          <button className='txt_btn' onClick={handlePost}>Private Post</button>
+          <button className='txt_btn' onClick={handlePost}>Public Post</button>
         </div>
       </div>
     </>

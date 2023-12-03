@@ -1,9 +1,7 @@
 import { React, useState, useEffect, useCallback } from "react"
 import { useNavigate, useParams, Link } from "react-router-dom"
 import './Profile.css'
-import FollowerOverLay from "./FollowerOverLay"
 import FollowingOverLay from "./FollowingOverLay"
-import user from "../../assets/Person9.png"
 import { users } from "../../users"
 import { posts } from "../../posts"
 import Post from "../../Elements/Post"
@@ -11,7 +9,7 @@ import Post from "../../Elements/Post"
 function Profile() {
   //-----------------------------User Decide Function-----------------------------
   const { id } = useParams();
-
+  const navigate = useNavigate();
   let currentUser = false;
 
   let data = users.filter(function (user) {
@@ -19,18 +17,34 @@ function Profile() {
   })[0];
 
   let loggedUser = users.filter(function (user) {
-    return user.username == JSON.parse(localStorage.getItem("loggedUser"));
+    return user.username === JSON.parse(localStorage.getItem("loggedUser"));
   })[0];
+
+  if (!loggedUser) loggedUser = {
+    id: -1,
+    firstName: "",
+    lastName: "",
+    username: "",
+    email: "",
+    password: "",
+    profileURL: 'ProfileDefault.png',
+    loggedIn: false,
+    followers: [],
+    following: [],
+    bio: ""
+  };
+
+  useEffect(() => {
+    if (loggedUser.id === -1) navigate('/');
+  }, [])
 
   if (data === undefined) data = loggedUser;
   if (data.id === loggedUser.id) currentUser = true;
   else currentUser = false;
 
   //-----------------------------Logout User Functions-----------------------------
-  const navigate = useNavigate();
-
   const logoutUser = () => {
-    localStorage.setItem("loggedUser", JSON.stringify(""));
+    localStorage.setItem("loggedUser", JSON.stringify(''));
     navigate('/');
   };
 
@@ -39,7 +53,7 @@ function Profile() {
 
   const userPosts = posts.filter(function (post) {
     return data.username === post.author;
-  });
+  }).reverse();
 
   function findUserComments() {
     let temp = [];
@@ -68,7 +82,7 @@ function Profile() {
     if (follow === "Following") setOverlay(<FollowingOverLay data={data.following} type={follow} setFollow={setFollow} />)
     else if (follow === "Followers") setOverlay(<FollowingOverLay data={data.followers} type={follow} setFollow={setFollow} />)
     else setOverlay(null)
-  }, [follow]);
+  }, [follow, data.followers, data.following]);
 
   const followingClick = useCallback(() => {
     setFollow("Following");
@@ -80,12 +94,16 @@ function Profile() {
 
   const addFollowing = () => {
     loggedUser.following.push(data.username);
+    data.followers.push(loggedUser.username);
     setUserFollows(loggedUser.following.includes(data.username));
   }
 
   const removeFollowing = () => {
     loggedUser.following = loggedUser.following.filter(user => {
       return user !== data.username;
+    });
+    data.followers = data.followers.filter(user => {
+      return user !== loggedUser.username;
     });
     setUserFollows(loggedUser.following.includes(data.username));
   }
