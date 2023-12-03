@@ -16,17 +16,20 @@ function Navbar(props) {
     const new_bub = bubble - 1;
     setBubble(new_bub)
   }
-
-  const toggleNotification = props.clickHandlers.showNotification;
-
   const navigate = useNavigate();
 
-  const currentUser = users.filter(function (user) {
+  let currentUser = users.filter(function (user) {
     return user.username == JSON.parse(localStorage.getItem("loggedUser"));
-  });
+  })[0];
+
+  if (!currentUser) currentUser={"username": "", "profileURL": "ProfileDefault.png"};
+
+  useEffect(() => {
+    if (currentUser.username === "") navigate('/');
+  }, [])
 
   const userImageStyle = {
-    backgroundImage: `url(${require(`../../assets/${currentUser[0].profileURL}`)})`,
+    backgroundImage: `url(${require(`../../assets/${currentUser.profileURL}`)})`,
     borderRadius: "50%",
     border: "4px solid #7E82DF"
   }
@@ -80,7 +83,7 @@ function Navbar(props) {
           </Tooltip>
           <Link to={"/account"}>
             <Tooltip text="Your Account">
-              <button className='navbar_profile btn' style={(currentUser[0].profileURL === "ProfileDefault.png") ? null : userImageStyle}></button>
+              <button className='navbar_profile btn' style={(currentUser.profileURL === "ProfileDefault.png") ? null : userImageStyle}></button>
             </Tooltip>
           </Link>
         </div>

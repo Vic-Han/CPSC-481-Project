@@ -2,27 +2,10 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { React, useState, useEffect } from "react";
 import { Tags } from './Components/Posts/Tags.js';
 
-// import LoginOverLay from './Login-Register/LoginOverlay';
-// import RegisterOverLay from './Login-Register/RegisterOverLay.jsx'
-
-// import NewPostOverLay from './Posts/NewPostOverLay';
-// import DMOverLay from './DM/DMOverLay';
-// import SearchResults from './Search/SearchResults';
-// import GameStore from './Gamestore/Gamestore.jsx';
-// import MyProfile from './Profile/MyProfile.jsx';
-// import OtherProfile from "./Profile/OtherProfile.jsx";
-// import ExpandedPost from "./Posts/ExpandedPost.jsx";
-// import ExpandedArticle from "./Posts/ExpandedArticle.jsx";
-// import PostPreview from "./Posts/PostPreview.jsx";
-// import GameDetails from "./Gamestore/GameDetails.jsx";
-// import SearchGame from "./Gamestore/SearchGame.jsx";
-// import Homepage2 from "./Hompage/Homepage.jsx";
-
 //Components Imports
 import NewPostOverLay from "./Components/Posts/NewPostOverLay.jsx";
 import PostPreview from "./Components/Posts/PostPreview.jsx";
 import DMOverLay from "./Components/DM/DMOverLay.jsx";
-
 
 //Pages Imports
 import HomepageLoggedOut from "./pages/HomepageLoggedOut.jsx";

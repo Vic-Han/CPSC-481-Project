@@ -1,7 +1,7 @@
 import './ExpandedArticle.css';
-import { React, useState } from "react"
+import { React, useEffect, useState } from "react"
 import { articles } from '../../articles';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import PostMini from '../../Elements/PostMini';
 import { users } from '../../users';
 
@@ -11,6 +11,20 @@ function ExpandedArticle() {
   const data = articles.filter(function (art) {
     return art.id == id;
   })[0];
+
+  const navigate = useNavigate();
+  if (data === undefined) {
+    data = {
+      "id": -1,
+      "title": "",
+      "author": "",
+      "date": "",
+      "tags": ['', ''],
+      "description": "",
+      "images": [],
+      "comments": []
+    }
+  }
 
   function findUser(username) {
     return users.filter(function (user) {
@@ -64,6 +78,10 @@ function ExpandedArticle() {
   const relatedArticles = articles.filter(function (art) {
     return art.id != id;
   })
+
+  useEffect(() => {
+    if (data.id === -1) navigate('/home');
+  }, [])
 
   return (
     <div className='expanded_article_screen'>

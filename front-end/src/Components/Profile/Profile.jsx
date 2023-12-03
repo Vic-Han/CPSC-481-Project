@@ -9,7 +9,7 @@ import Post from "../../Elements/Post"
 function Profile() {
   //-----------------------------User Decide Function-----------------------------
   const { id } = useParams();
-
+  const navigate = useNavigate();
   let currentUser = false;
 
   let data = users.filter(function (user) {
@@ -20,15 +20,31 @@ function Profile() {
     return user.username === JSON.parse(localStorage.getItem("loggedUser"));
   })[0];
 
+  if (!loggedUser) loggedUser = {
+    id: -1,
+    firstName: "",
+    lastName: "",
+    username: "",
+    email: "",
+    password: "",
+    profileURL: 'ProfileDefault.png',
+    loggedIn: false,
+    followers: [],
+    following: [],
+    bio: ""
+  };
+
+  useEffect(() => {
+    if (loggedUser.id === -1) navigate('/');
+  }, [])
+
   if (data === undefined) data = loggedUser;
   if (data.id === loggedUser.id) currentUser = true;
   else currentUser = false;
 
   //-----------------------------Logout User Functions-----------------------------
-  const navigate = useNavigate();
-
   const logoutUser = () => {
-    localStorage.setItem("loggedUser", JSON.stringify(""));
+    localStorage.setItem("loggedUser", JSON.stringify(''));
     navigate('/');
   };
 

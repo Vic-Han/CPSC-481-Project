@@ -1,5 +1,5 @@
 import { React, useEffect, useState } from "react";
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { posts } from '../../posts';
 import { users } from '../../users';
 import Tooltip from "../Tooltip";
@@ -9,10 +9,24 @@ import './ExpandedPost.css';
 
 function ExpandedPost(props) {
   const { id } = useParams();
-  const data = posts.filter(function (post) {
+  let data = posts.filter(function (post) {
     return post.id == id;
   })[0];
- 
+
+  const navigate = useNavigate();
+  if (data === undefined) {
+    data = {
+      "id": -1,
+      "title": "",
+      "author": "",
+      "date": "",
+      "tags": ['', ''],
+      "description": "",
+      "images": [],
+      "comments": []
+    }
+  }
+
   const [shownPosts, setShownPosts] = useState(2);
   const relatedPosts = posts.filter(function (post) {
     return post.id != id;
@@ -71,6 +85,10 @@ function ExpandedPost(props) {
     })[0];
     return user.profileURL;
   }
+
+  useEffect(() => {
+    if (data.id === -1) navigate('/home');
+  })
 
   return (
     <div className='expanded_post_screen'>

@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 import Tooltip from "../Components/Tooltip"
 import './Post.css';
 import { users } from '../users';
@@ -6,9 +7,16 @@ import { users } from '../users';
 function Post(props) {
   const data = props.data;
 
-  const loggedUser = users.filter(function (user) {
+  let loggedUser = users.filter(function (user) {
     return user.username == JSON.parse(localStorage.getItem("loggedUser"));
   })[0];
+
+  if (!loggedUser) loggedUser={"username": ""};
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (loggedUser.username === "") navigate('/');
+  }, [])
 
   function findUserId(username) {
     const user = users.filter(function (user) {
