@@ -1,0 +1,17 @@
+#notification_bubble{
+    position: absolute;
+    left: 1473px;
+    top: 20px;
+
+    color: #7E82DF;
+    font: 600 16px Inter, sans-serif;
+    
+    width: 20px;
+    height: 20px;
+
+    border-radius: 50%;
+    background-color: white;
+    
+    text-align: center;
+    z-index: 2;
+}

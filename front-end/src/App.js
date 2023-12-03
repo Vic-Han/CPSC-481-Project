@@ -22,8 +22,8 @@ import { Tags } from './Components/Posts/Tags.js';
 import NewPostOverLay from "./Components/Posts/NewPostOverLay.jsx";
 import PostPreview from "./Components/Posts/PostPreview.jsx";
 import DMOverLay from "./Components/DM/DMOverLay.jsx";
-
-
+import NotificationOverLay from "./Components/Notification/NotificationOverLay.jsx";
+import './bubble.css'
 
 //Pages Imports
 import HomepageLoggedOut from "./pages/HomepageLoggedOut.jsx";
@@ -35,9 +35,9 @@ import Game from "./pages/Game.jsx";
 import Account from "./pages/Account.jsx";
 import Search from "./pages/Search.jsx";
 import GameSearch from "./pages/GameSearch.jsx";
-
 function App() {
 
+  const [notifcation, setNotification] = useState(false)
   const [data, setData] = useState({
     Title: "",
     Description: "",
@@ -46,114 +46,11 @@ function App() {
     Files: []
   });
 
-  // const navbarClickHandlers = {
-  //   toggleHomePage: showHomePage,
-  //   toggleNewPost: showNewPostOverLay,
-  //   toggleSearchPage: showSearchScreen,
-  //   toggleProfile: showProfile,
-  //   toggleGameStore: showGameStore,
-  //   toggleDM: showDMOverLay,
-  // }
-
-
-
-  // const [navBar, setNavBar] = useState(<LoggedOutNavbar loginEvent={showLogin} registerEvent={showRegister} />)
-  // const [mainScreen, setMainScreen] = useState(<LoggedOutHomepage registerEvent2={showRegister} />)
-  // const [login, setLogin] = useState(false)
-  // const [register, setRegister] = useState(false)
-  // const [newPost, setNewPost] = useState(false)
-  // const [DM, setDM] = useState(false)
-  // const [previewPost, setPreviewPost] = useState(false)
-  // const [confirmDraft, setConfirmDraft] = useState(false)
-
-
-  // function hideAllOverLays() {
-  //   setLogin(false)
-  //   setRegister(false)
-  //   setNewPost(false)
-  //   setDM(false)
-  //   setPreviewPost(false)
-  //   setConfirmDraft(false)
-  // }
-
-  // function hideAllPostOverlays() {
-  //   setNewPost(false);
-  //   setPreviewPost(false);
-  // }
-
-  // function resetData() {
-  //   setData({
-  //     Title: "",
-  //     Description: "",
-  //     Tags: [],
-  //     UnusedTags: Tags,
-  //     Files: []
-  //   });
-  // }
-
-  // function showHomePage() {
-  //   hideAllOverLays()
-  //   setNavBar(<Navbar clickHandlers={navbarClickHandlers} />)
-  //   setMainScreen(<Homepage togglePost={showExpandedPost} toggleArticle={showExpandedNewsArticle} toggleOtherProfile={showOtherProfile} />)
-
-  // }
-
-
-  // function showLogin() {
-  //   hideAllOverLays()
-  //   setLogin(true)
-  // }
-
-  // function showRegister() {
-  //   hideAllOverLays()
-  //   setRegister(true)
-  // }
-
-  // function showNewPostOverLay() {
-  //   hideAllOverLays()
-  //   setNewPost(true)
-  // }
-
-  // function showGameStore() {
-  //   setMainScreen(<GameStore toggleGameDetails={showGameDetails} toggleGameSearch={showGameSearch} toggleHomePage2={showHomePage2} />);
-  // }
-
-  // function showHomePage2(){
-  //   setMainScreen(<Homepage2 togglePost={showExpandedPost} toggleArticle={showExpandedNewsArticle} toggleOtherProfile={showOtherProfile} />)
-  // }
-  // function showGameSearch(searchQuery) {
-  //   setMainScreen(<SearchGame searchQuery={searchQuery} toggleGameSearch={showGameSearch} />);
-  // }
-
-  // function showGameDetails() {
-  //   setMainScreen(<GameDetails toggleGameStore={showGameStore} />);
-  // }
-
-  // function showSearchScreen() {
-  //   setMainScreen(<SearchResults />)
-  // }
-  // function showProfile() {
-
-  //   setMainScreen(<MyProfile />)
-  // }
-
-  // function showOtherProfile() {
-  //   setMainScreen(<OtherProfile></OtherProfile>)
-  // }
-  // function showDMOverLay() {
-  //   hideAllOverLays()
-  //   setDM(true)
-  // }
-  // function showExpandedPost() {
-  //   setMainScreen(<ExpandedPost back={showHomePage} />)
-  // }
-  // function showExpandedNewsArticle() {
-  //   setMainScreen(<ExpandedArticle back={showHomePage} />)
-  // }
-  // function showPostPreview() {
-  //   hideAllOverLays()
-  //   setPreviewPost(true)
-  // }
+  const [bubble, setBubble] = useState(3)
+  function decrementNotifcation() {
+    const new_bub = bubble - 1;
+    setBubble(new_bub)
+  }
 
   //----------------------------Post Close/Open Functions----------------------------
   const [newPost, setNewPost] = useState(false);
@@ -196,7 +93,8 @@ function App() {
   //----------------------------Navbar Functions----------------------------
   const navbarClickHandlers = {
     openPost: handlePostOpen,
-    openDM: handleDMOpen
+    openDM: handleDMOpen,
+    showNotification: () => setNotification(true)
   }
 
   //-----------------------------Main Elements-----------------------------
@@ -208,11 +106,15 @@ function App() {
       {newPost ? <NewPostOverLay close={hideAllOverLays} data={data} setData={setData} showPostPreview={showPostPreview} /> : null}
       {DM ? <DMOverLay closeEvent={hideAllOverLays} close={hideAllOverLays} /> : null}
       {previewPost ? <PostPreview back={showNewPostOverLay} data={data} resetData={resetData} hidePosts={hideAllPostOverlays} /> : null}
+      {notifcation ? <NotificationOverLay back ={() => setNotification(false)} updateBubble = {decrementNotifcation}/> : null}
+      {bubble > 0 ? <div id = "notification_bubble">{bubble}</div> : null}
       {navBar}
       {mainScreen} */}
       {newPost ? <NewPostOverLay close={handlePostClose} data={data} setData={setData} showPostPreview={handlePreviewOpen} /> : null}
       {previewPost ? <PostPreview back={handlePostOpen} data={data} resetData={resetData} hidePosts={handlePostClose} /> : null}
       {DMopen ? <DMOverLay close={handleDMClose} /> : null}
+      {notifcation ? <NotificationOverLay back={() => setNotification(false)} updateBubble={decrementNotifcation} /> : null}
+      {bubble > 0 ? <div id="notification_bubble">{bubble}</div> : null}
       <Routes>
         <Route path="/" element={<HomepageLoggedOut />} />
         <Route path="/home" element={<HomepageLoggedIn clickHandlers={navbarClickHandlers} />} />

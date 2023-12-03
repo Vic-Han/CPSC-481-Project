@@ -7,8 +7,10 @@ import Tooltip from "../Tooltip";
 import './Navbar.css';
 
 function Navbar(props) {
+  const toggleNotification = props.clickHandlers.showNotification;
+
   const navigate = useNavigate();
-  
+
   const currentUser = users.filter(function (user) {
     return user.username == JSON.parse(localStorage.getItem("loggedUser"));
   });
@@ -52,6 +54,9 @@ function Navbar(props) {
         <button className='navbar_search btn' onClick={searchClicked}></button>
       </div>
       <div className='navbar_right'>
+        <Tooltip text="Notifications">
+          <button className='navbar_notif btn' onClick={toggleNotification}></button>
+        </Tooltip>
         <Link to={"/store"}>
           <Tooltip text="Game Store">
             <button className='navbar_game btn'></button>
