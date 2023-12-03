@@ -104,6 +104,11 @@
     font: 500 36px Inter, sans-serif;
 }
 
+.search_result_title:hover {
+    color: #7E82DF;
+    text-decoration: underline;
+}
+
 .search_result_author {
     color: #7E82DF;
     font: 400 24px Inter, sans-serif;

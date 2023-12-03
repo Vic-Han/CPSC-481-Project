@@ -1,24 +1,27 @@
-import './SearchResults.css'
+//Import React Framework Libraries
 import { React, useEffect, useState } from "react"
+import { useSearchParams, Link } from 'react-router-dom'
 
-import { useSearchParams } from 'react-router-dom'
-
+//Import Data
 import { users } from '../../users'
 import { games } from '../../games'
 import { posts } from '../../posts'
 import { articles } from '../../articles'
 
-function SearchResults() {
+//Import css
+import './SearchResults.css'
 
-  const [searchParams, setSearchParams] = useSearchParams();
+function SearchResults() {
+  //---------------------------------Search Bar/Query---------------------------------
+  const [searchParams] = useSearchParams();
   const query = searchParams.get('query');
 
+  //-----------------------------Data Gathering Functions-----------------------------
   function findUser(username) {
     return users.filter(function (user) {
       return user.username === username;
     })[0];
   }
-
   function getAllData() {
     const temp = [];
     for (let i = 0; i < users.length; i++) {
@@ -28,7 +31,8 @@ function SearchResults() {
         "title": `${users[i].firstName} ${users[i].lastName}`,
         "acc_name": users[i].username,
         "type": ["All", "User"],
-        "meta": "R"
+        "meta": "R",
+        "link": `/account/${users[i].id}`
       }
       temp.push(temp1);
     }
@@ -39,7 +43,8 @@ function SearchResults() {
         "title": games[i].title,
         "acc_name": games[i].developer[0],
         "type": ["All", "Game"],
-        "meta": ""
+        "meta": "",
+        "link": `/store/${games[i].id}`
       }
       temp.push(temp1);
     }
@@ -50,7 +55,8 @@ function SearchResults() {
         "title": posts[i].title,
         "acc_name": posts[i].author,
         "type": ["All", "Post"],
-        "meta": "R"
+        "meta": "R",
+        "link": `/post/${posts[i].id}`
       }
       temp.push(temp1);
     }
@@ -61,22 +67,25 @@ function SearchResults() {
         "title": articles[i].title,
         "acc_name": articles[i].author,
         "type": ["All", "Article"],
-        "meta": "R"
+        "meta": "R",
+        "link": `/article/${posts[i].id}`
       }
       temp.push(temp1);
     }
     return temp;
   }
-
   const allData = getAllData();
 
+  //-----------------------------Searching / Filtering Data-----------------------------
   const [searchType, setSearchType] = useState("All");
   const [toggledButton, setToggledButton] = useState(0);
-  const [results, setResults] = useState(allData.filter(data => (data.title.toLowerCase().includes(query.toLowerCase())) && (data.type.includes(searchType))).length);
+  const [results, setResults] = useState(allData.filter(
+    data => (data.title.toLowerCase().includes(
+      query.toLowerCase())) && (data.type.includes(searchType))).length);
 
   useEffect(() => {
     setResults(allData.filter(data => (data.title.toLowerCase().includes(query.toLowerCase())) && (data.type.includes(searchType))).length);
-  }, [query, searchType]);
+  }, [query, searchType, allData]);
 
   const searchAll = () => {
     setSearchType("All")
@@ -98,6 +107,8 @@ function SearchResults() {
     setSearchType("Article")
     setToggledButton(4)
   }
+
+  //-----------------------------Main Elements-----------------------------
   return (
     <div className='search_page_container'>
       <div className='search_page_sort_section'>
@@ -109,21 +120,23 @@ function SearchResults() {
         <button onClick={searchArticle} className={`sort_button ${toggledButton === 4 ? "toggled" : ""} `}> Articles</button>
         <h1 className='search_page_sort_results'>Results: {results}</h1>
       </div>
-      {allData.filter(data => (data.title.toLowerCase().includes(query.toLowerCase())) && (data.type.includes(searchType))).map((result, index) => (
-        <div key={index} className='search_result'>
+      {allData.filter(data => (data.title.toLowerCase().includes(query.toLowerCase())) && (data.type.includes(searchType))).map((result, index) => {
+        return (<div key={index} className='search_result'>
           {(result.meta.includes("R")) ?
             <>{(result.img === "ProfileDefault.png") ?
-              <img className='search_result_default_img' src={require(`../../assets/${result.img}`)}></img> :
-              <img className='search_result_img' src={require(`../../assets/${result.img}`)}></img>}
-            </> : <img className='search_result_img' src={result.img}></img>}
+              <img alt='Profile' className='search_result_default_img' src={require(`../../assets/${result.img}`)}></img> :
+              <img alt='Profile' className='search_result_img' src={require(`../../assets/${result.img}`)}></img>}
+            </> : <img alt='Profile' className='search_result_img' src={result.img}></img>}
           <div className='search_result_text'>
-            <div className='search_result_title'>{result.title.slice(0, 45)}{(result.title.length > 45) ? '...' : ''}</div>
+            <Link to={result.link}>
+              <div className='search_result_title'>{result.title.slice(0, 45)}{(result.title.length > 45) ? '...' : ''}</div>
+            </Link>
             <div className='search_result_author'>{result.acc_name}</div>
             <div className='search_result_description'>{result.desc.slice(0, 150)}{(result.desc.length > 150) ? '...' : ''}</div>
           </div>
           <div className='search_type'> {result.type[1]}</div>
-        </div>
-      ))}
+        </div>)
+      })}
     </div>
   );
 }
