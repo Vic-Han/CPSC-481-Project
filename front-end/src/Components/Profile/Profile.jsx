@@ -17,7 +17,7 @@ function Profile() {
   })[0];
 
   let loggedUser = users.filter(function (user) {
-    return user.username == JSON.parse(localStorage.getItem("loggedUser"));
+    return user.username === JSON.parse(localStorage.getItem("loggedUser"));
   })[0];
 
   if (data === undefined) data = loggedUser;
@@ -37,7 +37,7 @@ function Profile() {
 
   const userPosts = posts.filter(function (post) {
     return data.username === post.author;
-  });
+  }).reverse();
 
   function findUserComments() {
     let temp = [];
@@ -66,7 +66,7 @@ function Profile() {
     if (follow === "Following") setOverlay(<FollowingOverLay data={data.following} type={follow} setFollow={setFollow} />)
     else if (follow === "Followers") setOverlay(<FollowingOverLay data={data.followers} type={follow} setFollow={setFollow} />)
     else setOverlay(null)
-  }, [follow]);
+  }, [follow, data.followers, data.following]);
 
   const followingClick = useCallback(() => {
     setFollow("Following");

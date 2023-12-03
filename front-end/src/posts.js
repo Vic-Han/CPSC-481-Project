@@ -3,7 +3,7 @@ export const posts = [
     "id": 0,
     "title": "Carlos steps down as CEO of G2 E-Sports",
     "author": "ahritina",
-    "date": "October 24, 2023",
+    "date": "December 2, 2023",
     "tags": ['Counter-Strike 2', 'ESports-Events'],
     "description": "Carlos 'Ocelote' Rodriguez, the OG of G2 Esports, is stepping down as CEO. " +
       "🎮👋 He's been a legend in the scene, going from a pro player to running the show at G2, " +
@@ -33,15 +33,20 @@ export const posts = [
     "id": 1,
     "title": "Sentinels Gonna Win Next Valorant ESports!!",
     "author": "xXVibesForeverXx",
-    "date": "October 28, 2023",
+    "date": "December 3, 2023",
     "tags": ['Sentinels', 'Valorant', 'ESports-Events'],
     "description": "Sentinels is on my mind, and I'm feeling stoked for the next Valorant Esports showdown. " +
       "Seriously, it's a no-brainer - these guys are going all the way. Whether it's TenZ popping off, ShahZaM " +
       "calling the shots, or Sick's consistency, I'm telling you, they've got the magic recipe for success. " +
       "The vibe between these players is top-notch, and their hustle is unmatched. Get ready for Sentinels to " +
       "take that championship trophy - I've got my fingers crossed for epic plays and unforgettable moments! " +
-      "Let's show some love for Sentinels, they're gonna rock the scene!",
-    "images": ['https://admin.esports.gg/wp-content/uploads/2023/04/SEN-Valorant.jpg'],
+      "Let's show some love for Sentinels, they're gonna rock the scene!\n`SEN-Valorant.jpg`",
+    "images": [
+      {
+        "name": "SEN-Valorant.jpg",
+        "URL": 'https://admin.esports.gg/wp-content/uploads/2023/04/SEN-Valorant.jpg'
+      }
+    ],
     "comments": []
   },
   {
@@ -50,9 +55,9 @@ export const posts = [
     "author": "GamerEli",
     "date": "November 28, 2023",
     "tags": ['IndieGames', 'GamingCommunity'],
-    "description": "Hey fellow gamers! 🚀 Recently discovered this hidden gem of an indie game and couldn't put it down. "+
-    "Do you have any favorite indie titles that deserve more love? Let's share our indie game recommendations and support "+
-    "the awesome developers making these unique experiences! #IndieGaming #HiddenGem",
+    "description": "Hey fellow gamers! 🚀 Recently discovered this hidden gem of an indie game and couldn't put it down. " +
+      "Do you have any favorite indie titles that deserve more love? Let's share our indie game recommendations and support " +
+      "the awesome developers making these unique experiences! #IndieGaming #HiddenGem",
     "images": [],
     "comments": [
       {
@@ -75,8 +80,8 @@ export const posts = [
     "author": "GamerOlly",
     "date": "November 30, 2023",
     "tags": ['GamingGear', 'Unboxing'],
-    "description": "Guess what arrived today? 📦 Super hyped to unbox the latest console! Any game recommendations to "+
-    "kickstart this gaming journey? Share your favorite console gaming moments below! #NewConsole #GamingCommunity",
+    "description": "Guess what arrived today? 📦 Super hyped to unbox the latest console! Any game recommendations to " +
+      "kickstart this gaming journey? Share your favorite console gaming moments below! #NewConsole #GamingCommunity",
     "images": [],
     "comments": []
   },
@@ -86,8 +91,8 @@ export const posts = [
     "author": "GamerLeo",
     "date": "December 1, 2023",
     "tags": ['GamingLife', 'Snacks'],
-    "description": "Late-night gaming essentials: comfy chair ✅ epic game ✅ Now, what's your go-to gaming snack? "+
-    "Drop your snack recommendations below, and let's create the ultimate gaming snack list! #GamingSnacks #FoodForGamers",
+    "description": "Late-night gaming essentials: comfy chair ✅ epic game ✅ Now, what's your go-to gaming snack? " +
+      "Drop your snack recommendations below, and let's create the ultimate gaming snack list! #GamingSnacks #FoodForGamers",
     "images": [],
     "comments": [
       {
@@ -110,8 +115,8 @@ export const posts = [
     "author": "GamerAria",
     "date": "November 29, 2023",
     "tags": ['RetroGaming', 'GamingNight'],
-    "description": "Taking it back to the classics this weekend! 🌟 Planning a retro games night with friends. "+
-    "What are your all-time favorite retro games? Let's reminisce about the golden era of gaming! #NostalgiaTrip #RetroGamer",
+    "description": "Taking it back to the classics this weekend! 🌟 Planning a retro games night with friends. " +
+      "What are your all-time favorite retro games? Let's reminisce about the golden era of gaming! #NostalgiaTrip #RetroGamer",
     "images": [],
     "comments": [
       {
@@ -134,9 +139,9 @@ export const posts = [
     "author": "GamerEli",
     "date": "November 27, 2023",
     "tags": ['Multiplayer', 'GamingCommunity'],
-    "description": "Calling all multiplayer enthusiasts! 🎮💬 What are the hottest multiplayer games out there? "+
-    "Looking to dive into something new this weekend. Share your recommendations and let's assemble a gaming squad! "+
-    "#MultiplayerGames #GamingTogether",
+    "description": "Calling all multiplayer enthusiasts! 🎮💬 What are the hottest multiplayer games out there? " +
+      "Looking to dive into something new this weekend. Share your recommendations and let's assemble a gaming squad! " +
+      "#MultiplayerGames #GamingTogether",
     "images": [],
     "comments": [
       {
@@ -159,8 +164,8 @@ export const posts = [
     "author": "GamerOlly",
     "date": "November 26, 2023",
     "tags": ['GamingSetup', 'Tech'],
-    "description": "Revamping the gaming setup! 🔧 Excited about the new additions. What's your must-have item "+
-    "in your gaming setup? Share pics of your battle stations and inspire fellow gamers! #SetupUpgrade #GamingSetup",
+    "description": "Revamping the gaming setup! 🔧 Excited about the new additions. What's your must-have item " +
+      "in your gaming setup? Share pics of your battle stations and inspire fellow gamers! #SetupUpgrade #GamingSetup",
     "images": [],
     "comments": [
       {
@@ -183,8 +188,8 @@ export const posts = [
     "author": "GamerLeo",
     "date": "November 28, 2023",
     "tags": ['GamingTalk', 'PetPeeves'],
-    "description": "Let's vent a little! 😅 What are your gaming pet peeves that instantly make you hit pause? "+
-    "From lag spikes to overpowered in-game items, share your frustrations and let's commiserate. #GamerProblems #PetPeeves",
+    "description": "Let's vent a little! 😅 What are your gaming pet peeves that instantly make you hit pause? " +
+      "From lag spikes to overpowered in-game items, share your frustrations and let's commiserate. #GamerProblems #PetPeeves",
     "images": [],
     "comments": [
       {
@@ -207,9 +212,9 @@ export const posts = [
     "author": "GamerEli",
     "date": "November 29, 2023",
     "tags": ['GameReview', 'GamingOpinions'],
-    "description": "Just finished a new game and gotta share my thoughts! 🎮📝 Is it a hidden gem that "+
-    "deserves more players, or is the hype overrated? Drop your recent game reviews below and let's discuss! "+
-    "#HiddenGem #GameOpinions",
+    "description": "Just finished a new game and gotta share my thoughts! 🎮📝 Is it a hidden gem that " +
+      "deserves more players, or is the hype overrated? Drop your recent game reviews below and let's discuss! " +
+      "#HiddenGem #GameOpinions",
     "images": [],
     "comments": [
       {
@@ -232,9 +237,9 @@ export const posts = [
     "author": "GamerLeo",
     "date": "December 1, 2023",
     "tags": ['CoopGames', 'GamingNight'],
-    "description": "Planning a chill gaming night with friends! 🌙✨ What are your go-to co-op games "+
-    "for a laid-back session? Let's create a list of the best co-op games to play with pals. "+
-    "#CoopGaming #GamingWithFriends",
+    "description": "Planning a chill gaming night with friends! 🌙✨ What are your go-to co-op games " +
+      "for a laid-back session? Let's create a list of the best co-op games to play with pals. " +
+      "#CoopGaming #GamingWithFriends",
     "images": [],
     "comments": [
       {
@@ -257,8 +262,8 @@ export const posts = [
     "author": "GamerAria",
     "date": "November 30, 2023",
     "tags": ['GamingFashion', 'AvatarStyle'],
-    "description": "Let's talk fashion in the gaming world! 🕹️💃 Show off your avatar's style and the "+
-    "cool outfits you've put together. Fashionistas and style enthusiasts, unite! #GamingFashion #AvatarStyle",
+    "description": "Let's talk fashion in the gaming world! 🕹️💃 Show off your avatar's style and the " +
+      "cool outfits you've put together. Fashionistas and style enthusiasts, unite! #GamingFashion #AvatarStyle",
     "images": [],
     "comments": [
       {

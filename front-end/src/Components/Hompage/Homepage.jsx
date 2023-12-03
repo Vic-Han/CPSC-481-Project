@@ -15,13 +15,19 @@ function Homepage() {
   const [shownArticles, setShownArticles] = useState(3);
 
   //---------------------------------Posts Functions---------------------------------
+  const sortByReleaseDate = (gameA, gameB) => {
+    const releaseDateA = new Date(gameA.date);
+    const releaseDateB = new Date(gameB.date);
+    return releaseDateB - releaseDateA;
+  };
+
   const loggedUser = users.filter(function (user) {
     return user.username == JSON.parse(localStorage.getItem("loggedUser"));
   })[0];
 
   const postsToShow = posts.filter(function(post) {
     return post.author !== loggedUser.username;
-  });
+  }).sort(sortByReleaseDate);
 
   //---------------------------Recommended Users Functions---------------------------
   const [shownUsers, setShownUsers] = useState(3);

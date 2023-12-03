@@ -18,6 +18,48 @@ function ExpandedArticle() {
     })[0];
   }
 
+  const Description = (props) => {
+    const limit = props.limit;
+    const string = props.string;
+
+    let charCount = 0;
+    let inside = false;
+    let htmlCode = [];
+    let tempFileName = "";
+    let tempText = "";
+    let tempImg;
+
+    for (let i = 0; i < string.length; i++) {
+      if (limit > 0) {
+        if (!inside) charCount += 1;
+        if ((charCount > limit) && !inside) {
+          tempText += '...';
+          break;
+        }
+      }
+      if (string.charAt(i) === "`" || inside) {
+        if (string.charAt(i) === "`") inside = !inside;
+        if (string.charAt(i) === "`" && !inside) {
+          for (let j = 0; j < data.images.length; j++) {
+            if (data.images[j].name === tempFileName) {
+              htmlCode.push(tempText);
+              tempText = "";
+              tempImg = <img alt='Post Image' key={i} className='expanded_article_image' src={data.images[j].URL} />;
+              htmlCode.push(tempImg);
+              tempFileName = "";
+            }
+          }
+        } else if (string.charAt(i) !== "`") {
+          tempFileName += string.charAt(i);
+        }
+      } else {
+        tempText += string.charAt(i);
+      }
+    }
+    htmlCode.push(tempText);
+    return <p className='expanded_article_description'>{htmlCode}</p>;
+  }
+
   const [shownArticles, setShownArticles] = useState(2);
   const relatedArticles = articles.filter(function (art) {
     return art.id != id;
@@ -42,9 +84,12 @@ function ExpandedArticle() {
           </ul>
         </div>
         <div className='line'></div>
-        {data.description.split('\n').map((str, i) => <p key={i} className='expanded_article_description'>{str}</p>)}
+        {data.description.split('\n').map((str, i) => (
+          <Description key={i} limit={-1} string={str} />
+        ))}
+        {/* {data.description.split('\n').map((str, i) => <p key={i} className='expanded_article_description'>{str}</p>)}
         {data.images.length > 0 ? data.images.map((url, i) => (
-          <img key={i} className='expanded_article_image' src={url}></img>)) : null}
+          <img key={i} className='expanded_article_image' src={url}></img>)) : null} */}
       </div>
       <div className='related_articles'>
         <p className="home_element_titles">Related articles</p>

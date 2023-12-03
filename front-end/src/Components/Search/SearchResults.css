@@ -110,6 +110,7 @@
 }
 
 .search_result_description {
+    word-wrap: break-word;
     color: #B0B0B0;
     font: 400 22px Inter, sans-serif;
 }
