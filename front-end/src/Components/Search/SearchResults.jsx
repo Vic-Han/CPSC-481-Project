@@ -17,11 +17,14 @@ function SearchResults() {
   const query = searchParams.get('query');
 
   //-----------------------------Data Gathering Functions-----------------------------
+  //Function to get the user object via username
   function findUser(username) {
     return users.filter(function (user) {
       return user.username === username;
     })[0];
   }
+
+  //function to gather all data including users, games, posts & articles
   function getAllData() {
     const temp = [];
     for (let i = 0; i < users.length; i++) {
@@ -83,10 +86,12 @@ function SearchResults() {
     data => (data.title.toLowerCase().includes(
       query.toLowerCase())) && (data.type.includes(searchType))).length);
 
+  //Everytime search query or sort is changed calculate the number of results
   useEffect(() => {
     setResults(allData.filter(data => (data.title.toLowerCase().includes(query.toLowerCase())) && (data.type.includes(searchType))).length);
   }, [query, searchType, allData]);
 
+  //Functions to change the sorting options
   const searchAll = () => {
     setSearchType("All")
     setToggledButton(0)

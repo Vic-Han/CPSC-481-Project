@@ -5,7 +5,7 @@ import Homepage from "../Components/Hompage/LoggedOutHompage.jsx";
 import RegisterOverLay from "../Components/Login-Register/RegisterOverLay";
 import LoginOverlay from "../Components/Login-Register/LoginOverlay";
 
-const HomepageLoggedOut = (props) => {
+const HomepageLoggedOut = () => {
 
   const [login, setLogin] = useState(false);
   const [register, setRegister] = useState(false);

@@ -44,19 +44,22 @@
 .login_overlay_form {
     display: flex;
     flex-direction: column;
-    margin: 20px auto 0 auto;
+    margin: 0 auto 0 auto;
 }
 
 .login_label {
     color: white;
     font-size: 20px;
     margin-bottom: 7px;
+    margin-top: 25px;
 }
 
 .login_forgot_label {
+    margin: 0;
+    width: fit-content;
+    height: fit-content;
     color: white;
     text-decoration: underline;
-    margin-bottom: 25px;
     cursor: pointer;
 }
 

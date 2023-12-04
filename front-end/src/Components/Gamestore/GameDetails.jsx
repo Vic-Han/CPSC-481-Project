@@ -8,6 +8,7 @@ import SWITCH from '../../assets/Switch.png';
 
 import { games } from '../../games';
 import Games from '../../Elements/Games';
+import Tooltip from '../Tooltip';
 
 function GameDetails() {
 
@@ -152,7 +153,7 @@ function GameDetails() {
             <h2>Price: <p>${data.price}</p></h2>}
           <div className='game_detail_buttons'>
             {data.buyOn.map((store, i) => (
-              <button key={i} className='txt_btn'>Buy on {store}</button>
+              <Tooltip text="Under Development"><button key={i} className='txt_btn'>Buy on {store}</button></Tooltip>
             ))}
           </div>
           <div className='line'></div>

@@ -5,6 +5,7 @@ import FollowingOverLay from "./FollowingOverLay"
 import { users } from "../../users"
 import { posts } from "../../posts"
 import Post from "../../Elements/Post"
+import Tooltip from "../Tooltip"
 
 function Profile() {
   //-----------------------------User Decide Function-----------------------------
@@ -132,19 +133,19 @@ function Profile() {
                   <button onClick={followingClick} className="profile_follow_txt_button">Following</button>
                   <p className="profile_follow_number">{data.following.length}</p>
                 </div>
-                {currentUser ? null : <button className="profile_txt_btn txt_btn">Direct Message</button>}
+                {currentUser ? null : <Tooltip text="Under Development"><button className="profile_txt_btn txt_btn">Direct Message</button></Tooltip>}
               </div>
             </div>
           </div>
           <div className="profile_actions">
             {currentUser ? <div className="profile_top_actions">
               <button onClick={logoutUser} className="profile_logout_button">Logout</button>
-              <button className="profile_settings_button img_btn"></button>
+              <Tooltip text="Under Development"><button className="profile_settings_button img_btn"></button></Tooltip>
             </div> : null}
             <div className="profile_bottom_actions">
-              {currentUser ? null : <button className="profile_report_button img_btn"></button>}
-              {currentUser ? null : <button className="profile_block_button img_btn"></button>}
-              <button className="profile_share_button img_btn"></button>
+              {currentUser ? null : <Tooltip text="Under Development"><button className="profile_report_button img_btn"></button></Tooltip>}
+              {currentUser ? null : <Tooltip text="Under Development"><button className="profile_block_button img_btn"></button></Tooltip>}
+              <Tooltip text="Under Development"><button className="profile_share_button img_btn"></button></Tooltip>
             </div>
           </div>
         </div>
