@@ -132,6 +132,7 @@
 
 .right_footer a:hover {
     color: #7E82DF;
+    cursor: pointer;
 }
 
 .FAQ_container {

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { users } from '../../users';
 
 import './LoginOverLay.css';
+import Tooltip from '../Tooltip';
 
 function LoginOverLay(props) {
   const close = props.close;
@@ -63,7 +64,7 @@ function LoginOverLay(props) {
             onChange={(e) => { setUsername(e.target.value) }}
             value={username}
           />
-          <div className='login_forgot_label'>Forgot Username?</div>
+          <Tooltip text="Under Development"><p className='login_forgot_label'>Forgot Username?</p></Tooltip>
 
           <label className='login_label'>Password</label>
           <input
@@ -72,7 +73,7 @@ function LoginOverLay(props) {
             onChange={(e) => { setPassword(e.target.value) }}
             value={password}
           />
-          <div className='login_forgot_label'>Forgot Password?</div>
+          <Tooltip text="Under Development"><p className='login_forgot_label'>Forgot Password?</p></Tooltip>
 
           <button onClick={handleLogin} className='login_button txt_btn'>Login</button>
         </form>

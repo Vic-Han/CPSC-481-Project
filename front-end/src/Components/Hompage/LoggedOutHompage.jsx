@@ -1,11 +1,12 @@
 import './LoggedOutHomepage.css';
 import './Circles.css';
 import { React, useEffect, useState } from "react";
+import Tooltip from "../Tooltip";
 import example1 from '../../assets/example1.png';
 import example2 from '../../assets/example2.png';
 
 function LoggedOutHomepage(props) {
-  const registerEvent = props.registerEvent2;
+  const registerEvent = props.registerClick;
 
   const [offsetY, setOffsetY] = useState(0);
   const handleScroll = () => setOffsetY(window.scrollY);
@@ -123,15 +124,15 @@ function LoggedOutHomepage(props) {
           </div>
         </div>
         <div className='text_container4'>
-              <div  className='footer'>
-                <div className='left_footer'>© 2023 ESports Zone Inc. All rights reserved.</div>
-                <div className='right_footer'>
-                  <a href='#'>Feedback</a>
-                  <a href='#'>User Agreement</a>
-                  <a href='#'>Privacy Policy</a>
-                </div>
-              </div>
+          <div className='footer'>
+            <div className='left_footer'>© 2023 ESports Zone Inc. All rights reserved.</div>
+            <div className='right_footer'>
+              <Tooltip text="Under Development"><a>Feedback</a></Tooltip>
+              <Tooltip text="Under Development"><a>User Agreement</a></Tooltip>
+              <Tooltip text="Under Development"><a>Privacy Policy</a></Tooltip>
             </div>
+          </div>
+        </div>
       </div>
 
     </div>

@@ -3,6 +3,7 @@ import { React, useEffect, useState } from "react"
 import { articles } from '../../articles';
 import { useParams, useNavigate } from 'react-router-dom';
 import PostMini from '../../Elements/PostMini';
+import Tooltip from '../Tooltip';
 import { users } from '../../users';
 
 function ExpandedArticle() {
@@ -88,7 +89,7 @@ function ExpandedArticle() {
       <div className='expanded_article'>
         <div className='expanded_article_title'>
           <h1>{data.title}</h1>
-          <button className='three_dots'></button>
+          <Tooltip text="Under Development"><button className='three_dots'></button></Tooltip>
         </div>
         <div className='expanded_article_author'>
           <h1>{`${findUser(data.author).firstName} ${findUser(data.author).lastName}`}<p> | {data.date}</p></h1>
